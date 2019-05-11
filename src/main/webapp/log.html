@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/log.css">
+    <title>蚂蚁置物-登录注册界面</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :class="['top']">
+            <div :class="['topTitle']">
+                {{productName}}
+                <div class="wav"></div>
+            </div>
+        </div>
+
+        <!-- 星星图 -->
+        <div class="starImg">
+        </div>
+
+        <!-- 海浪图 -->
+        <div class="sea">
+            <img src="img/seaBehind.png">
+            <!-- 鱼 -->
+            <div class="fish">
+                <img src="img/fish1.png">
+                <img src="img/fish2.png">
+            </div>
+            <!-- 漂浮蚂蚁图 -->
+            <div class="ants">
+                <img src="img/ants.png">
+            </div>
+            <img src="img/seaFront.png">
+        </div>
+
+
+        <!-- 云层图 -->
+        <div class="cloud">
+            <img src="img/behindCloud.png">
+            <img src="img/middleCloud.png">
+            <img src="img/frontCloud.png">
+        </div>
+
+        <!-- 登录框 -->
+        <div class="inputBg">
+            <div :class="['infoInput']">
+                <p>{{productName}} LOGIN</p>
+
+                <info-input>
+                    <template #input>
+                    <input type="text" placeholder="学校" v-model="school">
+                </template>
+                    <template #img>
+                    <img src="img/school.png">
+                </template>
+                </info-input>
+
+                <info-input>
+                    <template #input>
+                    <input type="text" placeholder="学号/教工号" v-model="sNo">
+                </template>
+                    <template #img>
+                    <img src="img/sNo.png">
+                </template>
+                </info-input>
+
+                <info-input>
+                    <template #input>
+                    <input type="password" placeholder="密码" v-model="password">
+                </template>
+                    <template #img>
+                    <img src="img/password.png">
+                </template>
+                </info-input>
+                <p>
+                    <input type="checkbox" name="rememberPassword">
+                    <label for="rememberPassword">记住账号密码</label>
+                    <button class="login">登录</button>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/log.js"></script>
+</body>
+
+</html>
