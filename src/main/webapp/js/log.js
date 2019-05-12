@@ -7,7 +7,17 @@ let vm = new Vue({
         password: ""
     },
     methods: {
+        login: function() { // 发起登录请求
+            axios.post('url', {
+                school: this.data.school,
+                sNo: this.data.sNo,
+                password: this.data.password
+            }).then((res) => {
 
+            }).catch((err) => {
+
+            })
+        }
     },
     components: {
         "infoInput": {

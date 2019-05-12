@@ -1,0 +1,29 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  float: left;
+  list-style: none;
+}
+.nav {
+  height: 40px;
+  color: #fff;
+  background-color: #246c9b;
+}
+.nav ul li {
+  margin: 10px 20px;
+  cursor: pointer;
+}
+.nav .leftNav {
+  float: left;
+  margin-left: 40px;
+}
+.nav .rightNav {
+  float: right;
+  margin-right: 40px;
+}
