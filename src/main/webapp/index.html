@@ -11,36 +11,61 @@
 
 <body>
     <div id="app">
-        <div class="nav">
-            <ul class="leftNav">
-                <li>首页</li>
-                <li>租赁</li>
-                <li>赠送</li>
-            </ul>
-            <ul class="rightNav">
-                <li>学校</li>
-                <li>卖家</li>
-                <li>买家</li>
-                <li>登录</li>
-            </ul>
+        <div class="topContainer">
+            <div class="nav">
+                <ul class="leftNav">
+                    <li>首页</li>
+                    <li>租赁</li>
+                    <li>赠送</li>
+                </ul>
+                <ul class="rightNav">
+                    <li>学校</li>
+                    <li>卖家</li>
+                    <li>买家</li>
+                    <li>登录</li>
+                </ul>
+            </div>
+            <div class="topHandle">
+
+                <div class="topLogo">
+                    <img src="img/antsLogo.png" alt="蚂蚁置物">
+                    <span v-cloak>{{projectName}}</span>
+                </div>
+
+                <div class="mainHandle">
+                    <button>发布寻求</button>
+                    <button>正在寻求</button>
+                </div>
+
+                <div class="searchGoods">
+                    <input type="text">
+                    <span>sou</span>
+                </div>
+
+            </div>
         </div>
-        <div class="topHandle">
-
-            <div class="topLogo">
-                <img src="img/antsLogo.png" alt="蚂蚁置物">
-                <span>{{projectName}}</span>
+        <div class="banner">
+            <div class="menuwrap">
+                <div class="allClassify">
+                    <span>所有分类</span>
+                    <ul>
+                        <li v-for="classify in wholeClassify">
+                            <img :src='[classify.src]'> {{classify.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="otherClassify">
+                    <span>其他</span>
+                </div>
             </div>
+            <div class="imgPlayBox">
+                <div class="imgContainer">
 
-            <div class="mainHandle">
-                <button>发布寻求</button>
-                <button>正在寻求</button>
+                </div>
+                <div class="playHandle">
+
+                </div>
             </div>
-
-            <div class="searchGoods">
-                <input type="text">
-                <span>sou</span>
-            </div>
-
         </div>
     </div>
     <script src="js/vue.js"></script>

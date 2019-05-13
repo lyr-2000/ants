@@ -13,68 +13,118 @@ li{
     list-style: none;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 @toppicColor:#246c9b;
 @buttonColor:#9fbdd2;
-
-.nav{
-    height: 40px;
-    color: #fff;
-    background-color: @toppicColor;
-    ul{
-        li{
-            margin: 10px 20px;
-            cursor: pointer;
+@borderColor:rgba(102,102,102,.5);
+.topContainer{
+    border-bottom: 1px solid @borderColor;
+    .nav{
+        height: 40px;
+        color: #fff;
+        background-color: @toppicColor;
+        ul{
+            li{
+                margin: 10px 20px;
+                cursor: pointer;
+            }
         }
-    }
-    .leftNav{
-        float: left;
-        margin-left: 40px;
-    }
-    .rightNav{
-        float: right;
-        margin-right: 40px;
-    }
-}
-
-// 表单去表格样式
-.inputNoBorder(){
-    padding: 5px;
-    border:none;
-    outline:none;
-}
-
-.topHandle{
-    margin: 16px auto;
-    width: 1200px;
-    >div{
-        display: inline-block;
-    }
-    .topLogo{
-        img{
+        .leftNav{
             float: left;
-            height: 32px;
+            margin-left: 40px;
         }
-        span{
-            margin-left: 10px;
-            font-size: 24px;
-            color: @toppicColor;
-        }
-    }
-    .searchGoods{
-        float: right;
-        border: 1px solid @toppicColor;
-        border-radius: 5px;
-        input{
-            .inputNoBorder;
+        .rightNav{
+            float: right;
+            margin-right: 40px;
         }
     }
-    .mainHandle{
-        float: right;
-        button{
-            .inputNoBorder;
+
+    // 表单去表格样式
+    .inputNoBorder(){
+        padding: 5px;
+        border:none;
+        outline:none;
+    }
+
+    .topHandle{
+        margin: 16px auto;
+        width: 1200px;
+        >div{
+            display: inline-block;
+        }
+        .topLogo{
+            img{
+                float: left;
+                height: 32px;
+            }
+            span{
+                margin-left: 10px;
+                font-size: 24px;
+                color: @toppicColor;
+            }
+        }
+        .searchGoods{
+            float: right;
+            margin-right: 10%;
+            border: 1px solid @toppicColor;
             border-radius: 5px;
-            color: rgb(255,255,255);
-            background-color: @buttonColor;
+            input{
+                .inputNoBorder;
+            }
+        }
+        .mainHandle{
+            float: right;
+            button{
+                .inputNoBorder;
+                border-radius: 5px;
+                color: rgb(255,255,255);
+                background-color: @buttonColor;
+            }
+        }
+    }
+}
+
+.banner{
+    .menuwrap{
+        margin-left: 100px;
+        >div{
+            display: inline-block;
+            border: 1px solid @borderColor;
+            >span{
+                display: inline-block;
+                padding: 5px 0px;
+                width: 100px;
+                text-align: center;
+            }
+        }
+        .allClassify{
+            position: relative;
+            cursor: pointer;
+            &:hover ul{
+                display: inline-block;
+            }
+            ul{
+                display: none;
+                position: absolute;
+                text-align: center;
+                li{
+                    width: 100%;
+                    img{
+                        width: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .imgPlayBox{
+        .imgContainer{
+
+        }
+        .playHandle{
+
         }
     }
 }

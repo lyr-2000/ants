@@ -10,57 +10,95 @@ li {
   float: left;
   list-style: none;
 }
-.nav {
+[v-cloak] {
+  display: none;
+}
+.topContainer {
+  border-bottom: 1px solid rgba(102, 102, 102, 0.5);
+}
+.topContainer .nav {
   height: 40px;
   color: #fff;
   background-color: #246c9b;
 }
-.nav ul li {
+.topContainer .nav ul li {
   margin: 10px 20px;
   cursor: pointer;
 }
-.nav .leftNav {
+.topContainer .nav .leftNav {
   float: left;
   margin-left: 40px;
 }
-.nav .rightNav {
+.topContainer .nav .rightNav {
   float: right;
   margin-right: 40px;
 }
-.topHandle {
+.topContainer .topHandle {
   margin: 16px auto;
   width: 1200px;
 }
-.topHandle > div {
+.topContainer .topHandle > div {
   display: inline-block;
 }
-.topHandle .topLogo img {
+.topContainer .topHandle .topLogo img {
   float: left;
   height: 32px;
 }
-.topHandle .topLogo span {
+.topContainer .topHandle .topLogo span {
   margin-left: 10px;
   font-size: 24px;
   color: #246c9b;
 }
-.topHandle .searchGoods {
+.topContainer .topHandle .searchGoods {
   float: right;
+  margin-right: 10%;
   border: 1px solid #246c9b;
   border-radius: 5px;
 }
-.topHandle .searchGoods input {
+.topContainer .topHandle .searchGoods input {
   padding: 5px;
   border: none;
   outline: none;
 }
-.topHandle .mainHandle {
+.topContainer .topHandle .mainHandle {
   float: right;
 }
-.topHandle .mainHandle button {
+.topContainer .topHandle .mainHandle button {
   padding: 5px;
   border: none;
   outline: none;
   border-radius: 5px;
   color: #ffffff;
   background-color: #9fbdd2;
+}
+.banner .menuwrap {
+  margin-left: 100px;
+}
+.banner .menuwrap > div {
+  display: inline-block;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+}
+.banner .menuwrap > div > span {
+  display: inline-block;
+  padding: 5px 0px;
+  width: 100px;
+  text-align: center;
+}
+.banner .menuwrap .allClassify {
+  position: relative;
+  cursor: pointer;
+}
+.banner .menuwrap .allClassify:hover ul {
+  display: inline-block;
+}
+.banner .menuwrap .allClassify ul {
+  display: none;
+  position: absolute;
+  text-align: center;
+}
+.banner .menuwrap .allClassify ul li {
+  width: 100%;
+}
+.banner .menuwrap .allClassify ul li img {
+  width: 12px;
 }
