@@ -27,3 +27,40 @@ li {
   float: right;
   margin-right: 40px;
 }
+.topHandle {
+  margin: 16px auto;
+  width: 1200px;
+}
+.topHandle > div {
+  display: inline-block;
+}
+.topHandle .topLogo img {
+  float: left;
+  height: 32px;
+}
+.topHandle .topLogo span {
+  margin-left: 10px;
+  font-size: 24px;
+  color: #246c9b;
+}
+.topHandle .searchGoods {
+  float: right;
+  border: 1px solid #246c9b;
+  border-radius: 5px;
+}
+.topHandle .searchGoods input {
+  padding: 5px;
+  border: none;
+  outline: none;
+}
+.topHandle .mainHandle {
+  float: right;
+}
+.topHandle .mainHandle button {
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #9fbdd2;
+}
