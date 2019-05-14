@@ -11,16 +11,31 @@ li{
     list-style: none;
 }
 
+input{
+    outline: none;
+}
+
+button{
+    outline: none;
+    cursor: pointer;
+}
+
+[v-cloak] {
+    display: none;
+}
+
 @wavColor:#fff;
+@letterSpace:4px;
 .top{
     position: relative;
     overflow: hidden;
     .topTitle {
-        @fontSize:36px;
+        @fontSize:32px;
         float: left;
-        margin: 30px;
-        width: @fontSize*4;
+        margin: 40px 130px;
+        width: (@letterSpace+@fontSize)*4;
         font-size: @fontSize;
+        letter-spacing: @letterSpace;
         color: #fff;
         cursor: pointer;
         overflow: hidden;
@@ -28,14 +43,14 @@ li{
             animation:wavMove .5s linear 0s infinite none;
         }
     }
-    .wav{
-        content: " ";
-        width: 120%;
-        height: 7.5px;
-        background-size: 15px 15px;
-        background-repeat: repeat-x;
-        background-image: linear-gradient(135deg,transparent 45%, @wavColor 55%,transparent 60%),linear-gradient(45deg,transparent 45%,@wavColor 55%,transparent 60%);
-    }
+    // .wav{
+    //     content: " ";
+    //     width: 120%;
+    //     height: 7.5px;
+    //     background-size: 15px 15px;
+    //     background-repeat: repeat-x;
+    //     background-image: linear-gradient(135deg,transparent 45%, @wavColor 55%,transparent 60%),linear-gradient(45deg,transparent 45%,@wavColor 55%,transparent 60%);
+    // }
 }
 
 @keyframes wavMove{
@@ -55,6 +70,11 @@ li{
     img{
         position: fixed;
     }
+    .meteor{
+        top: 10px;
+        right: 10px;
+        animation: meteorMove 1s linear 0s infinite none;
+    }
     .shine1{
         animation:starShine 4s linear 0s infinite none;
     }
@@ -63,6 +83,25 @@ li{
     }
     .shine3{
         animation:starShine 6s linear 0s infinite none;
+    }
+}
+
+@moveLength:40px;
+@keyframes meteorMove{
+    0%{
+        top: 10px;
+        right: 10px;
+        opacity: 0;
+    }
+    50%{
+        top: 10px+@moveLength;
+        right: 10px+@moveLength;
+        opacity: 1;
+    }
+    100%{
+        top: 10+2*@moveLength;
+        right: 10px+2*@moveLength;
+        opacity: 0;
     }
 }
 
@@ -268,7 +307,7 @@ li{
 // 登录容器
 
 @inputFontColor:#9fbdd2;
-
+@inputChangeColor:#246c9b;
 .inputBg{
     position: fixed;
     left: 50%;
@@ -289,7 +328,7 @@ li{
         >p{
             &:first-child{
                 font-size: 24px;
-                color: #246c9b;
+                color: @inputChangeColor;
             }
             &:last-child{
                 margin-top: 40px;
@@ -303,8 +342,7 @@ li{
                 padding: 30px 10px 5px 10px;
                 border:none;
                 font-size: 16px;
-                color: #246c9b;
-                outline: none;
+                color: @inputChangeColor;
                 &::-webkit-input-placeholder{
                     color: @inputFontColor;
                 }
@@ -315,10 +353,10 @@ li{
                 bottom: 5px;
             }
             &:hover{
-                border-color: #246c9b;
+                border-color: @inputChangeColor;
             }
             &:focus-within{
-                border-color: #246c9b;
+                border-color: @inputChangeColor;
             }
         }
         button{
@@ -328,6 +366,9 @@ li{
             border-radius: 5px;
             color: rgb(255,255,255);
             background-color: @inputFontColor;
+            &:hover{
+                background-color: @inputChangeColor;
+            }
         }
     }
 }

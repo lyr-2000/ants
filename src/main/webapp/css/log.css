@@ -9,29 +9,32 @@ body {
 li {
   list-style: none;
 }
+input {
+  outline: none;
+}
+button {
+  outline: none;
+  cursor: pointer;
+}
+[v-cloak] {
+  display: none;
+}
 .top {
   position: relative;
   overflow: hidden;
 }
 .top .topTitle {
   float: left;
-  margin: 30px;
+  margin: 40px 130px;
   width: 144px;
-  font-size: 36px;
+  font-size: 32px;
+  letter-spacing: 4px;
   color: #fff;
   cursor: pointer;
   overflow: hidden;
 }
 .top .topTitle:hover .wav {
   animation: wavMove .5s linear 0s infinite none;
-}
-.top .wav {
-  content: " ";
-  width: 120%;
-  height: 7.5px;
-  background-size: 15px 15px;
-  background-repeat: repeat-x;
-  background-image: linear-gradient(135deg, transparent 45%, #ffffff 55%, transparent 60%), linear-gradient(45deg, transparent 45%, #ffffff 55%, transparent 60%);
 }
 @keyframes wavMove {
   0% {
@@ -48,6 +51,11 @@ li {
 .starImg img {
   position: fixed;
 }
+.starImg .meteor {
+  top: 10px;
+  right: 10px;
+  animation: meteorMove 1s linear 0s infinite none;
+}
 .starImg .shine1 {
   animation: starShine 4s linear 0s infinite none;
 }
@@ -56,6 +64,23 @@ li {
 }
 .starImg .shine3 {
   animation: starShine 6s linear 0s infinite none;
+}
+@keyframes meteorMove {
+  0% {
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+  }
+  50% {
+    top: 50px;
+    right: 50px;
+    opacity: 1;
+  }
+  100% {
+    top: 90px;
+    right: 90px;
+    opacity: 0;
+  }
 }
 @keyframes starShine {
   0% {
@@ -272,7 +297,6 @@ li {
   border: none;
   font-size: 16px;
   color: #246c9b;
-  outline: none;
 }
 .inputBg .infoInput .inputContainer input::-webkit-input-placeholder {
   color: #9fbdd2;
@@ -295,4 +319,7 @@ li {
   border-radius: 5px;
   color: #ffffff;
   background-color: #9fbdd2;
+}
+.inputBg .infoInput button:hover {
+  background-color: #246c9b;
 }

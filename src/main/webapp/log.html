@@ -11,7 +11,7 @@
 
 <body>
     <div id="app">
-        <div :class="['top']">
+        <div :class="['top']" v-cloak>
             <div :class="['topTitle']">
                 {{productName}}
                 <div class="wav"></div>
@@ -20,6 +20,7 @@
 
         <!-- 星星图 -->
         <div class="starImg">
+            <img class="meteor" src="img/meteor.png">
         </div>
 
         <!-- 海浪图 -->
