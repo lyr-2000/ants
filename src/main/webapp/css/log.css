@@ -51,11 +51,6 @@ button {
 .starImg img {
   position: fixed;
 }
-.starImg .meteor {
-  top: 10px;
-  right: 10px;
-  animation: meteorMove 1s linear 0s infinite none;
-}
 .starImg .shine1 {
   animation: starShine 4s linear 0s infinite none;
 }
@@ -64,23 +59,6 @@ button {
 }
 .starImg .shine3 {
   animation: starShine 6s linear 0s infinite none;
-}
-@keyframes meteorMove {
-  0% {
-    top: 10px;
-    right: 10px;
-    opacity: 0;
-  }
-  50% {
-    top: 50px;
-    right: 50px;
-    opacity: 1;
-  }
-  100% {
-    top: 90px;
-    right: 90px;
-    opacity: 0;
-  }
 }
 @keyframes starShine {
   0% {

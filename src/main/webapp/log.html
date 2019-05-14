@@ -20,7 +20,9 @@
 
         <!-- 星星图 -->
         <div class="starImg">
-            <img class="meteor" src="img/meteor.png">
+            <transition @before-enter="meteorBeforeEnter" @enter="meteorEnter" @leave="meteorLeave">
+                <img class="meteor" src="img/meteor.png" v-if="meteorShow">
+            </transition>
         </div>
 
         <!-- 海浪图 -->
@@ -87,6 +89,7 @@
 
     </div>
     <script src="js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <script src="js/axios.min.js"></script>
     <script src="js/log.js"></script>
 </body>
