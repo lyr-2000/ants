@@ -12,19 +12,22 @@
 <body>
     <div id="app">
         <div class="topContainer">
-            <div class="nav">
+            <!-- 导航栏 -->
+            <nav class="nav">
                 <ul class="leftNav">
                     <li>首页</li>
                     <li>租赁</li>
                     <li>赠送</li>
                 </ul>
                 <ul class="rightNav">
+                    <li class="schoolChoose">广东金融学院</li>
                     <li>学校</li>
                     <li>卖家</li>
                     <li>买家</li>
                     <li>登录</li>
                 </ul>
-            </div>
+            </nav>
+            <!-- 顶部操作 -->
             <div class="topHandle">
 
                 <div class="topLogo">
@@ -32,18 +35,20 @@
                     <span v-cloak>{{projectName}}</span>
                 </div>
 
-                <div class="mainHandle">
-                    <button>发布寻求</button>
-                    <button>正在寻求</button>
-                </div>
 
                 <div class="searchGoods">
                     <input type="text">
                     <span>sou</span>
                 </div>
 
+                <div class="mainHandle">
+                    <button>发布寻求</button>
+                    <button>正在寻求</button>
+                </div>
+
             </div>
         </div>
+        <!-- 横幅 -->
         <div class="banner">
             <div class="menuwrap">
                 <div class="allClassify">
@@ -58,6 +63,7 @@
                     <span>其他</span>
                 </div>
             </div>
+            <!-- 轮播图 -->
             <div class="imgPlayBox">
                 <div class="imgContainer">
 
@@ -67,6 +73,48 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- 主要部分 -->
+        <main>
+            <!-- 公告 -->
+            <div class="announce">
+                <img src="img/tongzhi.png">
+                <p>
+                    <strong>公告</strong>
+                    <a href="#" class="announceContent">通知</a>
+                    <span class="announceTime">时间</span>
+                </p>
+                <a href="#" class="moreAnnounce">更多</a>
+            </div>
+
+
+            <div class="perfectGoods">
+                <h2 class="perfectTitle">猜你喜欢</h2>
+
+                <span class="leftHandle" @click="turnLeft"><</span>
+                <div class="perfectList">
+                    <div class="perfectContent" v-for="content in perfectGoods">
+                        <a href="#">
+                            <img :src="[content.img]">
+                        </a>
+                        <p v-cloak>{{content.name}}</p>
+                        <p v-cloak>{{content.price}}</p>
+                    </div>
+                </div>
+                <span class="rightHandle" @click="turnRight">></span>
+
+            </div>
+
+            <div class="banner">
+                <img src="" alt="">
+            </div>
+
+
+        </main>
+
+
+
     </div>
     <script src="js/vue.js"></script>
     <script src="js/index.js"></script>

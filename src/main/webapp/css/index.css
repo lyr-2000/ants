@@ -10,6 +10,10 @@ li {
   float: left;
   list-style: none;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
 [v-cloak] {
   display: none;
 }
@@ -27,11 +31,11 @@ li {
 }
 .topContainer .nav .leftNav {
   float: left;
-  margin-left: 40px;
+  margin-left: 200px;
 }
 .topContainer .nav .rightNav {
   float: right;
-  margin-right: 40px;
+  margin-right: 80px;
 }
 .topContainer .topHandle {
   margin: 16px auto;
@@ -39,6 +43,9 @@ li {
 }
 .topContainer .topHandle > div {
   display: inline-block;
+}
+.topContainer .topHandle .topLogo {
+  margin-left: 100px;
 }
 .topContainer .topHandle .topLogo img {
   float: left;
@@ -50,26 +57,26 @@ li {
   color: #246c9b;
 }
 .topContainer .topHandle .searchGoods {
-  float: right;
-  margin-right: 10%;
+  margin: 0% 5% 0% 20%;
   border: 1px solid #246c9b;
   border-radius: 5px;
 }
 .topContainer .topHandle .searchGoods input {
-  padding: 5px;
+  margin: 3px;
   border: none;
   outline: none;
 }
-.topContainer .topHandle .mainHandle {
-  float: right;
-}
 .topContainer .topHandle .mainHandle button {
-  padding: 5px;
   border: none;
   outline: none;
   border-radius: 5px;
+  padding: 2px 8px;
+  margin: 0 10px;
   color: #ffffff;
   background-color: #9fbdd2;
+}
+.banner {
+  position: relative;
 }
 .banner .menuwrap {
   margin-left: 100px;
@@ -95,10 +102,89 @@ li {
   display: none;
   position: absolute;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .banner .menuwrap .allClassify ul li {
   width: 100%;
+  padding: 10px 0px;
 }
 .banner .menuwrap .allClassify ul li img {
   width: 12px;
+}
+.banner .imgPlayBox {
+  width: 100%;
+  height: 244px;
+  background: #246c9b;
+}
+main {
+  margin: 16px auto;
+  width: 1100px;
+}
+main .announce {
+  position: relative;
+  border-bottom: 1px solid rgba(121, 121, 121, 0.6);
+}
+main .announce > img {
+  float: left;
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+}
+main .announce .moreAnnounce {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+main .announce p {
+  margin-bottom: 0px;
+}
+main .announce p .announceContent {
+  margin-left: 50px;
+}
+main .announce p .announceTime {
+  margin-left: 20px;
+}
+main .perfectGoods {
+  position: relative;
+}
+main .perfectGoods h2 {
+  text-align: center;
+  color: #246c9b;
+}
+main .perfectGoods .leftHandle,
+main .perfectGoods .rightHandle {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+}
+main .perfectGoods .leftHandle {
+  left: 10px;
+}
+main .perfectGoods .rightHandle {
+  right: 10px;
+}
+main .perfectGoods .perfectList {
+  position: relative;
+  text-align: center;
+  margin: 0px 60px;
+}
+main .perfectGoods .perfectList .perfectContent {
+  display: inline-block;
+  width: 20%;
+  height: 300px;
+  margin: 0px 20px;
+  border: 1px solid rgba(102, 102, 102, 0.7);
+}
+main .perfectGoods .perfectList .perfectContent img {
+  width: 100%;
+  height: 80%;
+}
+main .perfectGoods .perfectList .perfectContent p {
+  margin: 4px 0px;
+}
+main .perfectGoods .perfectList .perfectContent:hover {
+  border: 2px solid #246c9b;
+}
+main .banner img {
+  width: 100%;
 }

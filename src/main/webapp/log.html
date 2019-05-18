@@ -20,7 +20,7 @@
 
         <!-- 星星图 -->
         <div class="starImg">
-            <transition @before-enter="meteorBeforeEnter" @enter="meteorEnter" @leave="meteorLeave">
+            <transition name="meteor" @before-enter="meteorBeforeEnter" @before-leave="meteorBeforeLeave" @leave="meteorLeave">
                 <img class="meteor" src="img/meteor.png" v-if="meteorShow">
             </transition>
         </div>

@@ -6,20 +6,45 @@ let vm = new Vue({
             src: 'img/shuji.png',
             name: '书籍'
         }, {
-            src: '',
+            src: 'img/wenju.png',
             name: '文具'
         }, {
-            src: '',
+            src: 'img/riyong.png',
+            name: '日用'
+        }, {
+            src: 'img/huazhuang.png',
             name: '美妆'
         }, {
-            src: '',
+            src: 'img/lingshi.png',
             name: '食品'
         }, {
-            src: '',
+            src: 'img/dianqi.png',
             name: '电器'
+        }],
+        perfectGoods: [{
+            img: 'img/lingshi.png',
+            name: '商品名',
+            price: '价格'
         }, {
-            src: '',
-            name: '其他'
+            img: 'img/lingshi.png',
+            name: '商品名',
+            price: '价格'
+        }, {
+            img: 'img/lingshi.png',
+            name: '商品名',
+            price: '价格'
+        }, {
+            img: 'img/lingshi.png',
+            name: '商品名',
+            price: '价格'
         }]
+    },
+    methods: {
+        turnLeft: function() {
+
+        },
+        turnRight: function() {
+
+        }
     }
 })

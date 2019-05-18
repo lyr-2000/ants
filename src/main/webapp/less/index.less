@@ -13,12 +13,17 @@ li{
     list-style: none;
 }
 
+a{
+    text-decoration: none;
+    color: #000;
+}
+
 [v-cloak] {
     display: none;
 }
 
 @toppicColor:#246c9b;
-@buttonColor:#9fbdd2;
+@topInputColor:#9fbdd2;
 @borderColor:rgba(102,102,102,.5);
 .topContainer{
     border-bottom: 1px solid @borderColor;
@@ -34,17 +39,16 @@ li{
         }
         .leftNav{
             float: left;
-            margin-left: 40px;
+            margin-left: 200px;
         }
         .rightNav{
             float: right;
-            margin-right: 40px;
+            margin-right: 80px;
         }
     }
 
     // 表单去表格样式
     .inputNoBorder(){
-        padding: 5px;
         border:none;
         outline:none;
     }
@@ -56,6 +60,7 @@ li{
             display: inline-block;
         }
         .topLogo{
+            margin-left: 100px;
             img{
                 float: left;
                 height: 32px;
@@ -67,27 +72,31 @@ li{
             }
         }
         .searchGoods{
-            float: right;
-            margin-right: 10%;
+            // float: right;
+            margin:0% 5% 0% 20%;
             border: 1px solid @toppicColor;
             border-radius: 5px;
             input{
+                margin: 3px;
                 .inputNoBorder;
             }
         }
         .mainHandle{
-            float: right;
+            // float: right;
             button{
                 .inputNoBorder;
                 border-radius: 5px;
+                padding: 2px 8px;
+                margin: 0 10px;
                 color: rgb(255,255,255);
-                background-color: @buttonColor;
+                background-color: @topInputColor;
             }
         }
     }
 }
 
 .banner{
+    position: relative;
     .menuwrap{
         margin-left: 100px;
         >div{
@@ -110,8 +119,10 @@ li{
                 display: none;
                 position: absolute;
                 text-align: center;
+                background-color: rgba(255,255,255,.5);
                 li{
                     width: 100%;
+                    padding: 10px 0px;
                     img{
                         width: 12px;
                     }
@@ -120,11 +131,92 @@ li{
         }
     }
     .imgPlayBox{
+        width: 100%;
+        height: 244px;
+        background: #246c9b;
         .imgContainer{
 
         }
         .playHandle{
 
+        }
+    }
+}
+
+
+@perfectColor:#246c9b;
+main{
+    margin: 16px auto;
+    width: 1100px;
+    .announce{
+        position: relative;
+        border-bottom: 1px solid rgba(121,121,121,.6);
+        >img{
+            float: left;
+            width: 22px;
+            height: 22px;
+            margin-right: 10px;
+        }
+        .moreAnnounce{
+            position:absolute;
+            top: 0px;
+            right: 10px;
+        }
+        p{
+            margin-bottom: 0px;
+            .announceContent{
+                margin-left: 50px;
+            }
+            .announceTime{
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .perfectGoods{
+        position: relative;
+        h2{
+            text-align: center;
+            color: @perfectColor;
+        }
+        .leftHandle,.rightHandle{
+            position: absolute;
+            top: 50%;
+            font-size: 40px;
+        }
+        .leftHandle{
+            left: 10px;
+        }
+        .rightHandle{
+            right: 10px;
+        }
+        .perfectList{
+            position: relative;
+            text-align: center;
+            margin: 0px 60px;
+            .perfectContent{
+                display: inline-block;
+                width: 20%;
+                height: 300px;
+                margin: 0px 20px;
+                border:1px solid rgba(102,102,102,.7);
+                img{
+                    width: 100%;
+                    height: 80%;
+                }
+                p{
+                    margin: 4px 0px;
+                }
+                &:hover{
+                    border: 2px solid @perfectColor;
+                }
+            }
+        }
+    }
+
+    .banner{
+        img{
+            width: 100%;
         }
     }
 }

@@ -5,7 +5,7 @@ let vm = new Vue({
         school: "",
         sNo: "",
         password: "",
-        meteorMoveLength: 100,
+        meteorMoveLength: 200,
         meteorShow: false, // 表示流星的显示
     },
     methods: {
@@ -27,15 +27,16 @@ let vm = new Vue({
             el.style.top = clientY + 'px';
             el.style.opacity = 0;
         },
-        meteorEnter: function(el, done) {
-            let clientX = parseInt(el.style.left) - this.meteorMoveLength + 'px';
-            let clientY = parseInt(el.style.top) + this.meteorMoveLength + 'px';
-            Velocity(el, { left: clientX, top: clientY, opacity: 1 }, { duration: 1000 });
+        meteorBeforeLeave: function(el, done) {
+            el.style.opacity = 0;
         },
         meteorLeave: function(el, done) {
             let clientX = parseInt(el.style.left) - this.meteorMoveLength + 'px';
             let clientY = parseInt(el.style.top) + this.meteorMoveLength + 'px';
-            Velocity(el, { left: clientX, top: clientY, opacity: 0 }, { duration: 1000 });
+            let clientX1 = parseInt(clientX) - this.meteorMoveLength + 'px';
+            let clientY2 = parseInt(clientY) + this.meteorMoveLength + 'px';
+            Velocity(el, { left: clientX, top: clientY, opacity: 1 }, { duration: 1000, complete: function() { Velocity(el, { left: clientX1, top: clientY2, opacity: 0 }, { duration: 400 }); } });
+
         }
     },
     components: {
