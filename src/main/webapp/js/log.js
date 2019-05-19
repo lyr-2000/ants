@@ -63,7 +63,7 @@ let vm = new Vue({
 function createStar() {
     let container = document.getElementsByClassName("starImg")[0];
     let starDOM = document.createElement('img');
-    starDOM.setAttribute('src', 'img/singleStar.png');
+    starDOM.setAttribute('src', 'img/log/singleStar.png');
     let type = Math.floor(Math.random() * 3 + 1);
     starDOM.setAttribute('class', 'shine' + type);
     let clientX = Math.random() * window.innerWidth;

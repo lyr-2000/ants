@@ -21,31 +21,31 @@
         <!-- 星星图 -->
         <div class="starImg">
             <transition name="meteor" @before-enter="meteorBeforeEnter" @before-leave="meteorBeforeLeave" @leave="meteorLeave">
-                <img class="meteor" src="img/meteor.png" v-if="meteorShow">
+                <img class="meteor" src="img/log/meteor.png" v-if="meteorShow">
             </transition>
         </div>
 
         <!-- 海浪图 -->
         <div class="sea">
-            <img src="img/seaBehind.png">
+            <img src="img/log/seaBehind.png">
             <!-- 鱼 -->
             <div class="fish">
-                <img src="img/fish1.png">
-                <img src="img/fish2.png">
+                <img src="img/log/fish1.png">
+                <img src="img/log/fish2.png">
             </div>
             <!-- 漂浮蚂蚁图 -->
             <div class="ants">
-                <img src="img/ants.png">
+                <img src="img/log/ants.png">
             </div>
-            <img src="img/seaFront.png">
+            <img src="img/log/seaFront.png">
         </div>
 
 
         <!-- 云层图 -->
         <div class="cloud">
-            <img src="img/behindCloud.png">
-            <img src="img/middleCloud.png">
-            <img src="img/frontCloud.png">
+            <img src="img/log/behindCloud.png">
+            <img src="img/log/middleCloud.png">
+            <img src="img/log/frontCloud.png">
         </div>
 
         <!-- 登录框 -->
@@ -58,7 +58,7 @@
                     <input type="text" placeholder="学校" v-model="school">
                 </template>
                     <template #img>
-                    <img src="img/school.png">
+                    <img src="img/log/school.png">
                 </template>
                 </info-input>
 
@@ -67,7 +67,7 @@
                     <input type="text" placeholder="学号/教工号" v-model="sNo">
                 </template>
                     <template #img>
-                    <img src="img/sNo.png">
+                    <img src="img/log/sNo.png">
                 </template>
                 </info-input>
 
@@ -76,7 +76,7 @@
                     <input type="password" placeholder="密码" v-model="password">
                 </template>
                     <template #img>
-                    <img src="img/password.png">
+                    <img src="img/log/password.png">
                 </template>
                 </info-input>
                 <p>
