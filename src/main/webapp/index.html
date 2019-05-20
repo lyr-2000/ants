@@ -14,31 +14,30 @@
         <div class="topContainer">
             <!-- 导航栏 -->
             <nav class="nav">
-                <ul class="leftNav">
-                    <li>首页</li>
-                    <li>租赁</li>
-                    <li>赠送</li>
-                </ul>
-                <ul class="rightNav">
-                    <li class="schoolChoose">广东金融学院</li>
-                    <li>学校</li>
-                    <li>卖家</li>
-                    <li>买家</li>
-                    <li>登录</li>
-                </ul>
+                <div class="navContainer">
+                    <ul class="leftNav">
+                        <li>首页</li>
+                        <li>租赁</li>
+                        <li>赠送</li>
+                    </ul>
+                    <ul class="rightNav">
+                        <li class="schoolChoose">广东金融学院</li>
+                        <li>学校</li>
+                        <li>卖家</li>
+                        <li>买家</li>
+                        <li>登录</li>
+                    </ul>
+            </nav>
             </nav>
             <!-- 顶部操作 -->
             <div class="topHandle">
-
                 <div class="topLogo">
                     <img src="img/index/antsLogo.png" alt="蚂蚁置物">
                     <span v-cloak>{{projectName}}</span>
                 </div>
-
-
                 <div class="searchGoods">
-                    <input type="text">
-                    <span>sou</span>
+                    <input type="text" v-model="searchWord">
+                    <img src="img/index/search.png" @click='search'>
                 </div>
 
                 <div class="mainHandle">
@@ -47,112 +46,120 @@
                 </div>
 
             </div>
+            </div>
+            <!-- 横幅 -->
+            <div class="topBanner">
+                <div class="menuwrap">
+                    <div class="allClassify">
+                        <span>所有分类</span>
+                        <ul>
+                            <li v-for="classify in wholeClassify">
+                                <img :src='[classify.src]'> {{classify.name}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="otherClassify">
+                        <span>其他</span>
+                    </div>
+                </div>
+                <!-- 轮播图 -->
+                <div class="imgPlayBox">
+                    <div class="imgContainer">
+                        <img src="img/index/playImg1.png" alt="">
+                    </div>
+                    <div class="playHandle">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 主要部分 -->
+            <main>
+                <!-- 公告 -->
+                <div class="announce">
+                    <img src="img/index/tongzhi.png">
+                    <p>
+                        <strong>公告</strong>
+                        <a href="#" class="announceContent">通知</a>
+                        <span class="announceTime">时间</span>
+                    </p>
+                    <a href="#" class="moreAnnounce">更多</a>
+                </div>
+
+
+                <div class="perfectGoods">
+                    <h2 class="perfectTitle">猜你喜欢</h2>
+
+                    <span class="leftHandle" @click="turnLeft('perfect')"><</span>
+                    <div class="goodsList">
+                        <div class="concreteContent" v-for="content in perfectGoods">
+                            <a href="#">
+                                <img :src="[content.img]">
+                            </a>
+                            <p v-cloak>{{content.name}}</p>
+                            <p v-cloak>{{content.price}}</p>
+                        </div>
+                    </div>
+                    <span class="rightHandle" @click="turnRight('perfect')">></span>
+
+                </div>
+
+                <div class="middleBanner">
+
+                </div>
+
+                <div class="specialGoods">
+                    <div class="specialTitle">
+                        <div :class="[hotTitle,showHot?'show':'']" @click="changeShow('hot')">
+                            <span :class="[showHot?'':'hide']">Hot</span>
+                            <span>最热闲置</span>
+                        </div>
+                        <div :class="[newTitle,!showHot?'show':'']" @click="changeShow('new')">
+                            <span :class="[!showHot?'':'hide']">New</span>
+                            <span>最新闲置</span>
+                        </div>
+                        <em :class="[showHot?'borderHot':'borderNew']"></em>
+                        <a class="more" href="#">更多</a>
+                    </div>
+                    <span class="leftHandle" @click="turnLeft('special')"><</span>
+                    <div class="goodsList">
+                        <div class="concreteContent" v-if="showHot" v-for="content in hotGoods">
+                            <a href="#">
+                                <img :src="[content.src]">
+                            </a>
+                            <p v-cloak>{{content.name}}</p>
+                            <p v-cloak class="specialPrice">{{content.price}}</p>
+                            <p v-cloak>{{content.starNum}}</p>
+                        </div>
+                        <div class="concreteContent" v-if="!showHot" v-for="content in newGoods">
+                            <a href="#">
+                                <img src="[content.src]">
+                            </a>
+                            <p v-cloak>{{content.name}}</p>
+                            <p v-cloak class="specialPrice">{{content.price}}</p>
+                            <p v-cloak>{{content.uploadTime}}</p>
+                        </div>
+                    </div>
+                    <span class="rightHandle" @click="turnRight('special')">></span>
+                </div>
+
+            </main>
+            <footer>
+                <div class="footIcon">
+                    <img src="img/index/foot_icon1.png">
+                    <img src="img/index/foot_icon2.png">
+                    <img src="img/index/foot_icon3.png">
+                </div>
+                <p>蚂蚁置物校园二手交易平台联系方式：12312312345</p>
+            </footer>
+
+
+
+
         </div>
-        <!-- 横幅 -->
-        <div class="topBanner">
-            <div class="menuwrap">
-                <div class="allClassify">
-                    <span>所有分类</span>
-                    <ul>
-                        <li v-for="classify in wholeClassify">
-                            <img :src='[classify.src]'> {{classify.name}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="otherClassify">
-                    <span>其他</span>
-                </div>
-            </div>
-            <!-- 轮播图 -->
-            <div class="imgPlayBox">
-                <div class="imgContainer">
-
-                </div>
-                <div class="playHandle">
-
-                </div>
-            </div>
-        </div>
-
-
-        <!-- 主要部分 -->
-        <main>
-            <!-- 公告 -->
-            <div class="announce">
-                <img src="img/index/tongzhi.png">
-                <p>
-                    <strong>公告</strong>
-                    <a href="#" class="announceContent">通知</a>
-                    <span class="announceTime">时间</span>
-                </p>
-                <a href="#" class="moreAnnounce">更多</a>
-            </div>
-
-
-            <div class="perfectGoods">
-                <h2 class="perfectTitle">猜你喜欢</h2>
-
-                <span class="leftHandle" @click="turnLeft('perfect')"><</span>
-                <div class="goodsList">
-                    <div class="concreteContent" v-for="content in perfectGoods">
-                        <a href="#">
-                            <img :src="[content.img]">
-                        </a>
-                        <p v-cloak>{{content.name}}</p>
-                        <p v-cloak>{{content.price}}</p>
-                    </div>
-                </div>
-                <span class="rightHandle" @click="turnRight('perfect')">></span>
-
-            </div>
-
-            <div class="middleBanner">
-
-            </div>
-
-            <div class="specialGoods">
-                <div class="specialTitle">
-                    <div class="hotTitle">
-                        <span>Hot</span>
-                        <span>最热闲置</span>
-                    </div>
-                    <div class="newTitle">
-                        <span>New</span>
-                        <span>最新闲置</span>
-                    </div>
-                    <span class="more">更多</span>
-                </div>
-                <span class="leftHandle" @click="turnLeft('special')"><</span>
-                <div class="goodsList">
-                    <div class="concreteContent" v-if="showHot" v-for="content in hotGoods">
-                        <a href="#">
-                            <img :src="[content.src]">
-                        </a>
-                        <p v-cloak>{{content.name}}</p>
-                        <p v-cloak class="specialPrice">{{content.price}}</p>
-                        <p v-cloak>{{content.starNum}}</p>
-                    </div>
-                    <div class="concreteContent" v-if="!showHot" v-for="content in newGoods">
-                        <a href="#">
-                            <img src="[content.src]">
-                        </a>
-                        <p v-cloak>{{content.name}}</p>
-                        <p v-cloak class="specialPrice">{{content.price}}</p>
-                        <p v-cloak>{{content.uploadTime}}</p>
-                    </div>
-                </div>
-                <span class="rightHandle" @click="turnRight('special')">></span>
-            </div>
-
-            <footer></footer>
-
-        </main>
-
-
-
-    </div>
-    <script src="js/vue.js"></script>
-    <script src="js/index.js"></script>
+        <script src="js/vue.js"></script>
+        <script src="js/index.js"></script>
 </body>
 
 </html>

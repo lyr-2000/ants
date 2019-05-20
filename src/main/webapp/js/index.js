@@ -2,6 +2,7 @@ let vm = new Vue({
     el: "#app",
     data: {
         projectName: '蚂蚁置物',
+        searchWord: '',
         wholeClassify: [{
             src: 'img/index/shuji.png',
             name: '书籍'
@@ -22,6 +23,18 @@ let vm = new Vue({
             name: '电器'
         }],
         perfectGoods: [{
+            img: 'img/index/lingshi.png',
+            name: '商品名',
+            price: '价格'
+        }, {
+            img: 'img/index/lingshi.png',
+            name: '商品名',
+            price: '价格'
+        }, {
+            img: 'img/index/lingshi.png',
+            name: '商品名',
+            price: '价格'
+        }, {
             img: 'img/index/lingshi.png',
             name: '商品名',
             price: '价格'
@@ -65,6 +78,21 @@ let vm = new Vue({
             name: '',
             price: '',
             uploadTime: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            uploadTime: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            uploadTime: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            uploadTime: ''
         }, ]
     },
     methods: {
@@ -81,6 +109,17 @@ let vm = new Vue({
             } else if (type === 'special') {
 
             }
+        },
+        changeShow: function(currentType) {
+            if (currentType === 'hot') {
+                this.showHot = true;
+            } else {
+                this.showHot = false;
+            }
+        },
+        // 搜索
+        search: function(val) {
+
         }
     }
 })

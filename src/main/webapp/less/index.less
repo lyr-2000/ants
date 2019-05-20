@@ -31,19 +31,21 @@ a{
         height: 40px;
         color: #fff;
         background-color: @toppicColor;
-        ul{
-            li{
-                margin: 10px 20px;
-                cursor: pointer;
+        .navContainer{
+            margin: 0px auto;
+            width: 1100px;
+            ul{
+                li{
+                    margin: 10px 20px;
+                    cursor: pointer;
+                }
             }
-        }
-        .leftNav{
-            float: left;
-            margin-left: 200px;
-        }
-        .rightNav{
-            float: right;
-            margin-right: 80px;
+            .leftNav{
+                float: left;
+            }
+            .rightNav{
+                float: right;
+            }
         }
     }
 
@@ -60,7 +62,7 @@ a{
             display: inline-block;
         }
         .topLogo{
-            margin-left: 100px;
+            margin-left: 30px;
             img{
                 float: left;
                 height: 32px;
@@ -73,12 +75,24 @@ a{
         }
         .searchGoods{
             // float: right;
-            margin:0% 5% 0% 20%;
-            border: 1px solid @toppicColor;
+            margin:0% 5% 0% 40%;
+            border: 2px solid @toppicColor;
             border-radius: 5px;
             input{
                 margin: 3px;
                 .inputNoBorder;
+            }
+            img{
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            &:hover{
+                border-color: @topInputColor;
+            }
+            &:focus-within{
+                border-color: @topInputColor;
             }
         }
         .mainHandle{
@@ -98,7 +112,8 @@ a{
 .topBanner{
     position: relative;
     .menuwrap{
-        margin-left: 100px;
+        margin: 0px auto;
+        width: 1100px;
         >div{
             display: inline-block;
             border: 1px solid @borderColor;
@@ -121,7 +136,7 @@ a{
                 background-color: rgba(255,255,255,.8);
                 li{
                     width: 100%;
-                    padding: 10px 0px;
+                    padding: 13px 0px;
                     img{
                         width: 12px;
                     }
@@ -132,9 +147,11 @@ a{
     .imgPlayBox{
         width: 100%;
         height: 244px;
-        background: #246c9b;
         .imgContainer{
-
+            img{
+                width: 100%;
+                height: 276px;
+            }
         }
         .playHandle{
 
@@ -145,7 +162,7 @@ a{
 
 @perfectColor:rgba(246,146,138,.5);
 main{
-    margin: 16px auto;
+    margin: 50px auto;
     width: 1100px;
     .announce{
         position: relative;
@@ -160,6 +177,9 @@ main{
             position:absolute;
             top: 0px;
             right: 10px;
+            &:hover{
+                color: @toppicColor;
+            }
         }
         p{
             margin-bottom: 0px;
@@ -177,6 +197,10 @@ main{
         position: absolute;
         top: 50%;
         font-size: 40px;
+        cursor: pointer;
+        &:hover{
+            color: @toppicColor;
+        }
     }
     .leftHandle{
         left: 10px;
@@ -189,15 +213,18 @@ main{
     
     .goodsList{
         position: relative;
-        text-align: center;
         margin: 0px 60px;
+        width: 980px;
+        height: 305px;
+        overflow: hidden;
         //每个具体块的布局
         .concreteContent{
             display: inline-block;
             width: 20%;
             height: 300px;
-            margin: 0px 20px;
-            border:1px solid rgba(102,102,102,.7);
+            margin: 0px 20px 0px 20px;
+            border:2px solid rgba(102,102,102,.7);
+            text-align: center;
             img{
                 width: 100%;
                 height: 80%;
@@ -231,21 +258,128 @@ main{
     .specialGoods{
         position: relative;
         .specialTitle{
+            position: relative;
+            border-bottom:2px solid rgba(204,204,204,.5);
+            margin-bottom: 4px;
             div{
                 display: inline-block;
                 position: relative;
                 padding: 5px 40px;
+                border-bottom: 2px solid transparent;
                 color: @toppicColor;
                 background-color: rgba(204,204,204,.5);
+                overflow: hidden;
+                cursor: pointer;
                 >span:first-child{
+                    display: inline-block;
                     position: absolute;
                     left: 0px;
                     top: 0px;
-                    display: inline-block;
+                    padding: 8px 6px;
+                    font-size: 12px;
                     color: #fff;
                     background-color: @toppicColor;
                 }
+                .hide{
+                    animation: titleHide .5s linear 0s 1 forwards;
+                }
+            }
+            em{
+                position: absolute;
+                display: inline-block;
+                left: 0px;
+                bottom: 0px;
+                height: 0px;
+                width: 144px;
+                border-bottom: 2px solid @toppicColor;
+            }
+                .borderHot{
+                    animation: borHot .5s ease-in 0s 1 forwards;
+                }
+                .borderNew{
+                    animation: borNew .5s ease-in 0s 1 forwards;
+                }
+            .more{
+                float: right;
+                &:hover{
+                    color: @toppicColor;
+                }
+            }
+            .show{
+                >span:first-child{
+                    animation: titleShow .5s linear 0s 1 forwards;
+                }
             }
         }
+    }
+}
+
+
+@topLength:32px;
+@keyframes titleHide{
+    0%{
+        top: 0px;
+        opacity: 1;
+    }
+    100%{
+        top: @topLength;
+        opacity: 0;
+    }
+}
+
+@keyframes titleShow{
+    0%{
+        top: @topLength;
+        opacity: 0;
+    }
+    100%{
+        top:0px;
+        opacity: 1;
+    }
+}
+
+
+@keyframes borHot{
+    0%{
+        left: 148px;
+        width: 144px;
+    }
+    50%{
+        left: 144px;
+        width: 0px;
+    }
+    100%{
+        left: 0px;
+        width: 144px;
+    }
+}
+
+@keyframes borNew{
+    0%{
+        left: 0px;
+        width: 144px;
+    }
+    50%{
+        left: 144px;
+        width: 0px;
+    }
+    100%{
+        left: 148px;
+        width: 144px;
+    }
+}
+
+
+footer{
+    padding: 20px 0px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: @toppicColor;
+    img{
+        margin: 10px 50px;
+    }
+    p{
+        margin-bottom: 0px;
+        color: #fff;
     }
 }

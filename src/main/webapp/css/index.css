@@ -25,17 +25,19 @@ a {
   color: #fff;
   background-color: #246c9b;
 }
-.topContainer .nav ul li {
+.topContainer .nav .navContainer {
+  margin: 0px auto;
+  width: 1100px;
+}
+.topContainer .nav .navContainer ul li {
   margin: 10px 20px;
   cursor: pointer;
 }
-.topContainer .nav .leftNav {
+.topContainer .nav .navContainer .leftNav {
   float: left;
-  margin-left: 200px;
 }
-.topContainer .nav .rightNav {
+.topContainer .nav .navContainer .rightNav {
   float: right;
-  margin-right: 80px;
 }
 .topContainer .topHandle {
   margin: 16px auto;
@@ -45,7 +47,7 @@ a {
   display: inline-block;
 }
 .topContainer .topHandle .topLogo {
-  margin-left: 100px;
+  margin-left: 30px;
 }
 .topContainer .topHandle .topLogo img {
   float: left;
@@ -57,14 +59,26 @@ a {
   color: #246c9b;
 }
 .topContainer .topHandle .searchGoods {
-  margin: 0% 5% 0% 20%;
-  border: 1px solid #246c9b;
+  margin: 0% 5% 0% 40%;
+  border: 2px solid #246c9b;
   border-radius: 5px;
 }
 .topContainer .topHandle .searchGoods input {
   margin: 3px;
   border: none;
   outline: none;
+}
+.topContainer .topHandle .searchGoods img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.topContainer .topHandle .searchGoods:hover {
+  border-color: rgba(246, 146, 138, 0.5);
+}
+.topContainer .topHandle .searchGoods:focus-within {
+  border-color: rgba(246, 146, 138, 0.5);
 }
 .topContainer .topHandle .mainHandle button {
   border: none;
@@ -79,7 +93,8 @@ a {
   position: relative;
 }
 .topBanner .menuwrap {
-  margin-left: 100px;
+  margin: 0px auto;
+  width: 1100px;
 }
 .topBanner .menuwrap > div {
   display: inline-block;
@@ -105,7 +120,7 @@ a {
 }
 .topBanner .menuwrap .allClassify ul li {
   width: 100%;
-  padding: 10px 0px;
+  padding: 13px 0px;
 }
 .topBanner .menuwrap .allClassify ul li img {
   width: 12px;
@@ -113,10 +128,13 @@ a {
 .topBanner .imgPlayBox {
   width: 100%;
   height: 244px;
-  background: #246c9b;
+}
+.topBanner .imgPlayBox .imgContainer img {
+  width: 100%;
+  height: 276px;
 }
 main {
-  margin: 16px auto;
+  margin: 50px auto;
   width: 1100px;
 }
 main .announce {
@@ -134,6 +152,9 @@ main .announce .moreAnnounce {
   top: 0px;
   right: 10px;
 }
+main .announce .moreAnnounce:hover {
+  color: #246c9b;
+}
 main .announce p {
   margin-bottom: 0px;
 }
@@ -148,6 +169,11 @@ main .rightHandle {
   position: absolute;
   top: 50%;
   font-size: 40px;
+  cursor: pointer;
+}
+main .leftHandle:hover,
+main .rightHandle:hover {
+  color: #246c9b;
 }
 main .leftHandle {
   left: 10px;
@@ -157,15 +183,18 @@ main .rightHandle {
 }
 main .goodsList {
   position: relative;
-  text-align: center;
   margin: 0px 60px;
+  width: 980px;
+  height: 305px;
+  overflow: hidden;
 }
 main .goodsList .concreteContent {
   display: inline-block;
   width: 20%;
   height: 300px;
-  margin: 0px 20px;
-  border: 1px solid rgba(102, 102, 102, 0.7);
+  margin: 0px 20px 0px 20px;
+  border: 2px solid rgba(102, 102, 102, 0.7);
+  text-align: center;
 }
 main .goodsList .concreteContent img {
   width: 100%;
@@ -194,18 +223,116 @@ main .middleBanner {
 main .specialGoods {
   position: relative;
 }
+main .specialGoods .specialTitle {
+  position: relative;
+  border-bottom: 2px solid rgba(204, 204, 204, 0.5);
+  margin-bottom: 4px;
+}
 main .specialGoods .specialTitle div {
   display: inline-block;
   position: relative;
   padding: 5px 40px;
+  border-bottom: 2px solid transparent;
   color: #246c9b;
   background-color: rgba(204, 204, 204, 0.5);
+  overflow: hidden;
+  cursor: pointer;
 }
 main .specialGoods .specialTitle div > span:first-child {
+  display: inline-block;
   position: absolute;
   left: 0px;
   top: 0px;
-  display: inline-block;
+  padding: 8px 6px;
+  font-size: 12px;
   color: #fff;
   background-color: #246c9b;
+}
+main .specialGoods .specialTitle div .hide {
+  animation: titleHide .5s linear 0s 1 forwards;
+}
+main .specialGoods .specialTitle em {
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  bottom: 0px;
+  height: 0px;
+  width: 144px;
+  border-bottom: 2px solid #246c9b;
+}
+main .specialGoods .specialTitle .borderHot {
+  animation: borHot 0.5s ease-in 0s 1 forwards;
+}
+main .specialGoods .specialTitle .borderNew {
+  animation: borNew 0.5s ease-in 0s 1 forwards;
+}
+main .specialGoods .specialTitle .more {
+  float: right;
+}
+main .specialGoods .specialTitle .more:hover {
+  color: #246c9b;
+}
+main .specialGoods .specialTitle .show > span:first-child {
+  animation: titleShow .5s linear 0s 1 forwards;
+}
+@keyframes titleHide {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  100% {
+    top: 32px;
+    opacity: 0;
+  }
+}
+@keyframes titleShow {
+  0% {
+    top: 32px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes borHot {
+  0% {
+    left: 148px;
+    width: 144px;
+  }
+  50% {
+    left: 144px;
+    width: 0px;
+  }
+  100% {
+    left: 0px;
+    width: 144px;
+  }
+}
+@keyframes borNew {
+  0% {
+    left: 0px;
+    width: 144px;
+  }
+  50% {
+    left: 144px;
+    width: 0px;
+  }
+  100% {
+    left: 148px;
+    width: 144px;
+  }
+}
+footer {
+  padding: 20px 0px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #246c9b;
+}
+footer img {
+  margin: 10px 50px;
+}
+footer p {
+  margin-bottom: 0px;
+  color: #fff;
 }
