@@ -75,42 +75,42 @@ a {
   color: #ffffff;
   background-color: rgba(246, 146, 138, 0.5);
 }
-.banner {
+.topBanner {
   position: relative;
 }
-.banner .menuwrap {
+.topBanner .menuwrap {
   margin-left: 100px;
 }
-.banner .menuwrap > div {
+.topBanner .menuwrap > div {
   display: inline-block;
   border: 1px solid rgba(102, 102, 102, 0.5);
 }
-.banner .menuwrap > div > span {
+.topBanner .menuwrap > div > span {
   display: inline-block;
   padding: 5px 0px;
   width: 100px;
   text-align: center;
 }
-.banner .menuwrap .allClassify {
+.topBanner .menuwrap .allClassify {
   position: relative;
   cursor: pointer;
 }
-.banner .menuwrap .allClassify:hover ul {
+.topBanner .menuwrap .allClassify:hover ul {
   display: inline-block;
 }
-.banner .menuwrap .allClassify ul {
+.topBanner .menuwrap .allClassify ul {
   position: absolute;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
 }
-.banner .menuwrap .allClassify ul li {
+.topBanner .menuwrap .allClassify ul li {
   width: 100%;
   padding: 10px 0px;
 }
-.banner .menuwrap .allClassify ul li img {
+.topBanner .menuwrap .allClassify ul li img {
   width: 12px;
 }
-.banner .imgPlayBox {
+.topBanner .imgPlayBox {
   width: 100%;
   height: 244px;
   background: #246c9b;
@@ -143,6 +143,40 @@ main .announce p .announceContent {
 main .announce p .announceTime {
   margin-left: 20px;
 }
+main .leftHandle,
+main .rightHandle {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+}
+main .leftHandle {
+  left: 10px;
+}
+main .rightHandle {
+  right: 10px;
+}
+main .goodsList {
+  position: relative;
+  text-align: center;
+  margin: 0px 60px;
+}
+main .goodsList .concreteContent {
+  display: inline-block;
+  width: 20%;
+  height: 300px;
+  margin: 0px 20px;
+  border: 1px solid rgba(102, 102, 102, 0.7);
+}
+main .goodsList .concreteContent img {
+  width: 100%;
+  height: 80%;
+}
+main .goodsList .concreteContent p {
+  margin: 4px 0px;
+}
+main .goodsList .concreteContent:hover {
+  border: 2px solid rgba(246, 146, 138, 0.5);
+}
 main .perfectGoods {
   position: relative;
 }
@@ -150,40 +184,28 @@ main .perfectGoods h2 {
   text-align: center;
   color: rgba(246, 146, 138, 0.5);
 }
-main .perfectGoods .leftHandle,
-main .perfectGoods .rightHandle {
-  position: absolute;
-  top: 50%;
-  font-size: 40px;
+main .middleBanner {
+  width: 100%;
+  height: 224px;
+  margin: 40px 0px;
+  background-image: url('../img/index/banner.png');
+  background-size: cover;
 }
-main .perfectGoods .leftHandle {
-  left: 10px;
-}
-main .perfectGoods .rightHandle {
-  right: 10px;
-}
-main .perfectGoods .perfectList {
+main .specialGoods {
   position: relative;
-  text-align: center;
-  margin: 0px 60px;
 }
-main .perfectGoods .perfectList .perfectContent {
+main .specialGoods .specialTitle div {
   display: inline-block;
-  width: 20%;
-  height: 300px;
-  margin: 0px 20px;
-  border: 1px solid rgba(102, 102, 102, 0.7);
+  position: relative;
+  padding: 5px 40px;
+  color: #246c9b;
+  background-color: rgba(204, 204, 204, 0.5);
 }
-main .perfectGoods .perfectList .perfectContent img {
-  width: 100%;
-  height: 80%;
-}
-main .perfectGoods .perfectList .perfectContent p {
-  margin: 4px 0px;
-}
-main .perfectGoods .perfectList .perfectContent:hover {
-  border: 2px solid rgba(246, 146, 138, 0.5);
-}
-main .banner img {
-  width: 100%;
+main .specialGoods .specialTitle div > span:first-child {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: inline-block;
+  color: #fff;
+  background-color: #246c9b;
 }
