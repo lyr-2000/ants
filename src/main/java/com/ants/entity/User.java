@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
  * @author czd
  */
 @Component
+
 public class User {
     private int parentId;
     private String parentName;
