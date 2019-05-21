@@ -22,9 +22,12 @@ a{
     display: none;
 }
 
-@toppicColor:#246c9b;
+@toppicColor:#5d759d;
 @topInputColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
+@fontColor:#666;
+@fontHoverColor:#333;
+// @changeColor:#333333;
 .topContainer{
     border-bottom: 1px solid @borderColor;
     .nav{
@@ -104,6 +107,7 @@ a{
                 margin: 0 10px;
                 color: rgb(255,255,255);
                 background-color: @topInputColor;
+                cursor: pointer;
             }
         }
     }
@@ -111,17 +115,22 @@ a{
 
 .topBanner{
     position: relative;
+    color: @fontColor;
     .menuwrap{
         margin: 0px auto;
         width: 1100px;
         >div{
             display: inline-block;
             border: 1px solid @borderColor;
+            cursor: pointer;
             >span{
                 display: inline-block;
                 padding: 5px 0px;
                 width: 100px;
                 text-align: center;
+                &:hover{
+                    color: @fontHoverColor;
+                }
             }
         }
         .allClassify{
@@ -130,7 +139,7 @@ a{
             &:hover ul{
                 display: inline-block;
             }
-            ul{
+            >ul{
                 position: absolute;
                 text-align: center;
                 background-color: rgba(255,255,255,.8);
@@ -139,6 +148,31 @@ a{
                     padding: 13px 0px;
                     img{
                         width: 12px;
+                    }
+                    &:hover{
+                        color: @fontHoverColor;
+                    }
+                }
+            }
+            .detailedContent{
+                position: absolute;
+                left: 0px;
+                width: 1000px;
+                
+                padding: 10px 20px;
+                background-color: rgba(255,255,255,.8);
+                >div{
+                    float: left;
+                    width: 28%;
+                    height: 120px;
+                    margin: 5px 20px;
+                    h4{
+                        margin: 4px 0px;
+                        border-bottom: 2px solid @toppicColor;
+                    }
+                    >a{
+                        display: inline-block;
+                        width: 45%;
                     }
                 }
             }
@@ -167,6 +201,7 @@ main{
     .announce{
         position: relative;
         border-bottom: 1px solid rgba(121,121,121,.6);
+        color: @fontColor;
         >img{
             float: left;
             width: 22px;
@@ -185,6 +220,10 @@ main{
             margin-bottom: 0px;
             .announceContent{
                 margin-left: 50px;
+                color: @fontColor;
+                &:hover{
+                    color: @fontHoverColor;
+                }
             }
             .announceTime{
                 margin-left: 20px;
@@ -217,6 +256,7 @@ main{
         width: 980px;
         height: 305px;
         overflow: hidden;
+        white-space: nowrap;
         //每个具体块的布局
         .concreteContent{
             display: inline-block;
@@ -235,6 +275,12 @@ main{
             &:hover{
                 border: 2px solid @perfectColor;
             }
+        }
+        .moveL{
+            animation: contentMoveL .5s ease-in-out 0s 1 forwards;
+        }
+        .moveR{
+            animation: contentMoveR .5s ease-in-out 0s 1 forwards;
         }
     }
 
@@ -369,6 +415,23 @@ main{
     }
 }
 
+@keyframes contentMoveL{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform:translateX(-980px)
+    }
+}
+
+@keyframes contentMoveR{
+    0%{
+        transform: translateX(-980px);
+    }
+    100%{
+        transform:translateX(0px)
+    }
+}
 
 footer{
     padding: 20px 0px;

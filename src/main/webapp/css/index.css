@@ -23,7 +23,7 @@ a {
 .topContainer .nav {
   height: 40px;
   color: #fff;
-  background-color: #246c9b;
+  background-color: #5d759d;
 }
 .topContainer .nav .navContainer {
   margin: 0px auto;
@@ -56,11 +56,11 @@ a {
 .topContainer .topHandle .topLogo span {
   margin-left: 10px;
   font-size: 24px;
-  color: #246c9b;
+  color: #5d759d;
 }
 .topContainer .topHandle .searchGoods {
   margin: 0% 5% 0% 40%;
-  border: 2px solid #246c9b;
+  border: 2px solid #5d759d;
   border-radius: 5px;
 }
 .topContainer .topHandle .searchGoods input {
@@ -88,9 +88,11 @@ a {
   margin: 0 10px;
   color: #ffffff;
   background-color: rgba(246, 146, 138, 0.5);
+  cursor: pointer;
 }
 .topBanner {
   position: relative;
+  color: #666666;
 }
 .topBanner .menuwrap {
   margin: 0px auto;
@@ -99,12 +101,16 @@ a {
 .topBanner .menuwrap > div {
   display: inline-block;
   border: 1px solid rgba(102, 102, 102, 0.5);
+  cursor: pointer;
 }
 .topBanner .menuwrap > div > span {
   display: inline-block;
   padding: 5px 0px;
   width: 100px;
   text-align: center;
+}
+.topBanner .menuwrap > div > span:hover {
+  color: #333333;
 }
 .topBanner .menuwrap .allClassify {
   position: relative;
@@ -113,17 +119,41 @@ a {
 .topBanner .menuwrap .allClassify:hover ul {
   display: inline-block;
 }
-.topBanner .menuwrap .allClassify ul {
+.topBanner .menuwrap .allClassify > ul {
   position: absolute;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
 }
-.topBanner .menuwrap .allClassify ul li {
+.topBanner .menuwrap .allClassify > ul li {
   width: 100%;
   padding: 13px 0px;
 }
-.topBanner .menuwrap .allClassify ul li img {
+.topBanner .menuwrap .allClassify > ul li img {
   width: 12px;
+}
+.topBanner .menuwrap .allClassify > ul li:hover {
+  color: #333333;
+}
+.topBanner .menuwrap .allClassify .detailedContent {
+  position: absolute;
+  left: 0px;
+  width: 1000px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.topBanner .menuwrap .allClassify .detailedContent > div {
+  float: left;
+  width: 28%;
+  height: 120px;
+  margin: 5px 20px;
+}
+.topBanner .menuwrap .allClassify .detailedContent > div h4 {
+  margin: 4px 0px;
+  border-bottom: 2px solid #5d759d;
+}
+.topBanner .menuwrap .allClassify .detailedContent > div > a {
+  display: inline-block;
+  width: 45%;
 }
 .topBanner .imgPlayBox {
   width: 100%;
@@ -140,6 +170,7 @@ main {
 main .announce {
   position: relative;
   border-bottom: 1px solid rgba(121, 121, 121, 0.6);
+  color: #666666;
 }
 main .announce > img {
   float: left;
@@ -153,13 +184,17 @@ main .announce .moreAnnounce {
   right: 10px;
 }
 main .announce .moreAnnounce:hover {
-  color: #246c9b;
+  color: #5d759d;
 }
 main .announce p {
   margin-bottom: 0px;
 }
 main .announce p .announceContent {
   margin-left: 50px;
+  color: #666666;
+}
+main .announce p .announceContent:hover {
+  color: #333333;
 }
 main .announce p .announceTime {
   margin-left: 20px;
@@ -173,7 +208,7 @@ main .rightHandle {
 }
 main .leftHandle:hover,
 main .rightHandle:hover {
-  color: #246c9b;
+  color: #5d759d;
 }
 main .leftHandle {
   left: 10px;
@@ -187,6 +222,7 @@ main .goodsList {
   width: 980px;
   height: 305px;
   overflow: hidden;
+  white-space: nowrap;
 }
 main .goodsList .concreteContent {
   display: inline-block;
@@ -205,6 +241,12 @@ main .goodsList .concreteContent p {
 }
 main .goodsList .concreteContent:hover {
   border: 2px solid rgba(246, 146, 138, 0.5);
+}
+main .goodsList .moveL {
+  animation: contentMoveL 0.5s ease-in-out 0s 1 forwards;
+}
+main .goodsList .moveR {
+  animation: contentMoveR 0.5s ease-in-out 0s 1 forwards;
 }
 main .perfectGoods {
   position: relative;
@@ -233,7 +275,7 @@ main .specialGoods .specialTitle div {
   position: relative;
   padding: 5px 40px;
   border-bottom: 2px solid transparent;
-  color: #246c9b;
+  color: #5d759d;
   background-color: rgba(204, 204, 204, 0.5);
   overflow: hidden;
   cursor: pointer;
@@ -246,7 +288,7 @@ main .specialGoods .specialTitle div > span:first-child {
   padding: 8px 6px;
   font-size: 12px;
   color: #fff;
-  background-color: #246c9b;
+  background-color: #5d759d;
 }
 main .specialGoods .specialTitle div .hide {
   animation: titleHide .5s linear 0s 1 forwards;
@@ -258,7 +300,7 @@ main .specialGoods .specialTitle em {
   bottom: 0px;
   height: 0px;
   width: 144px;
-  border-bottom: 2px solid #246c9b;
+  border-bottom: 2px solid #5d759d;
 }
 main .specialGoods .specialTitle .borderHot {
   animation: borHot 0.5s ease-in 0s 1 forwards;
@@ -270,7 +312,7 @@ main .specialGoods .specialTitle .more {
   float: right;
 }
 main .specialGoods .specialTitle .more:hover {
-  color: #246c9b;
+  color: #5d759d;
 }
 main .specialGoods .specialTitle .show > span:first-child {
   animation: titleShow .5s linear 0s 1 forwards;
@@ -323,11 +365,27 @@ main .specialGoods .specialTitle .show > span:first-child {
     width: 144px;
   }
 }
+@keyframes contentMoveL {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-980px);
+  }
+}
+@keyframes contentMoveR {
+  0% {
+    transform: translateX(-980px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 footer {
   padding: 20px 0px;
   text-align: center;
   vertical-align: middle;
-  background-color: #246c9b;
+  background-color: #5d759d;
 }
 footer img {
   margin: 10px 50px;

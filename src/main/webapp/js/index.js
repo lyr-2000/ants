@@ -3,6 +3,12 @@ let vm = new Vue({
     data: {
         projectName: '蚂蚁置物',
         searchWord: '',
+        showDetialedClassify: false,
+        moveFlag: {
+            'perfect': false,
+            'hot': false,
+            'new': false
+        },
         wholeClassify: [{
             src: 'img/index/shuji.png',
             name: '书籍'
@@ -22,6 +28,14 @@ let vm = new Vue({
             src: 'img/index/dianqi.png',
             name: '电器'
         }],
+        detailedClassify: [
+            ["英语四六级", "证从", "银从", "会计", "教师资格证", "计算机二级", "其他"],  
+            ["本子", "笔", "便签", "文件夹", "计算器", "办公用品", "包装用品", "其他"],  
+            ["收纳", "服饰", "鞋表", "箱包", "洗护用品", "非处方药物", "餐桌用品", "其他"],
+            ["化妆水乳", "防晒隔离", "粉底定妆", "眼妆眉笔", "唇膏口红", "化妆工具", "美甲用具", "其他"],
+            ["速食品", "饮料", "调味料", "五谷", "甜品", "膨化食物", "冲泡花茶", "其他"],
+            ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
+        ],
         perfectGoods: [{
             img: 'img/index/lingshi.png',
             name: '商品名',
@@ -72,8 +86,28 @@ let vm = new Vue({
             name: '',
             price: '',
             starNum: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            starNum: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            starNum: ''
         }, ],
         newGoods: [{
+            src: '',
+            name: '',
+            price: '',
+            uploadTime: ''
+        }, {
+            src: '',
+            name: '',
+            price: '',
+            uploadTime: ''
+        }, {
             src: '',
             name: '',
             price: '',
@@ -98,16 +132,24 @@ let vm = new Vue({
     methods: {
         turnLeft: function(type) {
             if (type === 'perfect') {
-
+                this.moveFlag.perfect = false;
             } else if (type === 'special') {
-
+                if (this.showHot) {
+                    this.moveFlag.hot = false;
+                } else {
+                    this.moveFlag.new = false;
+                }
             }
         },
-        turnRight: function() {
+        turnRight: function(type) {
             if (type === 'perfect') {
-
+                this.moveFlag.perfect = true;
             } else if (type === 'special') {
-
+                if (this.showHot) {
+                    this.moveFlag.hot = true;
+                } else {
+                    this.moveFlag.new = true;
+                }
             }
         },
         changeShow: function(currentType) {
@@ -120,6 +162,9 @@ let vm = new Vue({
         // 搜索
         search: function(val) {
 
+        },
+        showDetailed: function() {
+            this.showDetialedClassify = !this.showDetialedClassify;
         }
     }
 })

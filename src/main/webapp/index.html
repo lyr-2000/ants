@@ -51,12 +51,18 @@
             <div class="topBanner">
                 <div class="menuwrap">
                     <div class="allClassify">
-                        <span>所有分类</span>
-                        <ul>
+                        <span @click="showDetailed">所有分类</span>
+                        <ul v-if="!showDetialedClassify">
                             <li v-for="classify in wholeClassify">
                                 <img :src='[classify.src]'> {{classify.name}}
                             </li>
                         </ul>
+                        <div class="detailedContent" v-if="showDetialedClassify">
+                            <div v-for="(classify,index) in wholeClassify">
+                                <h4>{{classify.name}}</h4>
+                                <a href="" v-for="detailed in detailedClassify[index]">{{detailed}}</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="otherClassify">
                         <span>其他</span>
@@ -93,12 +99,12 @@
 
                     <span class="leftHandle" @click="turnLeft('perfect')"><</span>
                     <div class="goodsList">
-                        <div class="concreteContent" v-for="content in perfectGoods">
+                        <div :class="['concreteContent',moveFlag.perfect?'moveL':'moveR']" v-for="content in perfectGoods">
                             <a href="#">
                                 <img :src="[content.img]">
                             </a>
                             <p v-cloak>{{content.name}}</p>
-                            <p v-cloak>{{content.price}}</p>
+                            <p v-cloak>￥{{content.price}}元</p>
                         </div>
                     </div>
                     <span class="rightHandle" @click="turnRight('perfect')">></span>
@@ -111,11 +117,11 @@
 
                 <div class="specialGoods">
                     <div class="specialTitle">
-                        <div :class="[hotTitle,showHot?'show':'']" @click="changeShow('hot')">
+                        <div :class="[showHot?'show':'']" @click="changeShow('hot')">
                             <span :class="[showHot?'':'hide']">Hot</span>
                             <span>最热闲置</span>
                         </div>
-                        <div :class="[newTitle,!showHot?'show':'']" @click="changeShow('new')">
+                        <div :class="[!showHot?'show':'']" @click="changeShow('new')">
                             <span :class="[!showHot?'':'hide']">New</span>
                             <span>最新闲置</span>
                         </div>
@@ -124,21 +130,21 @@
                     </div>
                     <span class="leftHandle" @click="turnLeft('special')"><</span>
                     <div class="goodsList">
-                        <div class="concreteContent" v-if="showHot" v-for="content in hotGoods">
+                        <div :class="['concreteContent',moveFlag.hot?'moveL':'moveR']" v-if="showHot" v-for="content in hotGoods">
                             <a href="#">
                                 <img :src="[content.src]">
                             </a>
                             <p v-cloak>{{content.name}}</p>
                             <p v-cloak class="specialPrice">{{content.price}}</p>
-                            <p v-cloak>{{content.starNum}}</p>
+                            <p v-cloak>收藏人数：{{content.starNum}}人</p>
                         </div>
-                        <div class="concreteContent" v-if="!showHot" v-for="content in newGoods">
+                        <div :class="['concreteContent',moveFlag.new?'moveL':'moveR']" v-if="!showHot" v-for="content in newGoods">
                             <a href="#">
-                                <img src="[content.src]">
+                                <img :src="[content.src]">
                             </a>
                             <p v-cloak>{{content.name}}</p>
-                            <p v-cloak class="specialPrice">{{content.price}}</p>
-                            <p v-cloak>{{content.uploadTime}}</p>
+                            <p v-cloak class="specialPrice">￥{{content.price}}元</p>
+                            <p v-cloak>上传时间：{{content.uploadTime}}</p>
                         </div>
                     </div>
                     <span class="rightHandle" @click="turnRight('special')">></span>
