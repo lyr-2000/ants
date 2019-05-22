@@ -1,4 +1,4 @@
-package com.ants.Util;
+package com.ants.util;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,7 +11,7 @@ import java.net.URLEncoder;
  * @Description: com.ants.Util
  * @version: 1.0
  */
-public class requestLogin {
+public class RequestLogin {
     public static int askForLogin( String param) throws IOException {
         String all = "encoded="+URLEncoder.encode(param);
         PrintWriter out = null;
@@ -69,13 +69,7 @@ public class requestLogin {
                     in.close();
         }
 
-
-
-
         return conn.getResponseCode();
     }
-
-
-
 
 }

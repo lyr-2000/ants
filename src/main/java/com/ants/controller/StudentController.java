@@ -1,9 +1,6 @@
 package com.ants.controller;
 
-import com.ants.Util.requestLogin;
 import com.ants.entity.Student;
-import com.ants.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +16,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/user")
-public class UserController {
+public class StudentController {
 
 
     @RequestMapping(value = "/login",method=RequestMethod.POST)
@@ -53,7 +50,7 @@ public class UserController {
             return ants;
         }
         try{
-            if(requestLogin.askForLogin(student.getuNpD())!=303){
+            if(com.ants.util.RequestLogin.askForLogin(student.getUNpD())!=303){
                 ants.put("type","error");
                 ants.put("message","改用户不存在");
                 return ants;
@@ -64,7 +61,18 @@ public class UserController {
         return null;//登录成功
     }
 
-
-
+//    @RequestMapping(value = "/testStudent",method = RequestMethod.GET)
+//    @ResponseBody
+//    public Map<String,String> testStudent(){
+//        Student student = new Student();
+//        student.setStudentId(1);
+//        student.setUserName("user");
+//        student.setPassword("123");
+//        student
+//
+//        Map<String,String> map = new HashMap<>();
+//        map.put("1","hello");
+//        return map;
+//    }
 
 }

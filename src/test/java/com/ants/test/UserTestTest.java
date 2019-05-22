@@ -1,11 +1,7 @@
 package com.ants.test;
 
-import com.ants.entity.User;
-import com.ants.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 /**
  * @author czd

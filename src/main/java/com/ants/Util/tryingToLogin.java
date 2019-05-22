@@ -1,4 +1,4 @@
-package com.ants.Util;
+package com.ants.util;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,7 +11,7 @@ import java.net.URLEncoder;
  * @Description: com.ants.Util
  * @version: 1.0
  */
-public class tryingToLogin {
+public class TryingToLogin {
     public static int sendPost( String param) throws IOException {
         //存防cookies的值
         String cookieVal;
