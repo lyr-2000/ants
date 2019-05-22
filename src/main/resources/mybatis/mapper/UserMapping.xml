@@ -5,7 +5,7 @@
     <insert id="add" parameterType="User">
 
 --         这个我在ants_base数据库中重新加了一个user表进行测试，因为其他表识别不了
-		insert into user (parentId,parentName) values(#{parentId},#{parentName})
+		insert into ants_class_parent (parentId,parentName) values(#{parentId},#{parentName})
 	</insert>
 
 </mapper>

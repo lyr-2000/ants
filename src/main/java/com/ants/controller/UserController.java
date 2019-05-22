@@ -19,6 +19,7 @@ import java.util.Map;
 @RequestMapping(value = "/ants/user")
 public class UserController {
 
+<<<<<<< Updated upstream
 
     @RequestMapping(value = "/login",method=RequestMethod.POST)
     @ResponseBody
@@ -65,10 +66,21 @@ public class UserController {
 
 
 
+=======
+    @Autowired
+    private UserService userService;
+>>>>>>> Stashed changes
 
     @RequestMapping(value = "/helloUser")
     @ResponseBody
     public Map<String, Object> helloUser() {
+
+        User user = new User();
+        user.setParentId(5);
+        user.setParentName("22200");
+        int result = userService.add(user);
+        System.out.println("result: " + result);
+
         Map<String, Object> ret = new HashMap<>();
         Map<String, Object> queryMap = new HashMap<>();
         queryMap.put("content", 1);
