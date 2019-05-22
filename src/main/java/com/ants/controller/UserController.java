@@ -2,6 +2,8 @@ package com.ants.controller;
 
 import com.ants.Util.requestLogin;
 import com.ants.entity.Student;
+import com.ants.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,6 @@ import java.util.Map;
 @RequestMapping(value = "/ants/user")
 public class UserController {
 
-<<<<<<< Updated upstream
 
     @RequestMapping(value = "/login",method=RequestMethod.POST)
     @ResponseBody
@@ -66,28 +67,4 @@ public class UserController {
 
 
 
-=======
-    @Autowired
-    private UserService userService;
->>>>>>> Stashed changes
-
-    @RequestMapping(value = "/helloUser")
-    @ResponseBody
-    public Map<String, Object> helloUser() {
-
-        User user = new User();
-        user.setParentId(5);
-        user.setParentName("22200");
-        int result = userService.add(user);
-        System.out.println("result: " + result);
-
-        Map<String, Object> ret = new HashMap<>();
-        Map<String, Object> queryMap = new HashMap<>();
-        queryMap.put("content", 1);
-        queryMap.put("offset", 2);
-        queryMap.put("pageSize", 3);
-        ret.put("rows", 4);
-        ret.put("total", 4);
-        return ret;
-    }
 }
