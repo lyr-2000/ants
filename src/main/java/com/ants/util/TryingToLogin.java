@@ -107,7 +107,7 @@ public class TryingToLogin {
         return conn.getResponseCode();
     }
     public static void main(String[] args) throws IOException {
-
+        System.out.println("encoded="+URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI="));
         int str = sendPost("encoded="+URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI=") );
 //           String str = sendPost("https://www.baidu.com","encoded=MTcxNTQzMTM3%%%em16ejA1MjI=" );
         System.out.println(str);

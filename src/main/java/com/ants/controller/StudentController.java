@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.rowset.serial.SerialStruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,47 +20,51 @@ import java.util.Map;
 public class StudentController {
 
 
-//    @RequestMapping(value = "/login",method=RequestMethod.POST)
-//    @ResponseBody
-//    public Map<String ,String> studentsLogin(Student student, String cpacha, HttpServletRequest request){
-//        Map<String ,String> ants = new HashMap<String,String>();
-//        if(student ==null){
-//            ants.put("type","false");
-//            ants.put("message","请填写用户名");
-//            return ants;
-//        }
-//        if(StringUtils.isEmpty(cpacha)){
-//            ants.put("type", "false");
-//            ants.put("message", "请填写验证码！");
-//            return ants;
-//        }
-//        if(StringUtils.isEmpty(student.getUserName())){
-//            ants.put("type", "error");
-//            ants.put("message", "请填写用户名！");
-//            return ants;
-//        }
-//        if(StringUtils.isEmpty(student.getPassWord())){
-//            ants.put("type", "error");
-//            ants.put("message", "请填写密码！");
-//            return ants;
-//        }
+    @RequestMapping(value = "/login",method=RequestMethod.POST)
+    @ResponseBody
+    public Map<String ,String> studentsLogin(Student student, String cpacha, HttpServletRequest request){
+        Map<String ,String> ants = new HashMap<String,String>();
+        if(student ==null){
+            ants.put("type","false");
+            ants.put("message","请填写用户名");
+            return ants;
+        }
+        if(StringUtils.isEmpty(cpacha)){
+            ants.put("type", "false");
+            ants.put("message", "请填写验证码！");
+            return ants;
+        }
+        if(StringUtils.isEmpty(student.getUserName())){
+            ants.put("type", "error");
+            ants.put("message", "请填写用户名！");
+            return ants;
+        }
+        if(StringUtils.isEmpty(student.getPassWord())){
+            ants.put("type", "error");
+            ants.put("message", "请填写密码！");
+            return ants;
+        }
 //        Object loginCpacha = request.getSession().getAttribute("loginCpacha");
-//        if(loginCpacha == null){
-//            ants.put("type", "error");
-//            ants.put("message", "未获取到验证码，请重新刷新下界面");
-//            return ants;
-//        }
-//        try{
-//            if(com.ants.util.RequestLogin.askForLogin(student.getUNpD())!=303){
-//                ants.put("type","error");
-//                ants.put("message","改用户不存在");
-//                return ants;
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return null;//登录成功
-//    }
+        Object loginCpacha = "1234";
+        if(loginCpacha == null){
+            ants.put("type", "error");
+            ants.put("message", "未获取到验证码，请重新刷新下界面");
+            return ants;
+        }
+        try{
+            System.out.println(student.getUNpD());
+            System.out.println(com.ants.util.RequestLogin.askForLogin(student.getUNpD())+"!!!");
+            if(com.ants.util.RequestLogin.askForLogin(student.getUNpD())!=302){
+                ants.put("type","error");
+                ants.put("message","该用户不存在");
+                return ants;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return ants;//登录成功
+    }
 
     @Autowired
     private StudentService studentService;
