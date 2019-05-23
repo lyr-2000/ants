@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/user")
-public class StudentController {
+public class SystemController {
 
 
     @RequestMapping(value = "/login",method=RequestMethod.POST)
