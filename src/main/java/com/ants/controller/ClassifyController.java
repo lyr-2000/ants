@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/class")
-public class HomePageController {
+public class ClassifyController {
 
     @Autowired
     private ClassifyService classifyService;
@@ -25,11 +25,11 @@ public class HomePageController {
      * 首页的商品大分类，导航栏的六个大分类那里
      * @return
      */
-    @RequestMapping(value = "/classifyTest",method = RequestMethod.GET)
+    @RequestMapping(value = "/parentClassify",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, String> classify(){
-        Map<String,String> map = new HashMap<>();
-        String classifyList = classifyService.findClassify();
+    public Map<String, List<String>> parentClassify(){
+        Map<String,List<String>> map = new HashMap<>();
+        List<String> classifyList = classifyService.parentClassification();
         map.put("classification",classifyList);
         return map;
     }

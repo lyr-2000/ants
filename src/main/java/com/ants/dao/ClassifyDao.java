@@ -9,6 +9,5 @@ import java.util.List;
  */
 @Repository
 public interface ClassifyDao {
-//    public List<String> findClassify();
-   public String findClassify();
+   public List<String> parentClassification();
 }

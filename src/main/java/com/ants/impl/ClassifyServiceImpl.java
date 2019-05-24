@@ -17,10 +17,7 @@ public class ClassifyServiceImpl implements ClassifyService {
     private ClassifyDao classifyDao;
 
     @Override
-//    public List<String> findClassify() {
-//        return classifyDao.findClassify();
-//    }
-    public String findClassify(){
-        return classifyDao.findClassify();
+    public List<String> parentClassification(){
+        return classifyDao.parentClassification();
     }
 }

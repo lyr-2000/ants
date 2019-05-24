@@ -9,6 +9,5 @@ import java.util.List;
  */
 @Service
 public interface ClassifyService {
-//    public List<String> findClassify();
-      public String findClassify();
+      public List<String> parentClassification();
 }
