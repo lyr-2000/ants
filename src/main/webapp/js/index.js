@@ -1,6 +1,8 @@
 let vm = new Vue({
     el: "#app",
     data: {
+        announceContent: '蚂蚁置物上线:一个专注于校园二手租赁，方便学生教师闲置物品出售购入平台',
+        announceTime: '2019-5-10',
         projectName: '蚂蚁置物',
         searchWord: '',
         showDetialedClassify: false,
