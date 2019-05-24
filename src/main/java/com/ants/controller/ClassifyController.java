@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author czd
@@ -28,10 +26,37 @@ public class ClassifyController {
     @RequestMapping(value = "/parentClassify",method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<String>> parentClassify(){
-        Map<String,List<String>> map = new HashMap<>();
-        List<String> classifyList = classifyService.parentClassification();
-        map.put("classification",classifyList);
-        return map;
+        Map<String,List<String>> parentMap = new HashMap<>();
+        List<String> parentClassification = classifyService.parentClassification();
+        parentMap.put("parentClassification",parentClassification);
+        return parentMap;
+    }
+
+    /**
+     * 首页的点击所有分类功能的数据
+     * @return
+     */
+    @RequestMapping(value = "/allClassify",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,List<String>> childClassify(){
+        Map allMap = new HashMap<>();
+        //存放小分类的数组的列表
+        List<List<String>> childList = new ArrayList<>();
+        //获取大分类的ID
+        List<Integer> parentClass = classifyService.parentClassId();
+        //获取所有的大分类的数据信息
+        List<String> parentClassification = classifyService.parentClassification();
+
+
+        for (Integer parentId : parentClass){
+            List<String> childClassification = classifyService.childClassification(parentId);
+            childList.add(childClassification);
+        }
+        allMap.put("parentClassification",parentClassification);
+        allMap.put("childClassification",childList);
+
+
+        return allMap;
     }
 
 }
