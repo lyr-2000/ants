@@ -14,6 +14,11 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentDao studentDao;
 
+    /**
+     * 添加新用户的接口实现方法
+     * @param student
+     * @return
+     */
     @Override
     public int add(Student student) {
         return studentDao.add(student);

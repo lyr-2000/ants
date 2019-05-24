@@ -1,5 +1,4 @@
 package com.ants.controller;
-
 import com.ants.service.ClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import java.util.Map;
 
 /**
  * @author czd
+ * 大分类、小分类的Controller
  */
 @Controller
 @RequestMapping(value = "/ants/class")
@@ -22,7 +22,7 @@ public class ClassifyController {
     private ClassifyService classifyService;
 
     /**
-     * 首页的商品大分类，导航栏的六个大分类那里
+     * 首页的商品大分类，导航栏的六个大分类
      * @return
      */
     @RequestMapping(value = "/parentClassify",method = RequestMethod.GET)

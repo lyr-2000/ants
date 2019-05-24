@@ -14,6 +14,7 @@ import java.util.Map;
 
 /**
  * @author czd
+ * 登录和注销功能的Controller
  */
 @Controller
 @RequestMapping(value = "/ants/user")
@@ -71,7 +72,7 @@ public class SystemController {
 
     @RequestMapping(value = "/testStudent",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,String> testStudent(){
+    public Map<String,String> addStudent(){
         Student student = new Student();
         student.setStudentId(1);
         student.setUserName("user");

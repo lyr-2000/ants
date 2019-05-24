@@ -9,5 +9,8 @@ import java.util.List;
  */
 @Repository
 public interface ClassifyDao {
+   /**
+    * 首页大分类的数据接口
+    */
    public List<String> parentClassification();
 }

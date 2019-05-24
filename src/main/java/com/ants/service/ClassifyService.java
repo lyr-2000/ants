@@ -9,5 +9,9 @@ import java.util.List;
  */
 @Service
 public interface ClassifyService {
+      /**
+       * 首页大分类的数据接口
+       * @return
+       */
       public List<String> parentClassification();
 }

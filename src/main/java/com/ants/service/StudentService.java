@@ -8,5 +8,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface StudentService {
+    /**
+     * 添加新用户的接口
+     * @param student
+     * @return
+     */
     public int add(Student student);
 }
