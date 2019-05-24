@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * ��֤��������
  * 
- * @author llq
+ * @author cb
  */
 public class CpachaUtil {
 	

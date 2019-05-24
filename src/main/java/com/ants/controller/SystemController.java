@@ -52,9 +52,9 @@ public class SystemController {
             return ants;
         }
         try{
-            System.out.println(student.getUNpD());
-            System.out.println(com.ants.util.RequestLogin.askForLogin(student.getUNpD())+"!!!");
-            if(com.ants.util.RequestLogin.askForLogin(student.getUNpD())!=302){
+            System.out.println(student.getUnpw());
+            System.out.println(com.ants.util.RequestLogin.askForLogin(student.getUnpw())+"!!!");
+            if(com.ants.util.RequestLogin.askForLogin(student.getUnpw())!=302){
                 ants.put("type","error");
                 ants.put("message","该用户不存在");
                 return ants;

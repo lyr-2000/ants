@@ -6,7 +6,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * @Author: http://www.baidu.com
+ * @Author: cb
  * @Date: 2019/5/22
  * @Description: com.ants.Util
  * @version: 1.0

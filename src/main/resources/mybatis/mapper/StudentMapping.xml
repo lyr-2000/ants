@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ants.dao.StudentDao">
     <!-- 插入操作 -->
-    <insert id="add" parameterType="Student">
+    <insert id="add" parameterType="com.ants.entity.Student">
 		insert into ants_user_base (studentId,userName,userSex,
 		                            passWord,mobilePhone,userWechat,
 		                            userQQ,registTime,hidden)
 		                            values(#{studentId},#{userName},#{userSex},
-		                                     #{passWord},#{mobilePhone},#{userWechat},
-		                                     #{userQQ},#{registTime},#{hidden})
+		                                   #{passWord},#{mobilePhone},#{userWechat},
+		                                   #{userQQ},#{registTime},#{hidden})
 	</insert>
 
 </mapper>

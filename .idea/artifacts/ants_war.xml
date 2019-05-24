@@ -1,7 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="war" name="ants:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/ants_war</output-path>
-    <root id="archive" name="ants_war.war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ants</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ants.war">
       <element id="artifact" artifact-name="ants:war exploded" />
     </root>
   </artifact>

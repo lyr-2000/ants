@@ -16,7 +16,7 @@ public class Student {
         private String userName;
         private int userSex; //0:男   1：女
         private String passWord;
-        private String UNpD ;//存放的是一起加密过后的密码
+        private String unpw ;//存放的是一起加密过后的密码
         private String mobilePhone;
         private String userWechat;
         private String userQQ;
