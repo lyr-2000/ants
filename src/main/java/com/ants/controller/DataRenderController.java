@@ -1,6 +1,9 @@
 package com.ants.controller;
 
+import com.ants.entity.Announcement;
 import com.ants.entity.Goods;
+import com.ants.entity.ParentClass;
+import com.ants.service.AnnouncementService;
 import com.ants.service.ClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,9 @@ public class DataRenderController {
     @Autowired
     private ClassifyService classifyService;
 
+    @Autowired
+    private AnnouncementService announcementService;
+
     /**
      * 首页的数据渲染
      *
@@ -35,8 +41,12 @@ public class DataRenderController {
         Map dataMap = new HashMap();
 
         //首页大分类的数据信息存放的列表
-        List<String> parentClassification = classifyService.parentClassification();
+        List<ParentClass> parentClassification = classifyService.parentClassification();
         dataMap.put("parentClassification", parentClassification);
+
+        //最新的公告的数据渲染
+        Announcement announcement = announcementService.latestAnnouncement();
+        dataMap.put("announcement",announcement);
 
         //猜你喜欢商品信息存放列表
         List<Goods> guessLikeList = new ArrayList<>();
@@ -57,8 +67,8 @@ public class DataRenderController {
             latestList.add(goods);
         }
         dataMap.put("guessLike", guessLikeList);
-        dataMap.put("hottest",hottestList);
-        dataMap.put("latest",latestList);
+        dataMap.put("hottest", hottestList);
+        dataMap.put("latest", latestList);
         return dataMap;
     }
 }

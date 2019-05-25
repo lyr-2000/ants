@@ -1,5 +1,6 @@
 package com.ants.controller;
 
+import com.ants.entity.ParentClass;
 import com.ants.service.ClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,7 @@ public class ClassifyController {
         //获取大分类的ID
         List<Integer> parentClass = classifyService.parentClassId();
         //获取所有的大分类的数据信息
-        List<String> parentClassification = classifyService.parentClassification();
+        List<ParentClass> parentClassification = classifyService.parentClassification();
 
         //根据大分类的ID获取对应的小分类的数据信息列表
         for (Integer parentId : parentClass) {

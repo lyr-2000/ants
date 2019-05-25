@@ -1,4 +1,5 @@
 package com.ants.impl;
+
 import com.ants.dao.StudentDao;
 import com.ants.entity.Student;
 import com.ants.service.StudentService;
@@ -16,6 +17,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 添加新用户的接口实现方法
+     *
      * @param student
      * @return
      */

@@ -1,11 +1,13 @@
 package com.ants.entity;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * @author czd
  * 对应着ants_goods_base这张数据库表
  */
+@Component
 @Data
 public class Goods {
     private int goodsId;
