@@ -10,10 +10,10 @@ let vm = new Vue({
     },
     methods: {
         login: function() { // 发起登录请求
-            axios.post('url', {
+            let encodeData = this.submitForm1();
+            axios.post('/url', {
                 school: this.school,
-                sNo: this.sNo,
-                password: this.password
+                encodeData: encodeData
             }).then((res) => {
 
             }).catch((err) => {
@@ -36,7 +36,27 @@ let vm = new Vue({
             let clientX1 = parseInt(clientX) - this.meteorMoveLength + 'px';
             let clientY2 = parseInt(clientY) + this.meteorMoveLength + 'px';
             Velocity(el, { left: clientX, top: clientY, opacity: 1 }, { duration: 1000, complete: function() { Velocity(el, { left: clientX1, top: clientY2, opacity: 0 }, { duration: 400 }); } });
-
+        },
+        submitForm1: function() {
+            try {
+                let xh = this.sNo;
+                let pwd = this.password;
+                if (xh == "") {
+                    alert("用户名不能为空！");
+                    return false;
+                }
+                if (pwd == "") {
+                    alert("密码不能为空！");
+                    return false;
+                }
+                let account = encodeInp(xh);
+                let passwd = encodeInp(pwd);
+                let encoded = account + "%%%" + passwd;
+                return encoded;
+            } catch (e) {
+                alert(e.Message);
+                return false;
+            }
         }
     },
     components: {

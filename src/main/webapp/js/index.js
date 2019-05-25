@@ -13,23 +13,23 @@ let vm = new Vue({
             'new': false
         },
         wholeClassify: [{
-            src: 'img/index/shuji.png',
-            name: '书籍'
+            parentPicture: 'img/index/shuji.png',
+            parnentName: '书籍'
         }, {
-            src: 'img/index/wenju.png',
-            name: '文具'
+            parentPicture: 'img/index/wenju.png',
+            parnentName: '文具'
         }, {
-            src: 'img/index/riyong.png',
-            name: '日用'
+            parentPicture: 'img/index/riyong.png',
+            parnentName: '日用'
         }, {
-            src: 'img/index/huazhuang.png',
-            name: '美妆'
+            parentPicture: 'img/index/huazhuang.png',
+            parnentName: '美妆'
         }, {
-            src: 'img/index/lingshi.png',
-            name: '食品'
+            parentPicture: 'img/index/lingshi.png',
+            parnentName: '食品'
         }, {
-            src: 'img/index/dianqi.png',
-            name: '电器'
+            parentPicture: 'img/index/dianqi.png',
+            parnentName: '电器'
         }],
         detailedClassify: [
             ["英语四六级", "证从", "银从", "会计", "教师资格证", "计算机二级", "其他"],  
@@ -40,95 +40,95 @@ let vm = new Vue({
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
         perfectGoods: [{
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }],
         showHot: true,
         hotGoods: [{
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, ],
         newGoods: [{
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, ]
     },
