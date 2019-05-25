@@ -12,8 +12,8 @@ import java.net.URLEncoder;
  * @version: 1.0
  */
 public class RequestLogin {
-    public static int askForLogin( String param) throws IOException {
-        String all = "encoded="+URLEncoder.encode(param);
+    public static int askForLogin(String param) throws IOException {
+        String all = "encoded=" + URLEncoder.encode(param);
         PrintWriter out = null;
         BufferedReader in = null;
         HttpURLConnection conn = null;
@@ -63,7 +63,7 @@ public class RequestLogin {
         }
         // 使用finally块来关闭输出流、输入流
         finally {
-                    out.close();
+            out.close();
 //                    in.close();
         }
         return conn.getResponseCode();

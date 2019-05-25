@@ -114,7 +114,7 @@ public class SlideCode {
             param.setSourceRegion(rect);
             bufferedImage = render.read(0, param);
         } finally {
-            if(in != null) {
+            if (in != null) {
                 in.close();
             }
         }
@@ -136,13 +136,14 @@ public class SlideCode {
 
     /**
      * 添加水印
+     *
      * @param file
      * @param smallImage
      */
     private BufferedImage addWatermark(File file, BufferedImage smallImage, float alpha) throws IOException {
         BufferedImage source = ImageIO.read(file);
         Graphics2D graphics2D = source.createGraphics();
-        graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,alpha));
+        graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
         graphics2D.drawImage(smallImage, location_x, location_y, null);
         graphics2D.dispose(); //释放
         return source;
@@ -213,13 +214,13 @@ public class SlideCode {
             }
         }
         //生成随机区域值， （10-20）之间
-        int position1 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2)/2;
+        int position1 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2) / 2;
         Shape shape1 = createShape(face1, 0, position1);
         Shape bigshape1 = createShape(face1, 2, position1);
 
         //生成中间正方体Shape, (具体边界+弧半径 = x坐标位)
         Shape centre = new Rectangle2D.Float(arc, arc, tailoring_w - 2 * 10, tailoring_h - 2 * 10);
-        int position2 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2)/2;
+        int position2 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2) / 2;
         Shape shape2 = createShape(face2, 0, position2);
 
         //因为后边图形需要生成阴影， 所以生成的小图shape + 阴影宽度 = 灰度化的背景小图shape（即大图上的凹槽）
@@ -257,6 +258,7 @@ public class SlideCode {
 
     /**
      * 处理阴影
+     *
      * @param g2
      * @param shadowWidth
      * @param clipShape
@@ -283,6 +285,7 @@ public class SlideCode {
 
     /**
      * 处理边缘亮色
+     *
      * @param g2
      * @param glowWidth
      * @param clipShape

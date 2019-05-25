@@ -1,4 +1,5 @@
 package com.ants.controller;
+
 import com.alibaba.fastjson.JSON;
 import com.ants.entity.Student;
 import com.ants.service.StudentService;
@@ -29,71 +30,71 @@ import java.util.Map;
 public class SystemController {
 
 
-    @RequestMapping(value = "/login",method=RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String ,String> studentsLogin(Student student, String cpacha, HttpServletRequest request){
-        Map<String ,String> ants = new HashMap<String,String>();
-        if(student ==null){
-            ants.put("type","false");
-            ants.put("message","请填写用户名");
+    public Map<String, String> studentsLogin(Student student, String cpacha, HttpServletRequest request) {
+        Map<String, String> ants = new HashMap<String, String>();
+        if (student == null) {
+            ants.put("type", "false");
+            ants.put("message", "请填写用户名");
             return ants;
         }
-        if(StringUtils.isEmpty(cpacha)){
+        if (StringUtils.isEmpty(cpacha)) {
             ants.put("type", "false");
             ants.put("message", "请填写验证码！");
             return ants;
         }
-        if(StringUtils.isEmpty(student.getStudentId())){
+        if (StringUtils.isEmpty(student.getStudentId())) {
             ants.put("type", "error");
             ants.put("message", "请填写学号！");
             return ants;
         }
-        if(StringUtils.isEmpty(student.getPassWord())){
+        if (StringUtils.isEmpty(student.getPassWord())) {
             ants.put("type", "error");
             ants.put("message", "请填写密码！");
             return ants;
         }
 //        Object loginCpacha = request.getSession().getAttribute("loginCpacha");
         Object loginCpacha = "1234";
-        if(loginCpacha == null){
+        if (loginCpacha == null) {
             ants.put("type", "error");
             ants.put("message", "未获取到验证码，请重新刷新下界面");
             return ants;
         }
-        try{
-            if(com.ants.util.RequestLogin.askForLogin(student.getUnpw())!=302){
-                ants.put("type","error");
-                ants.put("message","该用户不存在");
+        try {
+            if (com.ants.util.RequestLogin.askForLogin(student.getUnpw()) != 302) {
+                ants.put("type", "error");
+                ants.put("message", "该用户不存在");
                 return ants;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        request.getSession().setAttribute("userId",student.getStudentId());
+        request.getSession().setAttribute("userId", student.getStudentId());
         return ants;//登录成功
     }
 
     /*
     登录获取首页的验证码
      */
-    @RequestMapping(value="/SlideCode",method = RequestMethod.POST)
+    @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
     @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response){
+    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) {
         String imgname = request.getParameter("imgname");
-        if(!StringUtils.isEmpty(imgname)){
-            imgname =imgname.substring(imgname.lastIndexOf("/")+1, imgname.lastIndexOf("png")+3);
+        if (!StringUtils.isEmpty(imgname)) {
+            imgname = imgname.substring(imgname.lastIndexOf("/") + 1, imgname.lastIndexOf("png") + 3);
         }
         PrintWriter out = null;
-        try{
+        try {
             SlideCode resourceImg = new SlideCode();
-            Map<String,String> result = resourceImg.create(request,imgname);
+            Map<String, String> result = resourceImg.create(request, imgname);
             out = response.getWriter();
             response.setContentType("application/json-rpc;charset=UTF-8");
             out.println(JSON.toJSONString(result));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if(out != null) {
+        } finally {
+            if (out != null) {
                 out.close();
             }
         }
@@ -103,10 +104,10 @@ public class SystemController {
     /*
       判断验证码是否正确
      */
-    @RequestMapping(value="/JudgeCode",method = RequestMethod.POST)
+    @RequestMapping(value = "/JudgeCode", method = RequestMethod.POST)
     @ResponseBody
-    protected void JudgeCode(HttpServletRequest request, HttpServletResponse response){
-        String point =request.getParameter("point");
+    protected void JudgeCode(HttpServletRequest request, HttpServletResponse response) {
+        String point = request.getParameter("point");
         Integer location_x = (Integer) request.getSession().getAttribute("location_x");
         if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
             //说明验证通过，
@@ -122,9 +123,9 @@ public class SystemController {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping(value = "/testStudent",method = RequestMethod.GET)
+    @RequestMapping(value = "/testStudent", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,String> addStudent(){
+    public Map<String, String> addStudent() {
         Student student = new Student();
         student.setStudentId(1);
         student.setUserName("user");
@@ -137,8 +138,8 @@ public class SystemController {
         student.setHidden(0);
         int result = studentService.add(student);
         System.out.println("result: " + result);
-        Map<String,String> map = new HashMap<>();
-        map.put("1","hello");
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "hello");
         return map;
     }
 

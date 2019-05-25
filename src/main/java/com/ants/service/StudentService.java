@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public interface StudentService {
     /**
      * 添加新用户的接口
+     *
      * @param student
      * @return
      */

@@ -12,7 +12,7 @@ import java.net.URLEncoder;
  * @version: 1.0
  */
 public class TryingToLogin {
-    public static int sendPost( String param) throws IOException {
+    public static int sendPost(String param) throws IOException {
         //存防cookies的值
         String cookieVal;
         PrintWriter out = null;
@@ -66,10 +66,10 @@ public class TryingToLogin {
             课表的界面
              */
             String s = "http://jwxt.gduf.edu.cn/jsxsd/xskb/xskb_list.do";
-            URL url  = new URL(s);
+            URL url = new URL(s);
             HttpURLConnection resumeConnection = (HttpURLConnection) url.openConnection();
-            if(cookieVal!=null){
-                resumeConnection.setRequestProperty("Cookie",cookieVal);
+            if (cookieVal != null) {
+                resumeConnection.setRequestProperty("Cookie", cookieVal);
             }
             resumeConnection.connect();
             InputStream urlStream = resumeConnection.getInputStream();
@@ -79,9 +79,9 @@ public class TryingToLogin {
             //存放文件到D盘下面的目录里
             File dest = new File("D:/学校.html");
             FileOutputStream fileOutputStream = new FileOutputStream(dest);
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream,"gb2312");
-            while((ss = bufferedReader.readLine()) != null){
-                total +=ss;
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, "gb2312");
+            while ((ss = bufferedReader.readLine()) != null) {
+                total += ss;
                 outputStreamWriter.write(ss);
             }
 
@@ -106,9 +106,10 @@ public class TryingToLogin {
         }
         return conn.getResponseCode();
     }
+
     public static void main(String[] args) throws IOException {
-        System.out.println("encoded="+URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI="));
-        int str = sendPost("encoded="+URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI=") );
+        System.out.println("encoded=" + URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI="));
+        int str = sendPost("encoded=" + URLEncoder.encode("MTcxNTQzMTM3%%%em16ejA1MjI="));
 //           String str = sendPost("https://www.baidu.com","encoded=MTcxNTQzMTM3%%%em16ejA1MjI=" );
         System.out.println(str);
     }

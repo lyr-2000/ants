@@ -1,6 +1,7 @@
 package com.ants.impl;
 
 import com.ants.dao.ClassifyDao;
+import com.ants.entity.ParentClass;
 import com.ants.service.ClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,15 +20,17 @@ public class ClassifyServiceImpl implements ClassifyService {
 
     /**
      * 首页大分类的数据接口实现方法
+     *
      * @return
      */
     @Override
-    public List<String> parentClassification(){
+    public List<ParentClass> parentClassification() {
         return classifyDao.parentClassification();
     }
 
     /**
      * 首页小分类的数据接口实现方法
+     *
      * @param parentClass
      * @return
      */
@@ -38,6 +41,7 @@ public class ClassifyServiceImpl implements ClassifyService {
 
     /**
      * 获取大分类的ID的接口实现方法
+     *
      * @return
      */
     @Override
