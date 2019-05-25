@@ -133,6 +133,24 @@ let vm = new Vue({
         }, ]
     },
     methods: {
+        //进入页面时发起请求
+        initRequest() {
+            axios.post('/http://localhost:9090/ants/dataRendering/homePage', "")
+                .then(res => {
+                    console.log(res);
+                    this.wholeClassify = res.parentClassification;
+                    this.perfectGoods = res.guessLike;
+                    this.hotGoods = res.hottest;
+                    this.newGoods = res.latest;
+                })
+        },
+        concreteRequest() {
+            axios.post('http://localhost:9090/ants/class/allClassify', '')
+                .then(res => {
+                    console.log(res);
+                    this.detailedClassify = res.childClassification;
+                })
+        },
         turnLeft: function(type) {
             if (type === 'perfect') {
                 this.moveFlag.perfect = false;
@@ -167,7 +185,13 @@ let vm = new Vue({
 
         },
         showDetailed: function() {
+            // 当没有该数据时请求该数据
+            if (this.detailedClassify == [])
+                this.concreteRequest();
             this.showDetialedClassify = !this.showDetialedClassify;
         }
+    },
+    created: function() {
+        // this.initRequest();
     }
 })
