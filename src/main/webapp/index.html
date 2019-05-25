@@ -53,12 +53,13 @@
                         <span @click="showDetailed">所有分类</span>
                         <ul v-if="!showDetialedClassify">
                             <li v-for="classify in wholeClassify">
-                                <img :src='[classify.src]'> {{classify.name}}
+                                <img :src='[classify.parentPicture]'>
+                                <span>{{classify.parnentName}}</span>
                             </li>
                         </ul>
                         <div class="detailedContent" v-if="showDetialedClassify">
                             <div v-for="(classify,index) in wholeClassify">
-                                <h4>{{classify.name}}</h4>
+                                <h4>{{classify.goodsName}}</h4>
                                 <a href="" v-for="detailed in detailedClassify[index]">{{detailed}}</a>
                             </div>
                         </div>
@@ -86,8 +87,8 @@
                     <img src="img/index/tongzhi.png">
                     <p>
                         <strong>公告</strong>
-                        <a href="#" class="announceContent">{{announceContent}}</a>
-                        <span class="announceTime">{{announceTime}}</span>
+                        <a :href="[`announce.html?id=${announcement.annId}`]" class="announceContent">{{announcement.annTitle}}</a>
+                        <span class="announceTime">{{announcement.annTime}}</span>
                     </p>
                     <a href="#" class="moreAnnounce">更多</a>
                 </div>
@@ -100,10 +101,10 @@
                     <div class="goodsList">
                         <div :class="['concreteContent',moveFlag.perfect?'moveL':'moveR']" v-for="content in perfectGoods">
                             <a href="#">
-                                <img :src="[content.img]">
+                                <img :src="[content.goodsPicture]">
                             </a>
-                            <p v-cloak>{{content.name}}</p>
-                            <p v-cloak>￥{{content.price}}元</p>
+                            <p v-cloak>{{content.goodsName}}</p>
+                            <p v-cloak>￥{{content.goodsPrice}}元</p>
                         </div>
                     </div>
                     <span class="rightHandle" @click="turnRight('perfect')">></span>
@@ -125,24 +126,24 @@
                             <span>最新闲置</span>
                         </div>
                         <em :class="[showHot?'borderHot':'borderNew']"></em>
-                        <a class="more" href="#">更多</a>
+                        <a class="more" href="#">更多></a>
                     </div>
                     <span class="leftHandle" @click="turnLeft('special')"><</span>
                     <div class="goodsList">
                         <div :class="['concreteContent',moveFlag.hot?'moveL':'moveR']" v-if="showHot" v-for="content in hotGoods">
                             <a href="#">
-                                <img :src="[content.src]">
+                                <img :src="[content.goodsPicture]">
                             </a>
-                            <p v-cloak>{{content.name}}</p>
-                            <p v-cloak class="specialPrice">{{content.price}}</p>
+                            <p v-cloak>{{content.goodsName}}</p>
+                            <p v-cloak class="specialPrice">{{content.goodsPrice}}</p>
                             <p v-cloak>收藏人数：{{content.starNum}}人</p>
                         </div>
                         <div :class="['concreteContent',moveFlag.new?'moveL':'moveR']" v-if="!showHot" v-for="content in newGoods">
                             <a href="#">
-                                <img :src="[content.src]">
+                                <img :src="[content.goodsPicture]">
                             </a>
-                            <p v-cloak>{{content.name}}</p>
-                            <p v-cloak class="specialPrice">￥{{content.price}}元</p>
+                            <p v-cloak>{{content.goodsName}}</p>
+                            <p v-cloak class="specialPrice">￥{{content.goodsPrice}}元</p>
                             <p v-cloak>上传时间：{{content.uploadTime}}</p>
                         </div>
                     </div>

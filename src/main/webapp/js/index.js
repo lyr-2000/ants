@@ -1,8 +1,11 @@
 let vm = new Vue({
     el: "#app",
     data: {
-        announceContent: '蚂蚁置物上线:一个专注于校园二手租赁，方便学生教师闲置物品出售购入平台',
-        announceTime: '2019-5-10',
+        announcement: {
+            annTitle: '蚂蚁置物上线:一个专注于校园二手租赁，方便学生教师闲置物品出售购入平台',
+            annTime: '2019-5-10',
+            annId: '',
+        },
         projectName: '蚂蚁置物',
         searchWord: '',
         showDetialedClassify: false,
@@ -12,23 +15,23 @@ let vm = new Vue({
             'new': false
         },
         wholeClassify: [{
-            src: 'img/index/shuji.png',
-            name: '书籍'
+            parentPicture: 'img/index/shuji.png',
+            parnentName: '书籍'
         }, {
-            src: 'img/index/wenju.png',
-            name: '文具'
+            parentPicture: 'img/index/wenju.png',
+            parnentName: '文具'
         }, {
-            src: 'img/index/riyong.png',
-            name: '日用'
+            parentPicture: 'img/index/riyong.png',
+            parnentName: '日用'
         }, {
-            src: 'img/index/huazhuang.png',
-            name: '美妆'
+            parentPicture: 'img/index/huazhuang.png',
+            parnentName: '美妆'
         }, {
-            src: 'img/index/lingshi.png',
-            name: '食品'
+            parentPicture: 'img/index/lingshi.png',
+            parnentName: '食品'
         }, {
-            src: 'img/index/dianqi.png',
-            name: '电器'
+            parentPicture: 'img/index/dianqi.png',
+            parnentName: '电器'
         }],
         detailedClassify: [
             ["英语四六级", "证从", "银从", "会计", "教师资格证", "计算机二级", "其他"],  
@@ -39,99 +42,118 @@ let vm = new Vue({
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
         perfectGoods: [{
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }, {
-            img: 'img/index/lingshi.png',
-            name: '商品名',
-            price: '价格'
+            goodsPicture: 'img/index/lingshi.png',
+            goodsName: '商品名',
+            goodsPrice: '价格'
         }],
         showHot: true,
         hotGoods: [{
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             starNum: ''
         }, ],
         newGoods: [{
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, {
-            src: '',
-            name: '',
-            price: '',
+            goodsPicture: '',
+            goodsName: '',
+            goodsPrice: '',
             uploadTime: ''
         }, ]
     },
     methods: {
+        //进入页面时发起请求
+        initRequest() {
+            axios.post('/http://localhost:9090/ants/dataRendering/homePage', "")
+                .then(res => {
+                    console.log(res);
+                    this.wholeClassify = res.parentClassification;
+                    this.perfectGoods = res.guessLike;
+                    this.hotGoods = res.hottest;
+                    this.newGoods = res.latest;
+
+                })
+        },
+        concreteRequest() {
+            axios.post('http://localhost:9090/ants/class/allClassify', '')
+                .then(res => {
+                    console.log(res);
+                    this.detailedClassify = res.childClassification;
+                })
+        },
         turnLeft: function(type) {
             if (type === 'perfect') {
                 this.moveFlag.perfect = false;
@@ -166,7 +188,13 @@ let vm = new Vue({
 
         },
         showDetailed: function() {
+            // 当没有该数据时请求该数据
+            if (this.detailedClassify == [])
+                this.concreteRequest();
             this.showDetialedClassify = !this.showDetialedClassify;
         }
+    },
+    created: function() {
+        // this.initRequest();
     }
 })
