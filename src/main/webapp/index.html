@@ -87,8 +87,8 @@
                     <img src="img/index/tongzhi.png">
                     <p>
                         <strong>公告</strong>
-                        <a href="#" class="announceContent">{{announceContent}}</a>
-                        <span class="announceTime">{{announceTime}}</span>
+                        <a :href="[`announce.html?id=${announcement.annId}`]" class="announceContent">{{announcement.annTitle}}</a>
+                        <span class="announceTime">{{announcement.annTime}}</span>
                     </p>
                     <a href="#" class="moreAnnounce">更多</a>
                 </div>
