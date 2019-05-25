@@ -53,7 +53,8 @@
                         <span @click="showDetailed">所有分类</span>
                         <ul v-if="!showDetialedClassify">
                             <li v-for="classify in wholeClassify">
-                                <img :src='[classify.src]'> {{classify.name}}
+                                <img :src='[classify.src]'>
+                                <span>{{classify.name}}</span>
                             </li>
                         </ul>
                         <div class="detailedContent" v-if="showDetialedClassify">
@@ -125,7 +126,7 @@
                             <span>最新闲置</span>
                         </div>
                         <em :class="[showHot?'borderHot':'borderNew']"></em>
-                        <a class="more" href="#">更多</a>
+                        <a class="more" href="#">更多></a>
                     </div>
                     <span class="leftHandle" @click="turnLeft('special')"><</span>
                     <div class="goodsList">

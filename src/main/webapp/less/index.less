@@ -227,6 +227,7 @@ main{
     width: 1100px;
     .announce{
         position: relative;
+        margin-top: 70px;
         border-bottom: 1px solid rgba(121,121,121,.6);
         color: @fontColor;
         >img{
@@ -285,18 +286,19 @@ main{
 
     
     .goodsList{
+        @contentHeight:250px;
         position: relative;
         margin: 0px 60px;
         width: 980px;
-        height: 305px;
+        height: @contentHeight+5px;
         overflow: hidden;
         white-space: nowrap;
         //每个具体块的布局
         .concreteContent{
             display: inline-block;
-            width: 20%;
-            height: 300px;
-            margin: 0px 20px 0px 20px;
+            width: 17%;
+            height: @contentHeight;
+            margin: 0px 13px 0px 13px;
             border:2px solid rgba(102,102,102,.7);
             text-align: center;
             img{
@@ -304,7 +306,8 @@ main{
                 height: 80%;
             }
             p{
-                margin: 4px 0px;
+                margin: 3px 0px;
+                transform: translateY(-6px);
             }
             &:hover{
                 border: 2px solid @perfectColor;
@@ -381,7 +384,7 @@ main{
                 }
             .more{
                 float: right;
-                padding: 4px;
+                padding: 4px 6px;
                 background-color: @toppicColor;
                 color: #fff;
             }
