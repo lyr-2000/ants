@@ -1,14 +1,22 @@
 package com.ants.controller;
+import com.alibaba.fastjson.JSON;
 import com.ants.entity.Student;
 import com.ants.service.StudentService;
+import com.ants.util.SlideCode;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialStruct;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +43,9 @@ public class SystemController {
             ants.put("message", "请填写验证码！");
             return ants;
         }
-        if(StringUtils.isEmpty(student.getUserName())){
+        if(StringUtils.isEmpty(student.getStudentId())){
             ants.put("type", "error");
-            ants.put("message", "请填写用户名！");
+            ants.put("message", "请填写学号！");
             return ants;
         }
         if(StringUtils.isEmpty(student.getPassWord())){
@@ -53,8 +61,6 @@ public class SystemController {
             return ants;
         }
         try{
-            System.out.println(student.getUnpw());
-            System.out.println(com.ants.util.RequestLogin.askForLogin(student.getUnpw())+"!!!");
             if(com.ants.util.RequestLogin.askForLogin(student.getUnpw())!=302){
                 ants.put("type","error");
                 ants.put("message","该用户不存在");
@@ -63,9 +69,55 @@ public class SystemController {
         }catch (Exception e){
             e.printStackTrace();
         }
-
+        request.getSession().setAttribute("userId",student.getStudentId());
         return ants;//登录成功
     }
+
+    /*
+    登录获取首页的验证码
+     */
+    @RequestMapping(value="/SlideCode",method = RequestMethod.POST)
+    @ResponseBody
+    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response){
+        String imgname = request.getParameter("imgname");
+        if(!StringUtils.isEmpty(imgname)){
+            imgname =imgname.substring(imgname.lastIndexOf("/")+1, imgname.lastIndexOf("png")+3);
+        }
+        PrintWriter out = null;
+        try{
+            SlideCode resourceImg = new SlideCode();
+            Map<String,String> result = resourceImg.create(request,imgname);
+            out = response.getWriter();
+            response.setContentType("application/json-rpc;charset=UTF-8");
+            out.println(JSON.toJSONString(result));
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if(out != null) {
+                out.close();
+            }
+        }
+    }
+
+
+    /*
+      判断验证码是否正确
+     */
+    @RequestMapping(value="/JudgeCode",method = RequestMethod.POST)
+    @ResponseBody
+    protected void JudgeCode(HttpServletRequest request, HttpServletResponse response){
+        String point =request.getParameter("point");
+        Integer location_x = (Integer) request.getSession().getAttribute("location_x");
+        if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
+            //说明验证通过，
+//            outData(response, "success");
+            System.out.println("验证通过");
+        } else {
+//            outData(response, "error");
+            System.out.println("验证失败");
+        }
+    }
+
 
     @Autowired
     private StudentService studentService;
