@@ -62,10 +62,18 @@ public class SystemController {
             return ants;
         }
         try {
-            if (com.ants.util.RequestLogin.askForLogin(student.getUnpw()) != 302) {
+            Map map = com.ants.util.TryingToLogin.sendPost(student.getUnpw(),student.getStudentId()+"");
+            String statusCode = map.get("statusCode").toString();
+            String studentName = map.get("studentName").toString();
+            System.out.println("名字是:"+studentName);
+            System.out.println("状态码是:"+statusCode);
+            if (!"302".equals(statusCode)) {
+                System.out.println("你输入的错误哦");
                 ants.put("type", "error");
                 ants.put("message", "该用户不存在");
                 return ants;
+            }else{
+                System.out.println("你输入的正确");
             }
         } catch (Exception e) {
             e.printStackTrace();
