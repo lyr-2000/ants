@@ -40,23 +40,23 @@ public class SlideController extends HttpServlet {
     @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
     @ResponseBody
     protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) {
-        String imgname = request.getParameter("imgname");
+        String imgName = request.getParameter("imgName");
         /*
         如果前端给的图片名字为空字符串进行随机取样
          */
-        if("".equals(imgname)){
+        if("".equals(imgName)){
             File file = new File("/resourceImg");
             String[] list = file.list();
             String filename;
             //获取随机图片， 每次获取到的图片与已有的图片要不同。
             int randowval = RandomUtils.nextInt(list.length);
             filename = list[randowval];
-            imgname = filename;
+            imgName = filename;
         }
         PrintWriter out = null;
         try {
             SlideCode resourceImg = new SlideCode();
-            Map<String, String> result = resourceImg.create(request, imgname);
+            Map<String, String> result = resourceImg.create(request, imgName);
             out = response.getWriter();
             response.setContentType("application/json-rpc;charset=UTF-8");
             out.println(JSON.toJSONString(result));
