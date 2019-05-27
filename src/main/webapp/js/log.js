@@ -1,6 +1,7 @@
 let vm = new Vue({
     el: "#app",
     data: {
+        showCode: false, // 是否显示验证码
         imgSource: "",
         sourceImgName: "",
         bigImgName: "",
@@ -14,13 +15,20 @@ let vm = new Vue({
         password: "",
         meteorMoveLength: 200,
         meteorShow: false, // 表示流星的显示
+        dragStart: "",
     },
     methods: {
-        dragDown: function() {
-
+        dragDown: function(e) {
+            this.dragStart = true;
+            let start = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft;
+            this.dragStart = start;
+        },
+        dragMove: function(e) {
+            this.location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
         },
         dragUp: function() {
-
+            this.dragStart = false;
+            this.dragUpRequest();
         },
         picCodeRequest: function() {
             axios.post('/ants/code/SlideCode', {
@@ -40,6 +48,8 @@ let vm = new Vue({
             }).then((res) => {
                 if (res == 'success') {
                     this.loginRequest();
+                } else {
+                    alert('验证失败');
                 }
             }).catch(err => {})
         },

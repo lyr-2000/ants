@@ -86,11 +86,14 @@
                 </p>
             </div>
 
-            <div class="picCode">
+            <div class="picCode" wx:if="showCode">
                 <div class="picContainer">
                     <img v-if="!dragStart" :src="[imgSource+''+sourceImgName]">
                     <img v-if="dragStart" :src="[imgSource+''+bigImgName]">
                     <img :src="[imgSource+''+smallImgName]">
+                </div>
+                <div ref="slideCon" class="slideContainer">
+                    <div ref="slideHan" class="slideHandle" :style="[`left:${location_x+start}px`]"></div>
                 </div>
             </div>
 
