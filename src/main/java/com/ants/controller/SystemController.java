@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialStruct;
@@ -27,7 +28,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/user")
-public class SystemController {
+public class SystemController  {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -62,17 +63,17 @@ public class SystemController {
             return ants;
         }
         try {
-            Map map = com.ants.util.TryingToLogin.sendPost(student.getUnpw(),student.getStudentId()+"");
+            Map map = com.ants.util.TryingToLogin.sendPost(student.getUnpw(), student.getStudentId() + "");
             String statusCode = map.get("statusCode").toString();
             String studentName = map.get("studentName").toString();
-            System.out.println("名字是:"+studentName);
-            System.out.println("状态码是:"+statusCode);
+            System.out.println("名字是:" + studentName);
+            System.out.println("状态码是:" + statusCode);
             if (!"302".equals(statusCode)) {
                 System.out.println("你输入的错误哦");
                 ants.put("type", "error");
                 ants.put("message", "该用户不存在");
                 return ants;
-            }else{
+            } else {
                 System.out.println("你输入的正确");
             }
         } catch (Exception e) {
@@ -82,86 +83,45 @@ public class SystemController {
         return ants;//登录成功
     }
 
-    /*
-    登录获取首页的验证码
-     */
-    @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
-    @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) {
-        String imgname = request.getParameter("imgname");
-        if (!StringUtils.isEmpty(imgname)) {
-            imgname = imgname.substring(imgname.lastIndexOf("/") + 1, imgname.lastIndexOf("png") + 3);
-        }
-        PrintWriter out = null;
-        try {
-            SlideCode resourceImg = new SlideCode();
-            Map<String, String> result = resourceImg.create(request, imgname);
-            out = response.getWriter();
-            response.setContentType("application/json-rpc;charset=UTF-8");
-            out.println(JSON.toJSONString(result));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
-    }
 
 
-    /*
-      判断验证码是否正确
-     */
-    @RequestMapping(value = "/JudgeCode", method = RequestMethod.POST)
-    @ResponseBody
-    protected void JudgeCode(HttpServletRequest request, HttpServletResponse response) {
-        String point = request.getParameter("point");
-        Integer location_x = (Integer) request.getSession().getAttribute("location_x");
-        if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
-            //说明验证通过，
-//            outData(response, "success");
-            System.out.println("验证通过");
-        } else {
-//            outData(response, "error");
-            System.out.println("验证失败");
-        }
-    }
+
+
 
     @RequestMapping(value = "/testStudent", method = RequestMethod.GET)
     @ResponseBody
-    public void doToken(HttpServletRequest request,HttpServletResponse response){
+    public void doToken(HttpServletRequest request, HttpServletResponse response) {
         boolean b = isRepeatSubmit(request);//判断用户是否是重复提交
-                     if(b==true){
-                             System.out.println("请不要重复提交");
-                             return;
-                         }
-                     request.getSession().removeAttribute("token");//移除session中的token
-                     System.out.println("处理用户提交请求！！");
+        if (b == true) {
+            System.out.println("请不要重复提交");
+            return;
+        }
+        request.getSession().removeAttribute("token");//移除session中的token
+        System.out.println("处理用户提交请求！！");
     }
 
     /*
     判断有没有重复提交表单
      */
     private boolean isRepeatSubmit(HttpServletRequest request) {
-                     String client_token = request.getParameter("token");
-                     //1、如果用户提交的表单数据中没有token，则用户是重复提交了表单
-                    if(client_token==null){
-                             return true;
-                         }
-                     //取出存储在Session中的token
-                     String server_token = (String) request.getSession().getAttribute("token");
-                     //2、如果当前用户的Session中不存在Token(令牌)，则用户是重复提交了表单
-                     if(server_token==null){
-                             return true;
-                         }
-                     //3、存储在Session中的Token(令牌)与表单提交的Token(令牌)不同，则用户是重复提交了表单
-                     if(!client_token.equals(server_token)){
-                             return true;
-                         }
+        String client_token = request.getParameter("token");
+        //1、如果用户提交的表单数据中没有token，则用户是重复提交了表单
+        if (client_token == null) {
+            return true;
+        }
+        //取出存储在Session中的token
+        String server_token = (String) request.getSession().getAttribute("token");
+        //2、如果当前用户的Session中不存在Token(令牌)，则用户是重复提交了表单
+        if (server_token == null) {
+            return true;
+        }
+        //3、存储在Session中的Token(令牌)与表单提交的Token(令牌)不同，则用户是重复提交了表单
+        if (!client_token.equals(server_token)) {
+            return true;
+        }
 
-                     return false;
+        return false;
     }
-
 
 
     @Autowired
