@@ -1,6 +1,13 @@
 let vm = new Vue({
     el: "#app",
     data: {
+        imgSource: "",
+        sourceImgName: "",
+        bigImgName: "",
+        smallImgName: "",
+        location_y: "",
+        location_x: "",
+        dragStart: false,
         productName: "蚂蚁置物",
         school: "",
         sNo: "",
@@ -9,11 +16,39 @@ let vm = new Vue({
         meteorShow: false, // 表示流星的显示
     },
     methods: {
-        login: function() { // 发起登录请求
+        dragDown: function() {
+
+        },
+        dragUp: function() {
+
+        },
+        picCodeRequest: function() {
+            axios.post('/ants/code/SlideCode', {
+                imgName: this.sourceImgName
+            }).then((res) => {
+                this.sourceImgName = res.sourceImgName;
+                this.bigImgName = res.bigImgName;
+                this.smallImgName = res.smallImgName;
+                this.location_y = res.location_y;
+            }).catch((err) => {
+
+            })
+        },
+        dragUpRequest: function() {
+            axios.post('/ants/code/SlideCode', {
+                _x: this.location_x
+            }).then((res) => {
+                if (res == 'success') {
+                    this.loginRequest();
+                }
+            }).catch(err => {})
+        },
+        loginRequest: function() { // 发起登录请求
             let encodeData = this.submitForm1();
             axios.post('/url', {
                 school: this.school,
-                encodeData: encodeData
+                encodeData: encodeData,
+                //图片的滑动x坐标
             }).then((res) => {
 
             }).catch((err) => {

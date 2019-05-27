@@ -12,7 +12,7 @@ li {
 }
 a {
   text-decoration: none;
-  color: #000;
+  color: inherit;
 }
 [v-cloak] {
   display: none;
@@ -140,7 +140,7 @@ a {
 }
 .topBanner .menuwrap .allClassify > ul li {
   width: 100%;
-  padding: 13px 0px;
+  padding: 14px 0px;
 }
 .topBanner .menuwrap .allClassify > ul li img {
   width: 12px;
@@ -186,6 +186,7 @@ a {
 }
 .topBanner .imgPlayBox .imgContainer {
   text-align: center;
+  background-color: rgba(51, 51, 51, 0.8);
 }
 .topBanner .imgPlayBox .imgContainer img {
   height: 284px;
