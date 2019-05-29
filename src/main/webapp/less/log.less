@@ -121,7 +121,7 @@ button{
 .ants{
     position: fixed;
     left: 65%;
-    top: 45%;
+    bottom: 18%;
     img{
         width: 240px;
         transform:skewX(0deg);
@@ -148,7 +148,7 @@ button{
 .sea{
     position: fixed;
     bottom: 0px;
-    width: 120%;
+    width: 1920px;
     >img{
         position: absolute;
         width: 100%;
@@ -369,6 +369,41 @@ button{
             background-color: @inputFontColor;
             &:hover{
                 background-color: @inputChangeColor;
+            }
+        }
+    }
+    .picContainer{
+        width: 400px;
+        height: 220px;
+        margin: 13px auto;
+        background-color: #f00;
+    }
+    .slideContainer{
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
+        height: 100px;
+        background-image: url('../img/index/codeBg.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        >img{
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            width: 90px;
+            height: 90px;
+            transform: translateY(-50%);
+        }
+        .slideOver{
+            height: 100px;
+        }
+        .slidIcon{
+            margin: 0px;
+            text-align: center;
+            >img{
+                margin: 0px 10px;
+                cursor: pointer;
             }
         }
     }

@@ -1,7 +1,10 @@
 let vm = new Vue({
     el: "#app",
     data: {
-        showCode: false, // 是否显示验证码
+        startTime: 0,
+        slideTime: 0,
+        slideTip: false,
+        showCode: true, // 是否显示验证码
         imgSource: "",
         sourceImgName: "",
         bigImgName: "",
@@ -13,24 +16,30 @@ let vm = new Vue({
         school: "",
         sNo: "",
         password: "",
-        meteorMoveLength: 200,
+        meteorMoveLength: 100,
         meteorShow: false, // 表示流星的显示
         dragStart: "",
     },
     methods: {
         dragDown: function(e) {
+            this.startTime = new Date();
             this.dragStart = true;
             let start = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft;
             this.dragStart = start;
         },
         dragMove: function(e) {
-            this.location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
+            let location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
+            if (location_x < 0)
+                location_x = 0;
+            this.location_x = location_x;
         },
         dragUp: function() {
             this.dragStart = false;
+            this.slideTime = (this.startTime - new Date()) / 1000;
             this.dragUpRequest();
         },
         picCodeRequest: function() {
+            this.showCode = true;
             axios.post('/ants/code/SlideCode', {
                 imgName: this.sourceImgName
             }).then((res) => {
@@ -42,11 +51,15 @@ let vm = new Vue({
 
             })
         },
+        closeCode: function() {
+            this.showCode = false;
+        },
         dragUpRequest: function() {
             axios.post('/ants/code/SlideCode', {
                 _x: this.location_x
             }).then((res) => {
                 if (res == 'success') {
+                    this.slideTip = true;
                     this.loginRequest();
                 } else {
                     alert('验证失败');
@@ -66,8 +79,8 @@ let vm = new Vue({
             })
         },
         meteorBeforeEnter: function(el) {
-            let clientX = Math.random() * 800 + 100;
-            let clientY = Math.random() * 200;
+            let clientX = Math.random() * 1000 + 100;
+            let clientY = Math.random() * 100;
             el.style.left = clientX + 'px';
             el.style.top = clientY + 'px';
             el.style.opacity = 0;
@@ -80,7 +93,7 @@ let vm = new Vue({
             let clientY = parseInt(el.style.top) + this.meteorMoveLength + 'px';
             let clientX1 = parseInt(clientX) - this.meteorMoveLength + 'px';
             let clientY2 = parseInt(clientY) + this.meteorMoveLength + 'px';
-            Velocity(el, { left: clientX, top: clientY, opacity: 1 }, { duration: 1000, complete: function() { Velocity(el, { left: clientX1, top: clientY2, opacity: 0 }, { duration: 400 }); } });
+            Velocity(el, { left: clientX, top: clientY, opacity: 1 }, { duration: 500, complete: function() { Velocity(el, { left: clientX1, top: clientY2, opacity: 0 }, { duration: 400 }); } });
         },
         submitForm1: function() {
             try {
@@ -120,7 +133,7 @@ let vm = new Vue({
             setTimeout(function() {
                 that.meteorShow = false;
             }, 1000)
-        }, 4000);
+        }, 3000);
     }
 })
 
