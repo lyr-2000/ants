@@ -1,10 +1,10 @@
 let vm = new Vue({
     el: "#app",
     data: {
-        startTime: 0,
-        slideTime: 0,
-        slideTip: false,
-        showCode: true, // 是否显示验证码
+        startTime: 0, // 验证码开始滑动时间点
+        slideTime: 0, // 验证码滑动时长
+        slideTip: false, // 验证码结果提示
+        showCode: false, // 是否显示验证码
         imgSource: "",
         sourceImgName: "",
         bigImgName: "",
@@ -18,22 +18,25 @@ let vm = new Vue({
         password: "",
         meteorMoveLength: 100,
         meteorShow: false, // 表示流星的显示
-        dragStart: "",
+        dragLeft: "",
     },
     methods: {
         dragDown: function(e) {
+            console.log(1);
             this.startTime = new Date();
             this.dragStart = true;
             let start = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft;
-            this.dragStart = start;
+            this.dragLeft = start;
         },
         dragMove: function(e) {
+            console.log(2);
             let location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
             if (location_x < 0)
                 location_x = 0;
             this.location_x = location_x;
         },
         dragUp: function() {
+            console.log(3);
             this.dragStart = false;
             this.slideTime = (this.startTime - new Date()) / 1000;
             this.dragUpRequest();
@@ -128,7 +131,6 @@ let vm = new Vue({
     mounted() {
         let that = this;
         setInterval(function() {
-            console.log(1)
             that.meteorShow = !that.meteorShow;
             setTimeout(function() {
                 that.meteorShow = false;

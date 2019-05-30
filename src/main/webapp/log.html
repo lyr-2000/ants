@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div v-if="showCode" ref="slideCon" class="slideContainer">
-                <img src="img/index/slideBlock.png" ref="slideHan" class="slideHandle" :style="[`left:${location_x+start}px`]">
+                <img src="img/index/slideBlock.png" ref="slideHan" class="slideHandle" :style="[`left:${location_x+dragLeft}px`]" @mouseDown.prevent="dragDown" @mouseMove.prevent="dragMove" @mouseUp.prevent="dragUp">
                 <div class="slideOver"></div>
                 <p class="slidIcon">
                     <img src="img/index/close.png" @click="closeCode">
