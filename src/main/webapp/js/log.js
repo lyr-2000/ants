@@ -1,6 +1,7 @@
 let vm = new Vue({
     el: "#app",
     data: {
+        slideSuccess: false, // 跳转到首页提示
         startTime: 0, // 验证码开始滑动时间点
         slideTime: 0, // 验证码滑动时长
         slideTip: false, // 验证码结果提示
@@ -25,12 +26,12 @@ let vm = new Vue({
             console.log(1);
             this.startTime = new Date();
             this.dragStart = true;
-            let start = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft;
+            let start = this.$refs.slideHan.offsetLeft;
             this.dragLeft = start;
         },
         dragMove: function(e) {
             console.log(2);
-            let location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
+            let location_x = this.$refs.slideHan.offsetLeft - this.dragLeft;
             if (location_x < 0)
                 location_x = 0;
             this.location_x = location_x;
@@ -76,6 +77,11 @@ let vm = new Vue({
                 encodeData: encodeData,
                 //图片的滑动x坐标
             }).then((res) => {
+                if (res == 'success') {
+                    this.slideSuccess = true;
+                } else {
+
+                }
 
             }).catch((err) => {
 

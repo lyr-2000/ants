@@ -91,16 +91,24 @@
                 <img v-if="dragStart" :src="[imgSource+''+bigImgName]">
                 <img :src="[imgSource+''+smallImgName]">
                 <div class="codeTip" v-if="slideTip">
-                    <span>滑动成功，用时{{slideTime}}s</span>
+                    <p>拼图成功，用时{{slideTime}}s</p>
                 </div>
             </div>
-            <div v-if="showCode" ref="slideCon" class="slideContainer">
+            <div v-if="showCode&&!slideSuccess" ref="slideCon" class="slideContainer">
                 <img src="img/index/slideBlock.png" ref="slideHan" class="slideHandle" :style="[`left:${location_x+dragLeft}px`]" @mouseDown.prevent="dragDown" @mouseMove.prevent="dragMove" @mouseUp.prevent="dragUp">
                 <div class="slideOver"></div>
                 <p class="slidIcon">
                     <img src="img/index/close.png" @click="closeCode">
                     <img src="img/index/refresh.png" @click="picCodeRequest">
                 </p>
+            </div>
+
+            <div v-if="showCode&&slideSuccess" class="slideSuccess">
+                <p>
+                    <i><img src="img/index/tick.png"></i>
+                    <span>三秒后自动转到首页</span>
+                </p>
+                <a href="index.html">立即前往</a>
             </div>
 
         </div>
