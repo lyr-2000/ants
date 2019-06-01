@@ -88,7 +88,7 @@
 
             <div v-if="showCode" class="picContainer">
                 <img v-if="!dragStart" :src="[imgSource+''+sourceImgName]">
-                <img v-if="dragStart" :src="[imgSource+''+bigImgName]">
+                <img v-if="dragStart" :src="[imgSource+''+bigImgName]" ref="slideImg" class="slideImg">
                 <img :src="[imgSource+''+smallImgName]">
                 <div class="codeTip" v-if="slideTip">
                     <p>拼图成功，用时{{slideTime}}s</p>

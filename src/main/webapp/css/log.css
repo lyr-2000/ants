@@ -322,6 +322,13 @@ button {
 .inputBg .picContainer .codeTip p {
   margin: 4px 0px;
 }
+.inputBg .picContainer .slideImg {
+  position: absolute;
+  left: 0px;
+  width: 90px;
+  height: 90px;
+  background-color: black;
+}
 .inputBg .slideContainer {
   position: relative;
   margin: 0 auto;
@@ -339,6 +346,7 @@ button {
   width: 90px;
   height: 90px;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 .inputBg .slideContainer .slideOver {
   height: 100px;
