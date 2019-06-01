@@ -17,88 +17,6 @@ a {
 [v-cloak] {
   display: none;
 }
-.topContainer {
-  border-bottom: 1px solid rgba(102, 102, 102, 0.5);
-}
-.topContainer .nav {
-  height: 36px;
-  color: #fff;
-  background-color: #5d759d;
-}
-.topContainer .nav .navContainer {
-  margin: 0px auto;
-  width: 1190px;
-}
-.topContainer .nav .navContainer ul li {
-  padding: 8px 20px;
-  cursor: pointer;
-}
-.topContainer .nav .navContainer .localIn {
-  padding-bottom: 4px;
-  color: #5d759d;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-.topContainer .nav .navContainer .leftNav {
-  float: left;
-  margin-left: 190px;
-}
-.topContainer .nav .navContainer .rightNav {
-  float: right;
-}
-.topContainer .topHandle {
-  margin: 16px auto;
-  width: 1200px;
-}
-.topContainer .topHandle > div {
-  display: inline-block;
-}
-.topContainer .topHandle .topLogo {
-  margin-left: 88px;
-}
-.topContainer .topHandle .topLogo img {
-  float: left;
-  height: 34px;
-}
-.topContainer .topHandle .topLogo span {
-  margin-left: 10px;
-  font-size: 24px;
-}
-.topContainer .topHandle .searchGoods {
-  margin: 0% 5% 0% 20%;
-  padding: 4px;
-  width: 280px;
-  border: 2px solid #5d759d;
-  border-radius: 5px;
-}
-.topContainer .topHandle .searchGoods input {
-  margin: 3px;
-  width: 232px;
-  border: none;
-  outline: none;
-}
-.topContainer .topHandle .searchGoods img {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.topContainer .topHandle .searchGoods:hover {
-  border-color: rgba(246, 146, 138, 0.5);
-}
-.topContainer .topHandle .searchGoods:focus-within {
-  border-color: rgba(246, 146, 138, 0.5);
-}
-.topContainer .topHandle .mainHandle button {
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 9px 18px;
-  margin: 0 10px;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: rgba(246, 146, 138, 0.5);
-  cursor: pointer;
-}
 .topBanner {
   position: relative;
   color: #666666;
@@ -416,17 +334,4 @@ main .specialGoods .specialTitle .show > span:first-child {
   100% {
     transform: translateX(0px);
   }
-}
-footer {
-  padding: 20px 0px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #5d759d;
-}
-footer img {
-  margin: 10px 50px;
-}
-footer p {
-  margin-bottom: 0px;
-  color: #fff;
 }

@@ -1,0 +1,13 @@
+footer {
+  padding: 20px 0px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #5d759d;
+}
+footer img {
+  margin: 10px 50px;
+}
+footer p {
+  margin-bottom: 0px;
+  color: #fff;
+}
