@@ -28,10 +28,9 @@ import java.util.Map;
 @RequestMapping(value = "/ants/code")
 public class SlideController extends HttpServlet {
 
-    @Override
-    public void init(ServletConfig config) throws ServletException{
-        super.init(config);
-        SlideCode.init(config.getServletContext());
+    public void SlideController(ServletConfig config) throws ServletException{
+
+        System.out.println("走到这了啦拉拉！！");
     }
 
     /*
@@ -39,13 +38,14 @@ public class SlideController extends HttpServlet {
      */
     @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
     @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) {
+    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response,ServletConfig config) {
+        SlideCode.init(config.getServletContext());
         String imgName = request.getParameter("imgName");
         /*
         如果前端给的图片名字为空字符串进行随机取样
          */
         if("".equals(imgName)){
-            File file = new File("/resourceImg");
+            File file = new File("../webapp/img/sourceImg");
             String[] list = file.list();
             String filename;
             //获取随机图片， 每次获取到的图片与已有的图片要不同。
@@ -60,6 +60,8 @@ public class SlideController extends HttpServlet {
             out = response.getWriter();
             response.setContentType("application/json-rpc;charset=UTF-8");
             out.println(JSON.toJSONString(result));
+            System.out.println(result);
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

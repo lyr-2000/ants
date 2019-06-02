@@ -42,7 +42,7 @@ public class SlideCode {
     private static String sourceImgPath = "";
 
     private static final String tempImg = "tempImg";
-    private static final String sourceImg = "sourceImg";
+    private static final String sourceImg = "../webapp/img/sourceImg";
 
     private static final int shadowWidth = 4; //阴影宽度
     private static final int lightHeightWidth = 5; //图片边缘亮色（黄色）宽度。
@@ -57,6 +57,7 @@ public class SlideCode {
     public static void init(ServletContext context) {
         imgPath = context.getRealPath("/") + tempImg;
         sourceImgPath = context.getRealPath("/") + sourceImg;
+        System.out.println("文件路径为:"+sourceImgPath);
     }
 
     public SlideCode() {
@@ -72,6 +73,7 @@ public class SlideCode {
      */
     public Map<String, String> create(HttpServletRequest request, String havingfilename) throws IOException {
         //本地原始图片路径,
+        System.out.println("这里的文件路径为:"+sourceImgPath);
         File file = new File(sourceImgPath);
         String[] list = file.list();
         String filename;
