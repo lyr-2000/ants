@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.GoodsDao">
+    <!--获取随机的16个商品的信息-->
+    <select id="chooseExampleGoods" resultType="com.ants.entity.Goods" parameterType="Map">
+        SELECT * FROM ants_goods_base limit #{head},#{tail}
+    </select>
+
+    <!--获取所有商品的数量-->
+    <select id="getGoodsNumbers" resultType="Integer">
+        SELECT count(*) FROM ants_goods_base;
+    </select>
+
+
+</mapper>
