@@ -1,0 +1,41 @@
+@toppicColor:#5d759d;
+
+.classifyContainer{
+    width: 1200px;
+    margin: 0px auto 10px auto;
+    .classifyTitle{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        span{
+            display: inline-block;
+            width: 50%;
+            padding: 10px;
+            border: 1px solid rgba(102,102,102,.5);
+        }
+        .choosing{
+            background-color: @toppicColor;
+            color: #fff;
+        }
+    }
+    .classifyIcon{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border: 1px solid rgba(102,102,102,.5);
+        >div{
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0px;
+        }
+    }
+    .concreteClassify{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border: 1px solid rgba(102,102,102,.5);
+        span{
+            padding: 10px 0px;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+
+<body>
+    <script src="js/header.js"></script>
+    <div id="app">
+        <div class="classifyContainer">
+            <div class="classifyTitle">
+                <span :class="[others?'':'choosing']">分类</span>
+                <span :class="[others?'choosing':'']">其他</span>
+            </div>
+            <div class="classifyIcon">
+                <div v-for="classify in synthesis">
+                    <img :src='[classify.parentPicture]'>
+                    <span>{{classify.parentName}}</span>
+                </div>
+            </div>
+            <div class="concreteClassify">
+                <span v-for="classify in composite">{{classify.subClassName}}</span>
+            </div>
+        </div>
+
+        <div class="mainLeft">
+
+        </div>
+
+
+        <div class="goodsShow">
+
+        </div>
+    </div>
+    <script src="js/footer.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>

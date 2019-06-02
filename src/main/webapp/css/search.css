@@ -1,0 +1,39 @@
+.classifyContainer {
+  width: 1200px;
+  margin: 0px auto 10px auto;
+}
+.classifyContainer .classifyTitle {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.classifyContainer .classifyTitle span {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+}
+.classifyContainer .classifyTitle .choosing {
+  background-color: #5d759d;
+  color: #fff;
+}
+.classifyContainer .classifyIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+}
+.classifyContainer .classifyIcon > div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+}
+.classifyContainer .concreteClassify {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+}
+.classifyContainer .concreteClassify span {
+  padding: 10px 0px;
+}
