@@ -127,24 +127,24 @@ public class SystemController  {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping(value = "/testStudent", method = RequestMethod.GET)
-    @ResponseBody
-    public Map<String, String> addStudent() {
-        Student student = new Student();
-        student.setStudentId(1);
-        student.setUserName("user");
-        student.setUserSex(0);
-        student.setPassWord("123456");
-        student.setMobilePhone("13106617928");
-        student.setUserWechat("weiXing");
-        student.setUserQQ("1783209601");
-        student.setRegistTime("2019-06-06");
-        student.setHidden(0);
-        int result = studentService.add(student);
-        System.out.println("result: " + result);
-        Map<String, String> map = new HashMap<>();
-        map.put("1", "hello");
-        return map;
-    }
+//    @RequestMapping(value = "/testStudent", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Map<String, String> addStudent() {
+//        Student student = new Student();
+//        student.setStudentId(1);
+//        student.setUserName("user");
+//        student.setUserSex(0);
+//        student.setPassWord("123456");
+//        student.setMobilePhone("13106617928");
+//        student.setUserWechat("weiXing");
+//        student.setUserQQ("1783209601");
+//        student.setRegistTime("2019-06-06");
+//        student.setHidden(0);
+//        int result = studentService.add(student);
+//        System.out.println("result: " + result);
+//        Map<String, String> map = new HashMap<>();
+//        map.put("1", "hello");
+//        return map;
+//    }
 
 }
