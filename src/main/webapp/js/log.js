@@ -1,6 +1,7 @@
 let vm = new Vue({
     el: "#app",
     data: {
+        slideSuccess: false, // 跳转到首页提示
         startTime: 0, // 验证码开始滑动时间点
         slideTime: 0, // 验证码滑动时长
         slideTip: false, // 验证码结果提示
@@ -22,34 +23,46 @@ let vm = new Vue({
     },
     methods: {
         dragDown: function(e) {
-            console.log(1);
+
             this.startTime = new Date();
             this.dragStart = true;
-            let start = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft;
+            let start = e.clientX - this.$refs.slideHan.offsetLeft;
+
             this.dragLeft = start;
         },
         dragMove: function(e) {
-            console.log(2);
-            let location_x = e.targetTouches[0].clientX - this.$refs.slideHan.offsetLeft - start;
-            if (location_x < 0)
-                location_x = 0;
-            this.location_x = location_x;
+            if (this.dragStart) {
+                let location_x = e.clientX - this.dragLeft;
+                if (location_x < 0) {
+                    location_x = 0;
+                } else if (location_x > 310) {
+                    location_x = 310;
+                }
+                this.location_x = location_x;
+
+                this.$refs.slideHan.style.left = this.location_x + 'px';
+                this.$refs.slideImg.style.left = this.location_x + 'px';
+
+            }
         },
         dragUp: function() {
-            console.log(3);
-            this.dragStart = false;
-            this.slideTime = (this.startTime - new Date()) / 1000;
-            this.dragUpRequest();
+
+            if (this.dragStart) {
+                this.dragStart = false;
+                this.slideTime = (new Date() - this.startTime) / 1000;
+                this.dragUpRequest();
+            }
         },
         picCodeRequest: function() {
             this.showCode = true;
-            axios.post('/ants/code/SlideCode', {
+            axios.post('/ants/code/showCode', {
                 imgName: this.sourceImgName
             }).then((res) => {
                 this.sourceImgName = res.sourceImgName;
                 this.bigImgName = res.bigImgName;
                 this.smallImgName = res.smallImgName;
                 this.location_y = res.location_y;
+                this.$refs.slideImg.style.top = this.location_y + 'px';
             }).catch((err) => {
 
             })
@@ -61,6 +74,7 @@ let vm = new Vue({
             axios.post('/ants/code/SlideCode', {
                 _x: this.location_x
             }).then((res) => {
+                console.log(res);
                 if (res == 'success') {
                     this.slideTip = true;
                     this.loginRequest();
@@ -71,15 +85,28 @@ let vm = new Vue({
         },
         loginRequest: function() { // 发起登录请求
             let encodeData = this.submitForm1();
-            axios.post('/url', {
-                school: this.school,
-                encodeData: encodeData,
-                //图片的滑动x坐标
-            }).then((res) => {
+            if (!encodeData) {
+                this.showCode = false;
+                this.slideTip = false;
+            } else {
+                axios.post('/url', {
+                    school: this.school,
+                    encodeData: encodeData,
+                    //图片的滑动x坐标
+                }).then((res) => {
+                    if (res == 'success') {
+                        this.slideSuccess = true;
+                        setTimeout(function() {
+                            window.location.replace('index.html');
+                        }, 3000);
+                    } else {
 
-            }).catch((err) => {
+                    }
 
-            })
+                }).catch((err) => {
+
+                })
+            }
         },
         meteorBeforeEnter: function(el) {
             let clientX = Math.random() * 1000 + 100;
@@ -103,15 +130,17 @@ let vm = new Vue({
                 let xh = this.sNo;
                 let pwd = this.password;
                 if (xh == "") {
-                    alert("用户名不能为空！");
+                    console.log("用户名不能为空！");
                     return false;
                 }
                 if (pwd == "") {
-                    alert("密码不能为空！");
+                    console.log("密码不能为空！");
                     return false;
                 }
-                let account = encodeInp(xh);
-                let passwd = encodeInp(pwd);
+                // let account = encodeInp(xh);
+                // let passwd = encodeInp(pwd);
+                let account = xh;
+                let passwd = pwd;
                 let encoded = account + "%%%" + passwd;
                 return encoded;
             } catch (e) {

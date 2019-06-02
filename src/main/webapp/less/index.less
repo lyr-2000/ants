@@ -29,99 +29,6 @@ a{
 @fontHoverColor:#333;
 // @changeColor:#333333;
 
-//顶部容器
-.topContainer{
-    border-bottom: 1px solid @borderColor;
-    .nav{
-        height: 36px;
-        color: #fff;
-        background-color: @toppicColor;
-        .navContainer{
-            margin: 0px auto;
-            width: 1190px;
-            ul{
-                li{
-                    padding: 8px 20px;
-                    cursor: pointer;
-                }
-            }
-            .localIn{
-                padding-bottom: 4px;
-                color: @toppicColor;
-                background-color: rgba(255,255,255,.8);
-            }
-            .leftNav{
-                float: left;
-                margin-left: 190px;
-            }
-            .rightNav{
-                float: right;
-            }
-        }
-    }
-
-    // 表单去表格样式
-    .inputNoBorder(){
-        border:none;
-        outline:none;
-    }
-
-    .topHandle{
-        margin: 16px auto;
-        width: 1200px;
-        >div{
-            display: inline-block;
-        }
-        .topLogo{
-            margin-left: 88px;
-            img{
-                float: left;
-                height: 34px;
-            }
-            span{
-                margin-left: 10px;
-                font-size: 24px;
-            }
-        }
-        .searchGoods{
-            margin:0% 5% 0% 20%;
-            padding: 4px;
-            width: 280px;
-            border: 2px solid @toppicColor;
-            border-radius: 5px;
-            input{
-                margin: 3px;
-                width: 232px;
-                .inputNoBorder;
-            }
-            img{
-                width: 20px;
-                height: 20px;
-                vertical-align: middle;
-                cursor: pointer;
-            }
-            &:hover{
-                border-color: @topInputColor;
-            }
-            &:focus-within{
-                border-color: @topInputColor;
-            }
-        }
-        .mainHandle{
-            // float: right;
-            button{
-                .inputNoBorder;
-                border-radius: 5px;
-                padding: 9px 18px;
-                margin: 0 10px;
-                font-size: 16px;
-                color: rgb(255,255,255);
-                background-color: @topInputColor;
-                cursor: pointer;
-            }
-        }
-    }
-}
 
 //顶部横幅
 .topBanner{
@@ -467,19 +374,5 @@ main{
     }
     100%{
         transform:translateX(0px)
-    }
-}
-// 页脚
-footer{
-    padding: 20px 0px;
-    text-align: center;
-    vertical-align: middle;
-    background-color: @toppicColor;
-    img{
-        margin: 10px 50px;
-    }
-    p{
-        margin-bottom: 0px;
-        color: #fff;
     }
 }

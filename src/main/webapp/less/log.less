@@ -373,10 +373,32 @@ button{
         }
     }
     .picContainer{
+        position: relative;
         width: 400px;
         height: 220px;
         margin: 13px auto;
+        border-radius: 10px;
         background-color: #f00;
+        .codeTip{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            border-radius: 10px;
+            text-align: center;
+            margin: 0px;
+            color: #fff;
+            background-color: @inputFontColor;
+            p{
+                margin: 4px 0px;
+            }
+        }
+        .slideImg{
+            position: absolute;
+            left: 0px;
+            width: 90px;
+            height: 90px;
+            background-color: black;
+        }
     }
     .slideContainer{
         position: relative;
@@ -394,6 +416,7 @@ button{
             width: 90px;
             height: 90px;
             transform: translateY(-50%);
+            cursor: pointer;
         }
         .slideOver{
             height: 100px;
@@ -407,4 +430,59 @@ button{
             }
         }
     }
+    .slideSuccess{
+        text-align: center;
+        >p{
+            @imgLength:40px;
+            @imgBorder:2px;
+            i{
+                position: relative;
+                display: inline-block;
+                width: @imgLength;
+                height: @imgLength;
+                border:@imgBorder solid @inputFontColor;
+                border-radius: 50%;
+                line-height: 40px;
+                font-size: 24px;
+                color: @inputChangeColor;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: -@imgBorder;
+                    left: -@imgBorder;
+                    width: inherit;
+                    height: inherit;
+                    border: @imgBorder solid @inputChangeColor;
+                    border-radius: 50%;
+                    animation: circleLoading 3s linear 0s 1 none;
+                }            
+                @keyframes circleLoading{
+                    0%{
+                        clip: rect(0px 0px @imgLength+2*@imgBorder 0px);
+                        transform: rotate(100deg);
+                    }
+                    100%{
+                        clip:rect(0px @imgLength+2*@imgBorder @imgLength+2*@imgBorder 0px);
+                        transform: rotate(250deg);
+                    }
+                }
+            }
+            letter-spacing: 4px;
+            font-size: 20px;
+            color: @inputFontColor;
+        }
+        >a{
+            display: inline-block;
+            padding: 10px 70px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            background-color: @inputFontColor;
+            color: #fff;
+            &:hover{
+                background-color: @inputChangeColor;
+            }
+        }
+    }
 }
+

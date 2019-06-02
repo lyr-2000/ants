@@ -302,10 +302,32 @@ button {
   background-color: #246c9b;
 }
 .inputBg .picContainer {
+  position: relative;
   width: 400px;
   height: 220px;
   margin: 13px auto;
+  border-radius: 10px;
   background-color: #f00;
+}
+.inputBg .picContainer .codeTip {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0px;
+  color: #fff;
+  background-color: #9fbdd2;
+}
+.inputBg .picContainer .codeTip p {
+  margin: 4px 0px;
+}
+.inputBg .picContainer .slideImg {
+  position: absolute;
+  left: 0px;
+  width: 90px;
+  height: 90px;
+  background-color: black;
 }
 .inputBg .slideContainer {
   position: relative;
@@ -324,6 +346,7 @@ button {
   width: 90px;
   height: 90px;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 .inputBg .slideContainer .slideOver {
   height: 100px;
@@ -335,4 +358,56 @@ button {
 .inputBg .slideContainer .slidIcon > img {
   margin: 0px 10px;
   cursor: pointer;
+}
+.inputBg .slideSuccess {
+  text-align: center;
+}
+.inputBg .slideSuccess > p {
+  letter-spacing: 4px;
+  font-size: 20px;
+  color: #9fbdd2;
+}
+.inputBg .slideSuccess > p i {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #9fbdd2;
+  border-radius: 50%;
+  line-height: 40px;
+  font-size: 24px;
+  color: #246c9b;
+}
+.inputBg .slideSuccess > p i::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: inherit;
+  height: inherit;
+  border: 2px solid #246c9b;
+  border-radius: 50%;
+  animation: circleLoading 3s linear 0s 1 none;
+}
+@keyframes circleLoading {
+  0% {
+    clip: rect(0px 0px 44px 0px);
+    transform: rotate(100deg);
+  }
+  100% {
+    clip: rect(0px 44px 44px 0px);
+    transform: rotate(250deg);
+  }
+}
+.inputBg .slideSuccess > a {
+  display: inline-block;
+  padding: 10px 70px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #9fbdd2;
+  color: #fff;
+}
+.inputBg .slideSuccess > a:hover {
+  background-color: #246c9b;
 }
