@@ -21,7 +21,7 @@
             </div>
             <div class="classifyIcon">
                 <div v-for="classify in synthesis">
-                    <img :src='[classify.parentPicture]'>
+                    <img :src="['img/index/'+classify.parentPicture]">
                     <span>{{classify.parentName}}</span>
                 </div>
             </div>
@@ -30,13 +30,43 @@
             </div>
         </div>
 
-        <div class="mainLeft">
+        <div class="main">
+            <div class="mainLeft">
+                <div class="arrayBy leftBlock">
+                    <span class="leftTitle">全部商品</span>
+                    <div>
+                        <span>按综合</span>
+                        <span>按时间</span>
+                        <span>按价格</span>
+                    </div>
+                </div>
+                <div class="searchInput">
+                    <input type="text">
+                    <img src="img/index/search.png">
+                </div>
 
-        </div>
+                <div class="classifyNav leftBlock">
+                    <span class="leftTitle">全部分类</span>
+                    <ul>
+                        <li v-for="classify in synthesis">
+                            <img :src='[classify.parentPicture]'>
+                            <span>{{classify.parentName}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 
-        <div class="goodsShow">
-
+            <div class="goodsShow">
+                <div v-for="ex in goodsExample">
+                    <img :src="['img/search/'+ex.goodsPicture]">
+                    <span>{{ex.goodsName}}</span>
+                    <div>
+                        <span class="goodsPrice">￥{{ex.goodsPrice}}元</span>
+                        <span class="uploadTime">{{ex.uploadTime}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/footer.js"></script>
