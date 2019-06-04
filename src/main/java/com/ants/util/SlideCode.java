@@ -41,8 +41,8 @@ public class SlideCode {
     private static String imgPath = "";
     private static String sourceImgPath = "";
 
-    private static final String tempImg = "tempImg";
-    private static final String sourceImg = "../webapp/img/sourceImg";
+    private static final String tempImg = "img\\tempImg";
+    private static final String sourceImg = "img\\sourceImg";
 
     private static final int shadowWidth = 4; //阴影宽度
     private static final int lightHeightWidth = 5; //图片边缘亮色（黄色）宽度。
