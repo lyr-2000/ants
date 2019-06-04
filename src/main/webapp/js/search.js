@@ -2,6 +2,7 @@ let vm = new Vue({
     el: '#app',
     data: {
         others: false,
+        arrayBy: '综合',
         synthesis: [
             { parentId: 1, parentName: "书籍", parentPicture: "book.png" },
             {
@@ -16,6 +17,7 @@ let vm = new Vue({
             { parentId: 7, parentName: "其他", parentPicture: "others.png" }
         ],
         composite: [
+            { subClassId: 0, subClassName: "英语四六级", parentClass: 0 },
             { subClassId: 0, subClassName: "英语四六级", parentClass: 0 },
             { subClassId: 0, subClassName: "证从", parentClass: 0 },
             { subClassId: 0, subClassName: "证从", parentClass: 0 },
@@ -139,6 +141,14 @@ let vm = new Vue({
         }, ]
     },
     methods: {
-
+        changeChoose: function(type) {
+            if (type == 'classify')
+                this.others = false;
+            else
+                this.others = true;
+        },
+        changeArrayBy: function(type) {
+            this.arrayBy = type;
+        }
     }
 })

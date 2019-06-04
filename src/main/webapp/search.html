@@ -16,8 +16,8 @@
     <div id="app">
         <div class="classifyContainer">
             <div class="classifyTitle">
-                <span :class="[others?'':'choosing']">分类</span>
-                <span :class="[others?'choosing':'']">其他</span>
+                <span :class="[others?'':'choosing']" @click="changeChoose('classify')">分类</span>
+                <span :class="[others?'choosing':'']" @click="changeChoose('others')">其他</span>
             </div>
             <div class="classifyIcon">
                 <div v-for="classify in synthesis">
@@ -35,9 +35,9 @@
                 <div class="arrayBy leftBlock">
                     <span class="leftTitle">全部商品</span>
                     <div>
-                        <span>按综合</span>
-                        <span>按时间</span>
-                        <span>按价格</span>
+                        <span :class="[arrayBy=='综合'?'arrayChoose':'']" @click="changeArrayBy('综合')">按综合</span>
+                        <span :class="[arrayBy=='时间'?'arrayChoose':'']" @click="changeArrayBy('时间')">按时间</span>
+                        <span :class="[arrayBy=='价格'?'arrayChoose':'']" @click="changeArrayBy('价格')">按价格</span>
                     </div>
                 </div>
                 <div class="searchInput">
@@ -67,6 +67,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="pageTurn">
+            <span class="turnPage"><</span>
+            <span class="page" v-for="page in allPage">{{page}}</span>
+            <span>共{{allPage}}页</span>
+            <span class="turnPage">></span>
         </div>
     </div>
     <script src="js/footer.js"></script>
