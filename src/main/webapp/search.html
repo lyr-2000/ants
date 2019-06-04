@@ -20,13 +20,13 @@
                 <span :class="[others?'choosing':'']" @click="changeChoose('others')">其他</span>
             </div>
             <div class="classifyIcon">
-                <div v-for="classify in synthesis">
+                <div v-for="(classify,index) in synthesis">
                     <img :src="['img/index/'+classify.parentPicture]">
-                    <span>{{classify.parentName}}</span>
+                    <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
                 </div>
             </div>
             <div class="concreteClassify">
-                <span v-for="classify in composite">{{classify.subClassName}}</span>
+                <span :class="[thiIndex==index?'indexChoose':'']" v-for="(classify,index) in composite" @click="titleSearch(index)">{{classify.subClassName}}</span>
             </div>
         </div>
 
@@ -48,9 +48,12 @@
                 <div class="classifyNav leftBlock">
                     <span class="leftTitle">全部分类</span>
                     <ul>
-                        <li v-for="classify in synthesis">
+                        <li v-for="(classify,index) in synthesis">
                             <img :src='[classify.parentPicture]'>
-                            <span>{{classify.parentName}}</span>
+                            <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
+                            <ul v-if="index==secIndex">
+                                <li v-for="(cla,i) in composite" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)">{{cla.subClassName}}</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +61,7 @@
 
 
             <div class="goodsShow">
-                <div v-for="ex in goodsExample">
+                <div class="specificGoods" v-for="ex in goodsExample">
                     <img :src="['img/search/'+ex.goodsPicture]">
                     <span>{{ex.goodsName}}</span>
                     <div>
@@ -66,14 +69,14 @@
                         <span class="uploadTime">{{ex.uploadTime}}</span>
                     </div>
                 </div>
+                <div class="pageTurn">
+                    <span class="turnPage"><</span>
+                    <span class="page" v-for="page in allPage">{{page}}</span>
+                    <span>共{{allPage}}页</span>
+                    <span class="turnPage">></span>
+                </div>
             </div>
-        </div>
 
-        <div class="pageTurn">
-            <span class="turnPage"><</span>
-            <span class="page" v-for="page in allPage">{{page}}</span>
-            <span>共{{allPage}}页</span>
-            <span class="turnPage">></span>
         </div>
     </div>
     <script src="js/footer.js"></script>

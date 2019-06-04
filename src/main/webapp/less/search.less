@@ -105,6 +105,24 @@
                 >li{
                     padding:5px 0px;
                     cursor: pointer;
+                    >ul{
+                        display: flex;
+                        flex-direction: column;
+                        margin: 5px 10px;
+                        border: 1px solid rgba(102,102,102,.5);
+                        border-width: 1px 0px;
+                        font-size: 12px;
+                        color: rgba(102,102,102,.5);
+                        .thiIndex{
+                            position: relative;
+                            &::before{
+                                content:">";
+                                position: absolute;
+                                top: 0px;
+                                left: -10px;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -116,7 +134,7 @@
         align-content: space-around;
         justify-content: space-between;
         width: 100%;
-        &>div{
+        &>.specificGoods{
             display: flex;
             flex-direction: column;
             width: 22%;
@@ -138,5 +156,16 @@
                 text-indent: 4px;
             }
         }
+        .pageTurn{
+            width: 100%;
+            .turnPage{
+                cursor: pointer;
+            }
+        }
     }
+}
+
+// 导航选中
+.indexChoose{
+    color: @toppicColor;
 }

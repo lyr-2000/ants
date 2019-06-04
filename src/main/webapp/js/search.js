@@ -3,6 +3,8 @@ let vm = new Vue({
     data: {
         others: false,
         arrayBy: '综合',
+        secIndex: 0,
+        thiIndex: 0,
         synthesis: [
             { parentId: 1, parentName: "书籍", parentPicture: "book.png" },
             {
@@ -149,6 +151,36 @@ let vm = new Vue({
         },
         changeArrayBy: function(type) {
             this.arrayBy = type;
+        },
+        // 显示三级导航
+        childList: function(index) {
+            this.secIndex = index;
+            axios.post('/url', {})
+                .then((res) => {
+                    this.composite = res.composite
+                })
+                .catch((err) => {
+
+                })
+
+        },
+        // 根据标签搜素相应的内容
+        titleSearch: function(index) {
+            this.thiIndex = index;
+            axios.post('/url', {})
+                .then((res) => {
+                    this.goodsExample = res.goodsExample;
+                })
         }
+    },
+    mounted() {
+        axios.post('/ants/dataRendering/deputyPage', {
+
+        }).then((res) => {
+            this.synthesis = res.synthesis;
+            this.composite = res.composite;
+            this.allClassification = res.allClassification;
+            this.goodsExample = res.goodsExample;
+        })
     }
 })

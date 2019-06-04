@@ -101,6 +101,24 @@
   padding: 5px 0px;
   cursor: pointer;
 }
+.main .mainLeft .classifyNav > ul > li > ul {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 10px;
+  border: 1px solid rgba(102, 102, 102, 0.5);
+  border-width: 1px 0px;
+  font-size: 12px;
+  color: rgba(102, 102, 102, 0.5);
+}
+.main .mainLeft .classifyNav > ul > li > ul .thiIndex {
+  position: relative;
+}
+.main .mainLeft .classifyNav > ul > li > ul .thiIndex::before {
+  content: ">";
+  position: absolute;
+  top: 0px;
+  left: -10px;
+}
 .main .goodsShow {
   display: flex;
   flex-direction: row;
@@ -109,7 +127,7 @@
   justify-content: space-between;
   width: 100%;
 }
-.main .goodsShow > div {
+.main .goodsShow > .specificGoods {
   display: flex;
   flex-direction: column;
   width: 22%;
@@ -117,17 +135,26 @@
   margin-bottom: 20px;
   border: 1px solid rgba(102, 102, 102, 0.5);
 }
-.main .goodsShow > div > img {
+.main .goodsShow > .specificGoods > img {
   width: 100%;
 }
-.main .goodsShow > div > div {
+.main .goodsShow > .specificGoods > div {
   display: flex;
   justify-content: space-between;
 }
-.main .goodsShow > div > div .goodsPrice {
+.main .goodsShow > .specificGoods > div .goodsPrice {
   color: #f00;
 }
-.main .goodsShow > div span {
+.main .goodsShow > .specificGoods span {
   margin: 8px 0px;
   text-indent: 4px;
+}
+.main .goodsShow .pageTurn {
+  width: 100%;
+}
+.main .goodsShow .pageTurn .turnPage {
+  cursor: pointer;
+}
+.indexChoose {
+  color: #5d759d;
 }
