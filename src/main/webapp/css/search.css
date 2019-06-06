@@ -40,6 +40,32 @@
   padding: 10px 0px;
   cursor: pointer;
 }
+.classifyContainer .hideThi {
+  animation: hideThi .3s linear 0s 1 forwards;
+}
+.classifyContainer .showThi {
+  animation: showThi .3s linear 0s 1 forwards;
+}
+@keyframes hideThi {
+  0% {
+    opacity: 1;
+    height: 44px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+  }
+}
+@keyframes showThi {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  100% {
+    opacity: 1;
+    height: 44px;
+  }
+}
 .main {
   display: flex;
   flex-direction: row;
@@ -112,6 +138,7 @@
   border-width: 1px 0px;
   font-size: 12px;
   color: rgba(102, 102, 102, 0.5);
+  overflow: hidden;
 }
 .main .mainLeft .classifyNav > ul > li > ul .thiIndex {
   position: relative;
@@ -157,6 +184,34 @@
 }
 .main .goodsShow .pageTurn .turnPage {
   cursor: pointer;
+}
+.leftThiEnter {
+  opacity: 0;
+  height: 0px;
+  animation: leftEnter .5s linear .5s 1;
+}
+.leftThiLeave {
+  animation: leftEnter .5s reverse;
+}
+@keyframes leftLeave {
+  0% {
+    opacity: 1;
+    height: 168px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+  }
+}
+@keyframes leftEnter {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  100% {
+    opacity: 1;
+    height: 168px;
+  }
 }
 .indexChoose {
   color: #5d759d;

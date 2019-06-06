@@ -155,6 +155,9 @@ let vm = new Vue({
         // 显示三级导航
         childList: function(index) {
             this.secIndex = index;
+            if (index == 0) {
+
+            }
             axios.post('/url', {})
                 .then((res) => {
                     this.composite = res.composite

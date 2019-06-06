@@ -20,12 +20,12 @@
                 <span :class="[others?'choosing':'']" @click="changeChoose('others')">其他</span>
             </div>
             <div class="classifyIcon">
-                <div v-for="(classify,index) in synthesis">
+                <div v-for="(classify,index) in synthesis" @click="childList(index)">
                     <img :src="['img/icon/'+classify.parentPicture]">
-                    <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
+                    <span :class="[secIndex==index?'indexChoose':'']">{{classify.parentName}}</span>
                 </div>
             </div>
-            <div class="concreteClassify">
+            <div :class="['concreteClassify',secIndex==0?'hideThi':'showThi']">
                 <span :class="[thiIndex==index?'indexChoose':'']" v-for="(classify,index) in composite" @click="titleSearch(index)">{{classify.subClassName}}</span>
             </div>
         </div>
@@ -51,9 +51,11 @@
                         <li v-for="(classify,index) in synthesis">
                             <img :src="['img/icon/'+classify.parentPicture]">
                             <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
-                            <ul v-if="index==secIndex">
-                                <li v-for="(cla,i) in composite" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)">{{cla.subClassName}}</li>
-                            </ul>
+                            <transition name="leftNav" enter-active-class="leftThiEnter" leave-active-class="leftThiLeave">
+                                <ul v-if="index==secIndex">
+                                    <li v-for="(cla,i) in composite" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)">{{cla.subClassName}}</li>
+                                </ul>
+                            </transition>
                         </li>
                     </ul>
                 </div>
