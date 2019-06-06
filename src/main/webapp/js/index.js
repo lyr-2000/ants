@@ -15,22 +15,22 @@ let vm = new Vue({
             'new': false
         },
         wholeClassify: [{
-            parentPicture: 'img/index/shuji.png',
+            parentPicture: 'img/icon/book.png',
             parnentName: '书籍'
         }, {
-            parentPicture: 'img/index/wenju.png',
+            parentPicture: 'img/icon/stationery.png',
             parnentName: '文具'
         }, {
-            parentPicture: 'img/index/riyong.png',
+            parentPicture: 'img/icon/daily.png',
             parnentName: '日用'
         }, {
-            parentPicture: 'img/index/huazhuang.png',
+            parentPicture: 'img/icon/cosmetics.png',
             parnentName: '美妆'
         }, {
-            parentPicture: 'img/index/lingshi.png',
+            parentPicture: 'img/icon/food.png',
             parnentName: '食品'
         }, {
-            parentPicture: 'img/index/dianqi.png',
+            parentPicture: 'img/icon/dianqi.png',
             parnentName: '电器'
         }],
         detailedClassify: [
@@ -42,31 +42,31 @@ let vm = new Vue({
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
         perfectGoods: [{
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/index/lingshi.png',
+            goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
         }],

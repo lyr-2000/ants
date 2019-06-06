@@ -11,7 +11,7 @@ document.write(`<div class="topContainer">
             <li class="schoolChoose">广东金融学院</li>
             <li class="localIn">买家</li>
             <li>卖家</li>
-            <li>登录</li>
+            <li><a href="log.html">登录</a></li>
         </ul>
 </nav>
 </nav>

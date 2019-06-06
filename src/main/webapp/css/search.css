@@ -101,6 +101,9 @@
   padding: 5px 0px;
   cursor: pointer;
 }
+.main .mainLeft .classifyNav > ul > li > img {
+  transform: scale(0.6) translateX(10px) translateY(12px);
+}
 .main .mainLeft .classifyNav > ul > li > ul {
   display: flex;
   flex-direction: column;

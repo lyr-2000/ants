@@ -21,7 +21,7 @@
             </div>
             <div class="classifyIcon">
                 <div v-for="(classify,index) in synthesis">
-                    <img :src="['img/index/'+classify.parentPicture]">
+                    <img :src="['img/icon/'+classify.parentPicture]">
                     <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <span class="leftTitle">全部分类</span>
                     <ul>
                         <li v-for="(classify,index) in synthesis">
-                            <img :src='[classify.parentPicture]'>
+                            <img :src="['img/icon/'+classify.parentPicture]">
                             <span :class="[secIndex==index?'indexChoose':'']" @click="childList(index)">{{classify.parentName}}</span>
                             <ul v-if="index==secIndex">
                                 <li v-for="(cla,i) in composite" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)">{{cla.subClassName}}</li>

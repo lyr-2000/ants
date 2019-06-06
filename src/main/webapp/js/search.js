@@ -6,17 +6,17 @@ let vm = new Vue({
         secIndex: 0,
         thiIndex: 0,
         synthesis: [
-            { parentId: 1, parentName: "书籍", parentPicture: "book.png" },
+            { parentId: 1, parentName: "书籍", parentPicture: "/book.png" },
             {
                 parentId: 2,
                 parentName: "文具",
-                parentPicture: "stationery.png"
+                parentPicture: "/stationery.png"
             },
             { parentId: 3, parentName: "日用", parentPicture: "daily.png" },
-            { parentId: 4, parentName: "美妆", parentPicture: "cosmetics.png" },
-            { parentId: 5, parentName: "食品", parentPicture: "food.png" },
-            { parentId: 6, parentName: "电器", parentPicture: "electrical.png" },
-            { parentId: 7, parentName: "其他", parentPicture: "others.png" }
+            { parentId: 4, parentName: "美妆", parentPicture: "/cosmetics.png" },
+            { parentId: 5, parentName: "食品", parentPicture: "/food.png" },
+            { parentId: 6, parentName: "电器", parentPicture: "/electrical.png" },
+            { parentId: 7, parentName: "其他", parentPicture: "/others.png" }
         ],
         composite: [
             { subClassId: 0, subClassName: "英语四六级", parentClass: 0 },

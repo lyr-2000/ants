@@ -99,12 +99,16 @@
         }
         .classifyNav{
             >ul{
+                @textMove:10px;
                 display: flex;
                 flex-direction: column;
-                text-indent: 10px;
+                text-indent: @textMove;
                 >li{
                     padding:5px 0px;
                     cursor: pointer;
+                    >img{
+                        transform: scale(0.6) translateX(@textMove) translateY(12px);
+                    }
                     >ul{
                         display: flex;
                         flex-direction: column;
