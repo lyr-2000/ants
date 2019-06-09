@@ -8,11 +8,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.ServletConfigAware;
-import org.springframework.web.context.ServletContextAware;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,12 +26,11 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/code")
-public class SlideController extends HttpServlet implements ServletConfigAware {
+public class SlideController extends HttpServlet {
 
-    private ServletConfig servletConfig;
-    @Override
-    public void setServletConfig(ServletConfig config) {
-        this.servletConfig = config;
+    public void SlideController(ServletConfig config) throws ServletException{
+
+        System.out.println("走到这了啦拉拉！！");
     }
 
     /*
@@ -42,8 +38,8 @@ public class SlideController extends HttpServlet implements ServletConfigAware {
      */
     @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
     @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response ) {
-        SlideCode.init(servletConfig.getServletContext());
+    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response,ServletConfig config) {
+        SlideCode.init(config.getServletContext());
         String imgName = request.getParameter("imgName");
         /*
         如果前端给的图片名字为空字符串进行随机取样
@@ -64,6 +60,7 @@ public class SlideController extends HttpServlet implements ServletConfigAware {
             out = response.getWriter();
             response.setContentType("application/json-rpc;charset=UTF-8");
             out.println(JSON.toJSONString(result));
+            System.out.println(result);
 
         } catch (Exception e) {
             e.printStackTrace();
