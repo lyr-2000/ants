@@ -6,6 +6,7 @@ import com.ants.entity.ParentClass;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -48,7 +49,7 @@ public interface ClassifyDao {
      * @param parentId
      * @return
      */
-    public List<Goods> chooseGoodsByParent(Integer parentId);
+    public List<Goods> chooseGoodsByParent(Map<String,Integer> map);
 
     /**
      * 根据大分类的ID获取属于此大分类的所有商品的总数量
@@ -88,12 +89,51 @@ public interface ClassifyDao {
      * @param childId
      * @return
      */
-    public List<Goods> chooseGoodsByChild(Integer childId);
+    public List<Goods> chooseGoodsByChild(Map<String,Integer> map);
 
     /**
      * 根据小分类的ID获取属于此小分类的所有商品的总数量
+     *
      * @param childId
      * @return
      */
     public Integer getGoodsByChildNumbers(Integer childId);
+
+    /**
+     * 根据子类ID获取其父类下的所有子类名称
+     *
+     * @param childId
+     * @return
+     */
+    public List<String> getChildClassifyByChildId(Integer childId);
+
+    /**
+     * 副页面中根据综合获取指定的商品的列表
+     *
+     * @param map
+     * @return
+     */
+    public List<Goods> chooseGoodsByComposite(Map<String, Integer> map);
+
+    /**
+     * 副页面中根据综合获取指定的商品的数量
+     *
+     * @param map
+     * @return
+     */
+    public int countGoodsByComposite(Map<String, Integer> map);
+
+    /**
+     * 副页面中根据上传时间获取指定的商品的列表（降序）
+     * @param map
+     * @return
+     */
+    public List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map);
+
+    /**
+     * 副页面中根据价格获取指定的商品的列表（降序）
+     * @param map
+     * @return
+     */
+    public List<Goods> chooseGoodsByPrice(Map<String,Integer> map);
 }

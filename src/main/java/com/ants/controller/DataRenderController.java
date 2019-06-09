@@ -93,7 +93,7 @@ public class DataRenderController {
         dataMap.put("synthesis", parentClassificationHasOthers);
 
         //获取所有的小分类的名称，放在第二行的综合按钮那一行
-        List<ChildClass> allChildClassification = classifyService.allChildClassification();
+        List<ChildClass> allChildClassification = new ArrayList<>();//classifyService.allChildClassification();
         dataMap.put("composite", allChildClassification);
 
         //纵向全部大分类的数据

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -79,8 +80,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByParent(Integer parentId) {
-        return classifyDao.chooseGoodsByParent(parentId);
+    public List<Goods> chooseGoodsByParent(Map<String,Integer> map) {
+        return classifyDao.chooseGoodsByParent(map);
     }
 
     /**
@@ -134,8 +135,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByChild(Integer childId) {
-        return classifyDao.chooseGoodsByChild(childId);
+    public List<Goods> chooseGoodsByChild(Map<String,Integer> map) {
+        return classifyDao.chooseGoodsByChild(map);
     }
 
     /**
@@ -147,5 +148,60 @@ public class ClassifyServiceImpl implements ClassifyService {
     @Override
     public Integer getGoodsByChildNumbers(Integer childId) {
         return classifyDao.getGoodsByChildNumbers(childId);
+    }
+
+    /**
+     * 根据子类ID获取其父类下的所有子类名称
+     *
+     * @param childId
+     * @return
+     */
+    @Override
+    public List<String> getChildClassifyByChildId(Integer childId) {
+        return classifyDao.getChildClassifyByChildId(childId);
+    }
+
+    /**
+     * 副页面中根据综合获取指定的商品的列表
+     *
+     * @param map
+     * @return
+     */
+    @Override
+    public List<Goods> chooseGoodsByComposite(Map<String, Integer> map) {
+        return classifyDao.chooseGoodsByComposite(map);
+    }
+
+    /**
+     * 副页面中根据综合获取指定的商品的数量
+     *
+     * @param map
+     * @return
+     */
+    @Override
+    public int countGoodsByComposite(Map<String, Integer> map) {
+        return classifyDao.countGoodsByComposite(map);
+    }
+
+    /**
+     * 副页面中根据上传时间获取指定的商品的列表（降序）
+     *
+     * @param map
+     * @return
+     */
+    @Override
+    public List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map) {
+        return classifyDao.chooseGoodsByUploadTime(map);
+    }
+
+    /**
+     * 副页面中根据价格获取指定的商品的列表（降序）
+     *
+     * @param map
+     * @return
+     */
+    @Override
+    public List<Goods> chooseGoodsByPrice(Map<String, Integer> map) {
+        return classifyDao.chooseGoodsByPrice(map);
     }
 }

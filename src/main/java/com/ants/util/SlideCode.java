@@ -75,6 +75,7 @@ public class SlideCode {
         //本地原始图片路径,
         System.out.println("这里的文件路径为:"+sourceImgPath);
         File file = new File(sourceImgPath);
+        System.out.println();
         String[] list = file.list();
         String filename;
         //获取随机图片， 每次获取到的图片与已有的图片要不同。
