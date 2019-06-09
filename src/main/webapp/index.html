@@ -22,7 +22,7 @@
                     <ul v-if="!showDetialedClassify">
                         <li v-for="classify in wholeClassify">
                             <img :src='[classify.parentPicture]'>
-                            <span>{{classify.parnentName}}</span>
+                            <span>{{classify.parentName}}</span>
                         </li>
                     </ul>
                     <div class="detailedContent" v-if="showDetialedClassify">
@@ -123,6 +123,7 @@
     </div>
     <script src="js/footer.js"></script>
     <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 

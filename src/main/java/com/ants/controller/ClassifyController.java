@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author czd
@@ -24,7 +21,7 @@ import java.util.Map;
 @RequestMapping(value = "/ants/class")
 public class ClassifyController {
 
-    private final static Integer PAGENUMBERS = 2;
+    private final static Integer PAGENUMBERS = 16;
 
     @Autowired
     private ClassifyService classifyService;
@@ -63,7 +60,7 @@ public class ClassifyController {
      * @param parentId
      * @return
      */
-    @RequestMapping(value = "/goodsByParent", method = RequestMethod.POST)
+        @RequestMapping(value = "/goodsByParent", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByParent(@RequestParam(value = "parentId") Integer parentId) {
         Map dataMap = new HashMap<>();
@@ -104,7 +101,7 @@ public class ClassifyController {
      */
     @RequestMapping(value = "/goodsByChild", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, List<Goods>> chooseGoodsByChild(@RequestParam(value = "childId") Integer childId) {
+    public Map<String, List<Goods>> chooseGoodsByChild(@RequestParam(value = "subClassId") Integer childId) {
         Map dataMap = new HashMap();
         //根据前端传来的子类ID获取父类名称
         ParentClass parentName = classifyService.getParentNameByChildId(childId);
@@ -166,20 +163,22 @@ public class ClassifyController {
          * type: 等于1时代表综合；
          *       等于2代表时间；
          *       等于3代表价格；
+         *
          */
+        List<Goods> goodsList = new LinkedList<>();
         switch (type) {
             case 1:
                 //根据parentId和childId来获取对应的商品的信息
-                List<Goods> compositeGoods = classifyService.chooseGoodsByComposite(parameterMap);
-                dataMap.put("composite", compositeGoods);
+                goodsList = classifyService.chooseGoodsByComposite(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
             case 2://根据parentId和childId来获取对应的商品的信息
-                List<Goods> uploadTimeGoods = classifyService.chooseGoodsByUploadTime(parameterMap);
-                dataMap.put("uploadTimeGoods", uploadTimeGoods);
+                goodsList = classifyService.chooseGoodsByUploadTime(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
             case 3://根据parentId和childId来获取对应的商品的信息
-                List<Goods> chooseGoodsByPrice = classifyService.chooseGoodsByPrice(parameterMap);
-                dataMap.put("chooseGoodsByPrice", chooseGoodsByPrice);
+                goodsList = classifyService.chooseGoodsByPrice(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
         }
 
@@ -228,23 +227,23 @@ public class ClassifyController {
          *      等于2代表时间；
          *      等于3代表价格；
          */
-
+        List<Goods> goodsList = new LinkedList<>();
         switch (type) {
             case 0://根据前端给的大分类的ID获取属于此大分类的商品信息
-                List<Goods> goodsList = classifyService.chooseGoodsByParent(parameterMap);
+                goodsList = classifyService.chooseGoodsByParent(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 1://根据parentId和childId来获取对应的商品的信息
-                List<Goods> compositeGoods = classifyService.chooseGoodsByComposite(parameterMap);
-                dataMap.put("composite", compositeGoods);
+                goodsList = classifyService.chooseGoodsByComposite(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
             case 2:
-                List<Goods> uploadTimeGoods = classifyService.chooseGoodsByUploadTime(parameterMap);
-                dataMap.put("uploadTimeGoods", uploadTimeGoods);
+                goodsList = classifyService.chooseGoodsByUploadTime(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
             case 3://根据parentId和childId来获取对应的商品的信息
-                List<Goods> chooseGoodsByPrice = classifyService.chooseGoodsByPrice(parameterMap);
-                dataMap.put("chooseGoodsByPrice", chooseGoodsByPrice);
+                goodsList = classifyService.chooseGoodsByPrice(parameterMap);
+                dataMap.put("goodsList", goodsList);
                 break;
         }
 

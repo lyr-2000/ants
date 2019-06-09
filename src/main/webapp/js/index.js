@@ -16,22 +16,22 @@ let vm = new Vue({
         },
         wholeClassify: [{
             parentPicture: 'img/icon/book.png',
-            parnentName: '书籍'
+            parentName: '书籍'
         }, {
             parentPicture: 'img/icon/stationery.png',
-            parnentName: '文具'
+            parentName: '文具'
         }, {
             parentPicture: 'img/icon/daily.png',
-            parnentName: '日用'
+            parentName: '日用'
         }, {
             parentPicture: 'img/icon/cosmetics.png',
-            parnentName: '美妆'
+            parentName: '美妆'
         }, {
             parentPicture: 'img/icon/food.png',
-            parnentName: '食品'
+            parentName: '食品'
         }, {
             parentPicture: 'img/icon/electrical.png',
-            parnentName: '电器'
+            parentName: '电器'
         }],
         detailedClassify: [
             ["英语四六级", "证从", "银从", "会计", "教师资格证", "计算机二级", "其他"],  
@@ -137,9 +137,15 @@ let vm = new Vue({
     methods: {
         //进入页面时发起请求
         initRequest() {
-            axios.post('/http://localhost:9090/ants/dataRendering/homePage', "")
+            let config = {
+                headers: {
+                    token: `http-test`
+                }
+            }
+            axios.get('/ants/dataRendering/homePage',{})
                 .then(res => {
-                    console.log(res);
+                    res=res.data;
+                    console.log(res.parentClassification);
                     this.wholeClassify = res.parentClassification;
                     this.perfectGoods = res.guessLike;
                     this.hotGoods = res.hottest;
@@ -148,7 +154,7 @@ let vm = new Vue({
                 })
         },
         concreteRequest() {
-            axios.post('http://localhost:9090/ants/class/allClassify', '')
+            axios.post('/ants/class/allClassify', '')
                 .then(res => {
                     console.log(res);
                     this.detailedClassify = res.childClassification;
@@ -195,6 +201,6 @@ let vm = new Vue({
         }
     },
     created: function() {
-        // this.initRequest();
+        this.initRequest();
     }
 })
