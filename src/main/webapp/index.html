@@ -85,12 +85,13 @@
 
             <div class="specialGoods">
                 <div class="specialTitle">
-                    <div :class="[showHot?'show':'']" @click="changeShow('hot')">
-                        <span :class="[showHot?'':'hide']">Hot</span>
+                    <!-- <div :class="[showHot?'show':'']" @click="changeShow('hot')"> -->
+                    <div :class="{'show':showHot}" @click="changeShow('hot')">
+                        <span :class="{'hide':!showHot}">Hot</span>
                         <span>最热闲置</span>
                     </div>
-                    <div :class="[!showHot?'show':'']" @click="changeShow('new')">
-                        <span :class="[!showHot?'':'hide']">New</span>
+                    <div :class="{'show':!showHot}" @click="changeShow('new')">
+                        <span :class="{'hide':showHot}">New</span>
                         <span>最新闲置</span>
                     </div>
                     <em :class="[showHot?'borderHot':'borderNew']"></em>

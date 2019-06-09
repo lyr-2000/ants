@@ -1,3 +1,6 @@
+[v-cloak] {
+  display: none;
+}
 .classifyContainer {
   width: 1200px;
   margin: 0px auto 10px auto;

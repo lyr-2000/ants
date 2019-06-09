@@ -30,7 +30,7 @@ let vm = new Vue({
             parentPicture: 'img/icon/food.png',
             parnentName: '食品'
         }, {
-            parentPicture: 'img/icon/dianqi.png',
+            parentPicture: 'img/icon/electrical.png',
             parnentName: '电器'
         }],
         detailedClassify: [
