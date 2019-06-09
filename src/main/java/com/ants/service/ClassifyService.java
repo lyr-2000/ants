@@ -33,7 +33,7 @@ public interface ClassifyService {
      *
      * @return
      */
-    public List<String> childClassification(Integer parentClass);
+    public List<ChildClass> childClassification(Integer parentClass);
 
     /**
      * 获取所有大分类的ID的的数据接口
@@ -71,7 +71,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public String getParentName(Integer parentId);
+    public ParentClass getParentName(Integer parentId);
 
     /**
      * 根据前端传来的ID获取此ID代表的小分类的名称
@@ -79,7 +79,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public String getChildName(Integer childId);
+    public ChildClass getChildName(Integer childId);
 
     /**
      * 根据前端传来的子类的ID获取父类的名称
@@ -87,7 +87,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public String getParentNameByChildId(Integer childId);
+    public ParentClass getParentNameByChildId(Integer childId);
 
     /**
      * 根据前端传来的子类ID获取相应的商品数据
@@ -111,7 +111,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public List<String> getChildClassifyByChildId(Integer childId);
+    public List<ChildClass> getChildClassifyByChildId(Integer childId);
 
     /**
      * 副页面中根据综合获取指定的商品的列表

@@ -48,7 +48,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<String> childClassification(Integer parentClass) {
+    public List<ChildClass> childClassification(Integer parentClass) {
         return classifyDao.childClassification(parentClass);
     }
 
@@ -102,7 +102,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public String getChildName(Integer childId) {
+    public ChildClass getChildName(Integer childId) {
         return classifyDao.getChildName(childId);
     }
 
@@ -113,7 +113,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public String getParentName(Integer parentId) {
+    public ParentClass getParentName(Integer parentId) {
         return classifyDao.getParentName(parentId);
     }
 
@@ -124,7 +124,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public String getParentNameByChildId(Integer childId) {
+    public ParentClass getParentNameByChildId(Integer childId) {
         return classifyDao.getParentNameByChildId(childId);
     }
 
@@ -157,7 +157,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<String> getChildClassifyByChildId(Integer childId) {
+    public List<ChildClass> getChildClassifyByChildId(Integer childId) {
         return classifyDao.getChildClassifyByChildId(childId);
     }
 

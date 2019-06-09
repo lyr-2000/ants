@@ -1,5 +1,6 @@
 package com.ants.controller;
 
+import com.ants.entity.ChildClass;
 import com.ants.entity.Goods;
 import com.ants.entity.ParentClass;
 import com.ants.service.ClassifyService;
@@ -29,7 +30,7 @@ public class ClassifyController {
     private ClassifyService classifyService;
 
     /**
-     * 首页的点击所有分类功能的数据，包括大分类类型和小分类类型
+     * 首页的点击"所有分类"功能的数据，包括大分类类型和小分类类型
      *
      * @return
      */
@@ -38,7 +39,7 @@ public class ClassifyController {
     public Map<String, List<String>> childClassify() {
         Map allMap = new HashMap<>();
         //存放小分类的数组的列表
-        List<List<String>> childList = new ArrayList<>();
+        List<List<ChildClass>> childList = new ArrayList<>();
         //获取大分类的ID
         List<Integer> parentClass = classifyService.parentClassId();
         //获取所有的大分类的数据信息
@@ -46,7 +47,7 @@ public class ClassifyController {
 
         //根据大分类的ID获取对应的小分类的数据信息列表
         for (Integer parentId : parentClass) {
-            List<String> childClassification = classifyService.childClassification(parentId);
+            List<ChildClass> childClassification = classifyService.childClassification(parentId);
             childList.add(childClassification);
         }
         allMap.put("parentClassification", parentClassification);
@@ -84,11 +85,11 @@ public class ClassifyController {
         dataMap.put("page", page);
 
         //获取纵向导航栏中属于此大分类的小分类信息
-        List<String> childList = classifyService.childClassification(parentId);
+        List<ChildClass> childList = classifyService.childClassification(parentId);
         dataMap.put("childList", childList);
 
         //根据前端传来的ID获取此ID代表的大分类的名称，并且传回给前端进行字体加强
-        String parentName = classifyService.getParentName(parentId);
+        ParentClass parentName = classifyService.getParentName(parentId);
         dataMap.put("parentName", parentName);
 
         return dataMap;
@@ -106,11 +107,11 @@ public class ClassifyController {
     public Map<String, List<Goods>> chooseGoodsByChild(@RequestParam(value = "childId") Integer childId) {
         Map dataMap = new HashMap();
         //根据前端传来的子类ID获取父类名称
-        String parentName = classifyService.getParentNameByChildId(childId);
+        ParentClass parentName = classifyService.getParentNameByChildId(childId);
         dataMap.put("parentName", parentName);
 
         //根据前端传来的子类ID获取子类名称
-        String childName = classifyService.getChildName(childId);
+        ChildClass childName = classifyService.getChildName(childId);
         dataMap.put("childName", childName);
 
         //获取前端传来的大分类ID和设置默认页面商品数量，默认是一页显示16个商品
@@ -124,7 +125,7 @@ public class ClassifyController {
         dataMap.put("goodsList", goodsList);
 
         //根据子类ID获取其父类下的所有子类
-        List<String> childList = classifyService.getChildClassifyByChildId(childId);
+        List<ChildClass> childList = classifyService.getChildClassifyByChildId(childId);
         dataMap.put("childList", childList);
 
         //根据子类ID获取商品数量
@@ -162,8 +163,7 @@ public class ClassifyController {
         parameterMap.put("tail", PAGENUMBERS);
 
         /**
-         * type: 等于0时代表大分类小分类根据页数获取商品信息；
-         *       等于1时代表综合；
+         * type: 等于1时代表综合；
          *       等于2代表时间；
          *       等于3代表价格；
          */
