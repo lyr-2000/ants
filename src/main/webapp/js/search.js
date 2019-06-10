@@ -141,8 +141,8 @@ let vm = new Vue({
             goodsBargin: 0,
             uploadTime: '2019-06-03'
         }, ],
-        page: 3,
-        allPage: 4
+        currentPage: 3,
+        page: 4
     },
     methods: {
         changeChoose: function(type) {
@@ -153,6 +153,17 @@ let vm = new Vue({
         },
         changeArrayBy: function(type) {
             this.type = type;
+            axios.post('/ants/class/chooseGoodsByType', {
+                    parentId: this.secIndex,
+                    childId: this.thiIndex,
+                    type: this.type
+                })
+                .then(res => {
+                    res = res.data;
+                    this.goodsList = res.goodsList;
+                    this.page = res.page;
+                    this.currentPage = 1;
+                })
         },
         // 显示三级导航
         showChildList: function(index) {
@@ -172,11 +183,29 @@ let vm = new Vue({
         // 根据标签搜素相应的内容
         titleSearch: function(index) {
             this.thiIndex = index;
-            axios.post('/url', {})
-                .then((res) => {
-                    res = res.data;
-                    this.childList = res.childList;
-                })
+            axios.post('/ants/class/goodsByChild', {
+                subClassId: index,
+                subClassName: this.childList[index].subClassName,
+                parentClass: this.secIndex
+            }).then(res => {
+                res = res.data;
+                this.goodsList = res.goodsList;
+                this.page = res.page;
+                this.currentPage = 1;
+            })
+        },
+        //跳转页数
+        turn: function(currentPage) {
+            console.log(currentPage);
+            axios.post('/ants/class/pageJump', {
+                parentId: this.secIndex,
+                childId: this.thiIndex,
+                type: this.type,
+                currentPage: this.currentPage
+            }).then(res => {
+                res = res.data;
+                this.goodsList = res.goodsList;
+            })
         }
     },
     mounted() {

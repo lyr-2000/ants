@@ -204,6 +204,7 @@
   display: inline-block;
   width: 15px;
   text-align: center;
+  cursor: pointer;
 }
 .main .goodsShow .pageTurn .pageContainer .currentPage {
   background-color: rgba(246, 146, 138, 0.5);

@@ -72,12 +72,12 @@
                     </div>
                 </div>
                 <div class="pageTurn">
-                    <span class="turnPage"><</span>
+                    <span class="turnPage" @click="turn(currentPage-1)"><</span>
                     <div class="pageContainer">
-                        <span :class="{'currentPage':p==page}" v-for="p in allPage" v-cloak>{{p}}</span>
+                        <span :class="{'currentPage':p==currentPage}" v-for="p in page" v-cloak @click="turn(p)">{{p}}</span>
                     </div>
-                    <span class="turnPage">></span>
-                    <span v-cloak>共{{allPage}}页</span>
+                    <span class="turnPage" @click="turn(currentPage+1)">></span>
+                    <span v-cloak>共{{page}}页</span>
                 </div>
             </div>
 
