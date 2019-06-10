@@ -20,13 +20,13 @@
                 <span :class="{'choosing':others}" @click="changeChoose('others')">其他</span>
             </div>
             <div class="classifyIcon">
-                <div v-for="(classify,index) in synthesis" @click="childList(index)">
+                <div v-for="(classify,index) in synthesis" @click="showChildList(index)">
                     <img :src="['img/icon/'+classify.parentPicture]">
                     <span v-cloak :class="{'indexChoose':secIndex==index}">{{classify.parentName}}</span>
                 </div>
             </div>
             <div :class="['concreteClassify',secIndex==0?'hideThi':'showThi']">
-                <span :class="{'indexChoose':thiIndex==index}" v-for="(classify,index) in composite" @click="titleSearch(index)" v-cloak>{{classify.subClassName}}</span>
+                <span :class="{'indexChoose':thiIndex==index}" v-for="(classify,index) in childList" @click="titleSearch(index)" v-cloak>{{classify.subClassName}}</span>
             </div>
         </div>
 
@@ -35,9 +35,9 @@
                 <div class="arrayBy leftBlock">
                     <span class="leftTitle">全部商品</span>
                     <div>
-                        <span v-cloak :class="[arrayBy=='综合'?'arrayChoose':'']" @click="changeArrayBy('综合')">按综合</span>
-                        <span v-cloak :class="[arrayBy=='时间'?'arrayChoose':'']" @click="changeArrayBy('时间')">按时间</span>
-                        <span v-cloak :class="[arrayBy=='价格'?'arrayChoose':'']" @click="changeArrayBy('价格')">按价格</span>
+                        <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="changeArrayBy('1')">按综合</span>
+                        <span v-cloak :class="[type=='2'?'arrayChoose':'']" @click="changeArrayBy('2')">按时间</span>
+                        <span v-cloak :class="[type=='3'?'arrayChoose':'']" @click="changeArrayBy('3')">按价格</span>
                     </div>
                 </div>
                 <div class="searchInput">
@@ -48,12 +48,12 @@
                 <div class="classifyNav leftBlock">
                     <span class="leftTitle">全部分类</span>
                     <ul>
-                        <li v-for="(classify,index) in synthesis" @click="childList(index)">
+                        <li v-for="(classify,index) in synthesis" @click="showChildList(index)">
                             <img :src="['img/icon/'+classify.parentPicture]">
                             <span :class="[secIndex==index?'indexChoose':'']" v-cloak>{{classify.parentName}}</span>
                             <transition name="leftNav" enter-active-class="leftThiEnter" leave-active-class="leftThiLeave">
-                                <ul v-if="index==secIndex">
-                                    <li v-for="(cla,i) in composite" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)" v-cloak>{{cla.subClassName}}</li>
+                                <ul v-if="index==secIndex&&index!==0">
+                                    <li v-for="(cla,i) in childList" :class="[i==thiIndex?'thiIndex':'']" @click="titleSearch(i)" v-cloak>{{cla.subClassName}}</li>
                                 </ul>
                             </transition>
                         </li>
@@ -63,7 +63,7 @@
 
 
             <div class="goodsShow">
-                <div class="specificGoods" v-for="ex in goodsExample">
+                <div class="specificGoods" v-for="ex in goodsList">
                     <img :src="['img/search/'+ex.goodsPicture]">
                     <span v-cloak>{{ex.goodsName}}</span>
                     <div>
@@ -73,9 +73,11 @@
                 </div>
                 <div class="pageTurn">
                     <span class="turnPage"><</span>
-                    <span class="page" v-for="page in allPage" v-cloak>{{page}}</span>
-                    <span v-cloak>共{{allPage}}页</span>
+                    <div class="pageContainer">
+                        <span :class="{'currentPage':p==page}" v-for="p in allPage" v-cloak>{{p}}</span>
+                    </div>
                     <span class="turnPage">></span>
+                    <span v-cloak>共{{allPage}}页</span>
                 </div>
             </div>
 
