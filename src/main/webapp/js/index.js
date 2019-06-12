@@ -14,7 +14,7 @@ let vm = new Vue({
             'hot': false,
             'new': false
         },
-        wholeClassify: [{
+        parentClassification: [{
             parentPicture: 'img/icon/book.png',
             parentName: '书籍'
         }, {
@@ -33,7 +33,7 @@ let vm = new Vue({
             parentPicture: 'img/icon/electrical.png',
             parentName: '电器'
         }],
-        detailedClassify: [
+        childClassification: [
             ["英语四六级", "证从", "银从", "会计", "教师资格证", "计算机二级", "其他"],  
             ["本子", "笔", "便签", "文件夹", "计算器", "办公用品", "包装用品", "其他"],  
             ["收纳", "服饰", "鞋表", "箱包", "洗护用品", "非处方药物", "餐桌用品", "其他"],
@@ -41,7 +41,7 @@ let vm = new Vue({
             ["速食品", "饮料", "调味料", "五谷", "甜品", "膨化食物", "冲泡花茶", "其他"],
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
-        perfectGoods: [{
+        guessLike: [{
             goodsPicture: 'img/icon/food.png',
             goodsName: '商品名',
             goodsPrice: '价格'
@@ -71,7 +71,7 @@ let vm = new Vue({
             goodsPrice: '价格'
         }],
         showHot: true,
-        hotGoods: [{
+        hottest: [{
             goodsPicture: '',
             goodsName: '',
             goodsPrice: '',
@@ -102,7 +102,7 @@ let vm = new Vue({
             goodsPrice: '',
             starNum: ''
         }, ],
-        newGoods: [{
+        latest: [{
             goodsPicture: '',
             goodsName: '',
             goodsPrice: '',
@@ -142,22 +142,23 @@ let vm = new Vue({
                     token: `http-test`
                 }
             }
-            axios.get('/ants/dataRendering/homePage',{})
+            axios.get('/ants/dataRendering/homePage', {})
                 .then(res => {
-                    res=res.data;
-                    console.log(res.parentClassification);
-                    this.wholeClassify = res.parentClassification;
-                    this.perfectGoods = res.guessLike;
-                    this.hotGoods = res.hottest;
-                    this.newGoods = res.latest;
+                    res = res.data;
+                    console.log(res);
+                    this.parentClassification = res.parentClassification;
+                    this.guessLike = res.guessLike;
+                    this.hottest = res.hottest;
+                    this.latest = res.latest;
 
                 })
         },
         concreteRequest() {
-            axios.post('/ants/class/allClassify', '')
+            axios.get('/ants/class/allClassify', {})
                 .then(res => {
+                    res = res.data;
                     console.log(res);
-                    this.detailedClassify = res.childClassification;
+                    this.childClassification = res.childClassification;
                 })
         },
         turnLeft: function(type) {
@@ -195,7 +196,7 @@ let vm = new Vue({
         },
         showDetailed: function() {
             // 当没有该数据时请求该数据
-            if (this.detailedClassify == [])
+            if (this.childClassification == [])
                 this.concreteRequest();
             this.showDetialedClassify = !this.showDetialedClassify;
         }

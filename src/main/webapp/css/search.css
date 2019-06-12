@@ -183,10 +183,32 @@
   text-indent: 4px;
 }
 .main .goodsShow .pageTurn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   width: 100%;
+}
+.main .goodsShow .pageTurn * {
+  padding: 0px 3px;
 }
 .main .goodsShow .pageTurn .turnPage {
   cursor: pointer;
+}
+.main .goodsShow .pageTurn .pageContainer {
+  display: flex;
+  flex-direction: row;
+  min-width: 50px;
+  justify-content: space-evenly;
+}
+.main .goodsShow .pageTurn .pageContainer span {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+.main .goodsShow .pageTurn .pageContainer .currentPage {
+  background-color: rgba(246, 146, 138, 0.5);
+  color: #fff;
 }
 .leftThiEnter {
   opacity: 0;

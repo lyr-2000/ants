@@ -2,7 +2,7 @@ let vm = new Vue({
     el: '#app',
     data: {
         others: false,
-        arrayBy: '综合',
+        type: 1,
         secIndex: 0,
         thiIndex: 0,
         synthesis: [
@@ -18,7 +18,7 @@ let vm = new Vue({
             { parentId: 6, parentName: "电器", parentPicture: "/electrical.png" },
             { parentId: 7, parentName: "其他", parentPicture: "/others.png" }
         ],
-        composite: [
+        childList: [
             { subClassId: 0, subClassName: "英语四六级", parentClass: 0 },
             { subClassId: 0, subClassName: "英语四六级", parentClass: 0 },
             { subClassId: 0, subClassName: "证从", parentClass: 0 },
@@ -28,7 +28,7 @@ let vm = new Vue({
             { subClassId: 0, subClassName: "证从", parentClass: 0 },
             { subClassId: 0, subClassName: "证从", parentClass: 0 },
         ],
-        goodsExample: [{
+        goodsList: [{
             goodsId: 1,
             goodsName: "商品名",
             goodsPicture: "test1.png",
@@ -140,7 +140,9 @@ let vm = new Vue({
             goodsPrice: 0,
             goodsBargin: 0,
             uploadTime: '2019-06-03'
-        }, ]
+        }, ],
+        currentPage: 3,
+        page: 4
     },
     methods: {
         changeChoose: function(type) {
@@ -150,40 +152,71 @@ let vm = new Vue({
                 this.others = true;
         },
         changeArrayBy: function(type) {
-            this.arrayBy = type;
+            this.type = type;
+            axios.post('/ants/class/chooseGoodsByType', {
+                    parentId: this.secIndex,
+                    childId: this.thiIndex,
+                    type: this.type
+                })
+                .then(res => {
+                    res = res.data;
+                    this.goodsList = res.goodsList;
+                    this.page = res.page;
+                    this.currentPage = 1;
+                })
         },
         // 显示三级导航
-        childList: function(index) {
+        showChildList: function(index) {
             this.secIndex = index;
-            if (index == 0) {
+            if (index != 0) {
+                axios.post('/ants/class/goodsByParent', this.synthesis[index])
+                    .then((res) => {
+                        res = res.data;
+                        this.childList = res.childList;
+                        this.goodsList = res.goodsList;
+                    })
+                    .catch((err) => {
 
+                    })
             }
-            axios.post('/url', {})
-                .then((res) => {
-                    this.composite = res.composite
-                })
-                .catch((err) => {
-
-                })
-
         },
         // 根据标签搜素相应的内容
         titleSearch: function(index) {
             this.thiIndex = index;
-            axios.post('/url', {})
-                .then((res) => {
-                    this.goodsExample = res.goodsExample;
-                })
+            axios.post('/ants/class/goodsByChild', {
+                subClassId: index,
+                subClassName: this.childList[index].subClassName,
+                parentClass: this.secIndex
+            }).then(res => {
+                res = res.data;
+                this.goodsList = res.goodsList;
+                this.page = res.page;
+                this.currentPage = 1;
+            })
+        },
+        //跳转页数
+        turn: function(currentPage) {
+            console.log(currentPage);
+            axios.post('/ants/class/pageJump', {
+                parentId: this.secIndex,
+                childId: this.thiIndex,
+                type: this.type,
+                currentPage: this.currentPage
+            }).then(res => {
+                res = res.data;
+                this.goodsList = res.goodsList;
+            })
         }
     },
     mounted() {
-        axios.post('/ants/dataRendering/deputyPage', {
-
-        }).then((res) => {
+        //页面加载渲染
+        axios.get('/ants/dataRendering/deputyPage', {}).then((res) => {
+            res = res.data;
             this.synthesis = res.synthesis;
-            this.composite = res.composite;
+            this.childList = res.childList;
             this.allClassification = res.allClassification;
-            this.goodsExample = res.goodsExample;
+            this.childList = res.childList;
+            this.page = res.page;
         })
     }
 })
