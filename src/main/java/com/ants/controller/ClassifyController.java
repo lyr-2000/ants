@@ -199,7 +199,7 @@ public class ClassifyController {
      * @param parentId
      * @param childId
      * @param type
-     * @param page
+     * @param currentPage
      * @return
      */
     @RequestMapping(value = "/pageJump", method = RequestMethod.POST)
@@ -207,7 +207,7 @@ public class ClassifyController {
     public Map<String, List<Goods>> pageJump(@RequestParam(value = "parentId") Integer parentId,
                                              @RequestParam(value = "childId") Integer childId,
                                              @RequestParam(value = "type") Integer type,
-                                             @RequestParam(value = "page") Integer page) {
+                                             @RequestParam(value = "currentPage") Integer currentPage) {
 
         Map dataMap = new HashMap();
 
@@ -216,7 +216,7 @@ public class ClassifyController {
         parameterMap.put("parentId", parentId);
         parameterMap.put("childId", childId);
         //根据前端传过来的页面数获取商品的页面数下标，即Limit中的head , tail
-        Integer head = (page - 1) * PAGENUMBERS;
+        Integer head = (currentPage - 1) * PAGENUMBERS;
         Integer tail = head + PAGENUMBERS;
         parameterMap.put("head", head);
         parameterMap.put("tail", tail);

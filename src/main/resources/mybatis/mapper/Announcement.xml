@@ -3,7 +3,8 @@
 <mapper namespace="com.ants.dao.AnnouncementDao">
     <!--获取一条最新的公告的数据信息-->
     <select id="latestAnnouncement" resultType="com.ants.entity.Announcement">
-        select * from ants_management_announcement ORDER BY annTime DESC limit 0,1
+        select annId,annTitle,annContent,annTime from ants_management_announcement
+        ORDER BY annTime DESC limit 0,1
     </select>
 
 </mapper>
