@@ -13,8 +13,6 @@ document.write(`<div class="topContainer">
             <li>卖家</li>
             <li><a href="log.html">登录</a></li>
         </ul>
-</nav>
-</nav>
 <!-- 顶部操作 -->
 <div class="topHandle">
     <div class="topLogo">
