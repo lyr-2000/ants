@@ -1,28 +1,62 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="../../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TopTitle :productName="productName"></TopTitle>
+    <Star></Star>
+    <Sea></Sea>
+    <Cloud></Cloud>
+    <Inputcontainer :productName="productName"></Inputcontainer>
   </div>
 </template>
 
 <script>
-import HelloWorld from '../../components/HelloWorld.vue'
+import TopTitle from '../../components/log/topTitle.vue'
+import Inputcontainer from '../../components/log/inputContainer.vue'
+import Star from '../../components/log/star.vue'
+import Sea from '../../components/log/sea.vue'
+import Cloud from '../../components/log/cloud.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Inputcontainer,
+    TopTitle,
+    Star,
+    Sea,
+    Cloud
+  },
+  data(){
+    return{
+      productName:'蚂蚁置物'
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{
+    margin: 0px;
+    padding: 0px;
+    background: url('../../img/log/blueBg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
+
+li{
+    list-style: none;
+}
+
+input{
+    outline: none;
+}
+
+button{
+    outline: none;
+    cursor: pointer;
+}
+
+[v-cloak] {
+    display: none;
+}
+
 </style>

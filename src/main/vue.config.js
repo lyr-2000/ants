@@ -16,6 +16,12 @@ module.exports = {
             template: 'public/log.html',
             filename: 'log.html',
             title: '登录界面'
+        },
+        search: {
+            entry: 'src/page/search/main.js',
+            template: 'public/search.html',
+            filename: 'search.html',
+            title: '副界面'
         }
     }
 }
