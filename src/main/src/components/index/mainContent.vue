@@ -49,6 +49,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@toppicColor:#5d759d;
+@perfectColor:rgba(246,146,138,.5);
 main{
     margin: 20px auto;
     width: 1100px;
@@ -110,7 +112,7 @@ main{
     width: 100%;
     height: 224px;
     margin: 40px 0px;
-    background-image: url('../img/index/banner.png');
+    background-image: url('../../img/index/banner.png');
     background-size: cover;
 }
 @keyframes contentMoveL{

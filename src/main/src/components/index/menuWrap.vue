@@ -1,5 +1,4 @@
 <template>
-import { setInterval } from 'timers';
     <div class="menuwrap">
         <div class="allClassify">
             <span @click="$emit('show-detailed')">所有分类</span>

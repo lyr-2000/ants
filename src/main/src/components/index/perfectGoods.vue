@@ -27,11 +27,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .perfectGoods{
-        position: relative;
-        h2{
-            text-align: center;
-            color: @perfectColor;
-        }
+@perfectColor:rgba(246,146,138,.5);
+.perfectGoods{
+    position: relative;
+    h2{
+        text-align: center;
+        color: @perfectColor;
     }
+}
 </style>

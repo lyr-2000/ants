@@ -15,13 +15,13 @@ module.exports = {
             entry: 'src/page/log/main.js',
             template: 'public/log.html',
             filename: 'log.html',
-            title: '登录界面'
+            title: '登录页面'
         },
         search: {
             entry: 'src/page/search/main.js',
             template: 'public/search.html',
             filename: 'search.html',
-            title: '副界面'
+            title: '副页面'
         }
     }
 }

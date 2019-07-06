@@ -48,64 +48,66 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .specialGoods{
+@toppicColor:#5d759d;
+@perfectColor:rgba(246,146,138,.5);
+.specialGoods{
+    position: relative;
+    .specialTitle{
         position: relative;
-        .specialTitle{
+        border-bottom:2px solid rgba(204,204,204,.5);
+        margin-bottom: 4px;
+        div{
+            display: inline-block;
             position: relative;
-            border-bottom:2px solid rgba(204,204,204,.5);
-            margin-bottom: 4px;
-            div{
+            padding: 5px 40px;
+            border-bottom: 2px solid transparent;
+            color: @toppicColor;
+            background-color: rgba(204,204,204,.5);
+            overflow: hidden;
+            cursor: pointer;
+            >span:first-child{
                 display: inline-block;
-                position: relative;
-                padding: 5px 40px;
-                border-bottom: 2px solid transparent;
-                color: @toppicColor;
-                background-color: rgba(204,204,204,.5);
-                overflow: hidden;
-                cursor: pointer;
-                >span:first-child{
-                    display: inline-block;
-                    position: absolute;
-                    left: 0px;
-                    top: 0px;
-                    padding: 8px 6px;
-                    font-size: 12px;
-                    color: #fff;
-                    background-color: @toppicColor;
-                }
-                .hide{
-                    animation: titleHide .5s linear 0s 1 forwards;
-                }
-            }
-            em{
                 position: absolute;
-                display: inline-block;
                 left: 0px;
-                bottom: 0px;
-                height: 0px;
-                width: 144px;
-                border-bottom: 2px solid @toppicColor;
-            }
-                .borderHot{
-                    animation: borHot .5s ease-in 0s 1 forwards;
-                }
-                .borderNew{
-                    animation: borNew .5s ease-in 0s 1 forwards;
-                }
-            .more{
-                float: right;
-                padding: 4px 6px;
-                background-color: @toppicColor;
+                top: 0px;
+                padding: 8px 6px;
+                font-size: 12px;
                 color: #fff;
+                background-color: @toppicColor;
             }
-            .show{
-                >span:first-child{
-                    animation: titleShow .5s linear 0s 1 forwards;
-                }
+            .hide{
+                animation: titleHide .5s linear 0s 1 forwards;
+            }
+        }
+        em{
+            position: absolute;
+            display: inline-block;
+            left: 0px;
+            bottom: 0px;
+            height: 0px;
+            width: 144px;
+            border-bottom: 2px solid @toppicColor;
+        }
+            .borderHot{
+                animation: borHot .5s ease-in 0s 1 forwards;
+            }
+            .borderNew{
+                animation: borNew .5s ease-in 0s 1 forwards;
+            }
+        .more{
+            float: right;
+            padding: 4px 6px;
+            background-color: @toppicColor;
+            color: #fff;
+        }
+        .show{
+            >span:first-child{
+                animation: titleShow .5s linear 0s 1 forwards;
             }
         }
     }
-    @topLength:32px;
+}
+@topLength:32px;
 @keyframes titleHide{
     0%{
         top: 0px;

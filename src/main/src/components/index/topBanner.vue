@@ -35,7 +35,6 @@ export default {
 
 <style lang="less" scoped>
 
-@toppicColor:#5d759d;
 @topInputColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
 @fontColor:#666;
