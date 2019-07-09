@@ -28,7 +28,7 @@ export default {
     width: 1000px;
     margin: 10px auto;
     .othersTitle{
-        color: @toppicColor;
+        color: @topicDeepBColor;
     }
     .picCarousel{
         display: flex;

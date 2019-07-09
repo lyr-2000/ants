@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@toppicColor:#5d759d;
+@topicDeepBColor:#5d759d;
 @perfectColor:rgba(246,146,138,.5);
 // 左右箭头
 .leftHandle,.rightHandle{
@@ -65,7 +65,7 @@ export default {
     font-size: 40px;
     cursor: pointer;
     &:hover{
-        color: @toppicColor;
+        color: @topicDeepBColor;
     }
 }
 .leftHandle{
@@ -121,7 +121,7 @@ export default {
             position: relative;
             padding: 5px 40px;
             border-bottom: 2px solid transparent;
-            color: @toppicColor;
+            color: @topicDeepBColor;
             background-color: rgba(204,204,204,.5);
             overflow: hidden;
             cursor: pointer;
@@ -133,7 +133,7 @@ export default {
                 padding: 8px 6px;
                 font-size: 12px;
                 color: #fff;
-                background-color: @toppicColor;
+                background-color: @topicDeepBColor;
             }
             .hide{
                 animation: titleHide .5s linear 0s 1 forwards;
@@ -146,7 +146,7 @@ export default {
             bottom: 0px;
             height: 0px;
             width: 144px;
-            border-bottom: 2px solid @toppicColor;
+            border-bottom: 2px solid @topicDeepBColor;
         }
             .borderHot{
                 animation: borHot .5s ease-in 0s 1 forwards;
@@ -157,7 +157,7 @@ export default {
         .more{
             float: right;
             padding: 4px 6px;
-            background-color: @toppicColor;
+            background-color: @topicDeepBColor;
             color: #fff;
         }
         .show{

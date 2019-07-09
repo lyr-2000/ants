@@ -115,14 +115,14 @@ export default {
             width: 80%;
             &>span:first-child{
                 font-size: 24px;
-                color: @topInputColor;
+                color: @topicShallowRColor;
             }
             .goodsBargin{
                 padding: 0px 20px;
                 border-radius: 20px;
                 line-height: 32px;
                 color: #fff;
-                background-color: @deepTopInputColor;
+                background-color: @topicDeepRColor;
             }
         }
     }
@@ -161,16 +161,16 @@ export default {
         justify-content: space-between;
         button{
             width: 48%;
-            border: 2px solid @deepTopInputColor;
+            border: 2px solid @topicDeepRColor;
             padding:6px;
             font-size: 20px;
-            background-color:@deepTopInputColor;
+            background-color:@topicDeepRColor;
             color: #fff;
             outline: none;
             cursor: pointer;
             &:hover{
-                color: @deepTopInputColor;
-                background-color: @topInputColor;
+                color: @topicDeepRColor;
+                background-color: @topicShallowRColor;
             }
         }
     }

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topInputColor:rgba(246,146,138,.5);
+@topicShallowRColor:rgba(246,146,138,.5);
 
 .pageTurn{
     display: flex;
@@ -44,7 +44,7 @@ export default {
             cursor: pointer;
         }
         .currentPage{
-            background-color: @topInputColor;
+            background-color: @topicShallowRColor;
             color: #fff;
         }
     }

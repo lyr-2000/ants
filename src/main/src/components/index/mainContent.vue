@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@toppicColor:#5d759d;
+@topicDeepBColor:#5d759d;
 @perfectColor:rgba(246,146,138,.5);
 main{
     margin: 20px auto;
@@ -73,7 +73,7 @@ main{
     font-size: 40px;
     cursor: pointer;
     &:hover{
-        color: @toppicColor;
+        color: @topicDeepBColor;
     }
 }
 .leftHandle{

@@ -36,7 +36,7 @@ export default {
 
 <style lang="less" scoped>
 
-@topInputColor:rgba(246,146,138,.5);
+@topicShallowRColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
 @fontColor:#666;
 @fontHoverColor:#333;

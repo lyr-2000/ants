@@ -49,8 +49,8 @@ ul{
     list-style: none;
 }
 
-@toppicColor:#5d759d;
-@topInputColor:rgba(246,146,138,.5);
+@topicDeepBColor:#5d759d;
+@topicShallowRColor:rgba(246,146,138,.5);
 .mainLeft{
     display: inline-block;
     width: 16%;
@@ -76,7 +76,7 @@ ul{
                 cursor: pointer;
             }
             .arrayChoose{
-                color: @topInputColor;
+                color: @topicShallowRColor;
             }
         }
     }
@@ -84,7 +84,7 @@ ul{
         display: flex;
         flex-direction: row;
 
-        border: 2px solid @toppicColor;
+        border: 2px solid @topicDeepBColor;
         margin-bottom: 10px;
         input{
             width: 146px;
@@ -96,7 +96,7 @@ ul{
             width: 24px;
             height: 24px;
             padding: 3px;
-            background-color: @toppicColor;
+            background-color: @topicDeepBColor;
         }
     }
     .classifyNav{

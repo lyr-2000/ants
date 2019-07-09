@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@toppicColor:#5d759d;
+@topicDeepBColor:#5d759d;
 @fontColor:#666;
 @fontHoverColor:#333;
 .announce{
@@ -43,7 +43,7 @@ export default {
             top: 0px;
             right: 0px;
             &:hover{
-                color: @toppicColor;
+                color: @topicDeepBColor;
             }
         }
         p{

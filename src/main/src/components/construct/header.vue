@@ -73,8 +73,8 @@ a{
 }
 
 
-@toppicColor:#5d759d;
-@topInputColor:rgba(246,146,138,.5);
+@topicDeepBColor:#5d759d;
+@topicShallowRColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
 @fontColor:#666;
 @fontHoverColor:#333;
@@ -85,7 +85,7 @@ a{
     .nav{
         height: 36px;
         color: #fff;
-        background-color: @toppicColor;
+        background-color: @topicDeepBColor;
         .navContainer{
             margin: 0px auto;
             width: 1190px;
@@ -97,7 +97,7 @@ a{
             }
             .localIn{
                 padding-bottom: 4px;
-                color: @toppicColor;
+                color: @topicDeepBColor;
                 background-color: rgba(255,255,255,.8);
             }
             .leftNav{
@@ -137,7 +137,7 @@ a{
             margin:0% 5% 0% 20%;
             padding: 4px;
             width: 280px;
-            border: 2px solid @toppicColor;
+            border: 2px solid @topicDeepBColor;
             border-radius: 5px;
             input{
                 margin: 3px;
@@ -151,10 +151,10 @@ a{
                 cursor: pointer;
             }
             &:hover{
-                border-color: @topInputColor;
+                border-color: @topicShallowRColor;
             }
             &:focus-within{
-                border-color: @topInputColor;
+                border-color: @topicShallowRColor;
             }
         }
         .mainHandle{
@@ -166,7 +166,7 @@ a{
                 margin: 0 10px;
                 font-size: 16px;
                 color: rgb(255,255,255);
-                background-color: @topInputColor;
+                background-color: @topicShallowRColor;
                 cursor: pointer;
             }
         }

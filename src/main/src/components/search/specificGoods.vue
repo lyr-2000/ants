@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topInputColor:rgba(246,146,138,.5);
+@topicShallowRColor:rgba(246,146,138,.5);
 .goodsShow{
     display: flex;
     flex-direction: row;
@@ -58,7 +58,7 @@ export default {
         margin-bottom: 20px;
         border: 2px solid rgba(102,102,102,.3);
         &:hover{
-            border: 2px solid @topInputColor;
+            border: 2px solid @topicShallowRColor;
             .buttonContainer{
                 display: flex;
             }

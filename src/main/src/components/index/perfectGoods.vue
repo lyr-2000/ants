@@ -70,7 +70,7 @@ export default {
         animation: contentMoveR .5s ease-in-out 0s 1 forwards;
     }
 }
-@toppicColor:#5d759d;
+@topicDeepBColor:#5d759d;
 // 左右箭头
 .leftHandle,.rightHandle{
     position: absolute;
@@ -78,7 +78,7 @@ export default {
     font-size: 40px;
     cursor: pointer;
     &:hover{
-        color: @toppicColor;
+        color: @topicDeepBColor;
     }
 }
 .leftHandle{

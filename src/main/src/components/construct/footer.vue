@@ -15,13 +15,13 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@toppicColor:#5d759d;
+@topicDeepBColor:#5d759d;
 // 页脚
 footer{
     padding: 20px 0px;
     text-align: center;
     vertical-align: middle;
-    background-color: @toppicColor;
+    background-color: @topicDeepBColor;
     img{
         margin: 10px 50px;
     }

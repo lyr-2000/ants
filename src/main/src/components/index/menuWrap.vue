@@ -39,8 +39,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@toppicColor:#5d759d;
-@topInputColor:rgba(246,146,138,.5);
+@topicDeepBColor:#5d759d;
+@topicShallowRColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
 @fontColor:#666;
 @fontHoverColor:#333;
@@ -94,8 +94,8 @@ export default {
                 width: 1000px;
                 padding: 10px 20px;
                 background-color: #fff;
-                border-top: 1px solid @toppicColor;
-                border-bottom: 1px solid @toppicColor;
+                border-top: 1px solid @topicDeepBColor;
+                border-bottom: 1px solid @topicDeepBColor;
                 >div{
                     float: left;
                     width: 28%;
@@ -105,7 +105,7 @@ export default {
                     text-indent: 5px;
                     h4{
                         margin: 4px 0px;
-                        border-bottom: 2px solid @toppicColor;
+                        border-bottom: 2px solid @topicDeepBColor;
                     }
                     >a{
                         display: inline-block;

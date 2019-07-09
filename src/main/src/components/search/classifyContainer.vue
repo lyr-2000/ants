@@ -45,8 +45,8 @@ export default {
 </script>
 
 <style lang="less">
-@toppicColor:#5d759d;
-@topInputColor:rgba(246,146,138,.5);
+@topicDeepBColor:#5d759d;
+@topicShallowRColor:rgba(246,146,138,.5);
 
 .classifyContainer{
     width: 1200px;
@@ -63,7 +63,7 @@ export default {
             border: 1px solid rgba(102,102,102,.5);
         }
         .choosing{
-            background-color: @toppicColor;
+            background-color: @topicDeepBColor;
             color: #fff;
         }
     }

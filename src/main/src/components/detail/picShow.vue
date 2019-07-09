@@ -48,7 +48,7 @@ export default {
         }
         .choosePic{
             position: relative;
-            border:2px solid @deepTopInputColor;
+            border:2px solid @topicDeepRColor;
             &::after{
                 @borderSize:10px;
                 content: "";
@@ -57,7 +57,7 @@ export default {
                 height: 0px;
                 left:100%;
                 top: 50%;
-                border-left: @borderSize solid @deepTopInputColor;
+                border-left: @borderSize solid @topicDeepRColor;
                 border-top: @borderSize solid transparent;
                 border-right: @borderSize solid transparent;
                 border-bottom: @borderSize solid transparent;
