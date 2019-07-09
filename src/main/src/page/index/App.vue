@@ -29,22 +29,22 @@ export default {
         identity:'buyer',
         projectName: '蚂蚁置物',
         parentClassification: [{
-            parentPicture:require( '../../img/icon/book.png'),
+            parentPicture:require( '../../assets/img/icon/book.png'),
             parentName: '书籍'
         }, {
-            parentPicture: require('../../img/icon/stationery.png'),
+            parentPicture: require('../../assets/img/icon/stationery.png'),
             parentName: '文具'
         }, {
-            parentPicture: require('../../img/icon/daily.png'),
+            parentPicture: require('../../assets/img/icon/daily.png'),
             parentName: '日用'
         }, {
-            parentPicture: require('../../img/icon/cosmetics.png'),
+            parentPicture: require('../../assets/img/icon/cosmetics.png'),
             parentName: '美妆'
         }, {
-            parentPicture: require('../../img/icon/food.png'),
+            parentPicture: require('../../assets/img/icon/food.png'),
             parentName: '食品'
         }, {
-            parentPicture: require('../../img/icon/electrical.png'),
+            parentPicture: require('../../assets/img/icon/electrical.png'),
             parentName: '电器'
         }],
         childClassification: [
@@ -56,31 +56,31 @@ export default {
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
         guessLike: [{
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: require('../../img/icon/food.png'),
+            goodsPicture: require('../../assets/img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }],

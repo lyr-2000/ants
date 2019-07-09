@@ -8,7 +8,18 @@
                 <span class="uploadTime" v-cloak>{{ex.uploadTime}}</span>
             </div>
             <div class="buttonContainer">
-
+                <a>
+                    <img 
+                        :src="[require('../../assets/img/icon/'+shopSrc)]"
+                        @mouseover="shopSrc='shop-rBg.png'"
+                        @mouseleave="shopSrc='shop-wBg.png'">
+                </a>
+                <a href="detail.html/">
+                    <img 
+                        :src="[require('../../assets/img/icon/'+eyeSrc)]"
+                        @mouseover="eyeSrc='eye-rBg.png'"
+                        @mouseleave="eyeSrc='eye-wBg.png'">
+                </a>
             </div>
         </div>
     </div>
@@ -16,6 +27,12 @@
 
 <script>
 export default {
+    data(){
+        return{
+            shopSrc:"shop-wBg.png",
+            eyeSrc:"eye-wBg.png"
+        }
+    },
     props:["goodsList"],
     mounted(){
         console.log(this.goodsList)
@@ -34,6 +51,7 @@ export default {
     width: 100%;
     .specificGoods{
         display: flex;
+        position: relative;
         flex-direction: column;
         width: 22%;
         height: 300px;
@@ -41,6 +59,9 @@ export default {
         border: 2px solid rgba(102,102,102,.3);
         &:hover{
             border: 2px solid @topInputColor;
+            .buttonContainer{
+                display: flex;
+            }
         }
         &>img{
             width: 100%;
@@ -55,6 +76,23 @@ export default {
         span{
             margin: 8px 0px;
             text-indent: 4px;
+        }
+        .buttonContainer{
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            justify-content:space-evenly;
+            align-items: center;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(102,102,102,.3);
+            img{
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+            }
         }
     }
 }

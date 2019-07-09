@@ -7,7 +7,7 @@
 
 <script>
 import MenuWrap from './menuWrap.vue'
-import ImgPlayBox from './assets/imgPlayBox.vue'
+import ImgPlayBox from './imgPlayBox.vue'
 
 export default {
     data(){
@@ -27,7 +27,7 @@ export default {
                 this.$emit('concrete-request');
             }
             this.showDetialedClassify = !this.showDetialedClassify;
-            console.log('this.showDetialedClassify: ', this.showDetialedClassify);
+            
 
         }
     }

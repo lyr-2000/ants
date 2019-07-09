@@ -36,7 +36,7 @@ export default {
 body{
     margin: 0px;
     padding: 0px;
-    background: url('../../img/log/blueBg.png');
+    background: url('../../assets/img/log/blueBg.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;

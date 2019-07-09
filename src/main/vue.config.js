@@ -21,7 +21,13 @@ module.exports = {
             entry: 'src/page/search/main.js',
             template: 'public/search.html',
             filename: 'search.html',
-            title: '副页面'
+            title: '搜索页面'
+        },
+        detail: {
+            entry: 'src/page/detail/main.js',
+            template: 'public/detail.html',
+            filename: 'detail.html',
+            title: '商品详情'
         }
     }
 }
