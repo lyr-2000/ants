@@ -1,10 +1,10 @@
 <template>
     <div class="pageTurn">
-        <span class="turnPage" @click="this.$emit('turn',currentPage-1)"><</span>
+        <span class="turnPage" @click="$emit('turn',currentPage-1)"><</span>
         <div class="pageContainer">
-            <span :class="{'currentPage':p==currentPage}" v-for="p in page" v-cloak @click="turn(p)">{{p}}</span>
+            <span :class="{'currentPage':p==currentPage}" v-for="p in page" v-cloak @click="$emit('turn',p)">{{p}}</span>
         </div>
-        <span class="turnPage" @click="this.$emit('turn',currentPage+1)">></span>
+        <span class="turnPage" @click="$emit('turn',currentPage+1)">></span>
         <span v-cloak>共{{page}}页</span>
     </div>
 </template>

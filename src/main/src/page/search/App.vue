@@ -1,14 +1,31 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <ClassifyContainer :secIndex="secIndex" :thiIndex="thiIndex"
-        :childList="childList" :synthesis="synthesis"
-        @title-search="titleSearch" @show-childList="showChildList"></ClassifyContainer>
-    <MainContent :secIndex="secIndex" :thiIndex="thiIndex"
-        :childList="childList" :synthesis="synthesis" 
-        :currentPage="currentPage" :page="page"
-        @turn="turn" @title-search="titleSearch"
-        @change-array-by="changeArrayBy" @show-childList="showChildList"></MainContent>
+    <Header 
+        :webPage="webPage" 
+        :identity="identity"
+    ></Header>
+    <ClassifyContainer 
+        :secIndex="secIndex" 
+        :thiIndex="thiIndex"
+        :childList="childList" 
+        :synthesis="synthesis"
+        @title-search="titleSearch" 
+        @show-childList="showchildList"
+    ></ClassifyContainer>
+    <MainContent 
+        :type="type"
+        :secIndex="secIndex" 
+        :thiIndex="thiIndex"
+        :childList="childList" 
+        :synthesis="synthesis" 
+        :currentPage="currentPage" 
+        :page="page"
+        :goodsList="goodsList"
+        @turn="turn"
+        @title-search="titleSearch"
+        @change-array-by="changeArrayBy" 
+        @show-child-list="showchildList"
+    ></MainContent>
     <Footer></Footer>
   </div>
 </template>
@@ -18,6 +35,7 @@ import Header from '../../components/construct/header.vue'
 import Footer from '../../components/construct/footer.vue'
 import ClassifyContainer from '../../components/search/classifyContainer.vue'
 import MainContent from '../../components/search/mainContent.vue'
+import axios from 'axios'
 
 export default {
   name: 'app',
@@ -29,6 +47,8 @@ export default {
   },
   data(){
     return{
+        webPage:'index',
+        identity:'buyer',
         type: 1,
         secIndex: 0,
         thiIndex: 0,
@@ -39,7 +59,7 @@ export default {
                 parentName: "文具",
                 parentPicture: "/stationery.png"
             },
-            { parentId: 3, parentName: "日用", parentPicture: "daily.png" },
+            { parentId: 3, parentName: "日用", parentPicture: "/daily.png" },
             { parentId: 4, parentName: "美妆", parentPicture: "/cosmetics.png" },
             { parentId: 5, parentName: "食品", parentPicture: "/food.png" },
             { parentId: 6, parentName: "电器", parentPicture: "/electrical.png" },
@@ -173,7 +193,7 @@ export default {
     }
   },
   methods:{
-      changeArrayBy: function(type) {
+      changeArrayBy(type) {
         this.type = type;
         axios.post('/ants/class/chooseGoodsByType', {
                 parentId: this.secIndex,
@@ -185,23 +205,31 @@ export default {
                 this.goodsList = res.goodsList;
                 this.page = res.page;
                 this.currentPage = 1;
+            }).catch(err=>{
+                console.log(`can't request the data for ${err}`);
             })
     },
     //跳转页数
-    turn: function(currentPage) {
-        console.log(currentPage);
-        axios.post('/ants/class/pageJump', {
-            parentId: this.secIndex,
-            childId: this.thiIndex,
-            type: this.type,
-            currentPage: this.currentPage
-        }).then(res => {
-            res = res.data;
-            this.goodsList = res.goodsList;
-        })
+    turn(currentPage) {
+        if(currentPage>this.page||currentPage<1){
+            return;
+        }else{
+            this.currentPage=currentPage;
+            axios.post('/ants/class/pageJump', {
+                parentId: this.secIndex,
+                childId: this.thiIndex,
+                type: this.type,
+                currentPage: this.currentPage
+            }).then(res => {
+                res = res.data;
+                this.goodsList = res.goodsList;
+            }).catch(err=>{
+                console.log(`can't request the data for ${err}`);
+            })
+        }
     },
     // 根据标签搜素相应的内容
-    titleSearch: function(index) {
+    titleSearch(index) {
         this.thiIndex = index;
         axios.post('/ants/class/goodsByChild', {
             subClassId: index,
@@ -212,10 +240,13 @@ export default {
             this.goodsList = res.goodsList;
             this.page = res.page;
             this.currentPage = 1;
+        }).catch(err=>{
+            console.log(`can't request the data for ${err}`);
         })
     },
     // 显示三级导航
-    showChildList: function(index) {
+    showchildList(index) {
+        console.log('index: ', index);
         this.secIndex = index;
         if (index != 0) {
             axios.post('/ants/class/goodsByParent', this.synthesis[index])
@@ -239,12 +270,14 @@ export default {
             this.allClassification = res.allClassification;
             this.childList = res.childList;
             this.page = res.page;
+        }).catch(err=>{
+            console.log(`can't request the data for ${err}`);
         })
     }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 [v-cloak] {
     display: none;
 }

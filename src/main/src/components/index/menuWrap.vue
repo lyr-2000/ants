@@ -10,7 +10,7 @@
             </ul>
             <div class="detailedContent" v-if="showDetialedClassify">
                 <div v-for="(classify,index) in parentClassification">
-                    <h4>{{classify.goodsName}}</h4>
+                    <h4>{{classify.parentName}}</h4>
                     <a href="" v-for="detailed in childClassification[index]">{{detailed}}</a>
                 </div>
             </div>
@@ -89,10 +89,13 @@ export default {
             }
             .detailedContent{
                 position: absolute;
-                left: 0px;
+                left: 0%;
+                top: 103%;
                 width: 1000px;
                 padding: 10px 20px;
                 background-color: #fff;
+                border-top: 1px solid @toppicColor;
+                border-bottom: 1px solid @toppicColor;
                 >div{
                     float: left;
                     width: 28%;

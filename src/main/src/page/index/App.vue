@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <TopBanner @concrete-request="concreteRequest" :projectName="projectName" :parentClassification="parentClassification" :childClassification="childClassification"></TopBanner>
-    <MainContent :moveFlag="moveFlag" :gussLike="gussLike"></MainContent>
+    <Header :webPage="webPage" :identity="identity"></Header>
+    <TopBanner @concrete-request="concreteRequest" :projectName="projectName" 
+        :parentClassification="parentClassification" :childClassification="childClassification"></TopBanner>
+    <MainContent :guessLike="guessLike" 
+        :hottest="hottest" :latest="latest"></MainContent>
     <Footer></Footer>
   </div>
 </template>
@@ -23,12 +25,9 @@ export default {
   },
   data(){
     return{
+        webPage:'index',
+        identity:'buyer',
         projectName: '蚂蚁置物',
-        moveFlag: {
-            'perfect': false,
-            'hot': false,
-            'new': false
-        },
         parentClassification: [{
             parentPicture:require( '../../img/icon/book.png'),
             parentName: '书籍'
@@ -57,31 +56,31 @@ export default {
             ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
         ],
         guessLike: [{
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }, {
-            goodsPicture: 'img/icon/food.png',
+            goodsPicture: require('../../img/icon/food.png'),
             goodsName: '商品名',
             goodsPrice: '价格'
         }],
@@ -182,6 +181,9 @@ export default {
 </script>
 
 <style>
+body{
+    margin: 0px;
+}
 ul{
     margin: 0px;
     padding: 0px;
@@ -195,4 +197,5 @@ a{
     text-decoration: none;
     color: inherit;
 }
+
 </style>

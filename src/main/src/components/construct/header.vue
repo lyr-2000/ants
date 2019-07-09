@@ -4,14 +4,14 @@
         <nav class="nav">
             <div class="navContainer">
                 <ul class="leftNav">
-                    <li class="localIn"><a href="index.html">首页</a></li>
-                    <li><a href="#">租赁</a></li>
-                    <li><a href="#">赠送</a></li>
+                    <li :class="{localIn:webPage=='index'}"><a href="index.html">首页</a></li>
+                    <li :class="{localIn:webPage=='rent'}"><a href="#">租赁</a></li>
+                    <li :class="{localIn:webPage=='sent'}"><a href="#">赠送</a></li>
                 </ul>
                 <ul class="rightNav">
                     <li class="schoolChoose">广东金融学院</li>
-                    <li class="localIn">买家</li>
-                    <li>卖家</li>
+                    <li :class="{localIn:identity=='buyer'}">买家</li>
+                    <li :class="{localIn:identity=='seller'}">卖家</li>
                     <li><a href="log.html">登录</a></li>
                 </ul>
             </div>
@@ -42,6 +42,7 @@ export default {
             searchWord:""
         }
     },
+    props:["webPage","identity"],
     methods:{
         search(val){
           
@@ -50,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 body{
     margin: 0px;
     padding: 0px;

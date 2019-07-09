@@ -1,26 +1,29 @@
 <template>
-<div>
-    <div class="classifyContainer">
-        <div class="classifyTitle">
-            <span :class="{'choosing':!others}" @click="changeChoose('classify')">分类</span>
-            <span :class="{'choosing':others}" @click="changeChoose('others')">其他</span>
-        </div>
-        <div class="classifyIcon">
-            <div v-for="(classify,index) in synthesis" @click="this.$emit("show-childList",index)">
-                <img :src="[require('../../img/icon/'+classify.parentPicture)]">
-                <span v-cloak :class="{'indexChoose':secIndex==index}">{{classify.parentName}}</span>
+    <div>
+        <div class="classifyContainer">
+
+            <div class="classifyTitle">
+                <span :class="{'choosing':!others}" @click="changeChoose('classify')">分类</span>
+                <span :class="{'choosing':others}" @click="changeChoose('others')">其他</span>
             </div>
-        </div>
-        <div :class="['concreteClassify',secIndex==0?'hideThi':'showThi']">
-            <span :class="{'indexChoose':thiIndex==index}" v-for="(classify,index) in childList" @click="this.$emit("title-search",index)" v-cloak>{{classify.subClassName}}</span>
+
+            <div class="classifyIcon">
+                <div v-for="(classify,index) in synthesis" @click="$emit('show-childList',index)">
+                    <img :src="require('../../img/icon'+classify.parentPicture)">
+                    <span v-cloak :class="{'indexChoose':secIndex==index}">{{classify.parentName}}</span>
+                </div>
+            </div>
+            
+            <div :class="['concreteClassify',secIndex==0?'hideThi':'showThi']">
+                <span v-for="(classify,index) in childList" :class="{'indexChoose':thiIndex==index}" @click="$emit('title-search',index)">{{classify.subClassName}}</span>
+            </div>
+            
         </div>
     </div>
-</div>
 </template>
 
 <script>
 export default {
-    name:'classifyContainer',
     data(){
         return{
             others: false
@@ -28,21 +31,22 @@ export default {
     },
     props:["secIndex","thiIndex","childList","synthesis"],
     methods:{
-        changeChoose: function(type) {
+        changeChoose(type) {
             if (type == 'classify')
                 this.others = false;
             else
                 this.others = true;
         }
+    },
+    mounted(){
+        console.log(this.childList);
     }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @toppicColor:#5d759d;
 @topInputColor:rgba(246,146,138,.5);
-
-
 
 .classifyContainer{
     width: 1200px;

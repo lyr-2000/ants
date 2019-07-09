@@ -1,10 +1,11 @@
 <template>
     <main>
         <Accounce></Accounce>
-        <PerfectGoods :moveFlag="moveFlag" :gussLike="gussLike" 
+        <PerfectGoods :moveFlag="moveFlag" :guessLike="guessLike" 
                 @turn-left="turnLeft" @turn-right="turnRight"></PerfectGoods>
         <div class="middleBanner"></div>
-        <SpecialGoods :moveFlag="moveFlag" :gussLike="gussLike" 
+        <SpecialGoods :moveFlag="moveFlag" :guessLike="guessLike" 
+               :hottest="hottest" :latest="latest"
                @turn-left="turnLeft" @turn-right="turnRight"></SpecialGoods>
     </main>
 </template>
@@ -20,7 +21,16 @@ export default {
         PerfectGoods,
         SpecialGoods
     },
-    props:["moveFlag","gussLike"],
+    data(){
+        return{  
+            moveFlag: {
+                'perfect': false,
+                'hot': false,
+                'new': false
+            },
+        }
+    },
+    props:["guessLike","hottest","latest"],
     methods:{
         turnLeft: function(type) {
             if (type === 'perfect') {
@@ -73,41 +83,7 @@ main{
     right: 10px;
 }
 
-.goodsList{
-    @contentHeight:250px;
-    position: relative;
-    margin: 0px 60px;
-    width: 980px;
-    height: @contentHeight+5px;
-    overflow: hidden;
-    white-space: nowrap;
-    //每个具体块的布局
-    .concreteContent{
-        display: inline-block;
-        width: 17%;
-        height: @contentHeight;
-        margin: 0px 13px 0px 13px;
-        border:2px solid rgba(102,102,102,.7);
-        text-align: center;
-        img{
-            width: 100%;
-            height: 80%;
-        }
-        p{
-            margin: 3px 0px;
-            transform: translateY(-6px);
-        }
-        &:hover{
-            border: 2px solid @perfectColor;
-        }
-    }
-    .moveL{
-        animation: contentMoveL .5s ease-in-out 0s 1 forwards;
-    }
-    .moveR{
-        animation: contentMoveR .5s ease-in-out 0s 1 forwards;
-    }
-}
+
 .middleBanner{
     width: 100%;
     height: 224px;

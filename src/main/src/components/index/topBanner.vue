@@ -1,6 +1,6 @@
 <template>
     <div class="topBanner">
-        <MenuWrap @show-detailed="showDetailed" :projectName="projectName" :parentClassification="parentClassification" :childClassification="childClassification"></MenuWrap>
+        <MenuWrap @show-detailed="showDetailed" :showDetialedClassify="showDetialedClassify" :projectName="projectName" :parentClassification="parentClassification" :childClassification="childClassification"></MenuWrap>
         <ImgPlayBox></ImgPlayBox>
     </div>
 </template>
@@ -23,8 +23,9 @@ export default {
     methods:{
         showDetailed: function() {
             // 当没有该数据时请求该数据
-            if (this.childClassification == [])
-                this.$emit('concrete-request')
+            if (this.childClassification == []){
+                this.$emit('concrete-request');
+            }
             this.showDetialedClassify = !this.showDetialedClassify;
             console.log('this.showDetialedClassify: ', this.showDetialedClassify);
 

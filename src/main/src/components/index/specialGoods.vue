@@ -1,7 +1,6 @@
 <template>
     <div class="specialGoods">
         <div class="specialTitle">
-            <!-- <div :class="[showHot?'show':'']" @click="changeShow('hot')"> -->
             <div :class="{'show':showHot}" @click="changeShow('hot')">
                 <span :class="{'hide':!showHot}">Hot</span>
                 <span>最热闲置</span>
@@ -13,7 +12,7 @@
             <em :class="[showHot?'borderHot':'borderNew']"></em>
             <a class="more" href="#">更多></a>
         </div>
-        <span class="leftHandle" @click="this.$emit('turnLeft','special')"><</span>
+        <span class="leftHandle" @click="$emit('turn-left','special')"><</span>
         <div class="goodsList">
             <div :class="['concreteContent',moveFlag.hot?'moveL':'moveR']" v-if="showHot" v-for="content in hottest">
                 <a href="#">
@@ -32,7 +31,7 @@
                 <p v-cloak>上传时间：{{content.uploadTime}}</p>
             </div>
         </div>
-        <span class="rightHandle" @click="this.$emit('turnRight','special')">></span>
+        <span class="rightHandle" @click="$emit('turn-right','special')">></span>
     </div>
 </template>
 
@@ -43,13 +42,74 @@ export default {
             showHot: true,
         }
     },
-    props:["latest","hottest"]
+    props:["latest","hottest","moveFlag","guessLike"],
+    methods:{
+        changeShow: function(currentType) {
+            if (currentType === 'hot') {
+                this.showHot = true;
+            } else {
+                this.showHot = false;
+            }
+        }
+    }
 }
 </script>
 
 <style lang="less" scoped>
 @toppicColor:#5d759d;
 @perfectColor:rgba(246,146,138,.5);
+// 左右箭头
+.leftHandle,.rightHandle{
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    cursor: pointer;
+    &:hover{
+        color: @toppicColor;
+    }
+}
+.leftHandle{
+    left: 10px;
+}
+.rightHandle{
+    right: 10px;
+}
+
+.goodsList{
+    @contentHeight:250px;
+    position: relative;
+    margin: 0px 60px;
+    width: 980px;
+    height: @contentHeight+5px;
+    overflow: hidden;
+    white-space: nowrap;
+    //每个具体块的布局
+    .concreteContent{
+        display: inline-block;
+        width: 17%;
+        height: @contentHeight;
+        margin: 0px 13px 0px 13px;
+        border:2px solid rgba(102,102,102,.7);
+        text-align: center;
+        img{
+            width: 100%;
+            height: 80%;
+        }
+        p{
+            margin: 3px 0px;
+            transform: translateY(-6px);
+        }
+        &:hover{
+            border: 2px solid @perfectColor;
+        }
+    }
+    .moveL{
+        animation: contentMoveL .5s ease-in-out 0s 1 forwards;
+    }
+    .moveR{
+        animation: contentMoveR .5s ease-in-out 0s 1 forwards;
+    }
+}
 .specialGoods{
     position: relative;
     .specialTitle{
@@ -158,6 +218,23 @@ export default {
     100%{
         left: 148px;
         width: 144px;
+    }
+}
+@keyframes contentMoveL{
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform:translateX(-980px)
+    }
+}
+
+@keyframes contentMoveR{
+    0%{
+        transform: translateX(-980px);
+    }
+    100%{
+        transform:translateX(0px)
     }
 }
 

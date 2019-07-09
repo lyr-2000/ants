@@ -1,7 +1,7 @@
 <template>
     <div class="goodsShow">
         <SpecificGoods :goodsList="goodsList"></SpecificGoods>
-        <PageTurn @turn="turn"></PageTurn>
+        <PageTurn @turn="turn" :page="page" :currentPage="currentPage"></PageTurn>
     </div>
 </template>
 
@@ -14,9 +14,10 @@ export default {
         SpecificGoods,
         PageTurn
     },
+    props:["goodsList","page","currentPage"],
     methods:{
         turn(page){
-            this.$emit("turn",page)
+            this.$emit("turn",page);
         }
     }
 }

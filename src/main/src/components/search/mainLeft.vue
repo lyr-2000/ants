@@ -3,9 +3,9 @@
         <div class="arrayBy leftBlock">
             <span class="leftTitle">全部商品</span>
             <div>
-                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="this.$emit('change-array-by','1')">按综合</span>
-                <span v-cloak :class="[type=='2'?'arrayChoose':'']" @click="this.$emit('change-array-by','2')">按时间</span>
-                <span v-cloak :class="[type=='3'?'arrayChoose':'']" @click="this.$emit('change-array-by','3')">按价格</span>
+                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="$emit('change-array-by','1')">按综合</span>
+                <span v-cloak :class="[type=='2'?'arrayChoose':'']" @click="$emit('change-array-by','2')">按时间</span>
+                <span v-cloak :class="[type=='3'?'arrayChoose':'']" @click="$emit('change-array-by','3')">按价格</span>
             </div>
         </div>
         <div class="searchInput">
@@ -16,13 +16,13 @@
         <div class="classifyNav leftBlock">
             <span class="leftTitle">全部分类</span>
             <ul>
-                <li v-for="(classify,index) in synthesis" @click="showChildList(index)">
-                    <img :src="[require('../../img/icon/'+classify.parentPicture)]">
+                <li v-for="(classify,index) in synthesis" @click="$emit('show-child-list',index)">
+                    <img :src="[require('../../img/icon'+classify.parentPicture)]">
                     <span :class="[secIndex==index?'indexChoose':'']" v-cloak>{{classify.parentName}}</span>
                     <transition name="leftNav" enter-active-class="leftThiEnter" leave-active-class="leftThiLeave">
-                        <!-- <ul v-if="index==secIndex&&index!==0">
-                            <li v-for="(cla,i) in childList" :class="[i==thiIndex?'thiIndex':'']" @click="this.$emit("title-search",i)" v-cloak>{{cla.subClassName}}</li>
-                        </ul> -->
+                        <ul v-if="index==secIndex&&index!==0">
+                            <li v-for="(cla,i) in childList" :class="[i==thiIndex?'thiIndex':'']" v-cloak @click="$emit('title-search',i)">{{cla.subClassName}}</li>
+                        </ul>
                     </transition>
                 </li>
             </ul>
@@ -37,11 +37,18 @@ export default {
         return{
             
         }
-    }
+    },
+    props:["synthesis","secIndex","thiIndex","type","childList"]
 }
 </script>
 
 <style lang="less" scoped>
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
 @toppicColor:#5d759d;
 @topInputColor:rgba(246,146,138,.5);
 .mainLeft{
