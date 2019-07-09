@@ -7,7 +7,7 @@
 
 <script>
 import MenuWrap from './menuWrap.vue'
-import ImgPlayBox from './imgPlayBox.vue'
+import ImgPlayBox from './assets/imgPlayBox.vue'
 
 export default {
     data(){

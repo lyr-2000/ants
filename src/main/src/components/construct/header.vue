@@ -19,12 +19,12 @@
         <!-- 顶部操作 -->
         <div class="topHandle">
             <div class="topLogo">
-                <img src="../../img/index/antsLogo.png" alt="蚂蚁置物">
+                <img src="../../assets/img/index/antsLogo.png" alt="蚂蚁置物">
                 <span>蚂蚁置物</span>
             </div>
             <div class="searchGoods">
                 <input type="text" v-model="searchWord">
-                <img src="../../img/index/search.png" @click='search'>
+                <img src="../../assets/img/index/search.png" @click='search'>
             </div>
 
             <div class="mainHandle">

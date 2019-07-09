@@ -2,9 +2,9 @@
     <!-- 星星图 -->
     <div class="starImg" ref="container">
 
-        <img  src="../../img/log/singleStar.png" class="hide" ref="singleStar">
+        <img  src="../../assets/img/log/singleStar.png" class="hide" ref="singleStar">
         <transition name="meteor" @before-enter="meteorBeforeEnter" @before-leave="meteorBeforeLeave" @leave="meteorLeave">
-            <img class="meteor" src="../../img/log/meteor.png" v-if="meteorShow">
+            <img class="meteor" src="../../assets/img/log/meteor.png" v-if="meteorShow">
         </transition>
     </div>
 </template>

@@ -9,7 +9,7 @@
                     <input type="text" placeholder="学校" v-model="school" @keyup.enter="picCodeRequest">
                 </template>
                     <template #img>
-                    <img src="../../img/log/school.png">
+                    <img src="../../assets/img/log/school.png">
                 </template>
                 </InfoInput>
 
@@ -18,7 +18,7 @@
                     <input type="text" placeholder="学号/教工号" v-model="sNo" @keyup.enter="picCodeRequest">
                 </template>
                     <template #img>
-                    <img src="../../img/log/sNo.png">
+                    <img src="../../assets/img/log/sNo.png">
                 </template>
                 </InfoInput>
 
@@ -27,7 +27,7 @@
                     <input type="password" placeholder="密码" v-model="password" @keyup.enter="picCodeRequest">
                 </template>
                     <template #img>
-                    <img src="../../img/log/password.png">
+                    <img src="../../assets/img/log/password.png">
                 </template>
                 </InfoInput>
                 <p>
@@ -46,17 +46,17 @@
                 </div>
             </div>
             <div v-if="showCode&&!slideSuccess" ref="slideCon" class="slideContainer">
-                <img src="../../img/index/slideBlock.png" ref="slideHan" class="slideHandle" @mouseDown.prevent="dragDown">
+                <img src="../../assets/img/index/slideBlock.png" ref="slideHan" class="slideHandle" @mouseDown.prevent="dragDown">
                 <div class="slideOver"></div>
                 <p class="slidIcon">
-                    <img src="../../img/index/close.png" @click="closeCode">
-                    <img src="../../img/index/refresh.png" @click="picCodeRequest">
+                    <img src="../../assets/img/index/close.png" @click="closeCode">
+                    <img src="../../assets/img/index/refresh.png" @click="picCodeRequest">
                 </p>
             </div>
 
             <div v-if="showCode&&slideSuccess" class="slideSuccess">
                 <p>
-                    <i><img src="../../img/index/tick.png"></i>
+                    <i><img src="../../assets/img/index/tick.png"></i>
                     <span>三秒后自动转到首页</span>
                 </p>
                 <a href="index.html">立即前往</a>
@@ -319,7 +319,7 @@ export default {
         margin: 0 auto;
         width: 90%;
         height: 100px;
-        background-image: url('../../img/index/codeBg.png');
+        background-image: url('../../assets/img/index/codeBg.png');
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center;

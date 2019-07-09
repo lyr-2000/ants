@@ -1,6 +1,6 @@
 <template>
     <div class="announce">
-        <img src="../../img/index/tongzhi.png">
+        <img src="../../assets/img/index/tongzhi.png">
         <p>
             <strong>公告</strong>
             <a :href="[`announce.html?id=${announcement.annId}`]" class="announceContent">{{announcement.annTitle}}</a>

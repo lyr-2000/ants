@@ -1,11 +1,14 @@
 <template>
     <div class="goodsShow">
         <div class="specificGoods"  v-for="ex in goodsList">
-            <img :src="[require('../../img/search/'+ex.goodsPicture)]">
+            <img :src="[require('../../assets/img/search/'+ex.goodsPicture)]">
             <span v-cloak>{{ex.goodsName}}</span>
             <div>
                 <span class="goodsPrice" v-cloak>￥{{ex.goodsPrice}}元</span>
                 <span class="uploadTime" v-cloak>{{ex.uploadTime}}</span>
+            </div>
+            <div class="buttonContainer">
+
             </div>
         </div>
     </div>
@@ -21,6 +24,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@topInputColor:rgba(246,146,138,.5);
 .goodsShow{
     display: flex;
     flex-direction: row;
@@ -34,7 +38,10 @@ export default {
         width: 22%;
         height: 300px;
         margin-bottom: 20px;
-        border: 1px solid rgba(102,102,102,.5);
+        border: 2px solid rgba(102,102,102,.3);
+        &:hover{
+            border: 2px solid @topInputColor;
+        }
         &>img{
             width: 100%;
         }

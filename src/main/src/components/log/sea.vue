@@ -1,17 +1,17 @@
 <template>
     <!-- 海浪图 -->
         <div class="sea">
-            <img src="../../img/log/seaBehind.png">
+            <img src="../../assets/img/log/seaBehind.png">
             <!-- 鱼 -->
             <div class="fish">
-                <img src="../../img/log/fish1.png">
-                <img src="../../img/log/fish2.png">
+                <img src="../../assets/img/log/fish1.png">
+                <img src="../../assets/img/log/fish2.png">
             </div>
             <!-- 漂浮蚂蚁图 -->
             <div class="ants">
-                <img src="../../img/log/ants.png">
+                <img src="../../assets/img/log/ants.png">
             </div>
-            <img src="../../img/log/seaFront.png">
+            <img src="../../assets/img/log/seaFront.png">
         </div>
 </template>
 

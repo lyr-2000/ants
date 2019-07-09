@@ -1,9 +1,9 @@
 <template>
     <!-- 云层图 -->
         <div class="cloud">
-            <img src="../../img/log/behindCloud.png">
-            <img src="../../img/log/middleCloud.png">
-            <img src="../../img/log/frontCloud.png">
+            <img src="../../assets/img/log/behindCloud.png">
+            <img src="../../assets/img/log/middleCloud.png">
+            <img src="../../assets/img/log/frontCloud.png">
         </div>
 </template>
 

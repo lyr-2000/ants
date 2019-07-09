@@ -88,7 +88,7 @@ main{
     width: 100%;
     height: 224px;
     margin: 40px 0px;
-    background-image: url('../../img/index/banner.png');
+    background-image: url('../../assets/img/index/banner.png');
     background-size: cover;
 }
 @keyframes contentMoveL{

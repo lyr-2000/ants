@@ -2,7 +2,7 @@
     <!-- 轮播图 -->
     <div class="imgPlayBox">
         <div class="imgContainer">
-            <img src="../../img/index/playImg1.png">
+            <img src="../../assets/img/index/playImg1.png">
         </div>
         <div class="playHandle">
 

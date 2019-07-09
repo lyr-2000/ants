@@ -9,7 +9,7 @@
 
             <div class="classifyIcon">
                 <div v-for="(classify,index) in synthesis" @click="$emit('show-childList',index)">
-                    <img :src="require('../../img/icon'+classify.parentPicture)">
+                    <img :src="require('../../assets/img/icon'+classify.parentPicture)">
                     <span v-cloak :class="{'indexChoose':secIndex==index}">{{classify.parentName}}</span>
                 </div>
             </div>

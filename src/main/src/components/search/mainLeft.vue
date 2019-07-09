@@ -3,21 +3,21 @@
         <div class="arrayBy leftBlock">
             <span class="leftTitle">全部商品</span>
             <div>
-                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="$emit('change-array-by','1')">按综合</span>
+                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="$emit('change-array-by','1')">综合</span>
                 <span v-cloak :class="[type=='2'?'arrayChoose':'']" @click="$emit('change-array-by','2')">按时间</span>
                 <span v-cloak :class="[type=='3'?'arrayChoose':'']" @click="$emit('change-array-by','3')">按价格</span>
             </div>
         </div>
         <div class="searchInput">
             <input type="text">
-            <img src="../../img/index/search.png">
+            <img src="../../assets/img/index/search.png">
         </div>
 
         <div class="classifyNav leftBlock">
             <span class="leftTitle">全部分类</span>
             <ul>
                 <li v-for="(classify,index) in synthesis" @click="$emit('show-child-list',index)">
-                    <img :src="[require('../../img/icon'+classify.parentPicture)]">
+                    <img :src="[require('../../assets/img/icon'+classify.parentPicture)]">
                     <span :class="[secIndex==index?'indexChoose':'']" v-cloak>{{classify.parentName}}</span>
                     <transition name="leftNav" enter-active-class="leftThiEnter" leave-active-class="leftThiLeave">
                         <ul v-if="index==secIndex&&index!==0">
