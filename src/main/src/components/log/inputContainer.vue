@@ -1,6 +1,6 @@
 <template>
     <!-- 登录框 -->
-        <div class="inputBg">
+        <div class="inputBg" @mousemove.prevent="dragMove" @mouseup.prevent="dragUp">
             <div v-if="!showCode" :class="['infoInput']">
                 <p>登录</p>
 
@@ -24,11 +24,11 @@
 
                 <InfoInput>
                     <template #input>
-                    <input type="password" placeholder="密码" v-model="password" @keyup.enter="picCodeRequest">
-                </template>
+                        <input type="password" placeholder="密码" v-model="password" @keyup.enter="picCodeRequest">
+                    </template>
                     <template #img>
-                    <img src="../../assets/img/log/password.png">
-                </template>
+                        <img src="../../assets/img/log/password.png">
+                    </template>
                 </InfoInput>
                 <p>
                     <input type="checkbox" name="rememberPassword">
@@ -39,14 +39,14 @@
 
             <div v-if="showCode" class="picContainer">
                 <img v-if="!dragStart" :src="[imgSource+''+sourceImgName]">
-                <img v-if="dragStart" :src="[imgSource+''+bigImgName]" ref="slideImg" class="slideImg">
+                <img v-if="dragStart" :src="[imgSource+''+bigImgName]" ref="slideImg" class="slideImg" :style="`top:${location_y}`">
                 <img :src="[imgSource+''+smallImgName]">
                 <div class="codeTip" v-if="slideTip">
                     <p>拼图成功，用时{{slideTime}}s</p>
                 </div>
             </div>
             <div v-if="showCode&&!slideSuccess" ref="slideCon" class="slideContainer">
-                <img src="../../assets/img/index/slideBlock.png" ref="slideHan" class="slideHandle" @mouseDown.prevent="dragDown">
+                <img src="../../assets/img/index/slideBlock.png" ref="slideHan" class="slideHandle" @mousedown.prevent="dragDown">
                 <div class="slideOver"></div>
                 <p class="slidIcon">
                     <img src="../../assets/img/index/close.png" @click="closeCode">
@@ -67,6 +67,7 @@
 
 <script>
 import InfoInput from './infoInput.vue'
+import axios from 'axios'
 
 export default {
     data(){
@@ -80,7 +81,7 @@ export default {
             sourceImgName: "",
             bigImgName: "",
             smallImgName: "",
-            location_y: "",
+            location_y: "0px",
             location_x: "",
             dragStart: false,
             school: "",
@@ -91,12 +92,14 @@ export default {
     },
     methods: {
         dragDown: function(e) {
-
             this.startTime = new Date();
-            this.dragStart = true;
-            let start = e.clientX - this.$refs.slideHan.offsetLeft;
-
-            this.dragLeft = start;
+            let start;
+            this.$nextTick(()=>{
+                start = e.clientX - this.$refs.slideHan.offsetLeft;
+                this.dragStart = true;
+                this.dragLeft = start;
+            });
+            return false;
         },
         dragMove: function(e) {
             if (this.dragStart) {
@@ -107,14 +110,14 @@ export default {
                     location_x = 310;
                 }
                 this.location_x = location_x;
-
-                this.$refs.slideHan.style.left = this.location_x + 'px';
-                this.$refs.slideImg.style.left = this.location_x + 'px';
+                this.$nextTick(()=>{
+                    this.$refs.slideHan.style.left = this.location_x + 'px';
+                    this.$refs.slideImg.style.left = this.location_x + 'px';
+                })
 
             }
         },
         dragUp: function() {
-
             if (this.dragStart) {
                 this.dragStart = false;
                 this.slideTime = (new Date() - this.startTime) / 1000;
@@ -123,7 +126,7 @@ export default {
         },
         picCodeRequest: function() {
             this.showCode = true;
-            axios.post('/ants/code/showCode', {
+            axios.post('/ants/code/SlideCode', {
                 imgName: this.sourceImgName
             }).then((res) => {
                 this.sourceImgName = res.sourceImgName;
@@ -142,12 +145,11 @@ export default {
             axios.post('/ants/code/SlideCode', {
                 _x: this.location_x
             }).then((res) => {
-                console.log(res);
-                if (res == 'success') {
+                if (res.result == 'success') {
                     this.slideTip = true;
                     this.loginRequest();
                 } else {
-                    alert('验证失败');
+                    alert(res.message);
                 }
             }).catch(err => {})
         },
@@ -203,23 +205,11 @@ export default {
     components: {
         InfoInput
     },
-    mounted() {
-        let that = this;
-        setInterval(function() {
-            that.meteorShow = !that.meteorShow;
-            setTimeout(function() {
-                that.meteorShow = false;
-            }, 1000)
-        }, 3000);
-    }
-
 }
 </script>
 
 
 <style lang="less" scoped>
-
-
 @inputFontColor:#9fbdd2;
 @inputChangeColor:#246c9b;
 .inputBg{
