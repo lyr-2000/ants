@@ -3,9 +3,9 @@
         <div class="arrayBy leftBlock">
             <span class="leftTitle">全部商品</span>
             <div>
-                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="$emit('change-array-by','1')">综合</span>
-                <span v-cloak :class="[type=='2'?'arrayChoose':'',arraySort&&type=='2'?'upSort':'',!arraySort&&type=='2'?'downSort':'']" @click="$emit('change-array-by','2')">按时间</span>
-                <span v-cloak :class="[type=='3'?'arrayChoose':'',arraySort&&type=='3'?'upSort':'',!arraySort&&type=='3'?'downSort':'']" @click="$emit('change-array-by','3')">按价格</span>
+                <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="changeArrayBy('1')">综合</span>
+                <span v-cloak :class="[type=='2'?'arrayChoose':'',arraySort&&type=='2'?'upSort':'',!arraySort&&type=='2'?'downSort':'']" @click="changeArrayBy('2')">按时间</span>
+                <span v-cloak :class="[type=='3'?'arrayChoose':'',arraySort&&type=='3'?'upSort':'',!arraySort&&type=='3'?'downSort':'']" @click="changeArrayBy('3')">按价格</span>
             </div>
         </div>
         <div class="searchInput">
@@ -16,12 +16,12 @@
         <div class="classifyNav leftBlock">
             <span class="leftTitle">全部分类</span>
             <ul>
-                <li v-for="(classify,index) in synthesis" @click="$emit('show-child-list',index)">
+                <li v-for="(classify,index) in synthesis" @click="showChildList(index)">
                     <img :src="[require('../../assets/img/icon'+classify.parentPicture)]">
                     <span :class="[secIndex==index?'indexChoose':'']" v-cloak>{{classify.parentName}}</span>
                     <transition name="leftNav" enter-active-class="leftThiEnter" leave-active-class="leftThiLeave">
                         <ul v-if="index==secIndex&&index!==0">
-                            <li v-for="(cla,i) in childList" :class="[i==thiIndex?'thiIndex':'']" v-cloak @click="$emit('title-search',i)">{{cla.subClassName}}</li>
+                            <li v-for="(cla,i) in childList" :class="[i==thiIndex?'thiIndex':'']" v-cloak @click="titleSearch(i)">{{cla.subClassName}}</li>
                         </ul>
                     </transition>
                 </li>
@@ -32,13 +32,25 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{
             
         }
     },
-    props:["synthesis","secIndex","thiIndex","type","childList","arraySort"]
+    computed: mapGetters({
+        secIndex: "getSecIndex",
+        thiIndex:"getThiIndex",
+        childList:"getChildList",
+        synthesis:"getSynthesis",
+        type:"getType",
+        arraySort:"getArraySort"
+    }),
+    methods:{
+        ...mapActions(["changeArrayBy","titleSearch","showChildList"])
+    }
 }
 </script>
 

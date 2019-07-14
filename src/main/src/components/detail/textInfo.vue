@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{
@@ -55,7 +57,9 @@ export default {
             tipShow:false
         }
     },
-    props:["detailGoods"],
+    computed: mapGetters({
+        detailGoods: "getDetailGoods"
+    }),
     methods:{
         // 进入聊天空间
         enterChat(){

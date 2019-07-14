@@ -2,22 +2,32 @@
     <div class="others">
         <p class="othersTitle">卖家的其他闲置商品(共{{totalGoods}}件)</p>
         <div class="picCarousel">
-            <span class="carouselBtn"><</span>
+            <span class="carouselBtn" @click="leftSlide=true"><</span>
             <div class="goodsContent">
-                <div class="singleGoods" v-for="goods in otherGoods">
+                <div :class="['singleGoods',leftSlide?'leftSlide':'rightSlide']" v-for="goods in otherGoods">
                     <img :src="goods.goodsPicture">
                     <span class="goodsName">{{goods.goodsName}}</span>
                     <span class="goodsPrice">￥{{goods.goodsPrice}}元</span>
                 </div>
             </div>
-            <span class="carouselBtn">></span>
+            <span class="carouselBtn" @click="leftSlide=false">></span>
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-    props:["totalGoods","otherGoods"]
+    data(){
+        return {
+            leftSlide:true
+        }
+    },
+    computed: mapGetters({
+        totalGoods: "getTotalGoods",
+        otherGoods:"getOtherGoods"
+    })
 }
 </script>
 
@@ -51,6 +61,28 @@ export default {
                 .goodsPrice{
                     color: @deepTopInputColor;
                 }
+            }
+            @keyframes leftSlide{
+                0%{
+                    transform:translateX(-1025px);
+                }
+                100%{
+                    transform:translateX(0px);
+                }
+            }
+            .leftSlide{
+                animation: leftSlide 1s ease-in-out 0s 1 forwards;
+            }
+            @keyframes rightSlide{
+                0%{
+                    transform:translateX(0px);
+                }
+                100%{
+                    transform:translateX(-1025px);
+                }
+            }
+            .rightSlide{
+                animation: rightSlide 1s ease-in-out 0s 1 forwards;
             }
         }
         .carouselBtn{

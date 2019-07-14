@@ -18,8 +18,14 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
+
 export default {
-    props:["guessLike","moveFlag"],
+    props:["moveFlag"],
+    computed: mapGetters({
+        guessLike: "getGuessLike"
+    }),
     methods:{
         
     }

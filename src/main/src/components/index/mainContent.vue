@@ -1,19 +1,19 @@
 <template>
     <main>
         <Accounce></Accounce>
-        <PerfectGoods :moveFlag="moveFlag" :guessLike="guessLike" 
-                @turn-left="turnLeft" @turn-right="turnRight"></PerfectGoods>
+        <PerfectGoods :moveFlag="moveFlag" @turn-left="turnLeft" 
+            @turn-right="turnRight"></PerfectGoods>
         <div class="middleBanner"></div>
-        <SpecialGoods :moveFlag="moveFlag" :guessLike="guessLike" 
-               :hottest="hottest" :latest="latest"
-               @turn-left="turnLeft" @turn-right="turnRight"></SpecialGoods>
+        <SpecialGoods :moveFlag="moveFlag" @turn-left="turnLeft" 
+            @turn-right="turnRight"></SpecialGoods>
     </main>
 </template>
 
 <script>
-import Accounce from './announce.vue'
-import PerfectGoods from './perfectGoods.vue'
-import SpecialGoods from './specialGoods.vue'
+import Accounce from './announce.vue';
+import PerfectGoods from './perfectGoods.vue';
+import SpecialGoods from './specialGoods.vue';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     components:{
@@ -30,7 +30,11 @@ export default {
             },
         }
     },
-    props:["guessLike","hottest","latest"],
+    computed: mapGetters({
+        guessLike: "getGuessLike",
+        hottest:"getHottest",
+        latest:"getLatest"
+    }),
     methods:{
         turnLeft: function(type) {
             if (type === 'perfect') {

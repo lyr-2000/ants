@@ -8,14 +8,14 @@
             </div>
 
             <div class="classifyIcon">
-                <div v-for="(classify,index) in synthesis" @click="$emit('show-childList',index)">
+                <div v-for="(classify,index) in synthesis" @click="showChildList(index)">
                     <img :src="require('../../assets/img/icon'+classify.parentPicture)">
                     <span v-cloak :class="{'indexChoose':secIndex==index}">{{classify.parentName}}</span>
                 </div>
             </div>
             
             <div :class="['concreteClassify',secIndex==0?'hideThi':'showThi']">
-                <span v-for="(classify,index) in childList" :class="{'indexChoose':thiIndex==index}" @click="$emit('title-search',index)">{{classify.subClassName}}</span>
+                <span v-for="(classify,index) in childList" :class="{'indexChoose':thiIndex==index}" @click="titleSearch(index)">{{classify.subClassName}}</span>
             </div>
             
         </div>
@@ -23,14 +23,21 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{
             others: false
         }
-    },
-    props:["secIndex","thiIndex","childList","synthesis"],
+    },computed: mapGetters({
+        secIndex: "getSecIndex",
+        thiIndex:"getThiIndex",
+        childList:"getChildList",
+        synthesis:"getSynthesis"
+    }),
     methods:{
+        ...mapActions(["showChildList","titleSearch"]),
         changeChoose(type) {
             if (type == 'classify')
                 this.others = false;

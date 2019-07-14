@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{
@@ -33,10 +35,9 @@ export default {
             eyeSrc:"eye-wBg.png"
         }
     },
-    props:["goodsList"],
-    mounted(){
-        console.log(this.goodsList)
-    }
+    computed: mapGetters({
+        goodsList:"getGoodsList"
+    })
 }
 </script>
 

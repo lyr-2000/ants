@@ -22,18 +22,18 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{}
     },
-    props:["projectName","showDetialedClassify","parentClassification","childClassification"],
+    computed: mapGetters({
+        parentClassification: "getParentClassification",
+        childClassification:"getChildClassification"
+    }),
+    props:["projectName","showDetialedClassify"],
     methods:{
-        // showDetailed: function() {
-        //     // 当没有该数据时请求该数据
-        //     if (this.childClassification == [])
-        //         this.concreteRequest();
-        //     this.showDetialedClassify = !this.showDetialedClassify;
-        // }
     }
 }
 </script>

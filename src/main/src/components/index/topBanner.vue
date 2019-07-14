@@ -1,13 +1,14 @@
 <template>
     <div class="topBanner">
-        <MenuWrap @show-detailed="showDetailed" :showDetialedClassify="showDetialedClassify" :projectName="projectName" :parentClassification="parentClassification" :childClassification="childClassification"></MenuWrap>
+        <MenuWrap @show-detailed="showDetailed" :showDetialedClassify="showDetialedClassify" :projectName="projectName"></MenuWrap>
         <ImgPlayBox></ImgPlayBox>
     </div>
 </template>
 
 <script>
-import MenuWrap from './menuWrap.vue'
-import ImgPlayBox from './imgPlayBox.vue'
+import MenuWrap from './menuWrap.vue';
+import ImgPlayBox from './imgPlayBox.vue';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     data(){
@@ -15,20 +16,23 @@ export default {
             showDetialedClassify: false,
         }
     },
+    computed: mapGetters({
+        parentClassification: "getParentClassification",
+        childClassification:"getChildClassification"
+    }),
     components:{
         MenuWrap,
         ImgPlayBox
     },
-    props:["projectName","parentClassification","childClassification"],
+    props:["projectName"],
     methods:{
+        ...mapActions(["concreteRequest"]),
         showDetailed: function() {
             // 当没有该数据时请求该数据
             if (this.childClassification == []){
-                this.$emit('concrete-request');
+                this.concreteRequest();
             }
             this.showDetialedClassify = !this.showDetialedClassify;
-            
-
         }
     }
 }

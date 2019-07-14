@@ -1,24 +1,18 @@
 <template>
     <div class="goodsShow">
-        <SpecificGoods :goodsList="goodsList"></SpecificGoods>
-        <PageTurn @turn="turn" :page="page" :currentPage="currentPage"></PageTurn>
+        <SpecificGoods></SpecificGoods>
+        <PageTurn></PageTurn>
     </div>
 </template>
 
 <script>
-import SpecificGoods from './specificGoods.vue'
-import PageTurn from './pageTurn.vue'
+import SpecificGoods from './specificGoods.vue';
+import PageTurn from './pageTurn.vue';
 
 export default {
     components:{
         SpecificGoods,
         PageTurn
-    },
-    props:["goodsList","page","currentPage"],
-    methods:{
-        turn(page){
-            this.$emit("turn",page);
-        }
     }
 }
 </script>

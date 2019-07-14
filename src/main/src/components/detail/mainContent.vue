@@ -1,11 +1,7 @@
 <template>
     <div class="main">
-        <PicShow
-            :pics="detailGoods.goodsPicture"
-        ></PicShow>
-        <TextInfo
-            :detailGoods="detailGoods"
-        ></TextInfo>
+        <PicShow></PicShow>
+        <TextInfo></TextInfo>
     </div>
 </template>
 
@@ -17,8 +13,7 @@ export default {
     components:{
         PicShow,
         TextInfo
-    },
-    props:["detailGoods"]
+    }
 }
 </script>
 

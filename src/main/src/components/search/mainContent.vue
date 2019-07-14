@@ -1,23 +1,7 @@
 <template>
     <div class="main">
-        <MainLeft 
-            :secIndex="secIndex"
-            :thiIndex="thiIndex"
-            :synthesis="synthesis"
-            :type="type"
-            :childList="childList"
-            :arraySort="arraySort"
-            @title-search="titleSearch"
-            @change-array-by="changeArrayBy"
-            @show-child-list="showChildList"
-        ></MainLeft>
-        <GoodsShow 
-            :page="page" 
-            :currentPage="currentPage"
-            :goodsList="goodsList"
-            @turn="turn" 
-            @title-search="titleSearch"
-        ></GoodsShow>
+        <MainLeft></MainLeft>
+        <GoodsShow></GoodsShow>
     </div>
 </template>
 
@@ -29,22 +13,6 @@ export default {
     components:{
         MainLeft,
         GoodsShow
-    },
-    props:["type","secIndex","thiIndex","childList","synthesis","page","currentPage","goodsList","arraySort"],
-    methods:{
-        turn(page){
-            this.$emit("turn",page)
-        },
-        // 根据标签搜素相应的内容
-        titleSearch(index) {
-            this.$emit("title-search",index);
-        },
-        changeArrayBy(type){
-            this.$emit('change-array-by',type);
-        },
-        showChildList(index){
-            this.$emit('show-child-list',index);
-        }
     }
 }
 </script>

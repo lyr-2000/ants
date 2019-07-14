@@ -36,13 +36,20 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     data(){
         return{
             showHot: true,
         }
     },
-    props:["latest","hottest","moveFlag","guessLike"],
+    props:["moveFlag"],
+    computed: mapGetters({
+        guessLike: "getGuessLike",
+        hottest:"getHottest",
+        latest:"getLatest"
+    }),
     methods:{
         changeShow: function(currentType) {
             if (currentType === 'hot') {

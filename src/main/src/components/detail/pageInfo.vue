@@ -10,8 +10,11 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-    props:["pageSource"]
+    computed: mapGetters({
+        pageSource: "getPageSource"
+    })
 }
 </script>
 
