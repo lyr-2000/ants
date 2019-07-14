@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="less">
+@import url('../../assets/less/define.less');
+
 body{
     margin: 0px;
     padding: 0px;
@@ -73,8 +75,6 @@ a{
 }
 
 
-@topicDeepBColor:#5d759d;
-@topicShallowRColor:rgba(246,146,138,.5);
 @borderColor:rgba(102,102,102,.5);
 @fontColor:#666;
 @fontHoverColor:#333;
@@ -88,7 +88,7 @@ a{
         background-color: @topicDeepBColor;
         .navContainer{
             margin: 0px auto;
-            width: 1190px;
+            width: 1200px;
             ul{
                 li{
                     padding: 8px 20px;
@@ -102,7 +102,7 @@ a{
             }
             .leftNav{
                 float: left;
-                margin-left: 190px;
+                margin-left: 115px;
             }
             .rightNav{
                 float: right;
@@ -123,7 +123,6 @@ a{
             display: inline-block;
         }
         .topLogo{
-            margin-left: 88px;
             img{
                 float: left;
                 height: 34px;
@@ -134,14 +133,14 @@ a{
             }
         }
         .searchGoods{
-            margin:0% 5% 0% 20%;
+            margin:0% 5% 0% 30%;
             padding: 4px;
             width: 280px;
             border: 2px solid @topicDeepBColor;
             border-radius: 5px;
             input{
                 margin: 3px;
-                width: 232px;
+                width: 245px;
                 .inputNoBorder;
             }
             img{
@@ -151,14 +150,13 @@ a{
                 cursor: pointer;
             }
             &:hover{
-                border-color: @topicShallowRColor;
+                border-color: @topicDeepRColor;
             }
             &:focus-within{
-                border-color: @topicShallowRColor;
+                border-color: @topicDeepRColor;
             }
         }
         .mainHandle{
-            // float: right;
             button{
                 .inputNoBorder;
                 border-radius: 5px;
@@ -168,6 +166,9 @@ a{
                 color: rgb(255,255,255);
                 background-color: @topicShallowRColor;
                 cursor: pointer;
+                &:hover{
+                    background-color: @topicDeepRColor;
+                }
             }
         }
     }

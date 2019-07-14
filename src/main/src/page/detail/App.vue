@@ -40,11 +40,12 @@ export default {
             pageSource:["分类页","商品详情"],
             detailGoods:{
                 goodsName:'插电源室内喷雾补湿仪',
-                goodsDescrible:'',
+                goodsDescrible:'这个补湿仪我才用了一个月，实体入的，真的是非常补湿，觉得超级好用，长得又好看又耐电，每次只加够水就可以保持空气补湿了，可是最近没钱只能忍痛割爱，走过路过千万不要错过，不要徘徊不要徘徊，徘徊就是白来',
                 goodsPrice:'32',
                 goodsBargin:true, // 是否可议价
                 goodsAmount:3, // 商品库存
                 goodsLocation:'广金南苑13#905',
+                transactionMode:'买家自取', // 买家取货方式
                 isWechat:false,
                 Wechat:'123-456-789',
                 isQQ:true,
@@ -73,7 +74,8 @@ export default {
 <style lang="less">
 
 hr{
-    width: 1000px;
+    width: 1100px;
+    margin-top: 50px;
 }
 
 </style>

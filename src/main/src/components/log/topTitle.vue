@@ -1,8 +1,9 @@
 <template>
     <div :class="['top']" v-cloak>
-        <div :class="['topTitle']">
-            {{productName}}
-            <div class="wav"></div>
+        <div class="topTitle" >
+            <div @mousemove="isHover=true" @mouseleave="isHover=false" :class="[isHover?'hoverTitle':'']">
+                <span  v-for="word in productName">{{word}}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -10,7 +11,12 @@
 <script>
 export default {
     name:'topTitle',
-    props:["productName"]
+    props:["productName"],
+    data(){
+        return{
+            isHover:false
+        }
+    }
 }
 </script>
 
@@ -29,10 +35,41 @@ export default {
         letter-spacing: @letterSpace;
         color: #fff;
         cursor: pointer;
-        overflow: hidden;
-        &:hover .wav{
-            animation:wavMove .5s linear 0s infinite none;
+        &>div{
+            display: inline-block;
+        }
+        .hoverTitle{
+            @animateTime:1s;
+            @differTime:0.25s;
+            >*{
+                position: relative;
+            }
+            &>:nth-child(1){
+                animation: wordMove @animateTime linear 0s 1 none;
+            }
+            &>:nth-child(2){
+                animation: wordMove @animateTime linear @differTime 1 none;
+            }
+            &>:nth-child(3){
+                animation: wordMove @animateTime linear @differTime*2 1 none;
+            }
+            &>:nth-child(4){
+                animation: wordMove @animateTime linear @differTime*3 1 none;
+            }
         }
     }
 }
+
+@keyframes wordMove{
+    0%{
+        bottom: 0px;
+    }
+    50%{
+        bottom: 20px;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+
 </style>

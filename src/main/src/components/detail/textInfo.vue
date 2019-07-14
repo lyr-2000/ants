@@ -1,6 +1,6 @@
 <template>
     <div class="textInfo">
-        <h2 class="goodsName">{{detailGoods.goodsName}}</h2>
+        <h1 class="goodsName">{{detailGoods.goodsName}}</h1>
         <div class="goodsPrice">
             <span class="goodsLabel">价格</span>
             <p>
@@ -12,9 +12,9 @@
             <span class="goodsLabel">简介</span>
             <p>{{detailGoods.goodsDescrible}}</p>
         </div>
-        <div class="goodsLocation">
-            <span class="goodsLabel">地点</span>
-            <p>{{detailGoods.goodsLocation}}</p>
+        <div class="goodsTransaction">
+            <span class="goodsLabel">配送</span>
+            <p>{{detailGoods.transactionMode}}</p>
         </div>
         <div class="goodsAmount">
             <span class="goodsLabel">数目</span>
@@ -95,7 +95,7 @@ export default {
 @import "../../assets/less/define.less";
 
 .textInfo{
-    width: 500px;
+    width: 600px;
     .goodsName{
         margin-top: 0px;
     }
@@ -115,7 +115,7 @@ export default {
             width: 80%;
             &>span:first-child{
                 font-size: 24px;
-                color: @topicShallowRColor;
+                color: @topicDeepRColor;
             }
             .goodsBargin{
                 padding: 0px 20px;
@@ -126,18 +126,45 @@ export default {
             }
         }
     }
+    .goodsDescrible{
+        align-items: flex-start;
+        margin-top: 16px;
+        p{
+            display: -webkit-box;
+            width: 465px;
+            height: 95px;
+            margin: 0px;
+            font-size: 18px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    }
+    .goodsTransaction{
+        &>p{
+            font-size: 18px;
+        }
+    }
     .goodsAmount{
         display: flex;
         align-items: center;
         .numHandle{
             @handleSize:16px;
+            @handleColor:#666;
             display: inline-block;
             width: @handleSize;
             height: @handleSize;
-            border: 1px solid #000;
+            border: 1px solid @handleColor;
             text-align: center;
             line-height: @handleSize;
+            color: @handleColor;
             cursor: pointer;
+            &:hover{
+                @hoverColor:#000;
+                border-color: @hoverColor;
+                color: @hoverColor;
+            }
         }
         input{
             margin: 0px 5px;

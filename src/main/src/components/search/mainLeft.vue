@@ -4,8 +4,8 @@
             <span class="leftTitle">全部商品</span>
             <div>
                 <span v-cloak :class="[type=='1'?'arrayChoose':'']" @click="$emit('change-array-by','1')">综合</span>
-                <span v-cloak :class="[type=='2'?'arrayChoose':'']" @click="$emit('change-array-by','2')">按时间</span>
-                <span v-cloak :class="[type=='3'?'arrayChoose':'']" @click="$emit('change-array-by','3')">按价格</span>
+                <span v-cloak :class="[type=='2'?'arrayChoose':'',arraySort&&type=='2'?'upSort':'',!arraySort&&type=='2'?'downSort':'']" @click="$emit('change-array-by','2')">按时间</span>
+                <span v-cloak :class="[type=='3'?'arrayChoose':'',arraySort&&type=='3'?'upSort':'',!arraySort&&type=='3'?'downSort':'']" @click="$emit('change-array-by','3')">按价格</span>
             </div>
         </div>
         <div class="searchInput">
@@ -38,7 +38,7 @@ export default {
             
         }
     },
-    props:["synthesis","secIndex","thiIndex","type","childList"]
+    props:["synthesis","secIndex","thiIndex","type","childList","arraySort"]
 }
 </script>
 
@@ -77,6 +77,12 @@ ul{
             }
             .arrayChoose{
                 color: @topicShallowRColor;
+            }
+            .upSort::after{
+                content:"↑";
+            }
+            .downSort::after{
+                content:"↓";
             }
         }
     }

@@ -21,6 +21,7 @@
         :currentPage="currentPage" 
         :page="page"
         :goodsList="goodsList"
+        :arraySort="arraySort"
         @turn="turn"
         @title-search="titleSearch"
         @change-array-by="changeArrayBy" 
@@ -50,6 +51,7 @@ export default {
         webPage:'index',
         identity:'buyer',
         type: 1,
+        arraySort:true,
         secIndex: 0,
         thiIndex: 0,
         synthesis: [
@@ -194,7 +196,14 @@ export default {
   },
   methods:{
       changeArrayBy(type) {
-        this.type = type;
+        if(this.type==type){
+            if(type!=='1'){
+                this.arraySort=!this.arraySort;
+            }
+        }else{
+            this.type = type;
+            this.arraySort=true;
+        }
         axios.post('/ants/class/chooseGoodsByType', {
                 parentId: this.secIndex,
                 childId: this.thiIndex,

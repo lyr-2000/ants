@@ -31,14 +31,14 @@ export default {
     display: flex;
     align-content: space-between;
     justify-content: space-evenly;
-    height: 360px;
-    width: 480px;
+    height: 450px;
+    width: 540px;
     .picTurn{
-        width: 20%;
+        width: 16%;
         &>span{
             display: inline-block;
-            height: 60px;
-            width: 60px;
+            height: 86px;
+            width: 86px;
             margin-bottom: 40%;
             >img{
                 height: 100%;
@@ -68,6 +68,7 @@ export default {
     .bigPic{
         position: relative;
         width: 75%;
+        overflow: hidden;
         .bigImg{
             height: 100%;
         }

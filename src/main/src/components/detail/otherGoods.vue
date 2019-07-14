@@ -25,8 +25,8 @@ export default {
 @import "../../assets/less/define.less";
 
 .others{
-    width: 1000px;
-    margin: 10px auto;
+    width: 1100px;
+    margin: 10px auto 80px auto;
     .othersTitle{
         color: @topicDeepBColor;
     }
@@ -41,7 +41,7 @@ export default {
                 display: flex;
                 flex-direction: column;
                 border: 1px solid rgba(204,204,204);
-                margin-right: 30px;
+                margin: 0px 14px 0px 28px;
                 height: 220px;
                 text-align: center;
                 img{

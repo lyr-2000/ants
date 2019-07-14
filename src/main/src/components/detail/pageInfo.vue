@@ -22,9 +22,8 @@ export default {
     width: 100%;
     border: 1px solid @topicDeepBColor;
     &>p{
-        width: 1200px;
+        width: 1100px;
         margin: 10px auto;
-        text-indent: 120px;
         font-size: 18px;
         .currentPage{
             color: @topicDeepBColor;

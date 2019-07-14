@@ -165,7 +165,6 @@ export default {
                     this.guessLike = res.guessLike;
                     this.hottest = res.hottest;
                     this.latest = res.latest;
-
                 })
         },
         concreteRequest() {

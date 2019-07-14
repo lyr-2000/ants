@@ -6,6 +6,7 @@
             :synthesis="synthesis"
             :type="type"
             :childList="childList"
+            :arraySort="arraySort"
             @title-search="titleSearch"
             @change-array-by="changeArrayBy"
             @show-child-list="showChildList"
@@ -29,7 +30,7 @@ export default {
         MainLeft,
         GoodsShow
     },
-    props:["type","secIndex","thiIndex","childList","synthesis","page","currentPage","goodsList"],
+    props:["type","secIndex","thiIndex","childList","synthesis","page","currentPage","goodsList","arraySort"],
     methods:{
         turn(page){
             this.$emit("turn",page)
