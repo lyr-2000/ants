@@ -8,10 +8,7 @@ import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +27,8 @@ import java.util.Map;
 @RequestMapping(value = "/ants/user")
 public class SystemController  {
 
+    @Autowired
+    private StudentService studentService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
@@ -124,27 +123,6 @@ public class SystemController  {
     }
 
 
-    @Autowired
-    private StudentService studentService;
 
-//    @RequestMapping(value = "/testStudent", method = RequestMethod.GET)
-//    @ResponseBody
-//    public Map<String, String> addStudent() {
-//        Student student = new Student();
-//        student.setStudentId(1);
-//        student.setUserName("user");
-//        student.setUserSex(0);
-//        student.setPassWord("123456");
-//        student.setMobilePhone("13106617928");
-//        student.setUserWechat("weiXing");
-//        student.setUserQQ("1783209601");
-//        student.setRegistTime("2019-06-06");
-//        student.setHidden(0);
-//        int result = studentService.add(student);
-//        System.out.println("result: " + result);
-//        Map<String, String> map = new HashMap<>();
-//        map.put("1", "hello");
-//        return map;
-//    }
 
 }

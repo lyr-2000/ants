@@ -22,4 +22,5 @@ public class Goods {
     private int goodsBelong;
     private int goodsWay;
     private String uploadTime;
+    private int repertory;
 }

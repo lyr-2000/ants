@@ -1,7 +1,10 @@
 package com.ants.service;
 
+import com.ants.entity.Goods;
 import com.ants.entity.Student;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author czd
@@ -15,4 +18,11 @@ public interface StudentService {
      * @return
      */
     public int add(Student student);
+
+    /**
+     *根据此商品ID获取对应卖家的其他上架商品
+     * @param id
+     * @return
+     */
+    public List<Goods> chooseGoodsByStudentId(Integer id);
 }
