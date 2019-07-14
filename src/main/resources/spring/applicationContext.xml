@@ -67,7 +67,7 @@
 
     </bean>
 
-    <!-- 事务管理器 （JDBC） -->
+    <!-- 事务管理器 （JDBC）依赖数据源 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>

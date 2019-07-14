@@ -26,4 +26,13 @@ public class GoodsServiceImpl implements GoodsService {
     public Integer getGoodsNumbers() {
         return goodsDao.getGoodsNumbers();
     }
+
+    /**
+     * 根据商品id获取对应商品信息
+     * @param goodsId
+     * @return
+     */
+    public Map<String,Object> chooseGoodsById(Integer goodsId){
+        return goodsDao.chooseGoodsById(goodsId);
+    }
 }

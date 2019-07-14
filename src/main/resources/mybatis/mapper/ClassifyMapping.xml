@@ -3,8 +3,9 @@
 <mapper namespace="com.ants.dao.ClassifyDao">
     <!--获取首页大分类的数据信息，无“其他”大分类-->
     <select id="parentClassification" resultType="com.ants.entity.ParentClass">
-        select parentId,parentName,parentPicture from ants_class_parent
-        where parentName != "其他"
+        select parentId,parentName,parentPicture
+                  from ants_class_parent
+                      where parentName != "其他"
     </select>
 
     <!--获取首页大分类的数据信息-->
@@ -19,82 +20,100 @@
 
     <!--获取单个大分类的小分类的数据信息-->
     <select id="childClassification" resultType="com.ants.entity.ChildClass" parameterType="Integer">
-        select subClassId,subClassName,parentClass from ants_class_sub
-        where parentClass = #{parentClass}
+        select subClassId,subClassName,parentClass
+                    from ants_class_sub
+                        where parentClass = #{parentClass}
     </select>
 
     <!--获取所有小分类的名称-->
     <select id="allChildClassification" resultType="com.ants.entity.ChildClass">
-        select subClassName from ants_class_sub where subClassName != "其他"
+        select subClassName
+                  from ants_class_sub
+                      where subClassName != "其他"
     </select>
 
     <!--根据大分类的ID获取属于此大分类的商品的信息-->
     <select id="chooseGoodsByParent" resultType="com.ants.entity.Goods" parameterType="Map">
         select goodsId,goodsName,goodsDescribe,goodsPicture,
-         goodsVideo,goodsClass,goodsPrice,goodsState,
-         goodsBargin,goodsBelong,goodsWay,uploadTime
-         from ants_goods_base where goodsClass in(
-              select subClassId from ants_class_sub where parentClass = #{parentId})
-        limit #{head},#{tail}
+               goodsVideo,goodsClass,goodsPrice,goodsState,
+               goodsBargin,goodsBelong,goodsWay,uploadTime
+                  from ants_goods_base where goodsClass in(
+                      select subClassId from ants_class_sub where
+                          parentClass = #{parentId}) limit #{head},#{tail}
     </select>
 
     <!--根据大分类的ID获取属于此大分类的所有商品的总数量-->
     <select id="getGoodsByParentNumbers" resultType="Integer" parameterType="Integer">
-        select count(*) from `ants_goods_base` where goodsClass in(
-           select subClassId from `ants_class_sub` where parentClass = #{parentId})
+        select count(*)
+                from `ants_goods_base` where goodsClass in(
+                    select subClassId
+                        from `ants_class_sub` where
+                            parentClass = #{parentId})
     </select>
 
     <!--根据前端传来的ID获取此ID代表的大分类的名称-->
     <select id="getParentName" resultType="com.ants.entity.ParentClass" parameterType="Integer">
-        select parentId,parentName,parentPicture from `ants_class_parent`
-        where parentId = #{parentId}
+        select parentId,parentName,parentPicture
+                  from `ants_class_parent`
+                      where parentId = #{parentId}
     </select>
 
     <!--根据前端传来的ID获取此ID代表的小分类的名称-->
     <select id="getChildName" resultType="com.ants.entity.ChildClass" parameterType="Integer">
-        select subClassId,subClassName,parentClass from `ants_class_sub`
-        where subClassId = #{childId}
+        select subClassId,subClassName,parentClass
+                  from `ants_class_sub`
+                      where subClassId = #{childId}
     </select>
 
     <!--根据前端传来的子类的ID获取父类的名称-->
     <select id="getParentNameByChildId" resultType="com.ants.entity.ParentClass" parameterType="Integer">
-        select parentId,parentName,parentPicture from `ants_class_parent`
-        where parentId =(
-        select parentClass from `ants_class_sub` where subClassId = #{childId}
-        )
+        select parentId,parentName,parentPicture
+                  from `ants_class_parent`
+                      where parentId =(
+                          select parentClass
+                              from `ants_class_sub`
+                                  where subClassId = #{childId}
+                      )
     </select>
 
     <!--根据前端传来的子类ID获取相应的商品数据-->
     <select id="chooseGoodsByChild" resultType="com.ants.entity.Goods" parameterType="Map">
         select goodsId,goodsName,goodsDescribe,goodsPicture,
-         goodsVideo,goodsClass,goodsPrice,goodsState,
-         goodsBargin,goodsBelong,goodsWay,uploadTime
-         from `ants_goods_base`
-         where goodsClass = #{childId} limit #{head},#{tail}
+               goodsVideo,goodsClass,goodsPrice,goodsState,
+               goodsBargin,goodsBelong,goodsWay,uploadTime
+                    from `ants_goods_base`
+                        where goodsClass = #{childId} limit #{head},#{tail}
     </select>
 
     <!--根据小分类的ID获取属于此小分类的所有商品的总数量-->
     <select id="getGoodsByChildNumbers" resultType="Integer" parameterType="Integer">
-        select count(*) from `ants_goods_base` where goodsClass = #{childId}
+        select count(*)
+                  from `ants_goods_base`
+                      where goodsClass = #{childId}
     </select>
 
     <!--根据子类ID获取其父类下的所有子类名称-->
     <select id="getChildClassifyByChildId" resultType="com.ants.entity.ChildClass" parameterType="Integer">
-        select subClassId,subClassName,parentClass from ants_class_sub
-        where parentClass = (
-        select parentClass from ants_class_sub where subClassId = #{childId}
-        )
+        select subClassId,subClassName,parentClass
+                  from ants_class_sub
+                      where parentClass = (
+                          select parentClass
+                              from ants_class_sub
+                                  where subClassId = #{childId}
+                      )
     </select>
 
     <!--副页面中根据综合获取指定的商品的列表-->
     <select id="chooseGoodsByComposite" resultType="com.ants.entity.Goods" parameterType="Map">
         select goodsId,goodsName,goodsDescribe,goodsPicture,
-        goodsVideo,goodsClass,goodsPrice,goodsState,
-        goodsBargin,goodsBelong,goodsWay,uploadTime
-        from ants_goods_base
+               goodsVideo,goodsClass,goodsPrice,goodsState,
+               goodsBargin,goodsBelong,goodsWay,uploadTime
+                    from ants_goods_base
         <if test="parentId != null and childId == null">
-            where goodsClass in
-            (select subClassId from ants_class_sub WHERE parentClass = #{parentId}) limit #{head},#{tail}
+            where goodsClass in (
+                    select subClassId
+                        from ants_class_sub
+                            WHERE parentClass = #{parentId}) limit #{head},#{tail}
         </if>
 
         <if test="parentId != null and childId != null">
@@ -106,8 +125,10 @@
     <select id="countGoodsByComposite" resultType="Integer" parameterType="Map">
         select count(*) from ants_goods_base
         <if test="parentId != null and childId == null">
-            where goodsClass in
-            (select subClassId from ants_class_sub WHERE parentClass = #{parentId}) limit #{head},#{tail}
+            where goodsClass in (
+                    select subClassId
+                        from ants_class_sub
+                            WHERE parentClass = #{parentId}) limit #{head},#{tail}
         </if>
 
         <if test="parentId != null and childId != null">
@@ -118,13 +139,16 @@
     <!--副页面中根据综合获取指定的商品的列表（降序）-->
     <select id="chooseGoodsByUploadTime" resultType="com.ants.entity.Goods" parameterType="Map">
         select goodsId,goodsName,goodsDescribe,goodsPicture,
-        goodsVideo,goodsClass,goodsPrice,goodsState,
-        goodsBargin,goodsBelong,goodsWay,uploadTime
-        from ants_goods_base
+               goodsVideo,goodsClass,goodsPrice,goodsState,
+               goodsBargin,goodsBelong,goodsWay,uploadTime
+                    from ants_goods_base
         <if test="parentId != null and childId == null">
-            where goodsClass in
-            (select subClassId from ants_class_sub WHERE parentClass = #{parentId})
-            ORDER BY  uploadTime DESC limit #{head},#{tail}
+            where goodsClass in (
+                      select subClassId
+                          from ants_class_sub
+                              WHERE parentClass = #{parentId}
+                      )
+                      ORDER BY  uploadTime DESC limit #{head},#{tail}
         </if>
 
         <if test="parentId != null and childId != null">
@@ -135,17 +159,21 @@
     <!--副页面中根据综合获取指定的商品的列表（降序）-->
     <select id="chooseGoodsByPrice" resultType="com.ants.entity.Goods" parameterType="Map">
         select goodsId,goodsName,goodsDescribe,goodsPicture,
-        goodsVideo,goodsClass,goodsPrice,goodsState,
-        goodsBargin,goodsBelong,goodsWay,uploadTime
-        from ants_goods_base
+               goodsVideo,goodsClass,goodsPrice,goodsState,
+               goodsBargin,goodsBelong,goodsWay,uploadTime
+                    from ants_goods_base
         <if test="parentId != null and childId == null">
-            where goodsClass in
-            (select subClassId from ants_class_sub WHERE parentClass = #{parentId})
-             ORDER BY  goodsPrice DESC limit #{head},#{tail}
+            where goodsClass in (
+                      select subClassId
+                          from ants_class_sub
+                              WHERE parentClass = #{parentId}
+                      )
+                      ORDER BY  goodsPrice DESC limit #{head},#{tail}
         </if>
 
         <if test="parentId != null and childId != null">
             where goodsClass = #{childId} ORDER BY  goodsPrice DESC limit #{head},#{tail}
         </if>
     </select>
+
 </mapper>

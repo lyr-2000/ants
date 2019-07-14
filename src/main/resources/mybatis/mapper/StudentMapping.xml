@@ -11,4 +11,18 @@
 		                                   #{userQQ},#{registTime},#{hidden})
 	</insert>
 
+	<!--根据此商品ID获取对应卖家的其他上架商品-->
+	<select id="chooseGoodsByStudentId" resultType="com.ants.entity.Goods">
+		select goodsId,goodsName,goodsDescribe,goodsPicture,
+         	   goodsVideo,goodsClass,goodsPrice,goodsState,
+         	   goodsBargin,goodsBelong,goodsWay,uploadTime
+				  from ants_goods_base
+					  where goodsId != #{goodsId}
+					  		and goodsBelong = (
+								select goodsBelong
+									from ants_goods_base
+										where goodsId = #{goodsId}
+								)
+	</select>
+
 </mapper>
