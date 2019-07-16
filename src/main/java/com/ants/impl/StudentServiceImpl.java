@@ -38,4 +38,13 @@ public class StudentServiceImpl implements StudentService {
     public List<Goods> chooseGoodsByStudentId(Integer id){
         return studentDao.chooseGoodsByStudentId(id);
     }
+
+    /**
+     * 根据商品Id获取对应卖家的其他
+     * @param goodsId
+     * @return
+     */
+    public Integer countGoodsNumbers(Integer goodsId){
+        return studentDao.countGoodsNumbers(goodsId);
+    }
 }

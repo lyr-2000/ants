@@ -34,15 +34,18 @@ public class GoodsController {
      */
     @RequestMapping(value = "chooseGood",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String,Map<String,Object>> chooseGoodsById(@RequestParam(value = "goodsId") Integer goodsId){
+    public Map chooseGoodsById(@RequestParam(value = "goodsId") Integer goodsId){
         Map dataMap = new HashMap<>();
         //根据商品id获取单个商品的详细信息
         Map<String,Object> goodsInformation = goodsService.chooseGoodsById(goodsId);
-        dataMap.put("information",goodsInformation);
+        dataMap.put("singleGoodsMessage",goodsInformation);
 
         //根据此商品ID获取对应卖家的其他上架商品
         List<Goods> otherGoods = studentService.chooseGoodsByStudentId(goodsId);
         dataMap.put("otherGoods",otherGoods);
+        
+        Integer goodsNumbers =  studentService.countGoodsNumbers(goodsId);
+        dataMap.put("otherGoodsNumbers",goodsNumbers);
         return dataMap;
     }
 }

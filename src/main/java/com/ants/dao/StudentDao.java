@@ -25,4 +25,11 @@ public interface StudentDao {
      * @return
      */
     public List<Goods> chooseGoodsByStudentId(Integer id);
+
+    /**
+     * 根据商品Id获取对应卖家的其他
+     * @param goodsId
+     * @return
+     */
+    public Integer countGoodsNumbers(Integer goodsId);
 }
