@@ -19,6 +19,7 @@ export default {
 // 页脚
 footer{
     padding: 20px 0px;
+    margin-top: 283px;
     text-align: center;
     vertical-align: middle;
     background-color: @topicDeepBColor;

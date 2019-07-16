@@ -25,16 +25,18 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topicShallowRColor:rgba(246,146,138,.5);
+@import "../../assets/less/define.less";
 
 .pageTurn{
+    @letterSpacing:9px;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     width: 100%;
-    *{
-        padding: 0px 3px;
-    }
+    text-align: right;
+    letter-spacing: @letterSpacing;
+    font-size: 28px;
+    color: @shallowFontColor;
+    transform: translatex(@letterSpacing);
     .turnPage{
         cursor: pointer;
     }
@@ -46,6 +48,7 @@ export default {
         span{
             display: inline-block;
             width: 15px;
+            padding: 0px 10px;
             text-align: center;
             cursor: pointer;
         }

@@ -18,13 +18,14 @@ export default {
 
 <style lang="less" scoped>
 .imgPlayBox{
+    @imgHeight:420px;
     width: 100%;
-    height: 284px;
+    height: @imgHeight;
     .imgContainer{
         text-align: center;
         background-color: rgba(51,51,51,0.8);
         img{
-            height: 284px;
+            height: @imgHeight;
         }
     }
 }

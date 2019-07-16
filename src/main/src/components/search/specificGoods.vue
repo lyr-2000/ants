@@ -2,7 +2,7 @@
     <div class="goodsShow">
         <div class="specificGoods"  v-for="ex in goodsList">
             <img :src="[require('../../assets/img/search/'+ex.goodsPicture)]">
-            <span v-cloak>{{ex.goodsName}}</span>
+            <span v-cloak class="goodsName">{{ex.goodsName}}</span>
             <div>
                 <span class="goodsPrice" v-cloak>￥{{ex.goodsPrice}}元</span>
                 <span class="uploadTime" v-cloak>{{ex.uploadTime}}</span>
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topicShallowRColor:rgba(246,146,138,.5);
+@import "../../assets/less/define.less";
 .goodsShow{
     display: flex;
     flex-direction: row;
@@ -55,9 +55,10 @@ export default {
         position: relative;
         flex-direction: column;
         width: 22%;
-        height: 300px;
+        height: 377px;
         margin-bottom: 20px;
         border: 2px solid rgba(102,102,102,.3);
+        color: @deepFontColor;
         &:hover{
             border: 2px solid @topicShallowRColor;
             .buttonContainer{
@@ -71,12 +72,23 @@ export default {
             display: flex;
             justify-content: space-between;
             .goodsPrice{
-                color: #f00;
+                color: @topicDeepRColor;
+            }
+            .uploadTime{
+                margin-right: 10px;
+            }
+            .goodsPrice,.uploadTime{
+                font-size: 16px;
+                letter-spacing: 2px;
             }
         }
         span{
-            margin: 8px 0px;
             text-indent: 4px;
+        }
+        .goodsName{
+            margin: 21px 0px 16px 0px;
+            font-weight:bold;
+            font-size: 24px;
         }
         .buttonContainer{
             display: none;

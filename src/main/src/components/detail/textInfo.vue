@@ -98,33 +98,38 @@ export default {
 <style lang="less">
 @import "../../assets/less/define.less";
 
+@textMargin:16px;
+
 .textInfo{
-    width: 600px;
+    width: 720px;
+    color:@deepFontColor;
     .goodsName{
         margin-top: 0px;
+        font-size: 30px;
     }
     &>div{
         display: flex;
         align-items: center;
         .goodsLabel{
-            margin: 0px 20px;
-            color: rgb(151,151,151);
+            margin: 0px 50px 0px 40px;
+            font-size: 20px;
+            color:@shallowFontColor;
         }
     }
     .goodsPrice{
-        background-color: rgba(204,204,204,.3);
+        background-color: @borderColor;
         p{
             display: flex;
             justify-content: space-between;
-            width: 80%;
+            width: 560px;
             &>span:first-child{
-                font-size: 24px;
+                font-size: 30px;
                 color: @topicDeepRColor;
             }
             .goodsBargin{
-                padding: 0px 20px;
+                padding: 8px 20px;
                 border-radius: 20px;
-                line-height: 32px;
+                font-size: 18px;
                 color: #fff;
                 background-color: @topicDeepRColor;
             }
@@ -132,13 +137,14 @@ export default {
     }
     .goodsDescrible{
         align-items: flex-start;
-        margin-top: 16px;
+        margin: @textMargin 0px;
         p{
             display: -webkit-box;
-            width: 465px;
+            width: 580px;
             height: 95px;
             margin: 0px;
-            font-size: 18px;
+            font-size: 20px;
+            line-height: 24px;
             text-overflow: ellipsis;
             overflow: hidden;
             -webkit-line-clamp: 4;
@@ -146,62 +152,76 @@ export default {
         }
     }
     .goodsTransaction{
+        margin-bottom: 28px;
         &>p{
+            margin: 0px;
             font-size: 18px;
         }
     }
     .goodsAmount{
         display: flex;
         align-items: center;
+        margin-bottom: 28px;
+        p{
+            margin: 0px;
+        }
         .numHandle{
             @handleSize:16px;
-            @handleColor:#666;
             display: inline-block;
             width: @handleSize;
             height: @handleSize;
-            border: 1px solid @handleColor;
+            border: 1px solid @shallowFontColor;
             text-align: center;
-            line-height: @handleSize;
-            color: @handleColor;
+            font-weight: 100;
+            font-size: 24px;
+            line-height:13px;
+            color: @deepFontColor;
             cursor: pointer;
             &:hover{
-                @hoverColor:#000;
-                border-color: @hoverColor;
-                color: @hoverColor;
+                border-color: @deepFontColor;
+                color: @deepFontColor;
             }
         }
         input{
-            margin: 0px 5px;
+            position: relative;
+            top: -3px;
+            margin: 0px 8px;
+            height: 18px;
             text-align: center;
         }
         .remanentNum{
-            margin-left: 20px;
-            color: rgb(151,151,151);
+            font-size: 18px;
+            margin-left: 49px;
+            color: @shallowFontColor;
         }
     }
     .goodsContact{
+        margin-bottom: @textMargin;
         img{
-            @iconSize:30px;
+            @iconSize:39px;
             width: @iconSize;
             height: @iconSize;
             margin-right: 15px;
             cursor: pointer;
         }
+        p{
+            margin: 0px;
+        }
     }
     .handleButton{
         justify-content: space-between;
         button{
-            width: 48%;
+            width: 348px;
             border: 2px solid @topicDeepRColor;
-            padding:6px;
-            font-size: 20px;
-            background-color:@topicDeepRColor;
-            color: #fff;
+            padding:13px;
+            font-size: 30px;
+            color: @topicDeepRColor;
+            background-color: @topicShallowRColor;
             outline: none;
             cursor: pointer;
             &:hover{
-                color: @topicDeepRColor;
-                background-color: @topicShallowRColor;
+                background-color:@topicDeepRColor;
+                color: #fff;
             }
         }
     }

@@ -52,22 +52,26 @@ export default {
 </script>
 
 <style lang="less">
-@topicDeepBColor:#5d759d;
-@topicShallowRColor:rgba(246,146,138,.5);
+@import "../../assets/less/define.less";
 
 .classifyContainer{
-    width: 1200px;
-    margin: 0px auto 10px auto;
+    width: 1518px;
+    margin: 0px auto 20px auto;
+    font-size: 24px;
+    .indexChoose{
+        color: @topicDeepBColor;
+    }
     .classifyTitle{
         display: flex;
         flex-direction: row;
         text-align: center;
+        color: @deepFontColor;
         cursor: pointer;
         span{
             display: inline-block;
             width: 50%;
-            padding: 10px;
-            border: 1px solid rgba(102,102,102,.5);
+            padding:20px 0px;
+            border: 1px solid @borderColor;
         }
         .choosing{
             background-color: @topicDeepBColor;
@@ -78,21 +82,26 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        border: 1px solid rgba(102,102,102,.5);
+        border: 1px solid @borderColor;
+        color:@deepFontColor;
         >div{
             display: flex;
             flex-direction: column;
-            padding: 10px 0px;
+            padding: 14px 0px 16px 0px;
             cursor: pointer;
+            img{
+                height: 47px;
+            }
         }
     }
     .concreteClassify{
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        border: 1px solid rgba(102,102,102,.5);
+        border: 1px solid @borderColor;
+        color: @deepFontColor;
         span{
-            padding: 10px 0px;
+            padding: 20px 0px;
             cursor: pointer;
         }
     }
@@ -107,7 +116,7 @@ export default {
 @keyframes hideThi{
     0%{
         opacity: 1;
-        height: 44px;
+        height: 64px;
     }
     100%{
         opacity: 0;
@@ -122,7 +131,7 @@ export default {
     }
     100%{
         opacity: 1;
-        height: 44px;
+        height: 64px;
     }
 }
 

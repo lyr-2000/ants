@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <Header 
-        :webPage="webPage" 
-        :identity="identity"
-    ></Header>
+    <Header :identity="identity"></Header>
     <ClassifyContainer></ClassifyContainer>
     <MainContent></MainContent>
     <Footer></Footer>
@@ -28,7 +25,6 @@ export default {
   },
   data(){
     return{
-        webPage:'index',
         identity:'buyer',
     }
   }

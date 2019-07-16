@@ -39,24 +39,25 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topicDeepBColor:#5d759d;
-@topicShallowRColor:rgba(246,146,138,.5);
-@borderColor:rgba(102,102,102,.5);
+@import '../../assets/less/define.less';
 @fontColor:#666;
 @fontHoverColor:#333;
 .menuwrap{
         margin: 0px auto;
-        width: 1030px;
+        width: 1518px;
+        height: 66px;
+        box-shadow: 0px 0px 0px rgb(51,51,51,.8) inset;
         >div{
             display: inline-block;
-            width: 150px;
+            width: 260px;
             border: 1px solid @borderColor;
             text-align: center;
             cursor: pointer;
             >span{
                 display: inline-block;
-                padding: 5px 0px;
+                padding: 19px 0px;
                 width: 100px;
+                font-size: 20px;
                 text-align: center;
                 &:hover{
                     color: @fontHoverColor;
@@ -65,22 +66,29 @@ export default {
         }
         .allClassify{
             position: relative;
+            border-bottom: 2px solid #fff;
             cursor: pointer;
-            &:hover ul{
-                display: inline-block;
-            }
             >ul{
                 position: absolute;
                 left: 0px;
                 top: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
                 width: 100%;
-                text-align: center;
+                height: 424px;
                 background-color: rgba(255,255,255,.8);
                 li{
+                    display: flex;
                     width: 100%;
-                    padding: 14px 0px;
+                    align-items: center;
+                    justify-content: center;
                     img{
-                        width: 12px;
+                        width: 20px;
+                    }
+                    span{
+                        margin-left: 8px;
+                        font-size: 20px;
                     }
                     &:hover{
                         color: @fontHoverColor;
@@ -91,34 +99,38 @@ export default {
                 position: absolute;
                 left: 0%;
                 top: 103%;
-                width: 1000px;
-                padding: 10px 20px;
+                width: 1060px;
+                height: 410px;
+                padding: 0px 200px 0px 140px;
+                text-align: left;
                 background-color: #fff;
-                border-top: 1px solid @topicDeepBColor;
                 border-bottom: 1px solid @topicDeepBColor;
                 >div{
                     float: left;
                     width: 28%;
-                    height: 120px;
-                    margin: 5px 20px;
+                    margin: 10px 18px 20px 18px;
                     text-align: left;
                     text-indent: 5px;
                     h4{
-                        margin: 4px 0px;
+                        margin: 10px 0px 15px 0px;
+                        padding-bottom: 10px;
                         border-bottom: 2px solid @topicDeepBColor;
+                        font-size: 20px;
                     }
                     >a{
                         display: inline-block;
                         width: 45%;
-                        margin: 1px 0px;
-                        font-size: 14px;
-                        color: @fontColor;
+                        margin-top: 5px;
+                        color: @shallowFontColor;
                         &:hover{
-                            color: @fontHoverColor;
+                            color: @topicDeepBColor;
                         }
                     }
                 }
             }
+        }
+        .otherClassify{
+            border-bottom: none;
         }
     }
 </style>

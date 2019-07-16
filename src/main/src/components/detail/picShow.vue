@@ -35,18 +35,19 @@ export default {
     display: flex;
     align-content: space-between;
     justify-content: space-evenly;
-    height: 450px;
-    width: 540px;
+    height: 500px;
+    width: 635px;
     .picTurn{
-        width: 16%;
+        width: 118px;
+        margin-right: 15px;
         &>span{
             display: inline-block;
-            height: 86px;
-            width: 86px;
-            margin-bottom: 40%;
+            height: 108px;
+            width: 108px;
+            margin-bottom: 20px;
             >img{
-                height: 100%;
-                width: 100%;
+                height: 108px;
+                width: 108px;
                 cursor:pointer;
             }
         }
@@ -71,10 +72,10 @@ export default {
     }
     .bigPic{
         position: relative;
-        width: 75%;
+        width: 500px;
         overflow: hidden;
         .bigImg{
-            height: 100%;
+            height: 500px;
         }
         .blowUp{
             position: absolute;

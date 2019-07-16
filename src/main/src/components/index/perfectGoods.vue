@@ -2,17 +2,17 @@
     <div class="perfectGoods">
         <h2 class="perfectTitle">猜你喜欢</h2>
 
-        <span class="leftHandle" @click="$emit('turn-left','perfect')"><</span>
+        <img class="leftHandle" @click="$emit('turn-left','perfect')" src="../../assets/img/index/left_icon.png">
         <div class="goodsList">
             <div :class="['concreteContent',moveFlag.perfect?'moveL':'moveR']" v-for="content in guessLike">
                 <a href="#">
                     <img :src="[content.goodsPicture]">
                 </a>
-                <p v-cloak>{{content.goodsName}}</p>
-                <p v-cloak>￥{{content.goodsPrice}}元</p>
+                <p v-cloak class="goodsName">{{content.goodsName}}</p>
+                <p v-cloak class="goodsPrice">￥{{content.goodsPrice}}元</p>
             </div>
         </div>
-        <span class="rightHandle" @click="$emit('turn-right','perfect')">></span>
+        <img class="rightHandle" @click="$emit('turn-right','perfect')" src="../../assets/img/index/right_icon.png">
 
     </div>
 </template>
@@ -33,40 +33,52 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@perfectColor:rgba(246,146,138,.5);
+@import "../../assets/less/define.less";
 .perfectGoods{
     position: relative;
     h2{
         text-align: center;
-        color: @perfectColor;
+        margin: 47px 0px 50px 0px;
+        font-size: 36px;
+        color: @topicDeepRColor;
     }
 }
 .goodsList{
-    @contentHeight:250px;
+    @contentHeight:400px;
     position: relative;
-    margin: 0px 60px;
-    width: 980px;
+    margin: 0px 87px;
+    width: 1350px;
     height: @contentHeight+5px;
     overflow: hidden;
     white-space: nowrap;
     //每个具体块的布局
+    @blockWidth:296px;
     .concreteContent{
         display: inline-block;
-        width: 17%;
+        width: @blockWidth;
         height: @contentHeight;
-        margin: 0px 13px 0px 13px;
-        border:2px solid rgba(102,102,102,.7);
+        margin-right:50px;
+        border:2px solid @shallowFontColor;
         text-align: center;
         img{
-            width: 100%;
-            height: 80%;
+            width: @blockWidth;
+            height: @blockWidth;
         }
         p{
-            margin: 3px 0px;
+            margin: 0px;
             transform: translateY(-6px);
         }
+        .goodsName{
+            margin: 11px 0px 20px 0px;
+            font-size: 20px;
+        }
+        .goodsPrice{
+            margin-bottom: 34px;
+            font-size: 18px;
+            color: @topicDeepRColor;
+        }
         &:hover{
-            border: 2px solid @perfectColor;
+            border: 2px solid @topicDeepRColor;
         }
     }
     .moveL{
@@ -84,14 +96,14 @@ export default {
     font-size: 40px;
     cursor: pointer;
     &:hover{
-        color: @topicDeepBColor;
+        filter: brightness(70%);
     }
 }
 .leftHandle{
-    left: 10px;
+    left: 32px;
 }
 .rightHandle{
-    right: 10px;
+    right: 32px;
 }
 
 @keyframes contentMoveL{
@@ -99,13 +111,13 @@ export default {
         transform: translateX(0px);
     }
     100%{
-        transform:translateX(-980px)
+        transform:translateX(-1050px)
     }
 }
 
 @keyframes contentMoveR{
     0%{
-        transform: translateX(-980px);
+        transform: translateX(-1050px);
     }
     100%{
         transform:translateX(0px)

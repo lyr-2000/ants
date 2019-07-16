@@ -24,7 +24,7 @@ export default {
 .main{
     display: flex;
     flex-direction: row;
-    width: 1200px;
+    width: 1518px;
     margin: 0px auto 10px auto;
 }
 </style>

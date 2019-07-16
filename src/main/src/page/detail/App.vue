@@ -42,8 +42,7 @@ export default {
 <style lang="less">
 
 hr{
-    width: 1100px;
-    margin-top: 50px;
+    width: 1404px;
 }
 
 </style>

@@ -21,8 +21,8 @@ export default {
 .main{
     display: flex;
     justify-content: space-between;
-    margin: 20px auto;
-    width: 1100px;
+    margin: 60px auto 64px auto;
+    width: 1404px;
 }
 </style>
 

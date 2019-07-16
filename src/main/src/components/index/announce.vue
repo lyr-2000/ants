@@ -25,6 +25,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "../../assets/less/define.less";
 @topicDeepBColor:#5d759d;
 @fontColor:#666;
 @fontHoverColor:#333;
@@ -34,9 +35,9 @@ export default {
         color: @fontColor;
         >img{
             float: left;
-            width: 22px;
-            height: 22px;
-            margin-right: 10px;
+            width: 24x;
+            height: 24px;
+            margin:0px 24px 0px 32px;
         }
         .moreAnnounce{
             position:absolute;
@@ -47,12 +48,18 @@ export default {
             }
         }
         p{
+            margin-top: 42px;
             margin-bottom: 0px;
+            font-size: 18px;
+            strong{
+                position: relative;
+                bottom: 3px;
+                font-size: 20px;
+            }
             .announceContent{
                 display: inline-block;
-                width: 500px;
-                margin-left: 50px;
-                font-size: 14px;
+                width: 647px;
+                margin-left: 58px;
                 overflow:hidden;
                 white-space: nowrap;
                 text-overflow:ellipsis;
@@ -62,8 +69,9 @@ export default {
                 }
             }
             .announceTime{
+                position: relative;
+                bottom: 3px;
                 margin-left: 20px;
-                font-size: 14px;
             }
         }
     }

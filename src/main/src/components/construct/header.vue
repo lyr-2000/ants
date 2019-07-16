@@ -9,7 +9,7 @@
                     <li :class="{localIn:webPage=='sent'}"><a href="#">赠送</a></li>
                 </ul>
                 <ul class="rightNav">
-                    <li class="schoolChoose">广东金融学院</li>
+                    <li class="schoolChoose">>广东金融学院</li>
                     <li :class="{localIn:identity=='buyer'}">买家</li>
                     <li :class="{localIn:identity=='seller'}">卖家</li>
                     <li><a href="log.html">登录</a></li>
@@ -74,35 +74,32 @@ a{
     color: inherit;
 }
 
-
-@borderColor:rgba(102,102,102,.5);
-@fontColor:#666;
-@fontHoverColor:#333;
-
 //顶部容器
 .topContainer{
+    @windowWidth:1518px;
     border-bottom: 1px solid @borderColor;
     .nav{
-        height: 36px;
+        height: 47px;
         color: #fff;
         background-color: @topicDeepBColor;
         .navContainer{
             margin: 0px auto;
-            width: 1200px;
+            width: @windowWidth+72;
+            font-size: 20px;
             ul{
                 li{
-                    padding: 8px 20px;
+                    padding: 9px 30px 12px 30px;
                     cursor: pointer;
                 }
             }
             .localIn{
-                padding-bottom: 4px;
+                padding-bottom: 9px;
                 color: @topicDeepBColor;
                 background-color: rgba(255,255,255,.8);
             }
             .leftNav{
                 float: left;
-                margin-left: 115px;
+                margin-left: 202px;
             }
             .rightNav{
                 float: right;
@@ -117,35 +114,37 @@ a{
     }
 
     .topHandle{
-        margin: 16px auto;
-        width: 1200px;
+        margin: 24px auto;
+        width: @windowWidth;
         >div{
             display: inline-block;
         }
         .topLogo{
             img{
                 float: left;
-                height: 34px;
+                height: 50px;
             }
             span{
-                margin-left: 10px;
-                font-size: 24px;
+                margin-left: 11px;
+                font-size: 36px;
             }
         }
         .searchGoods{
-            margin:0% 5% 0% 30%;
+            margin:0px 80px 0px 347px;
             padding: 4px;
-            width: 280px;
+            width: 390px;
             border: 2px solid @topicDeepBColor;
             border-radius: 5px;
+            transform: translatey(-4px);
             input{
-                margin: 3px;
-                width: 245px;
+                margin: 4px 0px;
+                width: 346px;
+                height: 31px;
                 .inputNoBorder;
             }
             img{
-                width: 20px;
-                height: 20px;
+                width: 24px;
+                height: 24px;
                 vertical-align: middle;
                 cursor: pointer;
             }
@@ -161,8 +160,8 @@ a{
                 .inputNoBorder;
                 border-radius: 5px;
                 padding: 9px 18px;
-                margin: 0 10px;
-                font-size: 16px;
+                margin-right: 50px;
+                font-size: 24px;
                 color: rgb(255,255,255);
                 background-color: @topicShallowRColor;
                 cursor: pointer;

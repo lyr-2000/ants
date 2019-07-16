@@ -55,28 +55,28 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "../../assets/less/define.less";
+
 ul{
     margin: 0px;
     padding: 0px;
     list-style: none;
 }
-
-@topicDeepBColor:#5d759d;
-@topicShallowRColor:rgba(246,146,138,.5);
 .mainLeft{
     display: inline-block;
-    width: 16%;
-    margin-right: 20px;
+    width: 214px;
+    margin-right: 30px;
     .leftBlock{
-        border: 1px solid rgba(102,102,102,.5);
+        border: 1px solid @borderColor;
         margin-bottom: 20px;
+        color: @deepFontColor;
         .leftTitle{
             display: inline-block;
             width: 100%;
-            height: 28px;
-            line-height: 28px;
+            padding: 10px 0px 11px 0px;
             text-align: center;
-            background-color: rgba(102,102,102,.5);
+            color: @deepFontColor;
+            background-color: @borderColor;
         }
     }
     .arrayBy{
@@ -84,11 +84,12 @@ ul{
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            margin: 20px 0px;
             span{
                 cursor: pointer;
             }
             .arrayChoose{
-                color: @topicShallowRColor;
+                color: @topicDeepRColor;
             }
             .upSort::after{
                 content:"↑";
@@ -101,19 +102,18 @@ ul{
     .searchInput{
         display: flex;
         flex-direction: row;
-
         border: 2px solid @topicDeepBColor;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         input{
-            width: 146px;
+            width: 158px;
             border:none;
             padding:0px 5px;
             outline:none;
         }
         img{    
-            width: 24px;
-            height: 24px;
-            padding: 3px;
+            width: 18px;
+            height: 18px;
+            padding: 8px;
             background-color: @topicDeepBColor;
         }
     }
@@ -123,28 +123,51 @@ ul{
             display: flex;
             flex-direction: column;
             text-indent: @textMove;
+            padding-bottom: 20px;
             >li{
-                padding:5px 0px;
+                padding:5px 20px;
+                color: @shallowFontColor;
                 cursor: pointer;
                 >img{
-                    transform: scale(0.6) translateX(@textMove) translateY(12px);
+                    @imgLength:24px;
+                    width: @imgLength;
+                    height: @imgLength;
+                    transform:translateX(@textMove) translateY(12px);
+                }
+                >span{
+                    display: inline-block;
+                    margin: 20px 0px 0px 10px;
+                    font-size: 18px;
+                    transform: translatey(7px);
+                }
+                .indexChoose{
+                    color: @topicDeepBColor;
                 }
                 >ul{
                     display: flex;
                     flex-direction: column;
-                    margin: 5px 10px;
-                    border: 1px solid rgba(102,102,102,.5);
+                    margin: 20px 10px 0px 10px;
+                    padding-bottom: 10px;
+                    border: 1px solid @borderColor;
                     border-width: 1px 0px;
                     font-size: 12px;
-                    color: rgba(102,102,102,.5);
                     overflow: hidden;
+                    li{
+                        margin: 10px 12px 0px 12px;
+                        font-size: 18px;
+                    }
                     .thiIndex{
                         position: relative;
                         &::before{
-                            content:">";
+                            content:"";
                             position: absolute;
-                            top: 0px;
-                            left: -10px;
+                            top: 4px;
+                            left: 0px;
+                            width: 0px;
+                            border-top: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-bottom: 5px solid transparent;
+                            border-left: 5px solid @topicDeepBColor;
                         }
                     }
                 }

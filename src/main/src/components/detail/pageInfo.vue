@@ -25,7 +25,7 @@ export default {
     width: 100%;
     border: 1px solid @topicDeepBColor;
     &>p{
-        width: 1100px;
+        width: 1404px;
         margin: 10px auto;
         font-size: 18px;
         .currentPage{

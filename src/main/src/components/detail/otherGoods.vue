@@ -2,7 +2,7 @@
     <div class="others">
         <p class="othersTitle">卖家的其他闲置商品(共{{totalGoods}}件)</p>
         <div class="picCarousel">
-            <span class="carouselBtn" @click="leftSlide=true"><</span>
+            <img :class="{'carouselBtn':true,'leftCarouselBtn':true,'leftSlide':leftSlide}" @click="leftSlide=true" src="../../assets/img/index/left_icon.png">
             <div class="goodsContent">
                 <div :class="['singleGoods',leftSlide?'leftSlide':'rightSlide']" v-for="goods in otherGoods">
                     <img :src="goods.goodsPicture">
@@ -10,7 +10,7 @@
                     <span class="goodsPrice">￥{{goods.goodsPrice}}元</span>
                 </div>
             </div>
-            <span class="carouselBtn" @click="leftSlide=false">></span>
+            <img :class="{'carouselBtn':true,'rightCarouselBtn':true,'rightSlide':!leftSlide}" @click="leftSlide=false" src="../../assets/img/index/right_icon.png">
         </div>
     </div>
 </template>
@@ -35,31 +35,44 @@ export default {
 @import "../../assets/less/define.less";
 
 .others{
-    width: 1100px;
-    margin: 10px auto 80px auto;
+    width: 1404px;
+    margin: 30px auto 0px auto;
     .othersTitle{
+        margin-bottom: 30px;
+        font-size: 24px;
         color: @topicDeepBColor;
     }
     .picCarousel{
         display: flex;
+        position: relative;
         justify-content: space-between;
         .goodsContent{
             display: flex;
             justify-content: space-between;
+            width: 1272px;
+            margin-right: 30px;
             overflow: hidden;
             .singleGoods{
+                @imgWidth:225px;
                 display: flex;
                 flex-direction: column;
-                border: 1px solid rgba(204,204,204);
-                margin: 0px 14px 0px 28px;
-                height: 220px;
+                border: 1px solid @borderColor;
+                margin-right: 35px;
+                width: @imgWidth;
+                height: 300px;
                 text-align: center;
                 img{
-                    width: 160px;
-                    height: 160px;
+                    width: @imgWidth;
+                    height: @imgWidth;
+                }
+                .goodsName{
+                    margin: 10px 0px 15px 0px;
+                    font-size: 15px;
                 }
                 .goodsPrice{
-                    color: @deepTopInputColor;
+                    font-size: 13.5px;
+                    font-weight: bold;
+                    color: @topicDeepRColor;
                 }
             }
             @keyframes leftSlide{
@@ -86,10 +99,16 @@ export default {
             }
         }
         .carouselBtn{
-            display: inline-block;
-            font-size: 40px;
-            transform: translateY(40%);
+            width: 26px;
+            height: 62px;
             cursor: pointer;
+            transform: translateY(122px);
+            &:hover{
+                filter: brightness(70%);
+            }
+        }
+        .leftCarouselBtn{
+            margin-right: 30px;
         }
     }
 }

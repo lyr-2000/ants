@@ -246,6 +246,7 @@ export default {
                 padding: 30px 10px 5px 10px;
                 border:none;
                 font-size: 16px;
+                letter-spacing: 3px;
                 color: @inputChangeColor;
                 &::-webkit-input-placeholder{
                     color: @inputFontColor;
@@ -263,6 +264,9 @@ export default {
             &:focus-within{
                 border-color: @inputChangeColor;
             }
+        }
+        .login{
+            border: none;
         }
         button{
             float: right;

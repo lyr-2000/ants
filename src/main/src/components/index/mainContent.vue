@@ -63,11 +63,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@topicDeepBColor:#5d759d;
-@perfectColor:rgba(246,146,138,.5);
+@import "../../assets/less/define.less";
 main{
     margin: 20px auto;
-    width: 1100px;
+    width: 1518px;
 }
 
 // 左右箭头
@@ -90,8 +89,8 @@ main{
 
 .middleBanner{
     width: 100%;
-    height: 224px;
-    margin: 40px 0px;
+    height: 310px;
+    margin: 54px 0px 61px 0px;
     background-image: url('../../assets/img/index/banner.png');
     background-size: cover;
 }

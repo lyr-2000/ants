@@ -11,10 +11,10 @@ const state = {
         parentPicture: require('../../assets/img/icon/daily.png'),
         parentName: '日用'
     }, {
-        parentPicture: require('../../assets/img/icon/cosmetics.png'),
+        parentPicture: require('../../assets/img/icon/cosmetics.svg'),
         parentName: '美妆'
     }, {
-        parentPicture: require('../../assets/img/icon/food.png'),
+        parentPicture: require('../../assets/img/index/antsLogo.png'),
         parentName: '食品'
     }, {
         parentPicture: require('../../assets/img/icon/electrical.png'),
@@ -29,95 +29,95 @@ const state = {
         ["U盘", "台灯", "数据线", "充电宝", "鼠标键盘", "洗衣机", "烘干机", "其他", ]
     ],
     guessLike: [{
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }, {
-        goodsPicture: require('../../assets/img/icon/food.png'),
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
         goodsName: '商品名',
         goodsPrice: '价格'
     }],
     hottest: [{
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
+        starNum: '1'
+    }, {
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
         starNum: ''
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
         starNum: ''
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
         starNum: ''
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
         starNum: ''
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        starNum: ''
-    }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '30',
         starNum: ''
     }, ],
     latest: [{
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, {
-        goodsPicture: '',
-        goodsName: '',
-        goodsPrice: '',
-        uploadTime: ''
+        goodsPicture: require('../../assets/img/index/antsLogo.png'),
+        goodsName: '商品名',
+        goodsPrice: '20',
+        uploadTime: '2019-01-18'
     }, ]
 }
 
