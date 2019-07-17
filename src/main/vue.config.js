@@ -28,6 +28,14 @@ module.exports = {
             template: 'public/detail.html',
             filename: 'detail.html',
             title: '商品详情'
+        },
+        user: {
+            entry: 'src/page/user/main.js',
+            template: 'public/user.html',
+            filename: 'user.html',
+            title: '用户个人信息'
         }
-    }
+    },
+
+    outputDir: 'webapp'
 }
