@@ -36,7 +36,7 @@ export default {
 
 .others{
     width: 1404px;
-    margin: 30px auto 0px auto;
+    margin: 30px auto 170px auto;
     .othersTitle{
         margin-bottom: 30px;
         font-size: 24px;

@@ -146,7 +146,7 @@ const state = {
 }
 
 const getters = {
-    getType: function() {
+    getType: function(state) {
         return state.type;
     },
     getArraySort: function(state) {

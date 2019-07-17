@@ -65,7 +65,7 @@ export default {
 <style lang="less" scoped>
 @import "../../assets/less/define.less";
 main{
-    margin: 20px auto;
+    margin: 20px auto 283px auto;
     width: 1518px;
 }
 

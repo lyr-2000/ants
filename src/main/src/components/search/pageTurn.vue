@@ -32,6 +32,7 @@ export default {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    margin-bottom: 283px;
     text-align: right;
     letter-spacing: @letterSpacing;
     font-size: 28px;
