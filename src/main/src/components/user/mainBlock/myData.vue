@@ -45,7 +45,7 @@ export default {
         return{
         }
     },
-    computed:mapGetters({
+    computed:mapGetters("user",{
         user:"getUser"
     })
 }
@@ -56,10 +56,11 @@ export default {
 
 .myData{
     .title{
-        padding: 43px 0px 40px 40px;
+        padding: 41px 0px 38px 40px;
         margin: 0px;
         border-left: 10px solid @topicDeepBColor;
-        font-size:18px;
+        font-size:22px;
+        font-weight: bold;
         color: @topicDeepBColor;
         box-shadow: 0px 4px 0px @borderColor;
     }
@@ -118,6 +119,7 @@ export default {
                 font-size: 18px;
                 color: #fff;
                 background-color: @topicDeepBColor;
+                cursor: pointer;
             }
         }
     }

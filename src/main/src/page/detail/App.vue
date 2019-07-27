@@ -33,8 +33,12 @@ export default {
             identity:"buyer",
         }
     },
+    methods:{
+        ...mapActions(["showinitDetailGoodsChildList"]),
+    },
     mounted(){
-
+        // 初始化信息
+        this.initDetailGoods(5);
     }
 }
 </script>

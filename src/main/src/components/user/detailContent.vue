@@ -6,19 +6,16 @@
         <Trading v-if="showIndex==3"></Trading>
         <HaveTraded v-if="showIndex==4"></HaveTraded>
         <HaveGiven v-if="showIndex==5"></HaveGiven>
-        <Rent v-if="showIndex==6"></Rent>
     </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
 import MyData from './mainBlock/myData.vue'
 import MyGoods from './mainBlock/myGoods.vue'
 import Publish from './mainBlock/publish.vue'
 import Trading from './mainBlock/trading.vue'
 import HaveTraded from './mainBlock/haveTraded.vue'
 import HaveGiven from './mainBlock/haveGiven.vue'
-import Rent from './mainBlock/rent.vue'
 
 
 
@@ -34,8 +31,7 @@ export default {
         Publish,
         Trading,
         HaveTraded,
-        HaveGiven,
-        Rent
+        HaveGiven
     },
     props:["showIndex"]
 }

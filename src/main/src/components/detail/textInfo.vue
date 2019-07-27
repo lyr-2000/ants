@@ -1,28 +1,28 @@
 <template>
     <div class="textInfo">
-        <h1 class="goodsName">{{detailGoods.goodsName}}</h1>
+        <h1 class="goodsName">{{singleGoodsMessage.goodsName}}</h1>
         <div class="goodsPrice">
             <span class="goodsLabel">价格</span>
             <p>
-                <span>{{detailGoods.goodsPrice}}元</span>
-                <span class="goodsBargin">{{detailGoods.goodsBargin?'可议价':'不可议价'}}</span>
+                <span>{{singleGoodsMessage.goodsPrice}}元</span>
+                <span class="goodsBargin">{{singleGoodsMessage.goodsBargin?'可议价':'不可议价'}}</span>
             </p>
         </div>
         <div class="goodsDescrible">
             <span class="goodsLabel">简介</span>
-            <p>{{detailGoods.goodsDescrible}}</p>
+            <p>{{singleGoodsMessage.goodsDescrible}}</p>
         </div>
         <div class="goodsTransaction">
             <span class="goodsLabel">配送</span>
-            <p>{{detailGoods.transactionMode}}</p>
+            <p>{{singleGoodsMessage.goodsWay}}</p>
         </div>
         <div class="goodsAmount">
             <span class="goodsLabel">数目</span>
             <p>
                 <strong @click="buyNum>1?buyNum--:''" class="numHandle">-</strong>
                 <input type="text" size="1" v-model="buyNum">
-                <strong @click="buyNum<detailGoods.goodsAmount?buyNum++:''" class="numHandle">+</strong>
-                <span class="remanentNum">(库存{{detailGoods.goodsAmount}}件)</span>
+                <strong @click="buyNum<singleGoodsMessage.repertory?buyNum++:''" class="numHandle">+</strong>
+                <span class="remanentNum">(库存{{singleGoodsMessage.repertory}}件)</span>
             </p>
         </div>
         <div class="goodsContact">
@@ -58,7 +58,7 @@ export default {
         }
     },
     computed: mapGetters({
-        detailGoods: "getDetailGoods"
+        singleGoodsMessage: "getSingleGoodsMessage"
     }),
     methods:{
         // 进入聊天空间
@@ -69,14 +69,14 @@ export default {
         getInfo(contact){
             this.tipShow=true;
             if(contact==='wechat'){
-                if(this.detailGoods.isWechat){
-                    this.tipContent=`微信号：${this.detailGoods.Wechat}`;
+                if(this.singleGoodsMessage.wechatHidden){
+                    this.tipContent=`微信号：${this.singleGoodsMessage.userWechat}`;
                 }else{
                     this.tipContent='啊哦~卖家隐藏了信息';
                 }
             }else if(contact==='qq'){
-                if(this.detailGoods.isQQ){
-                    this.tipContent=`QQ号：${this.detailGoods.QQ}`;
+                if(this.singleGoodsMessage.qqHidden){
+                    this.tipContent=`QQ号：${this.singleGoodsMessage.userQQ}`;
                 }else{
                     this.tipContent='啊哦~卖家隐藏了信息';
                 }
@@ -87,8 +87,8 @@ export default {
         buyNum:function(newVal){
             if(newVal<0){
                 this.buyNum=1;
-            }else if(newVal>this.detailGoods.goodsAmount){
-                this.buyNum=this.detailGoods.goodsAmount;
+            }else if(newVal>this.singleGoodsMessage.repertory){
+                this.buyNum=this.singleGoodsMessage.repertory;
             }
         }
     }

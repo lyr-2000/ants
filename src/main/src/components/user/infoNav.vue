@@ -20,7 +20,7 @@ export default {
         }
     },
     props:["showIndex"],
-    computed: mapGetters({
+    computed: mapGetters("user",{
         myInfo: "getMyInfo",
         user:"getUser"
     })

@@ -163,7 +163,7 @@ const actions = {
                 commit("initRequest", res.data);
             })
     },
-    concreteRequest() {
+    concreteRequest({ commit }) {
         res = axios.get('/ants/class/allClassify', {})
             .then(res => {
                 commit("concreteRequest", res.data.childClassification);

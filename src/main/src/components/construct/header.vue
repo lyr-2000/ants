@@ -140,6 +140,8 @@ a{
                 margin: 4px 0px;
                 width: 346px;
                 height: 31px;
+                text-indent: 20px;
+                font-size: 18px;
                 .inputNoBorder;
             }
             img{

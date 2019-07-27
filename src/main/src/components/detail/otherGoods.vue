@@ -1,6 +1,6 @@
 <template>
     <div class="others">
-        <p class="othersTitle">卖家的其他闲置商品(共{{totalGoods}}件)</p>
+        <p class="othersTitle">卖家的其他闲置商品(共{{otherGoodsNumbers}}件)</p>
         <div class="picCarousel">
             <img :class="{'carouselBtn':true,'leftCarouselBtn':true,'leftSlide':leftSlide}" @click="leftSlide=true" src="../../assets/img/index/left_icon.png">
             <div class="goodsContent">
@@ -25,7 +25,7 @@ export default {
         }
     },
     computed: mapGetters({
-        totalGoods: "getTotalGoods",
+        otherGoodsNumbers: "getOtherGoodsNumbers",
         otherGoods:"getOtherGoods"
     })
 }

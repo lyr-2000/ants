@@ -1,20 +1,20 @@
 <template>
     <div class="picShow">
         <div class="picTurn">
-            <span v-for="(pic,index) in detailGoods.goodsPicture" :class="[index===picIndex?'choosePic':'']">
+            <span v-for="(pic,index) in singleGoodsMessage.goodsPicture" :class="[index===picIndex?'choosePic':'']">
                 <img  :src="pic"  @click="picIndex=index">
             </span>
             
         </div>
         <div class="bigPic">
-            <img class="bigImg" :src="detailGoods.goodsPicture[picIndex]">
+            <img class="bigImg" :src="singleGoodsMessage.goodsPicture[picIndex]">
             <img class="blowUp" src="../../assets/img/detail/blowUp.png">
         </div>
     </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
     data(){
@@ -23,7 +23,7 @@ export default {
         }
     },
     computed: mapGetters({
-        detailGoods: "getDetailGoods"
+        singleGoodsMessage: "getSingleGoodsMessage"
     })
 }
 </script>
