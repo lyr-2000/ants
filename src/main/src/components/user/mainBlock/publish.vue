@@ -1,11 +1,11 @@
 <template>
     <div class="publish">
-        <p class="title">发布信息</p>
+        <p class="title">发布物品</p>
         <div class="publishContent">
             <ul class="publichIndex">
                 <li @click="pIndex=0" :class="{'chooseIndex':pIndex==0}">发布闲置</li>
-                <li @click="pIndex=1" :class="{'chooseIndex':pIndex==1}">发布寻求</li>
-                <li @click="pIndex=2" :class="{'chooseIndex':pIndex==2}">发布租赁</li>
+                <li @click="pIndex=1" :class="{'chooseIndex':pIndex==1}">发布租赁</li>
+                <li @click="pIndex=2" :class="{'chooseIndex':pIndex==2}">发布赠送</li>
             </ul>
             <PublishDetail v-if="pIndex==0" :pIndex="pIndex"></PublishDetail>
             <PublishDetail v-if="pIndex==1" :pIndex="pIndex"></PublishDetail>
@@ -41,14 +41,6 @@ export default {
 
 .publish{
     height: 1000px;
-    .title{
-        padding: 41px 0px 38px 50px;
-        margin: 0px;
-        font-size:22px;
-        font-weight: bold;
-        color: @topicDeepBColor;
-        box-shadow: 0px 4px 0px @borderColor;
-    }
     .publishContent{
         display: flex;
         font-size: 18px;

@@ -27,6 +27,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+@import '../../assets/less/define.less';
+.title{
+    padding: 41px 0px 38px 50px;
+    margin: 0px;
+    font-size:22px;
+    font-weight: bold;
+    color: @topicDeepBColor;
+    box-shadow: 0px 4px 0px @borderColor;
+}
 </style>

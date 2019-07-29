@@ -10,19 +10,29 @@
         </li>
         <li class="goodsBargin">
             <span class="goodsLabel">可否议价</span>
-            <img @click="goodsBargin=0" :src="goodsBargin==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-            <span class="label">可以</span>
-            <img @click="goodsBargin=1" :src="goodsBargin==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-            <span class="label">不可以</span>
+            <span class="label"  @click="goodsBargin=0">
+                <img :src="goodsBargin==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+                可以
+            </span>
+            <span @click="goodsBargin=1" class="label">
+                <img :src="goodsBargin==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+                不可以
+            </span>
         </li>
         <li class="goodsWay">
             <span class="goodsLabel">取货方式</span>
-            <img @click="goodsWay=0" :src="goodsWay==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-            <span class="label">卖家送货上门</span>
-            <img @click="goodsWay=1" :src="goodsWay==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-            <span class="label">买家上门取货</span>
-            <img @click="goodsWay=2" :src="goodsWay==2?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-            <span class="label">有待商议</span>
+            <span @click="goodsWay=0" class="label">
+                <img :src="goodsWay==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+                卖家送货上门
+            </span>
+            <span @click="goodsWay=1" class="label">
+                <img :src="goodsWay==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+                买家上门取货
+            </span>
+            <span @click="goodsWay=2" class="label">
+                <img :src="goodsWay==2?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+                有待商议
+            </span>
         </li>
         <li class="goodsClassify">
             <span class="goodsLabel">商品分类</span>
@@ -72,9 +82,9 @@ export default {
             if(newVal==0){
                 this.detailType='';
             }else if(newVal==1){
-                this.detailType='寻求';
-            }else if(newVal==2){
                 this.detailType='租赁';
+            }else if(newVal==2){
+                this.detailType='赠送';
             }
         }
     }
@@ -91,6 +101,12 @@ export default {
                 .goodsLabel{
                     display: inline-block;
                     width: 150px;
+                }
+                .label{
+                    cursor: pointer;
+                    img{
+                        transform:translateY(4px);
+                    }
                 }
                 input{
                     width: 400px;
@@ -157,6 +173,7 @@ export default {
                         font-size: 18px;
                         color: @deepFontColor;
                         outline: none;
+                        cursor: pointer;
                 }
             }
             .goodsDescribe{

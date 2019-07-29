@@ -5,7 +5,6 @@
         <Publish v-if="showIndex==2"></Publish>
         <Trading v-if="showIndex==3"></Trading>
         <HaveTraded v-if="showIndex==4"></HaveTraded>
-        <HaveGiven v-if="showIndex==5"></HaveGiven>
     </div>
 </template>
 
@@ -15,7 +14,6 @@ import MyGoods from './mainBlock/myGoods.vue'
 import Publish from './mainBlock/publish.vue'
 import Trading from './mainBlock/trading.vue'
 import HaveTraded from './mainBlock/haveTraded.vue'
-import HaveGiven from './mainBlock/haveGiven.vue'
 
 
 
@@ -30,8 +28,7 @@ export default {
         MyGoods,
         Publish,
         Trading,
-        HaveTraded,
-        HaveGiven
+        HaveTraded
     },
     props:["showIndex"]
 }

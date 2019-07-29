@@ -63,7 +63,9 @@ export default {
             cursor: pointer;
         }
         .chooseInfo{
-            border-left: 8px solid @topicDeepBColor;
+            @borderWidth:8px;
+            border-left: @borderWidth solid @topicDeepBColor;
+            text-indent: -15px;
             background-color: @borderColor;
         }
     }

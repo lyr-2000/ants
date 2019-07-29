@@ -16,6 +16,7 @@ import PageInfo from '../../components/detail/pageInfo.vue'
 import MainContent from '../../components/detail/mainContent.vue'
 import OtherGoods from '../../components/detail/otherGoods.vue'
 import store from '../../store'
+import { mapActions } from "vuex";
 
 export default {
     name:'app',
