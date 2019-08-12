@@ -1,6 +1,6 @@
 package com.ants.impl;
 
-import com.ants.service.PresentService;
+import com.ants.service.GiveService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
  * 赠送相关的代码均在此服务层实现类
  */
 @Service
-public class PresentServiceImpl implements PresentService {
+public class GiveServiceImpl implements GiveService {
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
  * 赠送相关的方法均在此数据层
  */
 @Repository
-public interface PresentDao {
+public interface GiveDao {
 }

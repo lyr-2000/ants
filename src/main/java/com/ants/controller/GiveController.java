@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping(value = "/ants/present")
-public class PresentController {
+public class GiveController {
 }
