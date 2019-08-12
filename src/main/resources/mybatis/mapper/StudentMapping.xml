@@ -36,4 +36,14 @@
 								)
 	</select>
 
+	<!--根据学生学号获取学生信息-->
+	<select id="getStudentMessage" resultType="com.ants.entity.Student" parameterType="Integer">
+		SELECT studentId,userName,mobilePhone,
+			   address,portrait,userWechat,userQQ
+			  	  FROM ants_user_base
+			  	  	 WHERE studentId = #{studentId}
+
+	</select>
+
+
 </mapper>

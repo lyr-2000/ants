@@ -18,10 +18,13 @@ public class Student {
     private String passWord;
     private String unpw;//存放的是一起加密过后的密码
     private String mobilePhone;
+    private String address;//交易地址
+    private String portrait;//头像图片
     private String userWechat;
     private String userQQ;
     private String registTime;//注册时间
-    private int hidden;//是否隐藏微信:0:隐藏 1:不隐藏
+    private int qqHidden;//是否隐藏QQ:0:隐藏 1:不隐藏
+    private int wechatHidden;//是否隐藏微信:0:隐藏 1:不隐藏
 
 
 }

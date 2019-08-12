@@ -47,4 +47,13 @@ public class StudentServiceImpl implements StudentService {
     public Integer countGoodsNumbers(Integer goodsId){
         return studentDao.countGoodsNumbers(goodsId);
     }
+
+    /**
+     * 根据学生学号获取学生信息
+     * @param id
+     * @return
+     */
+    public Student getStudentMessage(Integer id) {
+        return studentDao.getStudentMessage(id);
+    }
 }

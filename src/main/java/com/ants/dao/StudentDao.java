@@ -32,4 +32,11 @@ public interface StudentDao {
      * @return
      */
     public Integer countGoodsNumbers(Integer goodsId);
+
+    /**
+     * 根据学生学号获取学生信息
+     * @param id
+     * @return
+     */
+    public Student getStudentMessage(Integer id);
 }
