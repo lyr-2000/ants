@@ -2,6 +2,7 @@ package com.ants.controller;
 
 import com.ants.entity.Give;
 import com.ants.entity.Goods;
+import com.ants.entity.Lease;
 import com.ants.service.GiveService;
 import com.ants.util.ShopIdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -79,6 +81,27 @@ public class GiveController {
 //        uploadIdle = Upload.uploadPhoto(photo, request);
 
         return uploadGive;
+    }
+
+    /**
+     * 根据学生账户获取此学生发布的所有的赠送的商品
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/myGiveGoods", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, List<Give>> myGiveGoods(HttpServletRequest request) {
+        Map<String, List<Give>> giveGoods = new HashMap<>();
+
+        //获取学生的学号，即登录此账户的用户
+        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+
+        //获取此账号下赠送的所有物品信息
+        List<Give> leaseList = giveService.myGiveGoods(studentId);
+
+        giveGoods.put("giveGoods",leaseList);
+
+        return giveGoods;
     }
 
 

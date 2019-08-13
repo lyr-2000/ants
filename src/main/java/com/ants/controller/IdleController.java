@@ -94,6 +94,12 @@ public class IdleController {
     }
 
 
+    /**
+     * 动态获取大分类信息，根据大分类对应ID获取小分类的信息
+     * @param state
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getClass", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List> getClassifyParentAndChild(@RequestParam(value = "state") int state,

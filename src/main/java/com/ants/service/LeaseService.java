@@ -1,6 +1,9 @@
 package com.ants.service;
 
+import com.ants.entity.Lease;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author czd
@@ -8,4 +11,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface LeaseService {
+    /**
+     * 根据学生账户获取此学生发布的租赁的商品
+     * @return
+     */
+    public List<Lease> myLeaseGoods(Integer studentId);
 }
