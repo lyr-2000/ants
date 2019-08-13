@@ -22,7 +22,7 @@
                         WHERE goods.goodsBelong = user.studentId AND goodsId=#{goodsId}
     </select>
 
-    <!--添加新商品-->
+    <!--添加新闲置商品-->
     <insert id="addGoods" parameterType="com.ants.entity.Goods">
         INSERT INTO ants_goods_base (goodsId,goodsName,goodsDescribe,
                                      goodsPicture,goodsVideo,goodsClass,

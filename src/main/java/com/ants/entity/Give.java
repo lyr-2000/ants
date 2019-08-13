@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author czd
- * 对应着ants_goods_base这张数据库表
- * 闲置物品
+ * 对应着ants_goods_give这张数据库表
+ * 赠送物品
  */
 @Component
 @Data
-public class Goods {
+public class Give {
     private int goodsId;
     private String goodsName;
     private String goodsDescribe;
@@ -24,4 +24,5 @@ public class Goods {
     private int goodsWay;
     private String uploadTime;
     private int repertory;
+
 }

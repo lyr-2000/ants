@@ -1,5 +1,6 @@
 package com.ants.service;
 
+import com.ants.entity.Give;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +9,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface GiveService {
+    /**
+     * 添加赠送物品
+     * @param give
+     * @return
+     */
+    public int addGiveGoods(Give give);
 }

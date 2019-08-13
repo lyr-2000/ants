@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.GiveDao">
+    <!--添加新赠送商品-->
+    <insert id="addGiveGoods" parameterType="com.ants.entity.Give">
+        INSERT INTO ants_goods_give (goodsId,goodsName,goodsDescribe,
+                                     goodsPicture,goodsVideo,goodsClass,
+                                     goodsPrice,goodsState,goodsBargin,
+                                     goodsBelong,goodsWay,uploadTime,repertory)
+                                     VALUES (#{goodsId},#{goodsName},#{goodsDescribe},
+                                             #{goodsPicture},#{goodsVideo},#{goodsClass},
+                                             #{goodsPrice},#{goodsState},#{goodsBargin},
+                                             #{goodsBelong},#{goodsWay},#{uploadTime},#{repertory})
+    </insert>
+
+</mapper>

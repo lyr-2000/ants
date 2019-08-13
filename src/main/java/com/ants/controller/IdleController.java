@@ -1,10 +1,12 @@
 package com.ants.controller;
 
+import com.ants.dao.IdleDao;
 import com.ants.entity.ChildClass;
 import com.ants.entity.Goods;
 import com.ants.entity.ParentClass;
 import com.ants.service.ClassifyService;
 import com.ants.service.GoodsService;
+import com.ants.service.IdleService;
 import com.ants.util.ShopIdUtil;
 import com.ants.util.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,9 @@ public class IdleController {
     @Autowired
     private ClassifyService classifyService;
 
+    @Autowired
+    private IdleService idleService;
+
     /**
      * 发布闲置功能
      *
@@ -50,14 +55,14 @@ public class IdleController {
                                            HttpServletRequest request,
                                            Goods goods
     ) {
-        Map<String, String> uploadData = new HashMap<>();
+        Map<String, String> uploadIdle = new HashMap<>();
 
         //生产商品订单号
-//        String shopId = ShopIdUtil.getShopIdByUUID();
-//        Integer goodsId = Integer.parseInt(shopId);
+        String shopId = ShopIdUtil.getShopIdByUUID();
+        Integer goodsId = Integer.parseInt(shopId);
 
         //设置商品的订单号
-//        goods.setGoodsId(goodsId);
+        goods.setGoodsId(goodsId);
 
         //设置商品交易状态为未交易
         goods.setGoodsState(0);
@@ -77,15 +82,15 @@ public class IdleController {
         //将商品信息添加到数据库中
         int result = goodsService.addGoods(goods);
         if (result > 0) {
-            uploadData.put("status", "success");
+            uploadIdle.put("status", "success");
         } else {
-            uploadData.put("status", "fail");
+            uploadIdle.put("status", "fail");
         }
 
 
         //上传图片
-//        uploadData = Upload.uploadPhoto(photo, request);
-        return uploadData;
+//        uploadIdle = Upload.uploadPhoto(photo, request);
+        return uploadIdle;
     }
 
 
@@ -116,5 +121,27 @@ public class IdleController {
 
         }
         return data;
+    }
+
+
+    /**
+     * 根据学生账户获取此学生发布的所有的闲置的商品
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/myIdleGoods", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String, List<Goods>> myIdleGoods(HttpServletRequest request) {
+        Map<String, List<Goods>> idleGoods = new HashMap<>();
+
+        //获取学生的学号，即登录此账户的用户
+        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+
+        //获取此账号下闲置的所有物品信息
+        List<Goods> idleList = idleService.myIdleGoods(studentId);
+
+        idleGoods.put("idleList",idleList);
+
+        return idleGoods;
     }
 }

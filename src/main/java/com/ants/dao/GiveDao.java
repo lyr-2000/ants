@@ -1,5 +1,6 @@
 package com.ants.dao;
 
+import com.ants.entity.Give;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,4 +9,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface GiveDao {
+    /**
+     * 添加赠送物品
+     * @param give
+     * @return
+     */
+    public int addGiveGoods(Give give);
 }
