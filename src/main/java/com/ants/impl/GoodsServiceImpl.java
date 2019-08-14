@@ -35,4 +35,13 @@ public class GoodsServiceImpl implements GoodsService {
     public Map<String,Object> chooseGoodsById(Integer goodsId){
         return goodsDao.chooseGoodsById(goodsId);
     }
+
+    /**
+     * 添加新商品
+     * @param goods
+     * @return
+     */
+    public int addGoods(Goods goods){
+        return goodsDao.addGoods(goods);
+    }
 }

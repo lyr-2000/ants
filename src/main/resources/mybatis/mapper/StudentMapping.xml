@@ -4,11 +4,13 @@
     <!-- 插入操作 -->
     <insert id="add" parameterType="com.ants.entity.Student">
 		INSERT INTO ants_user_base (studentId,userName,userSex,
-		                            passWord,mobilePhone,userWechat,
-		                            userQQ,registTime,hidden)
+		                            passWord,unpw,mobilePhone,
+		                            address,portrait,userWechat,
+		                            userQQ,registTime,qqHidden,wechatHidden)
 		                            VALUES(#{studentId},#{userName},#{userSex},
-		                                   #{passWord},#{mobilePhone},#{userWechat},
-		                                   #{userQQ},#{registTime},#{hidden})
+		                                   #{passWord},#{unpw},#{mobilePhone},
+		                                   #{address},#{portrait},#{userWechat},
+		                                   #{userQQ},#{registTime},#{qqHidden},#{wechatHidden})
 	</insert>
 
 	<!--根据此商品ID获取对应卖家的其他上架商品-->
@@ -35,5 +37,15 @@
 										WHERE goodsId = #{goodsId}
 								)
 	</select>
+
+	<!--根据学生学号获取学生信息-->
+	<select id="getStudentMessage" resultType="com.ants.entity.Student" parameterType="Integer">
+		SELECT studentId,userName,mobilePhone,
+			   address,portrait,userWechat,userQQ
+			  	  FROM ants_user_base
+			  	  	 WHERE studentId = #{studentId}
+
+	</select>
+
 
 </mapper>

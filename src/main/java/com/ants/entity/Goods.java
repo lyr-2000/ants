@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author czd
  * 对应着ants_goods_base这张数据库表
+ * 闲置物品
  */
 @Component
 @Data

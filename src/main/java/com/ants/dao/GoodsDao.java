@@ -31,4 +31,11 @@ public interface GoodsDao {
      * @return
      */
     public Map<String,Object> chooseGoodsById(Integer goodsId);
+
+    /**
+     * 添加新商品
+     * @param goods
+     * @return
+     */
+    public int addGoods(Goods goods);
 }
