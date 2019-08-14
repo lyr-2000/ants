@@ -24,6 +24,11 @@ public class TradeController {
     @Autowired
     private TradeService tradeService;
 
+    /**
+     * 根据学生学号获取此账号下正在交易的商品，包括闲置，租赁和赠送
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/myTradeGoods",method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Trade>> myTradeGoods(HttpServletRequest request){
