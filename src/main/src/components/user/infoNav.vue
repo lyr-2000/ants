@@ -2,7 +2,7 @@
     <div class="infoNav">
         <div class="topInfo">
             <img src="../../assets/img/index/antsLogo.png">
-            <span class="myName">{{user.name}}</span>
+            <span class="myName">{{user.userName}}</span>
         </div>
         <ul class="infoChoose">
             <li v-for="(info,index) of myInfo" @click="$emit('turn-info',index)" :class="{'chooseInfo':showIndex==index}">{{info}}</li>

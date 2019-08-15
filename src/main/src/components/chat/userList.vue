@@ -1,0 +1,106 @@
+<template>
+    <div class="userList">
+        <div class="myInfo">
+            <img :src="myIntro.portrait">
+            <span class="userName">{{myIntro.userName}}</span>
+        </div>
+        <div class="otherInfo">
+            <div v-for="user in userList" 
+                :class="{'detailInfo':true,'chooseInfo':chooseUser.id===user.id}"
+                @click="chooseChange(user)">
+                <img :src="user.imgSrc">
+                <span class="userName">{{user.userName}}</span>
+                <span class="chatTime">{{user.chatTime | timeChange}}</span>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { mapGetters, mapActions } from "vuex"
+
+export default {
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
+        ...mapActions('chat',{
+            chooseChange:"chooseChange"
+        })
+    },
+    computed:{
+        ...mapGetters("user",{
+            myIntro:"getUser"
+        }),
+        ...mapGetters("chat",{
+            userList:"getUserList",
+            chooseUser:"getChooseUser"
+        })
+    },
+    filters:{
+        timeChange(data){
+            let dateArr=data.split('/');
+            let year=dateArr[0];
+            let month=dateArr[1];
+            let day=dateArr[2];
+            return `${month}-${day}`
+        }
+    },
+    mounted(){
+        this.chooseUser=this.userList[0];
+    }
+}
+</script>
+
+<style lang="less">
+@import '../../assets/less/define.less';
+
+.userList{
+    width: 300px;
+    height: 100%;
+    @imgLength:60px;
+    background-color: @chatHalfBcolor;
+    .myInfo{
+        display: flex;
+        align-items: center;
+        background-color: @topicDeepBColor;
+        img{
+            width: @imgLength;
+            height: @imgLength;
+            margin: 10px 15px 10px 20px;
+        }
+    }
+    .otherInfo{
+        .detailInfo{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            img{
+                width: @imgLength;
+                height: @imgLength;
+                margin: 10px 20px;
+            }
+            .userName{
+                display: inline-block;
+                width: 120px;
+            }
+            .chatTime{
+                color: @deepFontColor;
+            }
+        }
+        .chooseInfo{
+            border-left: 4px solid @topicDeepBColor;
+            background-color: @chatDeepBColor;
+            img{
+                margin-left: 16px;
+            }
+        }
+    }
+    .userName{
+        font-size: 20px;
+        color: #fff;
+    }
+}
+</style>

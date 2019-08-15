@@ -6,10 +6,12 @@
                 <li @click="pIndex=0" :class="{'chooseIndex':pIndex==0}">我的闲置</li>
                 <li @click="pIndex=1" :class="{'chooseIndex':pIndex==1}">我的租赁</li>
                 <li @click="pIndex=2" :class="{'chooseIndex':pIndex==2}">我的赠送</li>
+                <li @click="pIndex=3" :class="{'chooseIndex':pIndex==3}">我的寻求</li>
             </ul>
             <GoodsDetail v-if="pIndex==0" :pIndex="pIndex" :title="title"></GoodsDetail>
             <GoodsDetail v-if="pIndex==1" :pIndex="pIndex" :title="title"></GoodsDetail>
             <GoodsDetail v-if="pIndex==2" :pIndex="pIndex" :title="title"></GoodsDetail>
+            <GoodsDetail v-if="pIndex==3" :pIndex="pIndex" :title="title"></GoodsDetail>
         </div>
     </div>
 </template>

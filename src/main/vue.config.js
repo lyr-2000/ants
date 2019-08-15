@@ -34,8 +34,19 @@ module.exports = {
             template: 'public/user.html',
             filename: 'user.html',
             title: '用户个人信息'
+        },
+        chat: {
+            entry: 'src/page/chat/main.js',
+            template: 'public/chat.html',
+            filename: 'chat.html',
+            title: '聊天空间'
+        },
+        requestTip: {
+            entry: 'src/page/requestTip/main.js',
+            template: 'public/requestTip.html',
+            filename: 'requestTip.html',
+            title: '聊天空间'
         }
     },
-
     outputDir: 'webapp'
 }

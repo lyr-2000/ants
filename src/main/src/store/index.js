@@ -4,6 +4,7 @@ import index from './modules/index';
 import search from './modules/search';
 import detail from './modules/detail';
 import user from './modules/user';
+import chat from './modules/chat'
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -11,7 +12,8 @@ const store = new Vuex.Store({
         index,
         search,
         detail,
-        user
+        user,
+        chat
     }
 });
 

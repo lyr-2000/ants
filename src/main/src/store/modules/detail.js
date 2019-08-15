@@ -58,7 +58,7 @@ const actions = {
                 goodsId: id,
             })
             .then(res => {
-                commit("initGoods", res.data)
+                commit("initDetailGoods", res.data)
             }).catch(err => {
                 console.log(`can't request the data for ${err}`);
             })

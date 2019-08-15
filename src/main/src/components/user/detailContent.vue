@@ -3,8 +3,9 @@
         <MyData v-if="showIndex==0"></MyData>
         <MyGoods v-if="showIndex==1"></MyGoods>
         <Publish v-if="showIndex==2"></Publish>
-        <Trading v-if="showIndex==3"></Trading>
-        <HaveTraded v-if="showIndex==4"></HaveTraded>
+        <Collect v-if="showIndex==3"></Collect>
+        <Trading v-if="showIndex==4"></Trading>
+        <HaveTraded v-if="showIndex==5"></HaveTraded>
     </div>
 </template>
 
@@ -12,6 +13,7 @@
 import MyData from './mainBlock/myData.vue'
 import MyGoods from './mainBlock/myGoods.vue'
 import Publish from './mainBlock/publish.vue'
+import Collect from './mainBlock/collect.vue'
 import Trading from './mainBlock/trading.vue'
 import HaveTraded from './mainBlock/haveTraded.vue'
 
@@ -27,6 +29,7 @@ export default {
         MyData,
         MyGoods,
         Publish,
+        Collect,
         Trading,
         HaveTraded
     },

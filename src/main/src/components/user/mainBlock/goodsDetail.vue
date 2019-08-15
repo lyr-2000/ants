@@ -16,8 +16,8 @@
                 <span class="time">{{g.uploadTime}}</span>
 
                 <span class="state" v-if="title==='我的物品'">{{g.state}}</span>
-                <a :class="title==='已交易的'?'state':''" href="#" v-if="title!=='正在交易'">查看详情</a>
-                <span class="delete" v-if="title==='已交易的'">删除</span>
+                <a :class="title==='已交易的'||title==='收藏盒'?'state':''" href="#" v-if="title!=='正在交易'">查看详情</a>
+                <span class="delete" v-if="title==='已交易的'||title==='收藏盒'">删除</span>
                 <span class="confer" v-if="title==='正在交易'">
                     进入商议
                     <img :src="require('../../../assets/img/user/confer.png')">    
@@ -51,25 +51,14 @@ export default {
         //     }else if(val==="已交易的"){
         //         this.stateType="";
         //     }
-        // },
-        "pIndex":function(val){
-            if(this.title==="我的物品"){
-                if(val===0){
-                    this.stateType="闲置";
-                }else if(val==1){
-                    this.stateType="租赁";
-                }else if(val==2){
-                    this.stateType="赠送";
-                }
-            }
-        }
+        // }
         
     },
     mounted:function(){
         if(this.title==="我的物品"){
-            this.stateType="闲置";
+            this.stateType="交易";
             this.timeType="上传"
-        }else if(this.title==="正在交易"){
+        }else if(this.title==="正在交易"||this.title==="收藏盒"){
             this.stateType="商议";
             this.timeType="商议"
         }else if(this.title==="已交易的"){

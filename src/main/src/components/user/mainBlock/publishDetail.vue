@@ -4,9 +4,9 @@
             <span class="goodsLabel">商品名字</span>
             <input type="text" v-model="goodsName" :placeholder="`九阳榨汁机/请输入${detailType}商品名字`">
         </li>
-        <li>
+        <li v-show="pIndex!=2">
             <span class="goodsLabel">商品价格</span>
-            <input type="text" v-model="goodsPrice" placeholder="30/请输入合理的人民币价格">
+            <input type="text" v-model="goodsPrice" :placeholder="priceDescribe">
         </li>
         <li class="goodsBargin">
             <span class="goodsLabel">可否议价</span>
@@ -16,7 +16,7 @@
             </span>
             <span @click="goodsBargin=1" class="label">
                 <img :src="goodsBargin==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
-                不可以
+                不可以（这一行选项可以删掉）
             </span>
         </li>
         <li class="goodsWay">
@@ -73,7 +73,8 @@ export default {
             parentName:'选择大分类',
             childName:'选择小分类',
             goodsDescribe:'',
-            detailType:''
+            detailType:'',
+            priceDescribe:'30/请输入合理的人民币价格'
         }
     },
     props:["pIndex"],
@@ -81,10 +82,15 @@ export default {
         pIndex:function(newVal){
             if(newVal==0){
                 this.detailType='';
+                this.priceDescribe='30/请输入合理的人民币价格'
             }else if(newVal==1){
                 this.detailType='租赁';
+                this.priceDescribe='30/请输入合理的人民币价格'
             }else if(newVal==2){
                 this.detailType='赠送';
+            }else if(newVal==3){
+                this.detailType='寻求';
+                this.priceDescribe='请输入大概的价格'
             }
         }
     }

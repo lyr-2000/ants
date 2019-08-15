@@ -5,21 +5,21 @@
             <li>
                 <span class="infoLabel">头像</span>
                 <div class="userImg">
-                    <img :src="user.pic">
+                    <img :src="user.portrait">
                     <span>编辑</span>
                 </div>
             </li>
             <li>
                 <span class="infoLabel">昵称</span>
-                <input type="text" v-model="user.name">
+                <input type="text" v-model="user.userName">
             </li>
             <li>
                 <span class="infoLabel">手机号码</span>
-                <input type="text" v-model="user.userMobile">
+                <input type="text" v-model="user.mobilePhone">
             </li>
             <li>
                 <span class="infoLabel">交易地址</span>
-                <input type="text" v-model="user.goodsLocation">
+                <input type="text" v-model="user.address">
             </li>
             <li>
                 <span class="infoLabel">微信号</span>
