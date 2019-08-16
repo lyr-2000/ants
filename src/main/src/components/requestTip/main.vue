@@ -5,9 +5,9 @@
         </div>
         <h1 class="msgTip">{{requestMsg}}</h1>
         <p>
-            <a href="" v-if="requestMsg==='发布成功'">查看详情</a>
-            <a href="" v-if="requestMsg==='发布失败'">重来一次</a>
-            <a class="backBtn" href="">返回首页</a>
+            <router-link to="/" v-if="requestMsg==='发布成功'">查看详情</router-link>
+            <router-link to="/" v-if="requestMsg==='发布失败'">重来一次</router-link>
+            <router-link class="backBtn" to="/">返回首页</router-link>
         </p>
     </div>
 </template>
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../../assets/less/define.less';
 *{
     margin: 0px;

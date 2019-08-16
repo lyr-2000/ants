@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .detailContent{
     width: 1060px;
     border-radius: 7px;

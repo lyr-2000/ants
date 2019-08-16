@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../../assets/less/define.less';
 .main{
     width:780px;

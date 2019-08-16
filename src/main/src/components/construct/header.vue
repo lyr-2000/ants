@@ -4,20 +4,20 @@
         <nav class="nav">
             <div class="navContainer">
                 <ul class="leftNav">
-                    <li :class="{localIn:webPage=='index'}"><a href="index.html">首页</a></li>
-                    <li :class="{localIn:webPage=='rent'}"><a href="#">租赁</a></li>
-                    <li :class="{localIn:webPage=='sent'}"><a href="#">赠送</a></li>
+                    <li :class="{localIn:webPage=='index'}"><router-link to="/">首页</router-link></li>
+                    <li :class="{localIn:webPage=='rent'}"><router-link to="/#">租赁</router-link></li>
+                    <li :class="{localIn:webPage=='sent'}"><router-link to="/#">赠送</router-link></li>
                 </ul>
                 <ul class="rightNav">
                     <li class="schoolChoose">>广东金融学院</li>
                     <li :class="{localIn:identity=='buyer'}">买家</li>
                     <li :class="{localIn:identity=='seller'}">卖家</li>
-                    <li><a href="log.html">登录</a></li>
+                    <li><router-link to="log">登录</router-link></li>
                 </ul>
             </div>
         </nav>
         <!-- 顶部操作 -->
-        <div class="topHandle">
+        <div class="topHandle" v-if="!isNotFound">
             <div class="topLogo">
                 <img src="../../assets/img/index/antsLogo.png" alt="蚂蚁置物">
                 <span>蚂蚁置物</span>
@@ -42,7 +42,7 @@ export default {
             searchWord:""
         }
     },
-    props:["webPage","identity"],
+    props:["webPage","identity","isNotFound"],
     methods:{
         search(val){
           
