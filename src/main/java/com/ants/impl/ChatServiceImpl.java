@@ -57,4 +57,15 @@ public class ChatServiceImpl implements ChatService {
         return information;
     }
 
+    //保存当个历史聊天消息,添加
+    @Override
+    public void appendmsg(ChatContactor chatContactorDTO) {
+        int count = chatDao.appendmsg(chatContactorDTO);
+        if(count>0){
+            System.out.println("插入历史消息成功");
+        }else {
+            System.out.println("插入历史消息失败");
+        }
+    }
+
 }

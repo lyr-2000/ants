@@ -15,11 +15,15 @@
     </insert>
 
     <select id="queryAllContactor" resultType="com.ants.entity.ChatContactor">
-       select contactor , contactorName ,information from ants_chat_user where studentId = #{id}
+       select contactor , contactorName  from ants_chat_user where studentId = #{id}
     </select>
 
     <select id="queryInformation" resultType="String">
        select information from ants_chat_user where studentId = #{studentId} and contactor = #{contactor}
     </select>
+
+    <update id="appendmsg" parameterType="com.ants.entity.ChatContactor">
+        update ants_chat_user set information =concat(information,#{information}) where studentId = #{studentId} and contactor = #{contactor}
+    </update>
 
 </mapper>

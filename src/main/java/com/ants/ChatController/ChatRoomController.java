@@ -96,14 +96,17 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 		int id = jsonObject.getInteger("id");
 		int business = jsonObject.getInteger("business");
 
-		String textString;
 		try {
 			if(type==0){
 				ChatUtil chatUtilDTO = new ChatUtil();
 				chatUtilDTO.setStudentId(id);
 				chatUtilDTO.setContactor(business);
 				String information = chatService.queryInformation(chatUtilDTO);
-				websocketsession.sendMessage(new TextMessage(information));
+				JSONObject json = new JSONObject();
+				json.put("type",4);
+				json.put("business",business);
+				json.put("information",information);
+				websocketsession.sendMessage(new TextMessage(json.toJSONString()));
 			}
 			else  if(type==1){
 				WebSocketSession socketSession = sessionMap.get(business);
@@ -131,10 +134,17 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 				websocketsession.getAttributes().put("filename",filename);
 				websocketsession.getAttributes().put("to",business);
 				flag = true;
-			}else {
+			}else if (type==3){
 				tosendfile(websocketsession);
 				sendPicture(websocketsession);
-	        }
+	        }else if(type==4){
+				String msg = jsonObject.getString("information");
+				ChatContactor chatContactorDTO = new ChatContactor();
+				chatContactorDTO.setInformation(msg);
+				chatContactorDTO.setContactor(business);
+				chatContactorDTO.setStudentId(id);
+				chatService.appendmsg(chatContactorDTO);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

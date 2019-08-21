@@ -20,4 +20,7 @@ public interface ChatService  {
 
 
     public String queryInformation(ChatUtil chatUtilDTO) ;
+
+    //保存单个历史聊天消息，添加
+    void appendmsg(ChatContactor chatContactorDTO);
 }
