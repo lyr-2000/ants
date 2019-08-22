@@ -22,7 +22,8 @@
     <task:annotation-driven/>
 
     <!-- 静态资源处理 -->
-    <mvc:default-servlet-handler/>
+<!--    <mvc:default-servlet-handler/>-->
+
 
     <!-- 配置视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
