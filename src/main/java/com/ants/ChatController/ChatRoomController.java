@@ -101,11 +101,12 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 				ChatUtil chatUtilDTO = new ChatUtil();
 				chatUtilDTO.setStudentId(id);
 				chatUtilDTO.setContactor(business);
-				String information = chatService.queryInformation(chatUtilDTO);
+				ChatContactor chatContactor = chatService.queryInformation(chatUtilDTO);
 				JSONObject json = new JSONObject();
 				json.put("type",4);
 				json.put("business",business);
-				json.put("information",information);
+				json.put("information",chatContactor.getInformation());
+				json.put("latestTime",chatContactor.getLatestTime());
 				websocketsession.sendMessage(new TextMessage(json.toJSONString()));
 			}
 			else  if(type==1){
@@ -143,6 +144,7 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 				chatContactorDTO.setInformation(msg);
 				chatContactorDTO.setContactor(business);
 				chatContactorDTO.setStudentId(id);
+				chatContactorDTO.setLatestTime(format.format(new Date()));
 				chatService.appendmsg(chatContactorDTO);
 			}
 		} catch (IOException e) {

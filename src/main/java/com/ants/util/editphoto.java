@@ -7,7 +7,6 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.geom.Arc2D;
@@ -17,17 +16,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
 import java.util.List;
-
+import java.util.*;
 
 /**
- * @Author: CB#
- * @Date: 2019/5/24
- * @Description: com.ants.util
- * @version: 1.0
+ * Created by xinghb on 2017/12/15.
  */
-public class SlideCode {
+public class editphoto {
+
     private int tailoring_w = 50; //小图的宽
     private int tailoring_h = 50; //小图的高
 
@@ -41,8 +37,8 @@ public class SlideCode {
     private static String imgPath = "";
     private static String sourceImgPath = "";
 
-    private static final String tempImg = "img\\tempImg";
-    private static final String sourceImg = "img\\sourceImg";
+    private static final String tempYzmImg = "/static/tempImg";
+    private static final String sourceYzmImg = "/static/sourceImg";
 
     private static final int shadowWidth = 4; //阴影宽度
     private static final int lightHeightWidth = 5; //图片边缘亮色（黄色）宽度。
@@ -54,13 +50,20 @@ public class SlideCode {
      *
      * @param context
      */
-    public static void init(ServletContext context) {
-        imgPath = context.getRealPath("/") + tempImg;
-        sourceImgPath = context.getRealPath("/") + sourceImg;
-        System.out.println("文件路径为:"+sourceImgPath);
+    public static void init(String context) {
+        imgPath = context + tempYzmImg;
+        File file = new File(imgPath);
+        if(!file.exists()){
+            file.mkdir();
+        }
+        sourceImgPath = context + sourceYzmImg;
+        File file1 = new File(sourceImgPath);
+        if(!file1.exists()){
+            file1.mkdir();
+        }
     }
 
-    public SlideCode() {
+    public editphoto() {
     }
 
     /**
@@ -73,9 +76,7 @@ public class SlideCode {
      */
     public Map<String, String> create(HttpServletRequest request, String havingfilename) throws IOException {
         //本地原始图片路径,
-        System.out.println("这里的文件路径为:"+sourceImgPath);
         File file = new File(sourceImgPath);
-        System.out.println();
         String[] list = file.list();
         String filename;
         //获取随机图片， 每次获取到的图片与已有的图片要不同。
@@ -117,7 +118,7 @@ public class SlideCode {
             param.setSourceRegion(rect);
             bufferedImage = render.read(0, param);
         } finally {
-            if (in != null) {
+            if(in != null) {
                 in.close();
             }
         }
@@ -139,14 +140,13 @@ public class SlideCode {
 
     /**
      * 添加水印
-     *
      * @param file
      * @param smallImage
      */
     private BufferedImage addWatermark(File file, BufferedImage smallImage, float alpha) throws IOException {
         BufferedImage source = ImageIO.read(file);
         Graphics2D graphics2D = source.createGraphics();
-        graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha));
+        graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,alpha));
         graphics2D.drawImage(smallImage, location_x, location_y, null);
         graphics2D.dispose(); //释放
         return source;
@@ -205,7 +205,7 @@ public class SlideCode {
         return result;
     }
 
-    private java.util.List<Shape> createSmallShape() {
+    private List<Shape> createSmallShape() {
         //处理小图，在4个方向上 随机找到2个方向添加凸出
         int face1 = RandomUtils.nextInt(3); //凸出1
         int face2; //凸出2
@@ -217,13 +217,13 @@ public class SlideCode {
             }
         }
         //生成随机区域值， （10-20）之间
-        int position1 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2) / 2;
+        int position1 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2)/2;
         Shape shape1 = createShape(face1, 0, position1);
         Shape bigshape1 = createShape(face1, 2, position1);
 
         //生成中间正方体Shape, (具体边界+弧半径 = x坐标位)
         Shape centre = new Rectangle2D.Float(arc, arc, tailoring_w - 2 * 10, tailoring_h - 2 * 10);
-        int position2 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2) / 2;
+        int position2 = RandomUtils.nextInt((tailoring_h - arc * 2) / 2) + (tailoring_h - arc * 2)/2;
         Shape shape2 = createShape(face2, 0, position2);
 
         //因为后边图形需要生成阴影， 所以生成的小图shape + 阴影宽度 = 灰度化的背景小图shape（即大图上的凹槽）
@@ -261,7 +261,6 @@ public class SlideCode {
 
     /**
      * 处理阴影
-     *
      * @param g2
      * @param shadowWidth
      * @param clipShape
@@ -288,7 +287,6 @@ public class SlideCode {
 
     /**
      * 处理边缘亮色
-     *
      * @param g2
      * @param glowWidth
      * @param clipShape
@@ -335,4 +333,5 @@ public class SlideCode {
         }
         return d;
     }
+
 }

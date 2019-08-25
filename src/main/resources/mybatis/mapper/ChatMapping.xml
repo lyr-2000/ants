@@ -11,19 +11,19 @@
     </select>
 
     <insert id="insertcontactor" parameterType="com.ants.entity.ChatUtil">
-        insert into ants_chat_user (studentId,contactor,contactorName) values (#{studentId},#{contactor},#{contactorName})
+        insert into ants_chat_user (studentId,contactor,contactorName,contactorAvatar) values (#{studentId},#{contactor},#{contactorName},#{contactorAvatar})
     </insert>
 
     <select id="queryAllContactor" resultType="com.ants.entity.ChatContactor">
-       select contactor , contactorName  from ants_chat_user where studentId = #{id}
+       select contactor , contactorName ,contactorAvatar  from ants_chat_user where studentId = #{id}
     </select>
 
     <select id="queryInformation" resultType="String">
-       select information from ants_chat_user where studentId = #{studentId} and contactor = #{contactor}
+       select information ,latestTime  from ants_chat_user where studentId = #{studentId} and contactor = #{contactor}
     </select>
 
     <update id="appendmsg" parameterType="com.ants.entity.ChatContactor">
-        update ants_chat_user set information =concat(information,#{information}) where studentId = #{studentId} and contactor = #{contactor}
+        update ants_chat_user set information =concat(information,#{information}) ,latestTime = #{latestTime} where studentId = #{studentId} and contactor = #{contactor}
     </update>
 
 </mapper>

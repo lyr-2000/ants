@@ -13,6 +13,8 @@ public class ChatContactor {
     private Integer studentId ;
     private Integer contactor;
     private String contactorName;
+    private String contactorAvatar;
+    private String latestTime;
     private String information;
     private boolean ifonline;
 }

@@ -11,4 +11,5 @@ import lombok.Data;
 public class ChatUserBase {
     private int id;
     private String username;
+    private String portrait;
 }

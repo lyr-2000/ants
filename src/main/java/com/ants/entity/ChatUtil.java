@@ -15,6 +15,7 @@ public class ChatUtil {
     private Integer studentId;
     private Integer contactor;
     private String contactorName;
+    private String contactorAvatar;
     private String information;
     private String latestTime;
 }

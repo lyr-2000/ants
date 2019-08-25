@@ -34,6 +34,7 @@ public class ChatServiceImpl implements ChatService {
         if(chat==null){
             ChatUserBase chatUserBaseDTO = userQuery(chatUtilDTO.getContactor());
             chatUtilDTO.setContactorName(chatUserBaseDTO.getUsername());
+            chatUtilDTO.setContactorAvatar(chatUserBaseDTO.getPortrait());
             if(chatDao.insertcontactor(chatUtilDTO)>0){
                 System.out.println("插入联系人成功");
             }else {
@@ -52,9 +53,9 @@ public class ChatServiceImpl implements ChatService {
 
 
 
-    public String queryInformation(ChatUtil chatUtilDTO) {
-        String information = chatDao.queryInformation(chatUtilDTO);
-        return information;
+    public ChatContactor queryInformation(ChatUtil chatUtilDTO) {
+        ChatContactor chatContactor = chatDao.queryInformation(chatUtilDTO);
+        return chatContactor;
     }
 
     //保存当个历史聊天消息,添加

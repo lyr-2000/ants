@@ -1,21 +1,14 @@
 package com.ants.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.ants.entity.Student;
 import com.ants.service.StudentService;
-import com.ants.util.SlideCode;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.rowset.serial.SerialStruct;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
