@@ -3,30 +3,32 @@
         <p class="title">{{title}}</p>
         <div class="tradingContent">
             <ul class="tradingIndex">
-                <li @click="pIndex=0" :class="{'chooseIndex':pIndex==0}">闲置物品</li>
-                <li @click="pIndex=1" :class="{'chooseIndex':pIndex==1}">租赁物品</li>
-                <li @click="pIndex=2" :class="{'chooseIndex':pIndex==2}">赠送物品</li>
-                <li @click="pIndex=3" :class="{'chooseIndex':pIndex==3}">寻求物品</li>
+                <li v-for="(val,key) in titleList" @click="pIndex=key" :class="{'chooseIndex':pIndex==key}">{{val}}</li>
             </ul>
-            <GoodsDetail v-if="pIndex==0" :pIndex="pIndex" :title="title"></GoodsDetail>
-            <GoodsDetail v-if="pIndex==1" :pIndex="pIndex" :title="title"></GoodsDetail>
-            <GoodsDetail v-if="pIndex==2" :pIndex="pIndex" :title="title"></GoodsDetail>
-            <GoodsDetail v-if="pIndex==3" :pIndex="pIndex" :title="title"></GoodsDetail>
+            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :detailGoods="tradingGoods[pIndex]" :title="title"></GoodsDetail>
         </div>
     </div>
 </template>
 
 <script>
 import GoodsDetail from './goodsDetail.vue'
+import {mapGetters} from 'vuex'
+
 export default {
     data(){
         return{
             pIndex:0,
-            title:"正在交易"
+            title:"正在交易",
+            titleList:["闲置物品","租赁物品","赠送物品","寻求物品"]
         }
     },
     components:{
         GoodsDetail
+    },
+    computed:{
+        ...mapGetters('user',{
+            tradingGoods:"getTradingGoods"
+        })
     }
 }
 </script>

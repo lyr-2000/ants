@@ -2,35 +2,35 @@
     <div class="publishDetail">
         <li>
             <span class="goodsLabel">商品名字</span>
-            <input type="text" v-model="goodsName" :placeholder="`九阳榨汁机/请输入${detailType}商品名字`">
+            <input type="text" v-model="publishData.goodsName" :placeholder="`九阳榨汁机/请输入${detailType}商品名字`">
         </li>
         <li v-show="pIndex!=2">
             <span class="goodsLabel">商品价格</span>
-            <input type="text" v-model="goodsPrice" :placeholder="priceDescribe">
+            <input type="text" v-model="publishData.goodsPrice" :placeholder="priceDescribe">
         </li>
         <li class="goodsBargin">
             <span class="goodsLabel">可否议价</span>
-            <span class="label"  @click="goodsBargin=0">
-                <img :src="goodsBargin==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+            <span class="label"  @click="publishData.goodsBargin=0">
+                <img :src="publishData.goodsBargin==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
                 可以
             </span>
-            <span @click="goodsBargin=1" class="label">
-                <img :src="goodsBargin==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+            <span @click="publishData.goodsBargin=1" class="label">
+                <img :src="publishData.goodsBargin==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
                 不可以（这一行选项可以删掉）
             </span>
         </li>
         <li class="goodsWay">
             <span class="goodsLabel">取货方式</span>
-            <span @click="goodsWay=0" class="label">
-                <img :src="goodsWay==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+            <span @click="publishData.goodsWay=0" class="label">
+                <img :src="publishData.goodsWay==0?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
                 卖家送货上门
             </span>
-            <span @click="goodsWay=1" class="label">
-                <img :src="goodsWay==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+            <span @click="publishData.goodsWay=1" class="label">
+                <img :src="publishData.goodsWay==1?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
                 买家上门取货
             </span>
-            <span @click="goodsWay=2" class="label">
-                <img :src="goodsWay==2?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
+            <span @click="publishData.goodsWay=2" class="label">
+                <img :src="publishData.goodsWay==2?require('../../../assets/img/user/checkBtnBlue.png'):require('../../../assets/img/user/checkBtnBlack.png')">
                 有待商议
             </span>
         </li>
@@ -45,7 +45,7 @@
         </li>
         <li class="goodsDescribe">
             <span class="goodsLabel">商品简介</span>
-            <textarea v-model="goodsDescribe" placeholder="请输入不超过XX字数的商品介绍"></textarea>
+            <textarea v-model="publishData.goodsDescribe" placeholder="请输入不超过XX字数的商品介绍"></textarea>
         </li>
         <li class="upload">
             <span class="goodsLabel">上传照片</span>
@@ -57,24 +57,32 @@
         </li>
         <li>
             <span class="goodsLabel"></span>
-            <button class="publishBtn">确认发布</button>
+            <button class="publishBtn" @click="releaseGoods(publishType,publishData)">确认发布</button>
         </li>
     </div>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
     data(){
         return{
-            goodsName:'',
-            goodsPrice:'',
-            goodsBargin:'',
-            goodsWay:'',
+            publishData:{
+                goodsName:'',
+                goodsDescribe:'',
+                goodsPrice:'',
+                goodsBargin:'',
+                goodsWay:'',
+                goodsPicture:'',
+                goodsVideo:'',
+                goodsClass:''
+            },
             parentName:'选择大分类',
             childName:'选择小分类',
-            goodsDescribe:'',
             detailType:'',
-            priceDescribe:'30/请输入合理的人民币价格'
+            priceDescribe:'30/请输入合理的人民币价格',
+            publishType:''
         }
     },
     props:["pIndex"],
@@ -83,16 +91,23 @@ export default {
             if(newVal==0){
                 this.detailType='';
                 this.priceDescribe='30/请输入合理的人民币价格'
+                this.publishType='Idle'
             }else if(newVal==1){
                 this.detailType='租赁';
                 this.priceDescribe='30/请输入合理的人民币价格'
+                this.publishType='Lease'
             }else if(newVal==2){
                 this.detailType='赠送';
+                this.publishType='Give'
             }else if(newVal==3){
                 this.detailType='寻求';
                 this.priceDescribe='请输入大概的价格'
+                this.publishType='Seek'
             }
         }
+    },
+    methods:{
+        ...mapActions("user",["releaseGoods"])
     }
 }
 </script>

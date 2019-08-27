@@ -15,12 +15,12 @@
             <div class="sendHandle">
                 <img :src="emojiIcon" @mouseover="iconHoverIn('emoji')" @mouseleave="iconHoverOut('emoji')">
                 <img :src="imgIcon" @mouseover="iconHoverIn('img')" @mouseleave="iconHoverOut('img')">
-                <div class="sendBtn" @mouseover="iconHoverIn('send')" @mouseleave="iconHoverOut('send')">
+                <div class="sendBtn" @mouseover="iconHoverIn('send')" @mouseleave="iconHoverOut('send')" @click="sendMsg">
                     <span>发送</span>
                     <img :src="sendIcon">
                 </div>
             </div>
-            <textarea cols="30" rows="10"></textarea>
+            <textarea cols="30" rows="10" v-model="textMsg"></textarea>
         </div>
     </div>
 </template>
@@ -33,10 +33,12 @@ export default {
         return{
             emojiIcon:require("../../assets/img/icon/emoji-before.png"),
             imgIcon:require("../../assets/img/icon/img-before.png"),
-            sendIcon:require("../../assets/img/icon/send-before.png")
+            sendIcon:require("../../assets/img/icon/send-before.png"),
+            textMsg:""
         }
     },
     methods:{
+        ...mapActions("chat",["onSend"]),
         iconHoverIn(type){
             if(type==='emoji'){
                 this.emojiIcon=require("../../assets/img/icon/emoji-after.png");
@@ -54,6 +56,15 @@ export default {
             }else if(type==='send'){
                 this.sendIcon=require("../../assets/img/icon/send-before.png");
             }
+        },
+        sendMsg(){
+            let data={
+                type:1,
+                msg:textMsg,
+                id:myIntro.studentId,
+                business:chooseUser.contactor
+            }
+            this.onSend(data);
         }
     },
     computed:{

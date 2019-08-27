@@ -9,6 +9,9 @@ import Log from './page/log.vue'
 import RequestTip from './page/requestTip.vue'
 import Search from './page/search.vue'
 import User from './page/user.vue'
+import Protocl from './page/protocl.vue'
+import Announce from './page/announce.vue'
+import FeedBack from './page/feedBack.vue'
 import NotFound from './page/404.vue'
 
 Vue.use(VueRouter)
@@ -23,6 +26,9 @@ const routes = [
     { path: '/search', component: Search },
     { path: '/user', component: User },
     { path: '/chat', component: Chat },
+    { path: '/protocl', component: Protocl },
+    { path: '/announce', component: Announce },
+    { path: '/feedBack', component: FeedBack },
     { path: '*', component: NotFound }
 ]
 

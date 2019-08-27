@@ -3,28 +3,31 @@
         <p class="title">{{title}}</p>
         <div class="colectContent">
             <ul class="colectIndex">
-                <li @click="pIndex=0" :class="{'chooseIndex':pIndex==0}">我想买的</li>
-                <li @click="pIndex=1" :class="{'chooseIndex':pIndex==1}">我想卖的</li>
+                <li v-for="(val,key) in titleList" @click="pIndex=key" :class="{'chooseIndex':pIndex==key}">{{val}}</li>
             </ul>
-            <GoodsDetail v-if="pIndex==0" :pIndex="pIndex" :title="title"></GoodsDetail>
-            <GoodsDetail v-if="pIndex==1" :pIndex="pIndex" :title="title"></GoodsDetail>
-            <GoodsDetail v-if="pIndex==2" :pIndex="pIndex" :title="title"></GoodsDetail>
+            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :detailGoods="collectGoods[pIndex]" :title="title"></GoodsDetail>
         </div>
     </div>
 </template>
 
 <script>
 import GoodsDetail from './goodsDetail.vue'
-
+import {mapGetters} from 'vuex'
 export default {
     data(){
         return{
             pIndex:0,
-            title:"收藏盒"
+            title:"收藏盒",
+            titleList:["我想买的","我想卖的"]
         }
     },
     components:{
         GoodsDetail
+    },
+    computed:{
+        ...mapGetters('user',{
+            collectGoods:"getCollectGoods"
+        })
     }
 }
 </script>

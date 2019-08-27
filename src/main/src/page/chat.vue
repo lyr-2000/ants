@@ -33,6 +33,12 @@ export default {
             webPage:"",
             identity:"buyer",
         }
+    },
+    mounted(){
+        console.log(this.$route)
+    },
+    methods:{
+        
     }
 }
 </script>

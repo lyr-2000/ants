@@ -1,31 +1,32 @@
-import axios from 'axios'
 const namespaced = true;
 const state = {
+    ws: "",
+    url: "ws://127.0.0.1:8080/chat?",
     userList: [{
-        id: 1,
+        contactor: 1,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
-        userName: 'abc',
+        contactorName: 'abc',
         chatTime: '2019/8/10'
     }, {
-        id: 2,
+        contactor: 2,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
-        userName: '111',
+        contactorName: '111',
         chatTime: '2019/7/10'
     }, {
-        id: 3,
+        contactor: 3,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
-        userName: '222',
+        contactorName: '222',
         chatTime: '2019/6/20'
     }, {
-        id: 4,
+        contactor: 4,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
-        userName: '333',
+        contactorName: '333',
         chatTime: '2019/5/10'
     }],
     chooseUser: {
-        id: 1,
+        contactor: 1,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
-        userName: 'abc',
+        contactorName: 'abc',
         chatTime: '2019/8/10'
     },
     newsList: [{
@@ -61,7 +62,34 @@ const actions = {
     // 选择另一个用户
     chooseChange({ commit }, user) {
         state.chooseUser = user
+    },
+    // websocket连接
+    socketInit({ commit }, id, business) {
+        let url = "";
+        if (!business) {
+            url = `${state.url}id=${id}&business=${business}`;
+        } else {
+            url = `${state.url}id=${id}`;
+        }
+        if ('WebSocket' in window) {
+            state.ws = new WebSocket(url);
+        } else if ('MozWebSocket' in window) {
+            state.ws = new MozWebSocket(url);
+        } else {
+            alert('WebSocket is not supported by this browser.');
+            return;
+        }
+    },
+    // 连接后获取数据
+    onMessage() {
+        state.ws.onMessage = function(event) {
+
+        }
+    },
+    // 连接后发送数据
+    onSend(data) {
+        state.wx.send()
     }
 }
 
-export default { state, getters, mutations, actions, namespaced };
+export default { state, getters, mutations, actions, namespaced }

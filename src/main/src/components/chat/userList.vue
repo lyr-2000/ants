@@ -6,10 +6,10 @@
         </div>
         <div class="otherInfo">
             <div v-for="user in userList" 
-                :class="{'detailInfo':true,'chooseInfo':chooseUser.id===user.id}"
+                :class="{'detailInfo':true,'chooseInfo':chooseUser.contactor===user.contactor}"
                 @click="chooseChange(user)">
                 <img :src="user.imgSrc">
-                <span class="userName">{{user.userName}}</span>
+                <span class="userName">{{user.contactorName}}</span>
                 <span class="chatTime">{{user.chatTime | timeChange}}</span>
             </div>
         </div>

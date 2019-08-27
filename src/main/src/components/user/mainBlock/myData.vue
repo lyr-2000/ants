@@ -31,7 +31,7 @@
             </li>
             <li>
                 <span class="infoLabel"></span>
-                <button class="saveBtn">确认保存</button>
+                <button class="saveBtn" @click="saveStuMsg(user)">确认保存</button>
             </li>
         </ul>
     </div>
@@ -45,9 +45,14 @@ export default {
         return{
         }
     },
-    computed:mapGetters("user",{
-        user:"getUser"
-    })
+    computed:{
+        ...mapGetters("user",{
+            user:"getUser"
+        })
+    },
+    methods:{
+        ...mapActions("user",["saveStuMsg"])
+    }
 }
 </script>
 
