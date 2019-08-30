@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_3306
+ Source Server         : czd
  Source Server Type    : MySQL
- Source Server Version : 100132
+ Source Server Version : 50640
  Source Host           : localhost:3306
- Source Schema         : chat
+ Source Schema         : ants_base
 
  Target Server Type    : MySQL
- Target Server Version : 100132
+ Target Server Version : 50640
  File Encoding         : 65001
 
- Date: 21/08/2019 03:59:33
+ Date: 30/08/2019 16:59:06
 */
 
 SET NAMES utf8mb4;
@@ -31,6 +31,9 @@ CREATE TABLE `account`  (
 -- ----------------------------
 -- Records of account
 -- ----------------------------
+INSERT INTO `account` VALUES (1, '2', 3);
+INSERT INTO `account` VALUES (2, 'test', 16);
+INSERT INTO `account` VALUES (10, 'test', 16);
 INSERT INTO `account` VALUES (15, 'test', 16);
 INSERT INTO `account` VALUES (20, 'test', 16);
 INSERT INTO `account` VALUES (200, 'test', 16);
@@ -41,21 +44,18 @@ INSERT INTO `account` VALUES (312, 'test', 16);
 INSERT INTO `account` VALUES (2222, 'test', 16);
 INSERT INTO `account` VALUES (2223, 'yes', 56);
 INSERT INTO `account` VALUES (2224, 'account', 57);
-INSERT INTO `account` VALUES (171543113, '陈彬', 3);
-INSERT INTO `account` VALUES (171543114, '陈杰灿', 16);
-INSERT INTO `account` VALUES (171543117, '邓学洋', 16);
 
 -- ----------------------------
 -- Table structure for ants_chat_offline
 -- ----------------------------
 DROP TABLE IF EXISTS `ants_chat_offline`;
 CREATE TABLE `ants_chat_offline`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `studentId` int(50) NULL DEFAULT NULL COMMENT '谁发送过来的',
-  `towho` int(50) NULL DEFAULT NULL COMMENT '发送给谁的',
+  `id` int(11) NOT NULL,
+  `studentId` int(11) NULL DEFAULT NULL COMMENT '谁发送过来的',
+  `towho` int(11) NULL DEFAULT NULL COMMENT '发送给谁的',
   `offlinemessage` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '离线的消息',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ants_chat_offline
@@ -67,22 +67,19 @@ INSERT INTO `ants_chat_offline` VALUES (1, 171543113, 171543114, '12312');
 -- ----------------------------
 DROP TABLE IF EXISTS `ants_chat_user`;
 CREATE TABLE `ants_chat_user`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `studentId` int(11) NOT NULL COMMENT '学号',
-  `contactor` int(255) NULL DEFAULT NULL COMMENT '联系人id',
-  `contactorName` char(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '联系人姓名',
+  `id` int(11) NOT NULL,
+  `studentId` int(11) NULL DEFAULT NULL COMMENT '学号',
+  `contactor` int(11) NULL DEFAULT NULL COMMENT '联系人id',
+  `contactorName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '联系人姓名',
   `information` varchar(2048) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '历史消息',
   `latestTime` datetime(0) NULL DEFAULT NULL COMMENT '聊天最晚消息',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ants_chat_user
 -- ----------------------------
-INSERT INTO `ants_chat_user` VALUES (1, 171543113, 171543114, '陈杰灿', '你好呀', NULL);
-INSERT INTO `ants_chat_user` VALUES (5, 171543113, 171543115, '不认识', NULL, NULL);
-INSERT INTO `ants_chat_user` VALUES (6, 171543113, 171543119, '邓学洋', '恩恩额', NULL);
-INSERT INTO `ants_chat_user` VALUES (7, 171543114, 171543115, '不认识', NULL, NULL);
+INSERT INTO `ants_chat_user` VALUES (1, 171543113, 171543114, '陈杰灿', '你好呀', '2019-07-30 16:49:06');
 
 -- ----------------------------
 -- Table structure for ants_class_parent
@@ -204,9 +201,6 @@ INSERT INTO `ants_goods_base` VALUES (10, '4', '8', '7', '6', 2, 68.00, 1, 1, 1,
 INSERT INTO `ants_goods_base` VALUES (11, '5', '3', '2', '3', 2, 77.00, 1, 1, 1, 1, '2019-06-14 14:50:00', 1);
 INSERT INTO `ants_goods_base` VALUES (12, '44', '41', '22', '3', 2, 52.00, 1, 1, 1, 1, '2019-06-29 14:50:03', 1);
 INSERT INTO `ants_goods_base` VALUES (13, '89', '465', '32', '14', 2, 23.00, 1, 1, 1, 1, '2019-07-13 14:50:08', 1);
-INSERT INTO `ants_goods_base` VALUES (555, 'czd', 'sadasdadsa', '233.jpg', '555.mp4', 4, 45.60, 0, 0, 1, 1, '2019-08-12 00:00:00', 10);
-INSERT INTO `ants_goods_base` VALUES (5556, 'czd', 'sadasdadsa', '233.jpg', '555.mp4', 4, 45.60, 0, 0, 1, 1, '2019-08-12 00:00:00', 10);
-INSERT INTO `ants_goods_base` VALUES (1580745663, NULL, NULL, NULL, NULL, 0, 0.00, 0, 0, 1, 0, '2019-08-13 00:00:00', 0);
 
 -- ----------------------------
 -- Table structure for ants_goods_give
@@ -223,7 +217,7 @@ CREATE TABLE `ants_goods_give`  (
   `goodsState` int(11) NULL DEFAULT NULL COMMENT '0：未赠送  1：已赠送',
   `goodsBargin` int(11) NULL DEFAULT NULL COMMENT '0:可议价  1：不可议价',
   `goodsBelong` int(11) NULL DEFAULT NULL COMMENT '所属买家主键',
-  `goodsWay` int(11) NULL DEFAULT NULL COMMENT '0:卖家送货上门  1:买家上门自取 2：可待商量',
+  `goodsWay` int(11) NULL DEFAULT NULL COMMENT '0:买家上门自取 1：可待商量',
   `uploadTime` datetime(0) NULL DEFAULT NULL COMMENT '发布赠送时间',
   `repertory` int(11) NULL DEFAULT NULL COMMENT '库存',
   PRIMARY KEY (`goodsId`) USING BTREE
@@ -247,7 +241,9 @@ CREATE TABLE `ants_goods_lease`  (
   `goodsClass` int(11) NULL DEFAULT NULL COMMENT '一个子类的id',
   `goodsPrice` decimal(50, 0) NULL DEFAULT NULL COMMENT '商品的价格',
   `goodsState` int(11) NULL DEFAULT NULL COMMENT '0：未租赁  1：租赁中',
+  `goodsBargin` int(11) NULL DEFAULT NULL COMMENT '0:可议价  1：不可议价',
   `goodsBelong` int(11) NULL DEFAULT NULL COMMENT '所属买家主键',
+  `goodsWay` int(255) NULL DEFAULT NULL COMMENT '0:卖家送货上门  1:买家上门自取 2：可待商量',
   `uploadTime` datetime(0) NULL DEFAULT NULL COMMENT '发布时间',
   `repertory` int(11) NULL DEFAULT NULL COMMENT '库存',
   PRIMARY KEY (`goodsId`) USING BTREE
@@ -256,7 +252,8 @@ CREATE TABLE `ants_goods_lease`  (
 -- ----------------------------
 -- Records of ants_goods_lease
 -- ----------------------------
-INSERT INTO `ants_goods_lease` VALUES (1, 'czd', 'sss', '1.jpg', NULL, NULL, NULL, 1, 2, NULL, NULL);
+INSERT INTO `ants_goods_lease` VALUES (1, 'czd', 'sss', '1.jpg', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `ants_goods_lease` VALUES (1783138049, '555', '6262as', '2.jpg', '1.mp4', 5, 3, 0, 1, 1, 1, '2019-08-21 00:00:00', 100);
 
 -- ----------------------------
 -- Table structure for ants_goods_seek
@@ -267,13 +264,21 @@ CREATE TABLE `ants_goods_seek`  (
   `goodsName` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `goodsDescribe` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品描述',
   `goodsPicture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品图片路径',
-  `goodsWay` int(11) NULL DEFAULT NULL,
   `goodsClass` int(11) NULL DEFAULT NULL COMMENT '一个子类的id',
   `goodsPrice` decimal(10, 2) NULL DEFAULT NULL COMMENT '商品的价格',
-  `goosState` int(11) NULL DEFAULT NULL COMMENT '0：未租赁  1：租赁中',
+  `goodsState` int(11) NULL DEFAULT NULL COMMENT '0：寻求中  1：已寻求',
+  `goodsBargin` int(11) NULL DEFAULT NULL COMMENT '0:可议价  1：不可议价',
   `goodsBelong` int(11) NULL DEFAULT NULL COMMENT '所属买家主键',
+  `goodsWay` int(11) NULL DEFAULT NULL COMMENT '0:卖家送货上门  1:买家上门自取 2：可待商量',
+  `uploadTime` datetime(0) NULL DEFAULT NULL COMMENT '发布寻求时间',
+  `repertory` int(11) NULL DEFAULT NULL COMMENT '期望寻求的商品的数目',
   PRIMARY KEY (`goodsId`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ants_goods_seek
+-- ----------------------------
+INSERT INTO `ants_goods_seek` VALUES (1, '阿瑟东', 'sds ', 'asd .jpg', 1, 1.25, 1, NULL, 1, 2, '2019-08-06 10:58:21', 3);
 
 -- ----------------------------
 -- Table structure for ants_management_announcement
@@ -398,14 +403,22 @@ INSERT INTO `ants_other_trade` VALUES (2, 'ad', 'sd', '1.jpg', NULL, 2, 52.50, 1
 -- ----------------------------
 DROP TABLE IF EXISTS `ants_shop_base`;
 CREATE TABLE `ants_shop_base`  (
-  `shopId` int(11) NOT NULL COMMENT '购物车id号',
+  `shopId` int(11) NOT NULL AUTO_INCREMENT COMMENT '购物车id号',
   `userId` int(11) NULL DEFAULT NULL COMMENT '用户的id号',
   `goodsId` int(11) NULL DEFAULT NULL COMMENT '商品的id号',
+  `goodsPicture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品图片',
   `shopNum` int(11) NULL DEFAULT NULL COMMENT '加入购物车的数量',
   `goodsPrice` decimal(20, 2) NULL DEFAULT NULL COMMENT '商品的价格',
-  `joinTime` datetime(0) NULL DEFAULT NULL COMMENT '加入购物车时间',
+  `status` int(11) NULL DEFAULT 0 COMMENT '0为我想买，1为我想卖',
+  `uploadTime` datetime(0) NULL DEFAULT NULL COMMENT '加入购物车时间',
   PRIMARY KEY (`shopId`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ants_shop_base
+-- ----------------------------
+INSERT INTO `ants_shop_base` VALUES (1, 1, 26532, '2.jpg', 50, 50.20, 0, '2019-07-29 07:55:27');
+INSERT INTO `ants_shop_base` VALUES (4, 1, 5451, '3.jpg', 100, 102.50, 0, '2019-09-18 07:55:54');
 
 -- ----------------------------
 -- Table structure for ants_user_base
@@ -431,12 +444,7 @@ CREATE TABLE `ants_user_base`  (
 -- ----------------------------
 -- Records of ants_user_base
 -- ----------------------------
-INSERT INTO `ants_user_base` VALUES (1, 'user', 0, '123456', '123', '13106617928', '13栋905宿舍', '1.jpg', 'weiXing', '1783209601', '2019-06-06 00:00:00', 0, 1);
-INSERT INTO `ants_user_base` VALUES (171543113, '陈彬', 1, '123155', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `ants_user_base` VALUES (171543114, '陈杰灿', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `ants_user_base` VALUES (171543115, '不认识', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `ants_user_base` VALUES (171543119, '邓学洋', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `ants_user_base` VALUES (171543144, '杨楷煜', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `ants_user_base` VALUES (1, 'sssss', 0, '123456', '123', '9999', '503', '2.jpg', '8888', '556', '2019-06-06 00:00:00', 0, 1);
 
 -- ----------------------------
 -- Table structure for c3p0testtable
