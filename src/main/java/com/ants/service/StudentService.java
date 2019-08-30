@@ -39,4 +39,11 @@ public interface StudentService {
      * @return
      */
     public Student getStudentMessage(Integer id);
+
+    /**
+     * 编辑我的资料，然后保存个人信息
+     * @param student
+     * @return
+     */
+    public int saveStuMessage(Student student);
 }

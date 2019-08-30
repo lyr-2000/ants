@@ -28,7 +28,7 @@ public class GoodsController {
     private StudentService studentService;
 
     /**
-     *
+     * 获取单个商品的信息
      * @param goodsId
      * @return
      */

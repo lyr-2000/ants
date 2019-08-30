@@ -56,4 +56,13 @@ public class StudentServiceImpl implements StudentService {
     public Student getStudentMessage(Integer id) {
         return studentDao.getStudentMessage(id);
     }
+
+    /**
+     * 编辑我的资料，然后保存个人信息
+     * @param student
+     * @return
+     */
+    public int saveStuMessage(Student student){
+        return studentDao.saveStuMessage(student);
+    }
 }

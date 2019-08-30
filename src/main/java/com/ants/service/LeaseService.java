@@ -16,4 +16,11 @@ public interface LeaseService {
      * @return
      */
     public List<Lease> myLeaseGoods(Integer studentId);
+
+    /**
+     * 添加新租赁商品,发布租赁
+     * @param lease
+     * @return
+     */
+    public int addLeaseGoods(Lease lease);
 }

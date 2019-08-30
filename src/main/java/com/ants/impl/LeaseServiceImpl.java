@@ -25,4 +25,13 @@ public class LeaseServiceImpl implements LeaseService {
     public List<Lease> myLeaseGoods(Integer studentId){
         return leaseDao.myLeaseGoods(studentId);
     }
+
+    /**
+     * 添加新租赁商品,发布租赁
+     * @param lease
+     * @return
+     */
+    public int addLeaseGoods(Lease lease){
+        return leaseDao.addLeaseGoods(lease);
+    }
 }

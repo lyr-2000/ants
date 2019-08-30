@@ -84,7 +84,7 @@ public class GiveController {
     }
 
     /**
-     * 根据学生账户获取此学生发布的所有的赠送的商品
+     * 根据学生账户获取此学生发布的所有的赠送的商品，我的赠送
      * @param request
      * @return
      */
@@ -97,9 +97,9 @@ public class GiveController {
         Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
 
         //获取此账号下赠送的所有物品信息
-        List<Give> leaseList = giveService.myGiveGoods(studentId);
+        List<Give> giveList = giveService.myGiveGoods(studentId);
 
-        giveGoods.put("giveGoods",leaseList);
+        giveGoods.put("giveGoods",giveList);
 
         return giveGoods;
     }

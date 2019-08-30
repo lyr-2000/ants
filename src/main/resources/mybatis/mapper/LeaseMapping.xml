@@ -11,4 +11,17 @@
 
     </select>
 
+
+    <!--添加新租赁商品,发布租赁-->
+    <insert id="addLeaseGoods" parameterType="com.ants.entity.Lease">
+        INSERT INTO ants_goods_lease (goodsId,goodsName,goodsDescribe,
+                                     goodsPicture,goodsVideo,goodsClass,
+                                     goodsPrice,goodsState,goodsBargin,
+                                     goodsBelong,goodsWay,uploadTime,repertory)
+                                     VALUES (#{goodsId},#{goodsName},#{goodsDescribe},
+                                             #{goodsPicture},#{goodsVideo},#{goodsClass},
+                                             #{goodsPrice},#{goodsState},#{goodsBargin},
+                                             #{goodsBelong},#{goodsWay},#{uploadTime},#{repertory})
+    </insert>
+
 </mapper>

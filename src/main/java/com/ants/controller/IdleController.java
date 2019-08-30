@@ -131,7 +131,7 @@ public class IdleController {
 
 
     /**
-     * 根据学生账户获取此学生发布的所有的闲置的商品
+     * 根据学生账户获取此学生发布的所有的闲置的商品，我的闲置
      * @param request
      * @return
      */

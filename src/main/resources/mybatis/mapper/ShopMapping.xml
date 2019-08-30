@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.ShopDao">
+
+    <!--根据此学生账号获取交易箱内的我想买和我想卖的商品的内容列表信息-->
+    <select id="tradingCase" parameterType="Shop" resultType="com.ants.entity.Shop">
+        SELECT userId,goodsId,goodsPicture,
+               shopNum,goodsPrice,uploadTime
+                  FROM ants_shop_base
+                      WHERE userId = #{userId}
+                          AND status = #{status}
+    </select>
+
+
+</mapper>
