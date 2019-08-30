@@ -36,16 +36,30 @@
 </template>
 
 <script>
+import { clearTimeout } from 'timers';
+import { setTimeout } from 'timers';
 export default {
     data(){
         return{
-            searchWord:""
+            searchWord:"",
+            timeSetter:""
         }
     },
     props:["webPage","identity","isNotFound"],
     methods:{
         search(val){
           
+        }
+    },
+    watch:{
+        searchWord:function(newVal,oldVal){
+            if(this.timeSetter!==""){
+                clearTimeout(this.timeSetter);
+            }
+            this.timeSetter=setTimeout(()=>{
+                console.log(newVal);
+                // 做请求
+            },2000)
         }
     }
 }

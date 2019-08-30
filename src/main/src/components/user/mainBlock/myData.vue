@@ -5,8 +5,9 @@
             <li>
                 <span class="infoLabel">头像</span>
                 <div class="userImg">
-                    <img :src="user.portrait">
+                    <img :src="avatar==''?user.portrait:avatar">
                     <span>编辑</span>
+                    <input type="file" @change="avatarUpload($event)">
                 </div>
             </li>
             <li>
@@ -43,6 +44,7 @@ import { mapGetters, mapActions } from "vuex"
 export default {
     data(){
         return{
+            avatar:''
         }
     },
     computed:{
@@ -51,7 +53,27 @@ export default {
         })
     },
     methods:{
-        ...mapActions("user",["saveStuMsg"])
+        ...mapActions("user",["saveStuMsg","uploadAvatar","formatFileSize"]),
+        // 头像上传
+        avatarUpload(e){
+            let aFiles = e.target.files;
+            let len = aFiles.length;
+            let item = {
+                name: aFiles[0].name,
+                uploadPercentage: 1,
+                // size: this.formatFileSize(aFiles[0].size, 0)
+            }
+            let reader=new FileReader();
+            reader.readAsDataURL(aFiles[0]);
+            reader.onload=e=>{
+                this.avatar=e.currentTarget.result;
+                console.log('this.result: ', e.currentTarget.result);
+            }
+            let param = new FormData();
+            param.append("name","avatar");
+            param.append("file",aFiles[0]);
+            this.uploadAvatar(param);
+        }
     }
 }
 </script>
@@ -110,6 +132,16 @@ export default {
                 }
                 &:hover span{
                     display: inline;
+                }
+                input[type="file"]{
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    opacity: 0;
+                    cursor: pointer;
                 }
             }
             .saveBtn{

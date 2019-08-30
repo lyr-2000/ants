@@ -1,3 +1,4 @@
+import axios from 'axios'
 const namespaced = true;
 const state = {
     ws: "",
@@ -55,16 +56,18 @@ const getters = {
     }
 }
 const mutations = {
-
+    chooseChange(state, user) {
+        state.chooseUser = user;
+    }
 }
 
 const actions = {
     // 选择另一个用户
     chooseChange({ commit }, user) {
-        state.chooseUser = user
+        commit("chooseChange", user)
     },
     // websocket连接
-    socketInit({ commit }, id, business) {
+    socketInit(id, business) {
         let url = "";
         if (!business) {
             url = `${state.url}id=${id}&business=${business}`;
@@ -89,6 +92,21 @@ const actions = {
     // 连接后发送数据
     onSend(data) {
         state.wx.send()
+    },
+    // 上传文件
+    uploadFile(item, param) {
+        let config = {
+            //添加请求头 
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        };
+        axios.post('url', param, config)
+            .then(res => {
+                console.log(res);
+            }).catch(err => {
+                console.log(err);
+            });
     }
 }
 

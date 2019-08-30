@@ -472,12 +472,15 @@ const mutations = {
     getMyGoods(state, res) {
         state.myGoods = res
     },
-    releaseGoods(state, res) {
+    releaseGoods(res) {
         if (res === 'success') {
             alert('发布成功')
         } else if (res === 'fail') {
             alert('发布失败')
         }
+    },
+    uploadAvatar(state, res) {
+        state.user.portrait = require(res);
     }
 }
 
@@ -521,12 +524,52 @@ const actions = {
             })
     },
     // 发布
-    releaseGoods({ commit }, type, data) { // type:发布的类型
+    releaseGoods({ commit }, type, data, params) { // type:发布的类型
+        if (params.img.length !== 0) {
+            actions.uploadFile(params.img, 'img');
+        }
+        if (params.video.length !== 0) {
+            actions.uploadFile(params.video, 'video');
+        }
         axios.post(`./ants/${type.toLowerCase()}/release${type}`, data)
             .then(res => {
                 commit('releaseGoods', res.data)
             }).catch(err => {
                 console.log(`can't request the data for ${err}`);
+            })
+    },
+    // 上传头像
+    uploadAvatar({ commit }, param) {
+        let config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
+        axios.post('url', param, config)
+            .then(res => {
+                commit('uploadAvatar', res.data)
+            }).catch(err => {
+                console.log(`can't upload avatar because of ${err}`)
+            })
+    },
+    // 上传图片/视频
+    uploadFile({ commit }, param, type) {
+        let config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
+        let url = "";
+        if (type === "") {
+            url = ""
+        } else if (type === "") {
+            url = ""
+        }
+        axios.post('url', param, config)
+            .then(res => {
+                commit('uploadAvatar', res.data)
+            }).catch(err => {
+                console.log(`can't upload avatar because of ${err}`)
             })
     }
 }

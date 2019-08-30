@@ -49,7 +49,7 @@ export default {
         }
     },
     mounted(){
-        this.chooseUser=this.userList[0];
+        this.chooseChange(this.userList[0]);
     }
 }
 </script>

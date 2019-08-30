@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <div class="userName">{{chooseUser.userName}}</div>
+        <div class="userName">{{chooseUser.contactorName}}</div>
         <div class="chatContainer">
             <div :class="{'newsList':true,
                 'newsLeft':!news.identify,
@@ -14,7 +14,8 @@
         <div class="chatSend">
             <div class="sendHandle">
                 <img :src="emojiIcon" @mouseover="iconHoverIn('emoji')" @mouseleave="iconHoverOut('emoji')">
-                <img :src="imgIcon" @mouseover="iconHoverIn('img')" @mouseleave="iconHoverOut('img')">
+                <img :src="imgIcon">
+                <input type="file" @mouseover="iconHoverIn('img')" @mouseleave="iconHoverOut('img')" @change="sendFile($event)">
                 <div class="sendBtn" @mouseover="iconHoverIn('send')" @mouseleave="iconHoverOut('send')" @click="sendMsg">
                     <span>发送</span>
                     <img :src="sendIcon">
@@ -38,7 +39,7 @@ export default {
         }
     },
     methods:{
-        ...mapActions("chat",["onSend"]),
+        ...mapActions("chat",["onSend","uploadFile"]),
         iconHoverIn(type){
             if(type==='emoji'){
                 this.emojiIcon=require("../../assets/img/icon/emoji-after.png");
@@ -57,6 +58,7 @@ export default {
                 this.sendIcon=require("../../assets/img/icon/send-before.png");
             }
         },
+        // 发送信息
         sendMsg(){
             let data={
                 type:1,
@@ -65,6 +67,30 @@ export default {
                 business:chooseUser.contactor
             }
             this.onSend(data);
+        },
+        // 发送文件
+        sendFile(e){
+            let files=e.target.files;
+            let len=files.length;
+            let item={
+                name:files[0].name,
+                uploadPercentage:1,
+                size:this.formatFileSize(files[0].size, 0)
+            }
+            let param=new FormData();
+            param.append("name",item.name);
+            param.append("file",file[0]);
+            uploadFile(item, param)
+        },
+        // 格式化文件大小
+        formatFileSize: function (fileSize, idx) {
+            let units = ["B", "KB", "MB", "GB"];
+            idx = idx || 0;
+            if (fileSize < 1024 || idx === units.length - 1) {
+                return fileSize.toFixed(1) +
+                    units[idx];
+            }
+            return this.formatFileSize(fileSize / 1024, ++idx);
         }
     },
     computed:{
@@ -129,8 +155,19 @@ export default {
     }
     .chatSend{
         .sendHandle{
+            height: 52px;
+            *{
+                cursor: pointer;
+            }
             &>img:first-child{
                 margin: 0px 10px 0px 20px;
+            }
+            input[type="file"]{
+                width: 46px;
+                height: 46px;
+                transform: translateX(-46px) translateY(-30px);
+                opacity: 0;
+                cursor: pointer;
             }
             .sendBtn{
                 display: flex;

@@ -126,26 +126,26 @@ export default {
         },
         picCodeRequest: function() {
             this.showCode = true;
-            axios.post('/ants/code/SlideCode', {
-                imgName: this.sourceImgName
-            }).then((res) => {
+            axios.get(`/slideCode/slide?imgname=${this.sourceImgName}`)
+            .then((res) => {
+                res=res.data
                 this.sourceImgName = res.sourceImgName;
                 this.bigImgName = res.bigImgName;
                 this.smallImgName = res.smallImgName;
                 this.location_y = res.location_y;
                 this.$refs.slideImg.style.top = this.location_y + 'px';
             }).catch((err) => {
-
+                console.error(`error ${err} happen when get picture code`);
             })
         },
         closeCode: function() {
             this.showCode = false;
         },
         dragUpRequest: function() {
-            axios.post('/ants/code/SlideCode', {
-                _x: this.location_x
+            axios.post('/slideCode/checkServlet', {
+                point: this.location_x
             }).then((res) => {
-                if (res.result == 'success') {
+                if (res.result == 1) {
                     this.slideTip = true;
                     this.loginRequest();
                 } else {

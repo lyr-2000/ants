@@ -45,19 +45,31 @@
         </li>
         <li class="goodsDescribe">
             <span class="goodsLabel">商品简介</span>
-            <textarea v-model="publishData.goodsDescribe" placeholder="请输入不超过XX字数的商品介绍"></textarea>
+            <textarea v-model="publishData.goodsDescribe" placeholder="请输入不超过50字数的商品介绍"></textarea>
         </li>
         <li class="upload">
             <span class="goodsLabel">上传照片</span>
-            <img src="../../../assets/img/user/upload.png">
+            <div class="uploadContainer" v-for="img in fileReader.img">
+                <img :src="img">
+            </div>
+            <div class="uploadContainer">
+                <img src="../../../assets/img/user/upload.png">
+                <input type="file" @change="uploadImg($event)">
+            </div>
         </li>
         <li class="upload">
             <span class="goodsLabel">上传视频</span>
-            <img src="../../../assets/img/user/upload.png">
+            <div class="uploadContainer" v-for="video in fileReader.video">
+                <img :src="video">
+            </div>
+            <div class="uploadContainer">
+                <img src="../../../assets/img/user/upload.png">
+                <input type="file" @change="uploadVideo($event)">
+            </div>
         </li>
         <li>
             <span class="goodsLabel"></span>
-            <button class="publishBtn" @click="releaseGoods(publishType,publishData)">确认发布</button>
+            <button class="publishBtn" @click="releaseGoods(publishType,publishData,params)">确认发布</button>
         </li>
     </div>
 </template>
@@ -82,7 +94,11 @@ export default {
             childName:'选择小分类',
             detailType:'',
             priceDescribe:'30/请输入合理的人民币价格',
-            publishType:''
+            publishType:'',
+            fileReader:{
+                'img':[],
+                'video':[]
+            }
         }
     },
     props:["pIndex"],
@@ -107,7 +123,53 @@ export default {
         }
     },
     methods:{
-        ...mapActions("user",["releaseGoods"])
+        ...mapActions("user",["releaseGoods","uploadFile"]),
+        // 格式化文件大小
+        formatFileSize(fileSize, idx) {
+            let units = ["B", "KB", "MB", "GB"];
+            idx = idx || 0;
+            if (fileSize < 1024 || idx === units.length - 1) {
+                return fileSize.toFixed(1) +
+                    units[idx];
+            }
+            return this.formatFileSize(fileSize / 1024, ++idx);
+        },
+        // 上传图片
+        uploadImg(e){
+            let iFiles = e.target.files;
+            let len = iFiles.length;
+            let item = {
+                name: iFiles[0].name,
+                uploadPercentage: 1,
+                size: this.formatFileSize(iFiles[0].size, 0)
+            }
+            let param = new FormData();
+            param.append("name","img");
+            param.append("file",iFiles[0]);
+            let reader=new FileReader();
+            reader.readAsDataURL(iFiles[0]);
+            reader.onload=e=>{
+                this.fileReader.img.push(e.currentTarget.result)
+            }
+        },
+        // 上传视频
+        uploadVideo(e){
+            let vFiles = e.target.files;
+            let len = vFiles.length;
+            let item = {
+                name: vFiles[0].name,
+                uploadPercentage: 1,
+                size: this.formatFileSize(vFiles[0].size, 0)
+            }
+            let param = new FormData();
+            param.append("name","video");
+            param.append("file",vFiles[0]);
+            let reader=new FileReader();
+            reader.readAsDataURL(vFiles[0]);
+            reader.onload=e=>{
+                this.fileReader.video.push(e.currentTarget.result)
+            }
+        }
     }
 }
 </script>
@@ -209,6 +271,20 @@ export default {
                 img{
                     width: 70px;
                     height: 70px;
+                }
+                .uploadContainer{
+                    position: relative;
+                    width: 70px;
+                    height: 70px;
+                    input[type="file"]{
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
                 }
             }
         }
