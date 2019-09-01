@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -23,7 +24,16 @@ public class TradeServiceImpl implements TradeService {
      * @param studentId
      * @return
      */
-    public List<Trade> myTradeGoods(Integer studentId){
-        return tradeDao.myTradeGoods(studentId);
+    public List<Trade> myTradeGoods(Map<String,Integer> map){
+        return tradeDao.myTradeGoods(map);
+    }
+
+    /**
+     * 根据学生账户获取此学生发布的正在交易的商品（闲置，租赁，寻求和赠送）的总数量
+     * @param map
+     * @return
+     */
+    public Integer myTradingGoodsNums(Map<String,Integer> map){
+        return tradeDao.myTradingGoodsNums(map);
     }
 }

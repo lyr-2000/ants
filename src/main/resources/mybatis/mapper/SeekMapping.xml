@@ -3,11 +3,21 @@
 <mapper namespace="com.ants.dao.SeekDao">
 
     <!--根据学生账户获取此学生发布的寻求的商品,我的寻求-->
-    <select id="mySeekGoods" resultType="com.ants.entity.Seek" parameterType="Integer">
+    <select id="mySeekGoods" resultType="com.ants.entity.Seek" parameterType="Map">
         SELECT goodsId,goodsName,goodsPicture,
                goodsPrice,goodsState,uploadTime,repertory
                   FROM ants_goods_seek
                       WHERE goodsBelong = #{goodsBelong}
+                        LIMIT #{head},#{tail}
+    </select>
+
+    <!--根据学生账户获取此学生发布的寻求的商品的总数量-->
+    <select id="mySeekGoodsNums" parameterType="Integer" resultType="Integer">
+      SELECT COUNT(*)
+                FROM ants_goods_seek
+                    WHERE goodsBelong=#{goodsBelong}
+
+
     </select>
 
     <!--添加新寻求商品,发布寻求-->

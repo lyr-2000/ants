@@ -3,11 +3,21 @@
 <mapper namespace="com.ants.dao.SellDao">
 
     <!--根据学生学号获取此学生账号下的所交易完成的商品，包括闲置，租赁和赠送-->
-    <select id="mySellGoods" resultType="com.ants.entity.Sell" parameterType="Integer">
+    <select id="mySellGoods" resultType="com.ants.entity.Sell" parameterType="Map">
         SELECT goodsId,goodsName,goodsPicture,
                goodsPrice,goodsState,sellTime,numbers
                   FROM ants_other_sell
-                      WHERE goodsBelong = #{goodsBelong}
+                      WHERE goodsBelong = #{goodsBelong} AND goodsState = #{goodsState}
+                        LiMIT #{head},#{tail}
+    </select>
+
+    <!--根据学生账户获取此学生发布的已经交易完成的商品（闲置，租赁，赠送）的总数量-->
+    <select id="mySellGoodsNums" parameterType="Map" resultType="Integer">
+      SELECT COUNT(*)
+                FROM ants_other_sell
+                    WHERE goodsBelong=#{goodsBelong} AND goodsState = #{goodsState}
+
+
     </select>
 
 

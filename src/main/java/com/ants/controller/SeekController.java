@@ -41,7 +41,7 @@ public class SeekController {
         Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
 
         //获取此账号下寻求的所有物品信息，我的寻求
-        List<Seek> seekList = seekService.mySeekGoods(studentId);
+        List<Seek> seekList = null;//seekService.mySeekGoods(studentId);
 
         seekGoods.put("seekList",seekList);
 

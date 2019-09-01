@@ -47,5 +47,13 @@
 
 	</select>
 
+	<!--编辑我的资料，然后保存个人信息-->
+	<update id="saveStuMessage" parameterType="com.ants.entity.Student">
+		UPDATE  ants_user_base
+				SET  userName = #{userName},mobilePhone = #{mobilePhone},
+					 address = #{address},portrait = #{portrait},
+					 userWechat = #{userWechat},userQQ = #{userQQ}
+					   WHERE studentId = #{studentId}
+	</update>
 
 </mapper>

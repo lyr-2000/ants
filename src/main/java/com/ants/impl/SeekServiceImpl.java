@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -23,8 +24,18 @@ public class SeekServiceImpl implements SeekService {
      * @param studentId
      * @return
      */
-    public List<Seek> mySeekGoods(Integer studentId){
-        return seekDao.mySeekGoods(studentId);
+    public List<Seek> mySeekGoods(Map<String,Integer> map){
+        return seekDao.mySeekGoods(map);
+    }
+
+
+    /**
+     * 根据学生账户获取此学生发布的寻求的商品的总数量
+     * @param studentId
+     * @return
+     */
+    public Integer mySeekGoodsNums(Integer studentId){
+        return seekDao.mySeekGoodsNums(studentId);
     }
 
     /**

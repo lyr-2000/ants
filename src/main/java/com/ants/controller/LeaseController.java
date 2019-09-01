@@ -97,7 +97,7 @@ public class LeaseController {
         Integer studentId = 2;//(Integer)request.getSession().getAttribute("studentId");
 
         //获取此账号下租赁的所有物品信息
-        List<Lease> leaseList = leaseService.myLeaseGoods(studentId);
+        List<Lease> leaseList = null;//leaseService.myLeaseGoods(studentId);
 
         leaseGoods.put("leaseList",leaseList);
 

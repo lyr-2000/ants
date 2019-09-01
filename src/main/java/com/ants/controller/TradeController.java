@@ -1,7 +1,6 @@
 package com.ants.controller;
 
-import com.ants.entity.Sell;
-import com.ants.entity.Trade;
+import com.ants.entity.*;
 import com.ants.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,22 +24,125 @@ public class TradeController {
     private TradeService tradeService;
 
     /**
-     * 根据学生学号获取此账号下正在交易的商品，包括闲置，租赁和赠送
+     * 根据学生学号获取此账号下正在交易的商品，包括闲置，租赁，寻求和赠送
      * @param request
+     * @param state
+     * @param currentPage
      * @return
      */
     @RequestMapping(value = "/myTradeGoods",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List<Trade>> myTradeGoods(HttpServletRequest request){
-        Map<String,List<Trade>> tradeGoods = new HashMap<>();
+    public Map myTradeGoods(HttpServletRequest request,int state,
+                            Integer currentPage){
+        Map tradeGoods = new HashMap<>();
+
+        //设置map用来保存myTradeGoods方法中的参数信息
+        Map<String, Integer> parameterMap = new HashMap();
+
+        //设置map用来保存myTradingGoodsNums方法中的参数信息
+        Map<String, Integer> paramMap = new HashMap();
+
 
         //获取学生的学号，即登录此账户的用户
         Integer studentId = 2;//(Integer)request.getSession().getAttribute("studentId");
 
-        //获取此账号下所有正在交易中的所有的闲置，租赁和赠送的商品
-        List<Trade> listTrade = tradeService.myTradeGoods(studentId);
+        //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
+        int head = (currentPage - 1) * 8;
 
-        tradeGoods.put("listSell",listTrade);
+        //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
+        int tail = head + 8;
+
+
+        //保存myTradeGoods参数信息
+        parameterMap.put("goodsBelong", studentId);
+        parameterMap.put("head", head);
+        parameterMap.put("tail", tail);
+
+        //保存myTradingGoodsNums参数信息
+        paramMap.put("goodsBelong", studentId);
+
+
+
+
+        //保存此账号下闲置的所有物品信息
+        List<Trade> idleList = null;
+
+        //保存此账号下租赁的所有物品信息
+        List<Trade> leaseList = null;
+
+        //保存此账号下赠送的所有物品信息
+        List<Trade> giveList = null;
+
+        //保存此账号下寻求的所有物品信息，我的寻求
+        List<Trade> seekList = null;
+
+        //获取正在交易中的商品数量
+        int goodsNumbers = 0;
+
+
+
+        switch (state) {
+
+            case 1:
+                //设置商品为正在交易中的闲置商品
+                parameterMap.put("goodsState", 1);
+                paramMap.put("goodsState", 1);
+
+                //获取此账号下闲置的所有物品信息
+                idleList = tradeService.myTradeGoods(parameterMap);
+
+                //获取此账号下的闲置商品的全部数量
+                goodsNumbers = tradeService.myTradingGoodsNums(paramMap);
+                break;
+
+            case 2:
+                //设置商品为正在交易中的租赁商品
+                parameterMap.put("goodsState", 2);
+                paramMap.put("goodsState", 2);
+
+                //获取此账号下租赁的所有物品信息
+                leaseList = tradeService.myTradeGoods(parameterMap);
+
+                //获取此账号下的租赁商品的全部数量
+                goodsNumbers = tradeService.myTradingGoodsNums(paramMap);
+                break;
+
+
+            case 3:
+                //设置商品为正在交易中的寻求商品
+                parameterMap.put("goodsState", 3);
+                paramMap.put("goodsState", 3);
+
+                //获取此账号下寻求的所有物品信息
+                seekList = tradeService.myTradeGoods(parameterMap);
+
+                //获取此账号下的寻求商品的全部数量
+                goodsNumbers = tradeService.myTradingGoodsNums(paramMap);
+                break;
+
+
+            case 4:
+                //设置商品为正在交易中的赠送商品
+                parameterMap.put("goodsState", 4);
+                paramMap.put("goodsState", 4);
+
+                //获取此账号下赠送的所有物品信息
+                giveList = tradeService.myTradeGoods(parameterMap);
+
+                //获取此账号下的赠送商品的全部数量
+                goodsNumbers = tradeService.myTradingGoodsNums(paramMap);
+                break;
+        }
+
+
+        //获取总页数
+        int allPage = (goodsNumbers / 8) + 1;
+
+        tradeGoods.put("allPage",allPage);
+        tradeGoods.put("giveList", giveList);
+        tradeGoods.put("leaseList", leaseList);
+        tradeGoods.put("idleList", idleList);
+        tradeGoods.put("seekList", seekList);
 
         return tradeGoods;
     }

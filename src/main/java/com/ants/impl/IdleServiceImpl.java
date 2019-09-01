@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -20,9 +21,20 @@ public class IdleServiceImpl implements IdleService {
 
     /**
      * 根据学生账户获取此学生发布的闲置的商品
+     * @param map
      * @return
      */
-    public List<Goods> myIdleGoods(Integer studentId){
-        return idleDao.myIdleGoods(studentId);
+    public List<Goods> myIdleGoods(Map<String,Integer> map){
+        return idleDao.myIdleGoods(map);
+    }
+
+
+    /**
+     * 根据学生账户获取此学生发布的闲置的商品的总数量
+     * @param studentId
+     * @return
+     */
+    public Integer myIdleGoodsNums(Integer studentId){
+        return idleDao.myIdleGoodsNums(studentId);
     }
 }

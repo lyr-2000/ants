@@ -20,7 +20,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/ants/tradeCase")
-public class TradeCaseController {
+public class ShopController {
 
     @Autowired
     private ShopService shopService;

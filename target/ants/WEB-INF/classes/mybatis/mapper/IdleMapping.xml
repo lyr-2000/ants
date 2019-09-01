@@ -3,13 +3,23 @@
 <mapper namespace="com.ants.dao.IdleDao">
 
     <!--根据学生账户获取此学生发布的闲置的商品-->
-    <select id="myIdleGoods" parameterType="Integer" resultType="com.ants.entity.Goods">
+    <select id="myIdleGoods" parameterType="Map" resultType="com.ants.entity.Goods">
       SELECT goodsId,goodsName,goodsPicture,
              goodsPrice,uploadTime,goodsState,repertory
+                FROM ants_goods_base
+                    WHERE goodsBelong=#{goodsBelong}
+                      LIMIT #{head},#{tail}
+
+    </select>
+
+    <!--根据学生账户获取此学生发布的闲置的商品的总数量-->
+    <select id="myIdleGoodsNums" parameterType="Integer" resultType="Integer">
+      SELECT COUNT(*)
                 FROM ants_goods_base
                     WHERE goodsBelong=#{goodsBelong}
 
 
     </select>
+
 
 </mapper>

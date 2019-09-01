@@ -4,6 +4,7 @@ import com.ants.entity.Give;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -21,8 +22,15 @@ public interface GiveDao {
 
     /**
      * 根据学生账户获取此学生发布的赠送的商品
+     * @param map
+     * @return
+     */
+    public List<Give> myGiveGoods(Map<String,Integer> map);
+
+    /**
+     * 根据学生账户获取此学生发布的赠送的商品的总数量
      * @param studentId
      * @return
      */
-    public List<Give> myGiveGoods(Integer studentId);
+    public Integer myGiveGoodsNums(Integer studentId);
 }

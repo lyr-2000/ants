@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -22,8 +23,18 @@ public class LeaseServiceImpl implements LeaseService {
      * 根据学生账户获取此学生发布的租赁的商品
      * @return
      */
-    public List<Lease> myLeaseGoods(Integer studentId){
-        return leaseDao.myLeaseGoods(studentId);
+    public List<Lease> myLeaseGoods(Map<String,Integer> map){
+
+        return leaseDao.myLeaseGoods(map);
+    }
+
+    /**
+     * 根据学生账户获取此学生发布的租赁的商品的总数量
+     * @param studentId
+     * @return
+     */
+    public Integer myLeaseGoodsNums(Integer studentId){
+        return leaseDao.myLeaseGoodsNums(studentId);
     }
 
     /**

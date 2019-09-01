@@ -17,7 +17,15 @@ public interface LeaseDao {
      * 根据学生账户获取此学生发布的租赁的商品
      * @return
      */
-    public List<Lease> myLeaseGoods(Integer studentId);
+    public List<Lease> myLeaseGoods(Map<String,Integer> map);
+
+
+    /**
+     * 根据学生账户获取此学生发布的租赁的商品的总数量
+     * @param studentId
+     * @return
+     */
+    public Integer myLeaseGoodsNums(Integer studentId);
 
     /**
      * 添加新租赁商品,发布租赁

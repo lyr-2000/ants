@@ -1,5 +1,11 @@
 package com.ants.util;
 
+import com.sun.javafx.collections.MappingChange;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * @Author 晨边啊啊#CB
  * @Date:created in  2019/8/22 20:49
@@ -9,12 +15,23 @@ package com.ants.util;
 public class test {
 
     public static void main(String[] args) {
-        SensitiveFilter filter = SensitiveFilter.DEFAULT;
-        String sentence = "我操你妈";
-        String filted = filter.filter(sentence, '*');
-        if(sentence != filted){
-            // 句子中有敏感词
-            System.out.println(filted);
+        int[] dormitory = {901, 902, 903, 904, 906};
+        Set<Integer> result = new HashSet<>();
+
+
+        while (true){
+            int index = (int) (Math.random() * 5);
+            result.add(dormitory[index]);
+            if (result.size() == 2){
+                break;
+            }
         }
+
+        Iterator iterator = result.iterator();
+        while (iterator.hasNext()){
+            System.out.println("被抽到的宿舍号为："+iterator.next());
+        }
+
+
     }
 }

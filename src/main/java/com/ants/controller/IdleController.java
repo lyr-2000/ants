@@ -144,7 +144,7 @@ public class IdleController {
         Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
 
         //获取此账号下闲置的所有物品信息
-        List<Goods> idleList = idleService.myIdleGoods(studentId);
+        List<Goods> idleList = null;//idleService.myIdleGoods(studentId,1,2);
 
         idleGoods.put("idleList",idleList);
 

@@ -97,7 +97,7 @@ public class GiveController {
         Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
 
         //获取此账号下赠送的所有物品信息
-        List<Give> giveList = giveService.myGiveGoods(studentId);
+        List<Give> giveList = null;//giveService.myGiveGoods(studentId);
 
         giveGoods.put("giveGoods",giveList);
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author czd
@@ -29,10 +30,19 @@ public class GiveServiceImpl implements GiveService {
 
     /**
      * 根据学生账户获取此学生发布的赠送的商品
+     * @param map
+     * @return
+     */
+    public List<Give> myGiveGoods(Map<String,Integer> map){
+        return giveDao.myGiveGoods(map);
+    }
+
+    /**
+     * 根据学生账户获取此学生发布的赠送的商品的总数量
      * @param studentId
      * @return
      */
-    public List<Give> myGiveGoods(Integer studentId){
-        return giveDao.myGiveGoods(studentId);
+    public Integer myGiveGoodsNums(Integer studentId){
+        return giveDao.myGiveGoodsNums(studentId);
     }
 }

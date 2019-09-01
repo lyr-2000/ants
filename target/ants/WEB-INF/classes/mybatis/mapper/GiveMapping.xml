@@ -14,13 +14,21 @@
     </insert>
 
     <!--根据学生账户获取此学生发布的赠送的商品-->
-    <select id="myGiveGoods" parameterType="Integer" resultType="com.ants.entity.Give">
+    <select id="myGiveGoods" parameterType="Map" resultType="com.ants.entity.Give">
       SELECT goodsId,goodsName,goodsPicture,
              goodsPrice,uploadTime,goodsState,repertory
+                FROM ants_goods_give
+                    WHERE goodsBelong=#{goodsBelong}
+                      LIMIT #{head},#{tail}
+
+    </select>
+
+    <!--根据学生账户获取此学生发布的闲置的商品的总数量-->
+    <select id="myGiveGoodsNums" parameterType="Integer" resultType="Integer">
+      SELECT COUNT(*)
                 FROM ants_goods_give
                     WHERE goodsBelong=#{goodsBelong}
 
 
     </select>
-
 </mapper>
