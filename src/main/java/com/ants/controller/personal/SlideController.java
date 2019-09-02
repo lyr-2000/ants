@@ -25,17 +25,25 @@ import java.util.Map;
  * @version: 1.0
  */
 @Controller
-@RequestMapping(value = "/SlideCode")
+@RequestMapping("/slideCode")
 public class SlideController extends HttpServlet {
+
+
+    @RequestMapping(value = "/slide", method = RequestMethod.GET)
+    @ResponseBody
+    public void get(){
+        System.out.println("assjkdashdgasj");
+    }
 
     /*
     登录获取首页的验证码
      */
-    @RequestMapping(value = "/slide", method = RequestMethod.POST)
+    @RequestMapping(value = "/slide")
     @ResponseBody
     protected void getSlideCode(HttpServletRequest request, HttpServletResponse response,ServletConfig config) {
         SlideCode.init(config.getServletContext());
-        String imgName = request.getParameter("imgName");
+        String imgName = request.getParameter("imgname");
+        System.out.println("访问到了1！！！！");
         /*
         如果前端给的图片名字为空字符串进行随机取样
          */

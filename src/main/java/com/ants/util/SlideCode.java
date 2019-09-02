@@ -55,9 +55,10 @@ public class SlideCode {
      * @param context
      */
     public static void init(ServletContext context) {
+        System.out.println("文件路径为:"+sourceImgPath);
         imgPath = context.getRealPath("/") + tempImg;
         sourceImgPath = context.getRealPath("/") + sourceImg;
-        System.out.println("文件路径为:"+sourceImgPath);
+
     }
 
     public SlideCode() {
