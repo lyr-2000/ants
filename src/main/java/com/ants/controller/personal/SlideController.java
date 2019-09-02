@@ -2,9 +2,11 @@ package com.ants.controller.personal;
 
 import com.alibaba.fastjson.JSON;
 import com.ants.util.SlideCode;
+import com.ants.util.editphoto;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +16,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -28,67 +33,70 @@ import java.util.Map;
 @RequestMapping("/slideCode")
 public class SlideController extends HttpServlet {
 
-
-    @RequestMapping(value = "/slide", method = RequestMethod.GET)
-    @ResponseBody
-    public void get(){
-        System.out.println("assjkdashdgasj");
-    }
-
     /*
     登录获取首页的验证码
      */
-    @RequestMapping(value = "/slide")
+    @RequestMapping(value = "/slide", method = RequestMethod.GET)
     @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response,ServletConfig config) {
-        SlideCode.init(config.getServletContext());
-        String imgName = request.getParameter("imgname");
-        System.out.println("访问到了1！！！！");
-        /*
-        如果前端给的图片名字为空字符串进行随机取样
-         */
-        if("".equals(imgName)){
-            File file = new File("../webapp/img/sourceImg");
-            String[] list = file.list();
-            String filename;
-            //获取随机图片， 每次获取到的图片与已有的图片要不同。
-            int randowval = RandomUtils.nextInt(list.length);
-            filename = list[randowval];
-            imgName = filename;
+    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) throws FileNotFoundException {
+        String imagename = request.getParameter("imgname");
+        System.out.println(imagename);
+        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+        if(!path.exists()) {
+            path = new File("");
         }
+        editphoto.init(request.getSession().getServletContext().getRealPath("") );
+
+        if(!StringUtils.isEmpty(imagename)){
+            imagename = imagename.substring(imagename.lastIndexOf("/")+1,imagename.lastIndexOf("png")+3);
+        }
+
         PrintWriter out = null;
-        try {
-            SlideCode resourceImg = new SlideCode();
-            Map<String, String> result = resourceImg.create(request, imgName);
+        try{
+            editphoto resourImg =new editphoto();
+            Map<String,String> result = resourImg.create(request,imagename);
             out = response.getWriter();
             response.setContentType("application/json-rpc;charset=UTF-8");
             out.println(JSON.toJSONString(result));
-            System.out.println(result);
-
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
-        } finally {
-            if (out != null) {
+        }finally {
+            if (out!=null){
                 out.close();
             }
         }
     }
 
-    /*
-     判断验证码是否正确
-    */
-    @RequestMapping(value = "/JudgeCode", method = RequestMethod.POST)
-    @ResponseBody
-    protected void JudgeCode(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/checkServlet")
+    public void checkCode(HttpServletResponse response, HttpServletRequest request) throws IOException {
         String point = request.getParameter("point");
         Integer location_x = (Integer) request.getSession().getAttribute("location_x");
+        HttpSession session = request.getSession();
         if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
             //说明验证通过，
-//            outData(response, "success");
+            session.setAttribute("status","验证成功");
+//            session.setAttribute();
+            outData(response, "success");
             System.out.println("验证通过");
         } else {
-//            outData(response, "error");
+            session.setAttribute("status","验证失败");
+            outData(response, "error");
             System.out.println("验证失败");
+        }
+    }
+
+    private void outData(HttpServletResponse response, Object data) throws IOException {
+        PrintWriter out = response.getWriter();
+        try {
+            out = response.getWriter();
+            response.setContentType("application/json-rpc;charset=UTF-8");
+            out.println(JSON.toJSONString(data));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(out != null) {
+                out.close();
+            }
         }
     }
 

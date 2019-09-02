@@ -1,7 +1,10 @@
 package com.ants.util;
 
 import com.sun.javafx.collections.MappingChange;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -14,24 +17,11 @@ import java.util.Set;
 
 public class test {
 
-    public static void main(String[] args) {
-        int[] dormitory = {901, 902, 903, 904, 906};
-        Set<Integer> result = new HashSet<>();
-
-
-        while (true){
-            int index = (int) (Math.random() * 5);
-            result.add(dormitory[index]);
-            if (result.size() == 2){
-                break;
-            }
-        }
-
-        Iterator iterator = result.iterator();
-        while (iterator.hasNext()){
-            System.out.println("被抽到的宿舍号为："+iterator.next());
-        }
-
-
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("../webapp/img/slideCode");
+       System.out.println( test.class.getClass().getResource("/").getPath());
+       System.out.println(ResourceUtils.getURL("classpath:").getPath());
+       System.out.println(Class.class.getClass().getResource("/").getPath());
+        System.out.println(file.length());
     }
 }

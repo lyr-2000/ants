@@ -37,8 +37,8 @@ public class editphoto {
     private static String imgPath = "";
     private static String sourceImgPath = "";
 
-    private static final String tempYzmImg = "/static/tempImg";
-    private static final String sourceYzmImg = "/static/sourceImg";
+    private static final String tempYzmImg = "img\\tempImg";
+    private static final String sourceYzmImg = "img\\slideCode";
 
     private static final int shadowWidth = 4; //阴影宽度
     private static final int lightHeightWidth = 5; //图片边缘亮色（黄色）宽度。
@@ -78,6 +78,7 @@ public class editphoto {
         //本地原始图片路径,
         File file = new File(sourceImgPath);
         String[] list = file.list();
+        System.out.println("长度:"+list.length);
         String filename;
         //获取随机图片， 每次获取到的图片与已有的图片要不同。
         while (true) {
