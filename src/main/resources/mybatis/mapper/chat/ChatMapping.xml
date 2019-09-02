@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.chat.ChatDao">
+
+    <select id="userQuery" resultType="com.ants.entity.chat.ChatUserBase">
+        select * from ants_user_base where studentId =#{id}
+    </select>
+
+    <select id="queryContactor" resultType="com.ants.entity.chat.ChatUtil">
+       select * from ants_chat_user where studentId =#{studentId} and contactor=#{contactor}
+    </select>
+
+    <insert id="insertcontactor" parameterType="com.ants.entity.chat.ChatUtil">
+        insert into ants_chat_user (studentId,contactor,contactorName,contactorAvatar) values (#{studentId},#{contactor},#{contactorName},#{contactorAvatar})
+    </insert>
+
+    <select id="queryAllContactor" resultType="com.ants.entity.chat.ChatContactor">
+       select contactor , contactorName ,contactorAvatar  from ants_chat_user where studentId = #{id}
+    </select>
+
+    <select id="queryInformation" resultType="String">
+       select information ,latestTime  from ants_chat_user where studentId = #{studentId} and contactor = #{contactor}
+    </select>
+
+    <update id="appendmsg" parameterType="com.ants.entity.chat.ChatContactor">
+        update ants_chat_user set information =concat(information,#{information}) ,latestTime = #{latestTime} where studentId = #{studentId} and contactor = #{contactor}
+    </update>
+
+</mapper>
