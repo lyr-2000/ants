@@ -32,7 +32,7 @@
             </li>
             <li>
                 <span class="infoLabel"></span>
-                <button class="saveBtn" @click="saveStuMsg(user)">确认保存</button>
+                <button class="saveBtn" @click="updateData()">确认保存</button>
             </li>
         </ul>
     </div>
@@ -44,7 +44,8 @@ import { mapGetters, mapActions } from "vuex"
 export default {
     data(){
         return{
-            avatar:''
+            avatar:'',
+            imgData:null
         }
     },
     computed:{
@@ -73,6 +74,15 @@ export default {
             param.append("name","avatar");
             param.append("file",aFiles[0]);
             this.uploadAvatar(param);
+            this.imgData=param;
+        },
+        // 提交个人资料
+        updateData(){
+            let data=user;
+            if(this.imgData!==null){
+                data.portrait=this.imgData;
+            }
+            saveStuMsg(data);
         }
     }
 }

@@ -78,7 +78,7 @@ export default {
             slideTip: false, // 验证码结果提示
             showCode: false, // 是否显示验证码
             imgSource: "",
-            sourceImgName: "",
+            sourceImgName: require("../../assets/img/ants/climb.png"),
             bigImgName: "",
             smallImgName: "",
             location_y: "0px",

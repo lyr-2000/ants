@@ -1,7 +1,6 @@
 import axios from 'axios'
 const namespaced = true;
 const state = {
-
     myInfo: ["个人资料", "我的物品", "发布物品", "收藏盒", "正在交易", "已交易的"],
     myGoods: {
         idleList: [{
@@ -457,7 +456,7 @@ const getters = {
 
 const mutations = {
     getUserMsg(state, res) {
-        state.user = res;
+        state.user = res.stuMessage;
     },
     saveStuMsg(state, res) {
         if (res.status === 'success') {
@@ -469,8 +468,17 @@ const mutations = {
     getGoods(state, res, pIndex) {
         state.myGoods[pIndex] = res;
     },
-    getMyGoods(state, res) {
-        state.myGoods = res
+    getMyGoods(state, res, gState) {
+        if (gState === 1) {
+            state.myGoods.idleList = res.idleList;
+        } else if (gState === 2) {
+            state.myGoods.leaseList = res.leaseList;
+        } else if (gState === 3) {
+            state.myGoods.seekList = res.seekList;
+        } else if (gState === 4) {
+            state.myGoods.giveList = res.giveList;
+        }
+
     },
     releaseGoods(res) {
         if (res === 'success') {
@@ -515,10 +523,13 @@ const actions = {
             })
     },
     // 获取我的物品
-    getMyGoods({ commit }) {
-        axios.post("/ants/student/myTradingSituation")
+    getMyGoods({ commit }, gState, cPage) {
+        axios.post("/ants/student/myTradingSituation", {
+                state: gState,
+                currentPage: cPage
+            })
             .then(res => {
-                commit('getMyGoods', res.data)
+                commit('getMyGoods', res.data, gState)
             }).catch(err => {
                 console.log(`can't request the data for ${err}`)
             })
@@ -565,7 +576,7 @@ const actions = {
         } else if (type === "") {
             url = ""
         }
-        axios.post('url', param, config)
+        axios.post(url, param, config)
             .then(res => {
                 commit('uploadAvatar', res.data)
             }).catch(err => {

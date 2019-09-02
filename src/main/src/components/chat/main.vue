@@ -79,8 +79,8 @@ export default {
             }
             let param=new FormData();
             param.append("name",item.name);
-            param.append("file",file[0]);
-            uploadFile(item, param)
+            param.append("file",files[0]);
+            this.uploadFile(item, param)
         },
         // 格式化文件大小
         formatFileSize: function (fileSize, idx) {
