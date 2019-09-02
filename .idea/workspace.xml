@@ -6,202 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab33a3dc-2d09-4676-bc59-71b3a975132b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/slideCode/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/slideCode/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/slideCode/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/slideCode/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/slideCode/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ants_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ants_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/META-INF/ants.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/ChatController/ChatRoomController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/ChatController/HandshakeInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/ChatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/classification/ClassifyController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/give/GiveController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/idle/IdleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/lease/LeaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/page/DataRenderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/page/GoodsController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/personal/SlideController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/personal/StudentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/personal/SystemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/seek/SeekController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/sell/SellController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/shop/ShopController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/controller/trade/TradeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/announcement/AnnouncementDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/chat/ChatDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/chat/ChatOfflineDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/classification/ClassifyDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/give/GiveDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/idle/IdleDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/lease/LeaseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/page/GoodsDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/personal/StudentDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/seek/SeekDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/sell/SellDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/shop/ShopDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/dao/trade/TradeDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/announcement/Announcement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/chat/ChatContactor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/chat/ChatOffline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/chat/ChatUserBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/chat/ChatUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/classification/ChildClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/classification/ParentClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/give/Give.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/lease/Lease.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/page/Goods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/personal/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/seek/Seek.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/sell/Sell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/shop/Shop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/entity/trade/Trade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/annoucement/AnnouncementServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/chat/ChatOfflineServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/chat/ChatServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/classification/ClassifyServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/give/GiveServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/idle/IdleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/lease/LeaseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/page/GoodsServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/personal/StudentServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/seek/SeekServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/sell/SellServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/shop/ShopServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/impl/trade/TradeServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/announcement/AnnouncementService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/chat/ChatOfficelineService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/chat/ChatService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/classification/ClassifyService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/give/GiveService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/idle/IdleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/lease/LeaseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/page/GoodsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/personal/StudentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/seek/SeekService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/sell/SellService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/shop/ShopService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/service/trade/TradeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/CpachaUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/SensitiveFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/SensitiveNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/ShopIdUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/SlideCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/StringPointer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/TokenProccessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/TryingToLogin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/Upload.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/editphoto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/com/ants/util/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/announcement/Announcement.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/chat/ChatMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/chat/ChatOfflineMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/classification/ClassifyMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/give/GiveMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/idle/IdleMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/lease/LeaseMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/page/GoodsMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/personal/StudentMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/seek/SeekMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/sell/SellMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/shop/ShopMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mapper/trade/TradeMapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/mybatis/mybatisConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/properties/db.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/properties/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/sensi_words.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/spring/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/classes/springmvc/springmvc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/c3p0-0.9.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-codec-1.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-dbcp-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-fileupload-1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-io-2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-lang-2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/commons-logging-1.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/fastjson-1.2.35.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/gson-2.8.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/jackson-core-asl-1.9.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/javax.mail-1.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/jsqlparser-0.9.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/junit-4.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/logback-classic-1.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/logback-core-1.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/mybatis-3.2.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/mybatis-spring-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.30.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/pagehelper-4.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/slf4j-api-1.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-aop-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-beans-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-context-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-core-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-expression-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-test-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-tx-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-web-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/lib/spring-websocket-5.1.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/css/app.783f932a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/404.bc0bccb0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/ants.1ef2ebf6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/banner.f159a691.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/behindCloud.c34c639f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/blueBg.03ebd2fb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/climb.b791dd16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/cosmetics.8d88b75e.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/eye-rBg.d42bf62a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/eye-wBg.bac86250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/fail.93897a8a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/fish1.9ac95785.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/fish2.886f6266.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/foot_icon1.74c3ddca.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/foot_icon2.e47e8c36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/foot_icon3.8d7ddbd7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/frontCloud.890f3410.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/img-after.b43c5411.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/img-before.90b9a9ce.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/left_icon.dbcdcfd5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/middleCloud.517de0d6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/playImg1.a4b6cfde.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/seaBehind.9e618b88.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/seaFront.c272a891.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/shop1.ed80828c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/shop2.f9dd953c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/shop3.8c49dec1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/singleStar.35fdca6f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/slideBlock.1b371f1e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/success.45b7824a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/test1.8c49dec1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/img/tipTop.6db97552.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/js/app.33e732cf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/js/app.33e732cf.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/js/chunk-vendors.1213d16d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ants_war_exploded/js/chunk-vendors.1213d16d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/util/editphoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/util/editphoto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/util/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/util/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ants/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/util/SlideCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/util/SlideCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/springmvc/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/springmvc/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ants/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SlideController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SlideController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/editphoto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/editphoto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/test.class" afterDir="false" />
-    </list>
+    <list default="true" id="ab33a3dc-2d09-4676-bc59-71b3a975132b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -215,25 +20,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+            <state relative-caret-position="270">
+              <caret line="78" column="41" lean-forward="true" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/img/fail.93897a8a.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/page/DataRenderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-382">
+              <caret line="42" column="38" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="38" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/editphoto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+            <state relative-caret-position="101">
+              <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -669,7 +478,7 @@
       <workItem from="1567151833803" duration="3792000" />
       <workItem from="1567299718425" duration="15546000" />
       <workItem from="1567346870071" duration="2088000" />
-      <workItem from="1567444005578" duration="2227000" />
+      <workItem from="1567444005578" duration="2487000" />
     </task>
     <task id="LOCAL-00001" summary="整合">
       <created>1567151153039</created>
@@ -703,7 +512,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62735000" />
+    <option name="totallyTimeSpent" value="62995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -715,27 +524,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8361204" visible="true" weight="0.2627346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83557045" visible="true" weight="0.2627346" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.1638796" side_tool="true" visible="true" weight="0.2627346" />
+      <window_info id="Web" order="7" sideWeight="0.16442953" side_tool="true" visible="true" weight="0.2627346" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1529745" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44050992" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.39235127" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.15580736" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
@@ -835,13 +644,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/page/DataRenderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1033,17 +835,24 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/img/middleCloud.517de0d6.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/editphoto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+        <state relative-caret-position="101">
+          <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/editphoto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/page/DataRenderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+        <state relative-caret-position="-382">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="78" column="41" lean-forward="true" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="41" />
         </state>
       </provider>
     </entry>
