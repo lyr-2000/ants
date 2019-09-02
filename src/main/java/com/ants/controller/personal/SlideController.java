@@ -25,18 +25,13 @@ import java.util.Map;
  * @version: 1.0
  */
 @Controller
-@RequestMapping(value = "/ants/code")
+@RequestMapping(value = "/SlideCode")
 public class SlideController extends HttpServlet {
-
-    public void SlideController(ServletConfig config) throws ServletException{
-
-        System.out.println("走到这了啦拉拉！！");
-    }
 
     /*
     登录获取首页的验证码
      */
-    @RequestMapping(value = "/SlideCode", method = RequestMethod.POST)
+    @RequestMapping(value = "/slide", method = RequestMethod.POST)
     @ResponseBody
     protected void getSlideCode(HttpServletRequest request, HttpServletResponse response,ServletConfig config) {
         SlideCode.init(config.getServletContext());
