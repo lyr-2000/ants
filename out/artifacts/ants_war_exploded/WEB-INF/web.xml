@@ -69,6 +69,7 @@
     <url-pattern>*.json</url-pattern>
     <url-pattern>*.css</url-pattern>
     <url-pattern>*.html</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <!--<error-page>-->

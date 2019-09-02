@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletRequest;
  **/
 //访问聊天界面的controller
 @Controller
+@RequestMapping("/ants")
 public class ChatController {
 
-    @RequestMapping("/hello")
+   @RequestMapping("/hello")
     public String getString(HttpServletRequest request){
         System.out.println("11111");
         request.getSession().setAttribute("user","陈彬");
-        return "index.html";
+        return "index";
     }
-
 
 }
