@@ -39,34 +39,30 @@ public class SlideController extends HttpServlet {
      */
     @RequestMapping(value = "/slide", method = RequestMethod.GET)
     @ResponseBody
-    protected void getSlideCode(HttpServletRequest request, HttpServletResponse response) throws FileNotFoundException {
+    protected Map getSlideCode(HttpServletRequest request, HttpServletResponse response) throws FileNotFoundException {
         String imagename = request.getParameter("imgname");
         System.out.println(imagename);
         File path = new File(ResourceUtils.getURL("classpath:").getPath());
-        if(!path.exists()) {
+        if (!path.exists()) {
             path = new File("");
         }
-        editphoto.init(request.getSession().getServletContext().getRealPath("") );
+        editphoto.init(request.getSession().getServletContext().getRealPath(""));
 
-        if(!StringUtils.isEmpty(imagename)){
-            imagename = imagename.substring(imagename.lastIndexOf("/")+1,imagename.lastIndexOf("png")+3);
+        if (!StringUtils.isEmpty(imagename)) {
+            imagename = imagename.substring(imagename.lastIndexOf("/") + 1, imagename.lastIndexOf("png") + 3);
         }
-
-        PrintWriter out = null;
-        try{
-            editphoto resourImg =new editphoto();
-            Map<String,String> result = resourImg.create(request,imagename);
-            out = response.getWriter();
+        Map<String, String> result = null;
+        try {
+            editphoto resourImg = new editphoto();
+            result = resourImg.create(request, imagename);
             response.setContentType("application/json-rpc;charset=UTF-8");
-            out.println(JSON.toJSONString(result));
-        }catch (Exception e){
+
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if (out!=null){
-                out.close();
-            }
         }
+        return result;
     }
+
 
     @RequestMapping(value = "/checkServlet",method = RequestMethod.POST)
     public void checkCode(HttpServletResponse response, HttpServletRequest request) throws IOException {
