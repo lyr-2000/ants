@@ -10,6 +10,7 @@ import com.ants.service.idle.IdleService;
 import com.ants.service.lease.LeaseService;
 import com.ants.service.personal.StudentService;
 import com.ants.service.seek.SeekService;
+import com.ants.util.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,14 +69,15 @@ public class StudentController {
 
     /**
      * 编辑我的资料，然后保存个人信息
-     *
+     * @param portrait
      * @param student
      * @param request
      * @return
      */
     @RequestMapping(value = "/saveStuMessage", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> saveStuMessage(Student student,
+    public Map<String, String> saveStuMessage(//@RequestParam MultipartFile portrait,
+                                              Student student,
                                               HttpServletRequest request
     ) {
         Map<String, String> stuMessage = new HashMap<>();
@@ -88,10 +90,13 @@ public class StudentController {
         //保存编辑好的我的资料的信息，将其添加到数据库中
         int result = studentService.saveStuMessage(student);
 
+        //上传图片
+//        uploadIdle = Upload.uploadPhoto(portrait, request);
+
         if (result > 0) {
-            stuMessage.put("status", "success");
+            stuMessage.put("saveStatus", "success");
         } else {
-            stuMessage.put("status", "fail");
+            stuMessage.put("saveStatus", "fail");
         }
         return stuMessage;
     }
@@ -103,14 +108,14 @@ public class StudentController {
      * 举例：当state为1（代表我的闲置），后端返回数据中我的闲置那一块存在数据，其他部分的数据为空
      *
      * @param request
-     * @param state
+     * @param type
      * @param currentPage
      * @return
      */
     @RequestMapping(value = "/myTradingSituation", method = RequestMethod.GET)
     @ResponseBody
     public Map myTradingSituation(HttpServletRequest request,
-                                  int state,
+                                  int type,
                                   int currentPage) {
         Map goodsList = new HashMap();
 
@@ -145,7 +150,7 @@ public class StudentController {
 
         int goodsNumbers = 0;
 
-        switch (state) {
+        switch (type) {
 
             case 1:
                 //获取此账号下闲置的所有物品信息

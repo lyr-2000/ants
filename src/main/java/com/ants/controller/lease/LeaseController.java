@@ -71,9 +71,9 @@ public class LeaseController {
         //将商品信息添加到数据库中
         int result = leaseService.addLeaseGoods(lease);
         if (result > 0) {
-            uploadLease.put("status", "success");
+            uploadLease.put("releaseStatus", "success");
         } else {
-            uploadLease.put("status", "fail");
+            uploadLease.put("releaseStatus", "fail");
         }
 
 

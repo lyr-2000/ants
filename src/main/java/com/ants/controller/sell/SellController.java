@@ -29,14 +29,16 @@ public class SellController {
      * state 中 1代表我的闲置，2代表我的租赁，3代表我的赠送
      * 举例：当state为1（代表我的闲置），后端返回数据中我的闲置那一块存在数据，其他部分的数据为空
      * @param request
-     * @param state
+     * @param type
      * @param currentPage
      * @return
      */
     @RequestMapping(value = "/mySellGoods",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List<Sell>> mySellGoods(HttpServletRequest request,int state,
-                                               Integer currentPage){
+    public Map<String, List<Sell>> mySellGoods(HttpServletRequest request,
+                                               int type,
+                                               Integer currentPage
+    ){
         //用来存放最后返回给前端的数据
         Map sellGoods = new HashMap<>();
 
@@ -83,7 +85,7 @@ public class SellController {
 
 
 
-        switch (state) {
+        switch (type) {
 
             case 1:
                 //设置商品为正在交易中的闲置商品

@@ -69,9 +69,9 @@ public class GiveController {
         //将商品信息添加到数据库中
         int result = giveService.addGiveGoods(give);
         if (result > 0) {
-            uploadGive.put("status", "success");
+            uploadGive.put("releaseStatus", "success");
         } else {
-            uploadGive.put("status", "fail");
+            uploadGive.put("releaseStatus", "fail");
         }
 
 

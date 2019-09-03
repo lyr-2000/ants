@@ -90,9 +90,9 @@ public class SeekController {
         //将商品信息添加到数据库中
         int result = seekService.addSeekGoods(seek);
         if (result > 0) {
-            uploadSeek.put("status", "success");
+            uploadSeek.put("releaseStatus", "success");
         } else {
-            uploadSeek.put("status", "fail");
+            uploadSeek.put("releaseStatus", "fail");
         }
 
 

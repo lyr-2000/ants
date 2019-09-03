@@ -79,9 +79,9 @@ public class IdleController {
         //将商品信息添加到数据库中
         int result = goodsService.addGoods(goods);
         if (result > 0) {
-            uploadIdle.put("status", "success");
+            uploadIdle.put("releaseStatus", "success");
         } else {
-            uploadIdle.put("status", "fail");
+            uploadIdle.put("releaseStatus", "fail");
         }
 
 
@@ -93,18 +93,18 @@ public class IdleController {
 
     /**
      * 动态获取大分类信息，根据大分类对应ID获取小分类的信息
-     * @param state
+     * @param classifyStatus
      * @param request
      * @return
      */
     @RequestMapping(value = "/getClass", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List> getClassifyParentAndChild(@RequestParam(value = "state") int state,
+    public Map<String, List> getClassifyParentAndChild(@RequestParam(value = "classifyStatus") int classifyStatus,
                                                        HttpServletRequest request) {
         Map<String, List> data = new HashMap<>();
 
         //根据状态判断是获取父类分类信息还是子类分类信息，1代表父类，2代表子类
-        switch (state) {
+        switch (classifyStatus) {
             case 1:
                 //将父类的分类情况发送到前端界面
                 List<ParentClass> parentClasses = classifyService.parentClassificationHasOthers();

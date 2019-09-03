@@ -26,13 +26,14 @@ public class TradeController {
     /**
      * 根据学生学号获取此账号下正在交易的商品，包括闲置，租赁，寻求和赠送
      * @param request
-     * @param state
+     * @param type
      * @param currentPage
      * @return
      */
     @RequestMapping(value = "/myTradeGoods",method = RequestMethod.GET)
     @ResponseBody
-    public Map myTradeGoods(HttpServletRequest request,int state,
+    public Map myTradeGoods(HttpServletRequest request,
+                            int type,
                             Integer currentPage){
         Map tradeGoods = new HashMap<>();
 
@@ -81,7 +82,7 @@ public class TradeController {
 
 
 
-        switch (state) {
+        switch (type) {
 
             case 1:
                 //设置商品为正在交易中的闲置商品
