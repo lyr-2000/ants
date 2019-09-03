@@ -29,13 +29,13 @@ public class ShopController {
     /**
      * 根据此学生账号获取交易箱内的“我想买”和“我想卖”的商品的内容列表信息
      * @param request
-     * @param buyOrSell 查看状态,0 为我想买，1 为我想卖
+     * @param type 查看状态,0 为我想买，1 为我想卖
      * @return
      */
     @RequestMapping(value = "/myCaseGoods",method = RequestMethod.GET)
     @ResponseBody
     public Map tradingCase(HttpServletRequest request,
-                                               Integer buyOrSell,
+                                               Integer type,
                                                Integer currentPage
     ){
         //存放最后返回给前端数据信息的map
@@ -79,7 +79,7 @@ public class ShopController {
         //获取正在交易中的商品数量
         int goodsNumbers = 0;
 
-        switch (buyOrSell){
+        switch (type){
             case 0:
                 //设置商品为我想买商品
                 parameterMap.put("status",0);
