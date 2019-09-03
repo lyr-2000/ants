@@ -49,7 +49,7 @@
         </li>
         <li class="upload">
             <span class="goodsLabel">上传照片</span>
-            <div class="uploadContainer" v-for="img in fileReader.img">
+            <div class="uploadContainer" v-for="img in fileReader.goodsPicture">
                 <img :src="img">
             </div>
             <div class="uploadContainer">
@@ -59,7 +59,7 @@
         </li>
         <li class="upload">
             <span class="goodsLabel">上传视频</span>
-            <div class="uploadContainer" v-for="video in fileReader.video">
+            <div class="uploadContainer" v-for="video in fileReader.goodsVideo">
                 <img :src="video">
             </div>
             <div class="uploadContainer">
@@ -69,7 +69,7 @@
         </li>
         <li>
             <span class="goodsLabel"></span>
-            <button class="publishBtn" @click="releaseGoods(publishType,publishData,params)">确认发布</button>
+            <button class="publishBtn" @click="releaseGoods(publishType,{...publishData,...fileReader},params)">确认发布</button>
         </li>
     </div>
 </template>
@@ -96,12 +96,16 @@ export default {
             priceDescribe:'30/请输入合理的人民币价格',
             publishType:'',
             fileReader:{
-                'img':[],
-                'video':[]
+                'goodsPicture':[],
+                'goodsVideo':[]
+            },
+            params:{
+                img:[],
+                video:[]
             }
         }
     },
-    props:["pIndex"],
+    props:["pIndex","state"],
     watch:{
         pIndex:function(newVal){
             if(newVal==0){
@@ -123,51 +127,33 @@ export default {
         }
     },
     methods:{
-        ...mapActions("user",["releaseGoods","uploadFile"]),
-        // 格式化文件大小
-        formatFileSize(fileSize, idx) {
-            let units = ["B", "KB", "MB", "GB"];
-            idx = idx || 0;
-            if (fileSize < 1024 || idx === units.length - 1) {
-                return fileSize.toFixed(1) +
-                    units[idx];
-            }
-            return this.formatFileSize(fileSize / 1024, ++idx);
-        },
+        ...mapActions("user",["releaseGoods"]),
         // 上传图片
         uploadImg(e){
             let iFiles = e.target.files;
             let len = iFiles.length;
-            let item = {
-                name: iFiles[0].name,
-                uploadPercentage: 1,
-                size: this.formatFileSize(iFiles[0].size, 0)
-            }
             let param = new FormData();
             param.append("name","img");
-            param.append("file",iFiles[0]);
+            param.append("file",iFiles[len-1]);
+            params.img.push(param);
             let reader=new FileReader();
-            reader.readAsDataURL(iFiles[0]);
+            reader.readAsDataURL(iFiles[len-1]);
             reader.onload=e=>{
-                this.fileReader.img.push(e.currentTarget.result)
+                this.fileReader.goodsPicture.push(e.currentTarget.result)
             }
         },
         // 上传视频
         uploadVideo(e){
             let vFiles = e.target.files;
             let len = vFiles.length;
-            let item = {
-                name: vFiles[0].name,
-                uploadPercentage: 1,
-                size: this.formatFileSize(vFiles[0].size, 0)
-            }
             let param = new FormData();
             param.append("name","video");
-            param.append("file",vFiles[0]);
+            param.append("file",vFiles[len-1]);
+            params.video.push(param);
             let reader=new FileReader();
-            reader.readAsDataURL(vFiles[0]);
+            reader.readAsDataURL(vFiles[len-1]);
             reader.onload=e=>{
-                this.fileReader.video.push(e.currentTarget.result)
+                this.fileReader.goodsVideo.push(e.currentTarget.result)
             }
         }
     }
