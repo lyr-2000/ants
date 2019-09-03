@@ -37,8 +37,8 @@ public class editphoto {
     private static String imgPath = "";
     private static String sourceImgPath = "";
 
-    private static final String tempYzmImg = "img\\tempImg";
-    private static final String sourceYzmImg = "img\\slideCode";
+    private static final String tempYzmImg = "img";
+    private static final String sourceYzmImg = "..\\src\\assets\\img\\slideCode";
 
     private static final int shadowWidth = 4; //阴影宽度
     private static final int lightHeightWidth = 5; //图片边缘亮色（黄色）宽度。
@@ -52,11 +52,13 @@ public class editphoto {
      */
     public static void init(String context) {
         imgPath = context + tempYzmImg;
+        System.out.println("图片："+imgPath);
         File file = new File(imgPath);
         if(!file.exists()){
             file.mkdir();
         }
         sourceImgPath = context + sourceYzmImg;
+        System.out.println("有原图："+sourceImgPath);
         File file1 = new File(sourceImgPath);
         if(!file1.exists()){
             file1.mkdir();
