@@ -63,23 +63,29 @@ public class SlideController extends HttpServlet {
         return result;
     }
 
-
-    @RequestMapping(value = "/checkServlet",method = RequestMethod.POST)
-    public void checkCode(HttpServletResponse response, HttpServletRequest request) throws IOException {
-        String point = request.getParameter("point");
-        Integer location_x = (Integer) request.getSession().getAttribute("location_x");
-        HttpSession session = request.getSession();
+    @RequestMapping(value="/checkServlet",method=RequestMethod.POST)
+    @ResponseBody
+    protected Map checkCode(HttpServletResponse response, HttpServletRequest request,String point) {
         Map map = new HashMap();
-        if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
-            //说明验证通过，
-            map.put("status",1);
-            map.put("slideCode","dadas");
-            System.out.println("验证通过");
-        } else {
-            map.put("status",0);
-            map.put("slideCode","dasdas");
-            System.out.println("验证失败");
+        try {
+            response.setContentType("application/json-rpc;charset=UTF-8");
+            Integer location_x = (Integer) request.getSession().getAttribute("location_x");
+             HttpSession session = request.getSession();
+            if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
+                //说明验证通过，
+                map.put("status", 1);
+                map.put("slideCode", "dadas");
+                System.out.println("验证通过");
+            } else {
+                map.put("status", 0);
+                map.put("slideCode", "dasdas");
+                System.out.println("验证失败");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        return map;
+
     }
 
 

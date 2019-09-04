@@ -13,7 +13,7 @@
 
     <!--根据学生账户获取此学生发布的已经交易完成的商品（闲置，租赁，赠送）的总数量-->
     <select id="mySellGoodsNums" parameterType="Map" resultType="Integer">
-      SELECT COUNT(*)
+        SELECT COUNT(*)
                 FROM ants_other_sell
                     WHERE goodsBelong=#{goodsBelong} AND goodsState = #{goodsState}
 
