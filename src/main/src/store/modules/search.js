@@ -261,10 +261,10 @@ const actions = {
         if (index != 0) {
             axios.post('/ants/class/goodsByParent', state.synthesis[index])
                 .then((res) => {
-                    commit('showChildList')
+                    commit('showChildList', res.data)
                 })
                 .catch((err) => {
-
+                    console.log(`the error called ${err} when request childList`)
                 })
         }
     },

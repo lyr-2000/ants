@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters} from "vuex";
 
 export default {
     data(){
@@ -32,9 +32,7 @@ export default {
         parentClassification: "getParentClassification",
         childClassification:"getChildClassification"
     }),
-    props:["projectName","showDetialedClassify"],
-    methods:{
-    }
+    props:["projectName","showDetialedClassify"]
 }
 </script>
 

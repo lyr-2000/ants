@@ -39,7 +39,7 @@
 
             <div v-if="showCode" class="picContainer">
                 <img v-if="!dragStart" :src="[sourceImgName]">
-                <img v-if="dragStart" :src="[smallImgName]" ref="slideImg" class="slideImg" :style="`top:${location_y}`">
+                <img v-show="dragStart" :src="[smallImgName]" ref="slideImg" class="slideImg" :style="`top:${location_y}`">
                 <img :src="[bigImgName]" class="bigImg">
                 <div class="codeTip" v-if="slideTip">
                     <p>拼图成功，用时{{slideTime}}s</p>
@@ -125,6 +125,7 @@ export default {
         },
         picCodeRequest: function() {
             this.showCode = true;
+            let that=this;
             axios.get("/slideCode/slide")
             .then((res) => {
                 console.log(res);
@@ -132,8 +133,8 @@ export default {
                 this.bigImgName = `img/${res.bigImgName}`;
                 this.sourceImgName = `img/${res.sourceImgName}`;
                 this.smallImgName = `img/${res.smallImgName}`;
-                this.location_y = res.location_y;
-                this.$refs.slideImg.style.top = this.location_y + 'px';
+                that.location_y = res.location_y;
+                that.$refs.slideImg.style.top = that.location_y + 'px';
             }).catch((err) => {
                 console.error(`error ${err} happen when get picture code`);
             })
@@ -142,30 +143,34 @@ export default {
             this.showCode = false;
         },
         dragUpRequest: function() {
+            console.log(this.location_x)
+            let that=this
             axios.post('/slideCode/checkServlet', {
-                point: this.location_x
+                point: that.location_x
             }).then((res) => {
-                if (res.result == 1) {
-                    this.slideTip = true;
-                    this.loginRequest();
+                console.log('res: ', res);
+                if (res.data.status == 1) {
+                    that.slideTip = true;
+                    that.loginRequest();
                 } else {
-                    alert(res.message);
+                    alert(res.data.message);
                 }
             }).catch(err => {})
         },
         loginRequest: function() { // 发起登录请求
             let encodeData = this.submitForm1();
+            let that=this;
             if (!encodeData) {
                 this.showCode = false;
                 this.slideTip = false;
             } else {
                 axios.post('/url', {
-                    school: this.school,
+                    school: that.school,
                     encodeData: encodeData,
                     //图片的滑动x坐标
                 }).then((res) => {
                     if (res == 'success') {
-                        this.slideSuccess = true;
+                        that.slideSuccess = true;
                         setTimeout(function() {
                             window.location.replace('index.html');
                         }, 3000);
@@ -306,6 +311,10 @@ export default {
             width: 90px;
             height: 90px;
             background-color: black;
+        }
+        .bigImg{
+            width: 100%;
+            height: 100%;
         }
     }
     .slideContainer{
