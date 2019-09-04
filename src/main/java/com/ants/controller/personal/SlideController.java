@@ -65,6 +65,7 @@ public class SlideController extends HttpServlet {
 
 
     @RequestMapping(value = "/checkServlet",method = RequestMethod.POST)
+    @ResponseBody
     public void checkCode(HttpServletResponse response, HttpServletRequest request) throws IOException {
         String point = request.getParameter("point");
         Integer location_x = (Integer) request.getSession().getAttribute("location_x");
