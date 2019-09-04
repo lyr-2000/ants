@@ -10,7 +10,6 @@ import com.ants.service.idle.IdleService;
 import com.ants.service.lease.LeaseService;
 import com.ants.service.personal.StudentService;
 import com.ants.service.seek.SeekService;
-import com.ants.util.Upload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

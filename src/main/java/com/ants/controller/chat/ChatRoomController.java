@@ -43,13 +43,13 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 	Boolean flag = true;
 
 
-	//µ±¸Õ¸ÕÁ¬½ÓÉÏÖ®ºó
+	//å½“åˆšåˆšè¿æ¥ä¸Šä¹‹å
 	@Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
 		int id = (int)webSocketSession.getAttributes().get("id");
 		System.out.println("Connection established..."+webSocketSession.getRemoteAddress());
 		System.out.println(webSocketSession.getAttributes().get("user")+" Login");
-		List<ChatContactor> list = chatService.queryContactor(id);//»ñµÃÁªÏµÈËÁĞ±í
+		List<ChatContactor> list = chatService.queryContactor(id);//è·å¾—è”ç³»äººåˆ—è¡¨
 		for (ChatContactor chatContactorDTO : list) {
 			if(sessionMap.get(chatContactorDTO.getContactor())!=null){
 				chatContactorDTO.setIfonline(true);
@@ -64,13 +64,13 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 
 
 
-    //ÔÚÁ¬½Ó¹Ø±ÕÖ®ºó
+    //åœ¨è¿æ¥å…³é—­ä¹‹å
 	@Override
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus status) throws Exception {
         System.out.println("Connection closed..."+webSocketSession.getRemoteAddress()+" "+status);
         System.out.println(webSocketSession.getAttributes().get("user")+" Logout");
         int id = (int)webSocketSession.getAttributes().get("id");
-		List<ChatContactor> list = chatService.queryContactor(id);//»ñµÃÁªÏµÈËÁĞ
+		List<ChatContactor> list = chatService.queryContactor(id);//è·å¾—è”ç³»äººåˆ—
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("type",0);
 		jsonObject.put("offlineid",id);
@@ -80,11 +80,11 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 				sessionMap.get(chatContactorDTO.getContactor()).sendMessage(new TextMessage(jsonObject.toJSONString()));
 			}
 		}
-		//±£´æ¶ÔÓ¦µÄÏûÏ¢
+		//ä¿å­˜å¯¹åº”çš„æ¶ˆæ¯
         sessionMap.remove(id);
     }
 
-    //·¢ËÍÏûÏ¢µÄÊ±ºò
+    //å‘é€æ¶ˆæ¯çš„æ—¶å€™
     @Override
 	public void handleTextMessage(WebSocketSession websocketsession, TextMessage message)
     {
@@ -121,7 +121,7 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 					socketSession.sendMessage(new TextMessage(json.toJSONString()));
 
 				}else {
-						//ÓÃ»§ÎªÔÚÏß·¢ËÍÀëÏßÏûÏ¢,´æÈëÊı¾İ¿â
+						//ç”¨æˆ·ä¸ºåœ¨çº¿å‘é€ç¦»çº¿æ¶ˆæ¯,å­˜å…¥æ•°æ®åº“
 						ChatOffline chatOfflineDTO = new ChatOffline();
 						chatOfflineDTO.setStudentId(id);
 						chatOfflineDTO.setTo(business);
@@ -158,7 +158,7 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 		ByteBuffer buffer= message.getPayload();
 		try {
 			output.write(buffer.array());
-			//´æÈëÎÄ¼şÖ®ºó°ÑÎÄ¼ş·¢¸ø¶ÔÓ¦µÄÈË
+			//å­˜å…¥æ–‡ä»¶ä¹‹åæŠŠæ–‡ä»¶å‘ç»™å¯¹åº”çš„äºº
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -167,13 +167,13 @@ public class ChatRoomController extends AbstractWebSocketHandler implements Appl
 
 	private void tosendfile(WebSocketSession session) {
 		try {
-			System.out.println("ÎÄ¼şÃû×Ö£º"+session.getAttributes().get("filename"));
+			System.out.println("æ–‡ä»¶åå­—ï¼š"+session.getAttributes().get("filename"));
 			String textString;
 			textString=" I ("+format.format(new Date())+")<br>"+ session.getAttributes().get("filename").toString()+"<br>";
 //			textString+="<img src="+"D:\\images\\"+session.getAttributes().get("filename")+">";
 			TextMessage textMessage = new TextMessage(textString);
 			sessionMap.get(session.getAttributes().get("to")).sendMessage(textMessage);
-			System.out.println("ÎÄ¼ş·¢ËÍ³É¹¦£¡£¡£¡");
+			System.out.println("æ–‡ä»¶å‘é€æˆåŠŸï¼ï¼ï¼");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

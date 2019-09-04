@@ -26,8 +26,8 @@ public class SellController {
 
     /**
      * 根据学生学号获取此学生账号下的所交易完成的商品，包括闲置，租赁和赠送
-     * state 中 1代表我的闲置，2代表我的租赁，3代表我的赠送
-     * 举例：当state为1（代表我的闲置），后端返回数据中我的闲置那一块存在数据，其他部分的数据为空
+     * type 中 1代表我的闲置，2代表我的租赁，3代表我的赠送
+     * 举例：当type为1（代表我的闲置），后端返回数据中我的闲置那一块存在数据，其他部分的数据为空
      * @param request
      * @param type
      * @param currentPage
@@ -77,6 +77,9 @@ public class SellController {
         List<Sell> leaseList = null;
 
         //保存此账号下赠送的所有物品信息
+        List<Sell> seekList = null;
+
+        //保存此账号下赠送的所有物品信息
         List<Sell> giveList = null;
 
 
@@ -88,7 +91,7 @@ public class SellController {
         switch (type) {
 
             case 1:
-                //设置商品为正在交易中的闲置商品
+                //设置商品为已经完成交易的闲置商品
                 parameterMap.put("goodsState", 1);
                 paramMap.put("goodsState", 1);
 
@@ -98,24 +101,35 @@ public class SellController {
                 //获取此账号下的闲置商品的全部数量
                 goodsNumbers = sellService.mySellGoodsNums(paramMap);
                 break;
-
             case 2:
-                //设置商品为正在交易中的租赁商品
+                //设置商品为已经完成交易的租赁商品
                 parameterMap.put("goodsState", 2);
                 paramMap.put("goodsState", 2);
 
-                //获取此账号下租赁的所有物品信息
+                //获取此账号下赠送的所有物品信息
                 leaseList = sellService.mySellGoods(parameterMap);
+
+                //获取此账号下的赠送商品的全部数量
+                goodsNumbers = sellService.mySellGoodsNums(paramMap);
+                break;
+
+            case 3:
+                //设置商品为已经完成交易的寻求商品
+                parameterMap.put("goodsState", 3);
+                paramMap.put("goodsState", 3);
+
+                //获取此账号下租赁的所有物品信息
+                seekList = sellService.mySellGoods(parameterMap);
 
                 //获取此账号下的租赁商品的全部数量
                 goodsNumbers = sellService.mySellGoodsNums(paramMap);
                 break;
 
 
-            case 3:
-                //设置商品为正在交易中的赠送商品
-                parameterMap.put("goodsState", 3);
-                paramMap.put("goodsState", 3);
+            case 4:
+                //设置商品为已经完成交易的赠送商品
+                parameterMap.put("goodsState", 4);
+                paramMap.put("goodsState", 4);
 
                 //获取此账号下赠送的所有物品信息
                 giveList = sellService.mySellGoods(parameterMap);
@@ -123,6 +137,7 @@ public class SellController {
                 //获取此账号下的赠送商品的全部数量
                 goodsNumbers = sellService.mySellGoodsNums(paramMap);
                 break;
+
         }
 
 
@@ -130,9 +145,12 @@ public class SellController {
         int allPage = (goodsNumbers / 8) + 1;
 
         sellGoods.put("allPage",allPage);
-        sellGoods.put("giveList", giveList);
-        sellGoods.put("leaseList", leaseList);
         sellGoods.put("idleList", idleList);
+        sellGoods.put("leaseList", leaseList);
+        sellGoods.put("seekList", seekList);
+        sellGoods.put("giveList", giveList);
+
+
 
         return sellGoods;
     }
