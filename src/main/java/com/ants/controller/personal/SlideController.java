@@ -63,10 +63,13 @@ public class SlideController extends HttpServlet {
         return result;
     }
 
-    @RequestMapping(value="/checkServlet",method=RequestMethod.POST)
+    @RequestMapping(value="/checkServlet/{point}",method=RequestMethod.GET)
     @ResponseBody
     protected Map checkCode(HttpServletResponse response, HttpServletRequest request,String point) {
         Map map = new HashMap();
+        System.out.println(point);
+        String pp = request.getParameter("point");
+        System.out.println(pp);
         try {
             response.setContentType("application/json-rpc;charset=UTF-8");
             Integer location_x = (Integer) request.getSession().getAttribute("location_x");
