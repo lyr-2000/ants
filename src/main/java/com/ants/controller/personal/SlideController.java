@@ -65,15 +65,12 @@ public class SlideController extends HttpServlet {
 
     @RequestMapping(value="/checkServlet",method=RequestMethod.POST)
     @ResponseBody
-    protected Map checkCode(HttpServletResponse response, HttpServletRequest request) {
+    protected Map checkCode(HttpServletResponse response, HttpServletRequest request,String point) {
         Map map = new HashMap();
         try {
-            String point = request.getParameter("point");
             response.setContentType("application/json-rpc;charset=UTF-8");
             Integer location_x = (Integer) request.getSession().getAttribute("location_x");
-            System.out.println("point:"+point);
-            System.out.println("localtion_x:"+location_x);
-            HttpSession session = request.getSession();
+             HttpSession session = request.getSession();
             if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
                 //说明验证通过，
                 map.put("status", 1);
