@@ -14,7 +14,7 @@
 
     <!--根据学生账户获取此学生我想买和我想卖的商品总数量-->
     <select id="myShopGoodsNums" parameterType="Map" resultType="Integer">
-      SELECT COUNT(*)
+        SELECT COUNT(*)
                 FROM ants_shop_base
                     WHERE userId=#{userId}
                       AND status = #{status}
