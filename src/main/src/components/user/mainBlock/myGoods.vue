@@ -5,7 +5,7 @@
             <ul class="myIndex">
                 <li v-for="(val,key) in titleList" @click="pIndex=key" :class="{'chooseIndex':pIndex==key}">{{val}}</li>
             </ul>
-            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :detailGoods="myGoods | dataHandle(pIndex)" :title="title"></GoodsDetail>
+            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :pIndex="pIndex" :detailGoods="myGoods | dataHandle(pIndex)" :title="title"></GoodsDetail>
         </div>
     </div>
 </template>

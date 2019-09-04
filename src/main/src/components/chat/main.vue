@@ -39,7 +39,7 @@ export default {
         }
     },
     methods:{
-        ...mapActions("chat",["onSend","uploadFile"]),
+        ...mapActions("chat",["onSend"]),
         iconHoverIn(type){
             if(type==='emoji'){
                 this.emojiIcon=require("../../assets/img/icon/emoji-after.png");
@@ -71,16 +71,13 @@ export default {
         // 发送文件
         sendFile(e){
             let files=e.target.files;
-            let len=files.length;
-            let item={
-                name:files[0].name,
-                uploadPercentage:1,
-                size:this.formatFileSize(files[0].size, 0)
+            let data={
+                type:2,
+                id:myIntro.studentId,
+                business:chooseUser.contactor,
+                filename:files[0].name
             }
-            let param=new FormData();
-            param.append("name",item.name);
-            param.append("file",files[0]);
-            this.uploadFile(item, param)
+            this.onSend(data,files[0])
         },
         // 格式化文件大小
         formatFileSize: function (fileSize, idx) {

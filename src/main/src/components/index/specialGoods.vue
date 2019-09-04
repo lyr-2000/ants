@@ -231,7 +231,7 @@ export default {
 
 @keyframes borHot{
     0%{
-        left: 148px;
+        left: 245px;
         width: @bottomLength;
     }
     50%{

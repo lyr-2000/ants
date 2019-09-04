@@ -3,10 +3,10 @@
         <img src="../../assets/img/index/tongzhi.png">
         <p>
             <strong>公告</strong>
-            <router-link :to="[`announce.html?id=${announcement.annId}`]" class="announceContent">{{announcement.annTitle}}</router-link>
+            <router-link :to="`announce?id=${announcement.annId}`" class="announceContent">{{announcement.annTitle}}</router-link>
             <span class="announceTime">{{announcement.annTime}}</span>
         </p>
-        <router-link to="#" class="moreAnnounce">更多</router-link>
+        <router-link to="announce" class="moreAnnounce">更多</router-link>
     </div>
 </template>
 

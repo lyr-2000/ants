@@ -5,7 +5,7 @@
             <ul class="haveTradedIndex">
                 <li v-for="(val,key) in titleList" @click="pIndex=key" :class="{'chooseIndex':pIndex==key}">{{val}}</li>
             </ul>
-            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :detailGoods="haveTradeGoods[pIndex]" :title="title"></GoodsDetail>
+            <GoodsDetail v-for="index in titleList.length" v-if="pIndex==index-1" :pIndex="pIndex" :detailGoods="haveTradeGoods | dataHandle(pIndex)" :title="title"></GoodsDetail>
         </div>
     </div>
 </template>
@@ -33,6 +33,19 @@ export default {
         ...mapGetters('user',{
             haveTradeGoods:"getHaveTradeGoods"
         })
+    },
+    filters:{
+        dataHandle:(data,pIndex)=>{
+            if(pIndex==0){
+                return data.idleList
+            }else if(pIndex==1){
+                return data.leaseList
+            }else if(pIndex==2){
+                return data.giveList
+            }else{
+                return data.seekList
+            }
+        }
     }
 }
 </script>

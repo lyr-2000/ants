@@ -45,7 +45,8 @@ export default {
     data(){
         return{
             avatar:'',
-            imgData:null
+            imgData:null,
+            imgName:''
         }
     },
     computed:{
@@ -59,20 +60,16 @@ export default {
         avatarUpload(e){
             let aFiles = e.target.files;
             let len = aFiles.length;
-            let item = {
-                name: aFiles[0].name,
-                uploadPercentage: 1,
-                // size: this.formatFileSize(aFiles[0].size, 0)
-            }
+            this.imgName=aFiles[len-1].name;
             let reader=new FileReader();
-            reader.readAsDataURL(aFiles[0]);
+            reader.readAsDataURL(aFiles[len-1]);
             reader.onload=e=>{
                 this.avatar=e.currentTarget.result;
                 console.log('this.result: ', e.currentTarget.result);
             }
             let param = new FormData();
             param.append("name","avatar");
-            param.append("file",aFiles[0]);
+            param.append("file",aFiles[len-1]);
             this.uploadAvatar(param);
             this.imgData=param;
         },
@@ -80,9 +77,9 @@ export default {
         updateData(){
             let data=user;
             if(this.imgData!==null){
-                data.portrait=this.imgData;
+                data.portrait=this.imgName;
             }
-            saveStuMsg(data);
+            saveStuMsg(data,this.imgData);
         }
     }
 }

@@ -28,26 +28,47 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 
 export default {
     data(){
         return{
             stateType:"",
-            timeType:""
+            timeType:"",
+            currentPage:0
         }
     },
-    props:["title","detailGoods"],
-    mounted:function(){
+    props:["title","detailGoods","pIndex"],
+    methods:{
+        ...mapActions("user",["getGoods"])
+    },
+    mounted(){
+        let url;
         if(this.title==="我的物品"){
             this.stateType="交易";
             this.timeType="上传"
+            url="/ants/student/myTradingSituation"
         }else if(this.title==="正在交易"||this.title==="收藏盒"){
             this.stateType="商议";
             this.timeType="商议"
+            url="/ants/trade/myTradeGoods"
+            if(this.title==="收藏盒"){
+                url="/ants/tradeCase/tradingCase"
+            }
         }else if(this.title==="已交易的"){
             this.stateType="";
             this.timeType="交易"
+            url="/ants/sell/mySellGoods"
         }
+        let state=0;
+        if(this.pIndex==0||this.pIndex==1){
+            state=this.pIndex+1
+        }else if(this.pIndex==2){
+            state=4
+        }else if(this.pIndex==3){
+            state=3
+        }
+        this.getGoods(url,state,this.currentPage,title);
     }
 }
 </script>

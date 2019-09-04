@@ -9,7 +9,7 @@
                     <li :class="{localIn:webPage=='sent'}"><router-link to="/#">赠送</router-link></li>
                 </ul>
                 <ul class="rightNav">
-                    <li class="schoolChoose">>广东金融学院</li>
+                    <li class="schoolChoose">广东金融学院</li>
                     <li :class="{localIn:identity=='buyer'}">买家</li>
                     <li :class="{localIn:identity=='seller'}">卖家</li>
                     <li><router-link to="log">登录</router-link></li>
@@ -117,6 +117,13 @@ a{
             }
             .rightNav{
                 float: right;
+                .schoolChoose{
+                    &::before{
+                        display: inline-block;
+                        content:">";
+                        transform:rotateZ(90deg);
+                    }
+                }
             }
         }
     }

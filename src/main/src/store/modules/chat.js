@@ -1,4 +1,3 @@
-import axios from 'axios'
 const namespaced = true;
 const state = {
     ws: "",
@@ -90,24 +89,23 @@ const actions = {
         }
     },
     // 连接后发送数据
-    onSend(data) {
-        state.wx.send()
-    },
-    // 上传文件
-    uploadFile(item, param) {
-        let config = {
-            //添加请求头 
-            headers: {
-                "Content-Type": "multipart/form-data"
+    onSend(data, file) {
+        state.wx.send(data)
+        if (data.type === 2) {
+            let reader = new FileReader();
+            reader.readAsArrayBuffer(file)
+            reader.onload = function(e) {
+                let blob = e.target.result
+                let fileFinish = {
+                    type: 3,
+                    id: data.id,
+                    business: data.business
+                };
+                state.wx.send(blob)
+                state.wx.send(fileFinish)
             }
-        };
-        axios.post('url', param, config)
-            .then(res => {
-                console.log(res);
-            }).catch(err => {
-                console.log(err);
-            });
-    }
+        }
+    },
 }
 
 export default { state, getters, mutations, actions, namespaced }
