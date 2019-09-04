@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -63,13 +64,11 @@ public class SlideController extends HttpServlet {
         return result;
     }
 
-    @RequestMapping(value="/checkServlet/{point}",method=RequestMethod.GET)
+    @RequestMapping(value="/checkServlet",method=RequestMethod.GET)
     @ResponseBody
     protected Map checkCode(HttpServletResponse response, HttpServletRequest request,String point) {
         Map map = new HashMap();
         System.out.println(point);
-        String pp = request.getParameter("point");
-        System.out.println(pp);
         try {
             response.setContentType("application/json-rpc;charset=UTF-8");
             Integer location_x = (Integer) request.getSession().getAttribute("location_x");
