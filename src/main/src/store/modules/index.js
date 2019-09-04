@@ -118,7 +118,7 @@ const state = {
         goodsName: '商品名',
         goodsPrice: '20',
         uploadTime: '2019-01-18'
-    }, ]
+    }]
 }
 
 const getters = {
@@ -153,22 +153,17 @@ const mutations = {
 
 const actions = {
     initRequest({ commit }) {
-        let config = {
-            headers: {
-                token: `http-test`
-            }
-        }
-        axios.get('/ants/dataRendering/homePage', {})
+        axios.get('/ants/dataRendering/homePage')
             .then(res => {
                 commit("initRequest", res.data);
             })
     },
     concreteRequest({ commit }) {
-        res = axios.get('/ants/class/allClassify', {})
+        axios.get('/ants/class/allClassify')
             .then(res => {
                 commit("concreteRequest", res.data.childClassification);
             })
     }
 }
 
-export default { state, getters, mutations, actions };
+export default { state, getters, mutations, actions }

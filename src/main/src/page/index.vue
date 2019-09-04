@@ -13,6 +13,7 @@ import Footer from '../components/construct/footer.vue'
 import TopBanner from '../components/index/topBanner.vue'
 import MainContent from '../components/index/mainContent.vue'
 import store from '../store'
+import {mapActions} from 'vuex'
 
 export default {
   name: 'app',
@@ -29,6 +30,12 @@ export default {
         identity:'buyer',
         projectName: '蚂蚁置物',
     }
+  },
+  methods:{
+    ...mapActions(["initRequest"])
+  },
+  mounted(){
+    this.initRequest()
   }
 }
 </script>

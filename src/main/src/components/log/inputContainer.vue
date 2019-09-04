@@ -40,7 +40,7 @@
             <div v-if="showCode" class="picContainer">
                 <img v-if="!dragStart" :src="[sourceImgName]">
                 <img v-if="dragStart" :src="[smallImgName]" ref="slideImg" class="slideImg" :style="`top:${location_y}`">
-                <img :src="[bigImgName]">
+                <img :src="[bigImgName]" class="bigImg">
                 <div class="codeTip" v-if="slideTip">
                     <p>拼图成功，用时{{slideTime}}s</p>
                 </div>
@@ -77,7 +77,7 @@ export default {
             slideTime: 0, // 验证码滑动时长
             slideTip: false, // 验证码结果提示
             showCode: false, // 是否显示验证码
-            sourceImgName: require("../../assets/img/ants/climb.png"),
+            sourceImgName: "",
             bigImgName: "",
             smallImgName: "",
             location_y: "0px",
@@ -130,7 +130,7 @@ export default {
                 console.log(res);
                 res=res.data
                 this.bigImgName = `img/${res.bigImgName}`;
-                this.sourceImgName = require(`../../assets/img/${res.sourceImgName}`);
+                this.sourceImgName = `img/${res.sourceImgName}`;
                 this.smallImgName = `img/${res.smallImgName}`;
                 this.location_y = res.location_y;
                 this.$refs.slideImg.style.top = this.location_y + 'px';
