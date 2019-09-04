@@ -145,9 +145,8 @@ export default {
         dragUpRequest: function() {
             console.log(this.location_x)
             let that=this
-            axios.post('/slideCode/checkServlet', {
-                point: that.location_x
-            }).then((res) => {
+            axios.get(`/slideCode/checkServlet?point=${that.location_x}`)
+            .then((res) => {
                 console.log('res: ', res);
                 if (res.data.status == 1) {
                     that.slideTip = true;
