@@ -3,8 +3,7 @@
 <mapper namespace="com.ants.dao.chat.ChatOfflineDao">
     <!--聊天离线的操作-->
     <insert id="insertOfficelineMessage" parameterType="com.ants.entity.chat.ChatOffline">
-        INSERT INTO ants_chat_offline (studentId ,towho ,offlinemessage)
-                VALUES (#{studentId},#{to},#{offlinemessage})
+        insert into ants_chat_offline (studentId ,towho ,offlinemessage) values (#{studentId},#{to},#{offlinemessage})
     </insert>
 
 

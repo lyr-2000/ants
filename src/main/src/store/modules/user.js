@@ -409,31 +409,35 @@ const mutations = {
             alert('提交失败');
         }
     },
-    getGoods(state, res, type, title) {
+    getGoods(state, { res, type, title }) {
+        console.log('title: ', title);
+        console.log('type: ', type);
+        console.log('res: ', res);
         let goods = "";
         if (title === "收藏盒") {
-            goods = state.collectGoods;
+            goods = "collectGoods";
             if (type == 1) {
-                goods.buyList = res.buyList;
+                state[goods].buyList = res.buyList;
             } else if (type == 2) {
-                goods.sellList = res.sellList;
+                state[goods].sellList = res.sellList;
             }
         } else {
             if (title === "我的物品") {
-                goods = state.myGoods;
+                goods = "myGoods";
             } else if (title == "正在交易") {
-                goods = state.tradingGoods;
+                goods = "tradingGoods";
             } else if (title == "已交易的") {
-                goods = state.haveTradeGoods;
+                goods = "haveTradeGoods";
             }
             if (type === 1) {
-                goods.idleList = res.idleList;
+                state[goods].idleList = res.idleList;
+                console.log('state[goods].idleList: ', state[goods].idleList);
             } else if (type === 2) {
-                goods.leaseList = res.leaseList;
+                state[goods].leaseList = res.leaseList;
             } else if (type === 3) {
-                goods.seekList = res.seekList;
+                state[goods].seekList = res.seekList;
             } else if (type === 4) {
-                goods.giveList = res.giveList;
+                state[goods].giveList = res.giveList;
             }
         }
 
@@ -458,38 +462,39 @@ const actions = {
             })
     },
     // 提交个人信息修改
-    saveStuMsg({ commit }, data, imgData) {
-        console.log(data)
-        axios.post('/ants/student/saveStuMessage', data)
+    saveStuMsg({ commit }, data) {
+        console.log(data.user)
+        axios.post('/ants/student/saveStuMessage', data.user)
             .then(res => {
                 commit('saveStuMsg', res.data)
             }).catch(err => {
                 console.log(`can't request the data for ${err}`);
                 commit('saveStuMsg', err)
             })
-        actions.uploadFile(imgData, 'photo');
+        actions.uploadFile({ param: data.imgData, type: 'photo' });
     },
     // 获取物品
-    getGoods({ commit }, url, type, cPage, title) {
-        axios.post(url, {
-                type: type,
-                currentPage: cPage
+    getGoods({ commit }, data) {
+        console.log('data: ', data);
+        axios.post(data.url, {
+                type: data.type,
+                currentPage: data.cPage
             })
             .then(res => {
-                commit('getGoods', res.data, type, title)
+                commit('getGoods', { res: res.data, type: data.type, title: data.title })
             }).catch(err => {
                 console.log(`can't request the data for ${err}`)
             })
     },
     // 发布
-    releaseGoods({ commit }, type, data, params) { // type:发布的类型
-        if (params.img.length !== 0) {
-            actions.uploadFile(params.img, 'photo');
+    releaseGoods({ commit }, data) { // type:发布的类型
+        if (data.params.img.length !== 0) {
+            actions.uploadFile({ param: data.params.img, type: 'photo' });
         }
-        if (params.video.length !== 0) {
-            actions.uploadFile(params.video, 'video');
+        if (data.params.video.length !== 0) {
+            actions.uploadFile({ param: data.params.video, type: 'video' });
         }
-        axios.post(`./ants/${type.toLowerCase()}/release${type}`, data)
+        axios.post(`./ants/${data.type.toLowerCase()}/release${data.type}`, data.data)
             .then(res => {
                 commit('releaseGoods', res.data)
             }).catch(err => {
@@ -497,7 +502,7 @@ const actions = {
             })
     },
     // 上传图片/视频
-    uploadFile(param, type) {
+    uploadFile({ param, type }) {
         let config = {
             headers: {
                 "Content-Type": "multipart/form-data"

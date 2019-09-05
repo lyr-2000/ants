@@ -69,7 +69,7 @@
         </li>
         <li>
             <span class="goodsLabel"></span>
-            <button class="publishBtn" @click="releaseGoods(publishType,{...publishData,...fileReader},params)">确认发布</button>
+            <button class="publishBtn" @click="releaseGoods({type:publishType,data:{...publishData,...fileReader},params:params})">确认发布</button>
         </li>
     </div>
 </template>

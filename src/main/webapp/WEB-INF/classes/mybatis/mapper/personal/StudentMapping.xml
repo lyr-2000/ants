@@ -31,7 +31,7 @@
 		SELECT COUNT(*)
 				  FROM ants_goods_base
 					  WHERE goodsId != #{goodsId}
-					  		AND goodsBelong = (
+					  		ADN goodsBelong = (
 								SELECT goodsBelong
 									FROM ants_goods_base
 										WHERE goodsId = #{goodsId}

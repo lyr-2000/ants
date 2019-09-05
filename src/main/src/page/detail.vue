@@ -35,7 +35,7 @@ export default {
         }
     },
     methods:{
-        ...mapActions(["showinitDetailGoodsChildList"]),
+        ...mapActions(["initDetailGoods"]),
     },
     mounted(){
         // 初始化信息

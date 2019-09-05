@@ -55,7 +55,7 @@ export default {
         })
     },
     methods:{
-        ...mapActions("user",["saveStuMsg","uploadAvatar","formatFileSize"]),
+        ...mapActions("user",["getUserMsg","saveStuMsg","uploadAvatar","formatFileSize"]),
         // 头像上传
         avatarUpload(e){
             let aFiles = e.target.files;
@@ -75,12 +75,19 @@ export default {
         },
         // 提交个人资料
         updateData(){
-            let data=user;
+            let user=this.user;
             if(this.imgData!==null){
-                data.portrait=this.imgName;
+                user.portrait=this.imgName;
             }
-            saveStuMsg(data,this.imgData);
+            let data={
+                user:user,
+                imgData:this.imgData
+            }
+            this.saveStuMsg(data);
         }
+    },
+    mounted(){
+        this.getUserMsg();
     }
 }
 </script>

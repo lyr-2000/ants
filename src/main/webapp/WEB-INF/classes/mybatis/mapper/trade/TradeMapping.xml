@@ -6,15 +6,14 @@
     <select id="myTradeGoods" parameterType="Map" resultType="com.ants.entity.trade.Trade">
         SELECT goodsId,goodsName,goodsPicture,
                goodsPrice,goodsState,tradeState,
-               repertory,newChatTime
-                  FROM ants_other_trade
-                      WHERE goodsBelong = #{goodsBelong} AND goodsState = #{goodsState}
-                          LiMIT #{head},#{tail}
+               repertory,newChatTime from ants_other_trade
+                  WHERE goodsBelong = #{goodsBelong} AND goodsState = #{goodsState}
+                    LiMIT #{head},#{tail}
     </select>
 
     <!--根据学生账户获取此学生发布的正在交易的商品（闲置，租赁，寻求和赠送）的总数量-->
     <select id="myTradingGoodsNums" parameterType="Map" resultType="Integer">
-        SELECT COUNT(*)
+      SELECT COUNT(*)
                 FROM ants_other_trade
                     WHERE goodsBelong=#{goodsBelong} AND goodsState = #{goodsState}
 

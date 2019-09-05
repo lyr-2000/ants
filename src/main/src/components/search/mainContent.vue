@@ -8,11 +8,18 @@
 <script>
 import MainLeft from './mainLeft.vue'
 import GoodsShow from './goodsShow.vue'
+import {mapActions} from 'vuex';
 
 export default {
     components:{
         MainLeft,
         GoodsShow
+    },
+    methods:{
+        ...mapActions(["initData"])
+    },
+    mounted(){
+        this.initData();
     }
 }
 </script>

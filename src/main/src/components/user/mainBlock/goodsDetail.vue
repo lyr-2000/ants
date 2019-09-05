@@ -29,6 +29,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import { setTimeout } from 'timers';
 
 export default {
     data(){
@@ -60,15 +61,21 @@ export default {
             this.timeType="交易"
             url="/ants/sell/mySellGoods"
         }
-        let state=0;
+        let type=0;
         if(this.pIndex==0||this.pIndex==1){
-            state=this.pIndex+1
+            type=this.pIndex+1
         }else if(this.pIndex==2){
-            state=4
+            type=4
         }else if(this.pIndex==3){
-            state=3
+            type=3
         }
-        this.getGoods(url,state,this.currentPage,title);
+        let data={
+            url:url,
+            type:type,
+            cPage:this.currentPage,
+            title:this.title
+        }
+        this.getGoods(data);
     }
 }
 </script>

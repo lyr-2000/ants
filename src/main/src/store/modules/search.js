@@ -196,8 +196,7 @@ const mutations = {
     init(state, res) {
         state.synthesis = res.synthesis;
         state.childList = res.childList;
-        state.allClassification = res.allClassification;
-        state.childList = res.childList;
+        state.goodsList = res.goodsList;
         state.page = res.page;
     }
 }
@@ -241,7 +240,7 @@ const actions = {
             })
         }
     },
-    // 根据标签搜素相应的内容
+    // 根据标签搜索相应的内容
     titleSearch({ commit }, index) {
         state.thiIndex = index;
         axios.post('/ants/class/goodsByChild', {
@@ -270,11 +269,13 @@ const actions = {
     },
     // 初始化页面数据
     initData({ commit }) {
-        axios.get('/ants/dataRendering/deputyPage', {}).then((res) => {
-            commit('init', res.data);
-        }).catch(err => {
-            console.log(`can't request the data for ${err}`);
-        })
+        console.log('init')
+        axios.get('/ants/dataRendering/deputyPage')
+            .then((res) => {
+                commit('init', res.data);
+            }).catch(err => {
+                console.log(`can't request the data for ${err}`);
+            })
     }
 }
 
