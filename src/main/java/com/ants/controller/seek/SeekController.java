@@ -37,6 +37,7 @@ public class SeekController {
     @RequestMapping(value = "/mySeekGoods", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Seek>> mySeekGoods(HttpServletRequest request) {
+        //保存返回给前端数据的信息
         Map<String, List<Seek>> seekGoods = new HashMap<>();
 
         //获取学生的学号，即登录此账户的用户

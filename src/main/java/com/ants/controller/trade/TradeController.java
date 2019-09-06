@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,12 +35,13 @@ public class TradeController {
      * @param currentPage
      * @return
      */
-    @RequestMapping(value = "/myTradeGoods",method = RequestMethod.GET)
+    @RequestMapping(value = "/myTradeGoods",method = RequestMethod.POST)
     @ResponseBody
     public Map myTradeGoods(HttpServletRequest request,
-                            int type,
-                            Integer currentPage){
+                            @RequestParam(value = "type") int type,
+                            @RequestParam(value = "currentPage") Integer currentPage){
         Map tradeGoods = new HashMap<>();
+        System.out.println("type: " + type);
 
         //设置map用来保存myTradeGoods方法中的参数信息
         Map<String, Integer> parameterMap = new HashMap();

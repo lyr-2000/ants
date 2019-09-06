@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +35,11 @@ public class ShopController {
      * @param type 查看状态,0 为我想买，1 为我想卖
      * @return
      */
-    @RequestMapping(value = "/myCaseGoods",method = RequestMethod.GET)
+    @RequestMapping(value = "/myCaseGoods",method = RequestMethod.POST)
     @ResponseBody
     public Map tradingCase(HttpServletRequest request,
-                                               Integer type,
-                                               Integer currentPage
+                           @RequestParam(value = "type") Integer type,
+                           @RequestParam(value = "currentPage") Integer currentPage
     ){
         //存放最后返回给前端数据信息的map
         Map shopGoods = new HashMap<>();

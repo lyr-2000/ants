@@ -33,7 +33,7 @@ public class GoodsController {
      * @param goodsId
      * @return
      */
-    @RequestMapping(value = "chooseGood",method = RequestMethod.GET)
+    @RequestMapping(value = "/chooseGood",method = RequestMethod.GET)
     @ResponseBody
     public Map chooseGoodsById(@RequestParam(value = "goodsId") Integer goodsId){
         Map dataMap = new HashMap<>();

@@ -90,6 +90,7 @@ public class LeaseController {
     @RequestMapping(value = "/myLeaseGoods", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Lease>> myLeaseGoods(HttpServletRequest request) {
+        //保存返回给前端数据的信息
         Map<String, List<Lease>> leaseGoods = new HashMap<>();
 
         //获取学生的学号，即登录此账户的用户

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -114,11 +115,11 @@ public class StudentController {
      * @param currentPage
      * @return
      */
-    @RequestMapping(value = "/myTradingSituation", method = RequestMethod.GET)
+    @RequestMapping(value = "/myTradingSituation", method = RequestMethod.POST)
     @ResponseBody
     public Map myTradingSituation(HttpServletRequest request,
-                                  int type,
-                                  int currentPage) {
+                                  @RequestParam(value = "type") int type,
+                                  @RequestParam(value = "currentPage") int currentPage) {
         Map goodsList = new HashMap();
 
         //获取学生的学号，即登录此账户的用户
