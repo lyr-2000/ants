@@ -1,6 +1,6 @@
 <template>
     <div class="goodsShow">
-        <div class="specificGoods"  v-for="ex in goodsList">
+        <div class="specificGoods"  v-for="ex in goodsExample">
             <img :src="[require('../../assets/img/search/'+ex.goodsPicture)]">
             <span v-cloak class="goodsName">{{ex.goodsName}}</span>
             <div>
@@ -36,7 +36,7 @@ export default {
         }
     },
     computed: mapGetters({
-        goodsList:"getGoodsList"
+        goodsExample:"getGoodsList"
     })
 }
 </script>

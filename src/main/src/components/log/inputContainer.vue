@@ -6,7 +6,7 @@
 
                 <InfoInput>
                     <template #input>
-                    <input type="text" placeholder="学校" v-model="school" @keyup.enter="picCodeRequest">
+                    <input type="text" placeholder="学校" v-model="school" @keyup.enter="loginRequest">
                 </template>
                     <template #img>
                     <img src="../../assets/img/log/school.png">
@@ -15,7 +15,7 @@
 
                 <InfoInput>
                     <template #input>
-                    <input type="text" placeholder="学号/教工号" v-model="sNo" @keyup.enter="picCodeRequest">
+                    <input type="text" placeholder="学号/教工号" v-model="sNo" @keyup.enter="loginRequest">
                 </template>
                     <template #img>
                     <img src="../../assets/img/log/sNo.png">
@@ -24,7 +24,7 @@
 
                 <InfoInput>
                     <template #input>
-                        <input type="password" placeholder="密码" v-model="password" @keyup.enter="picCodeRequest">
+                        <input type="password" placeholder="密码" v-model="password" @keyup.enter="loginRequest">
                     </template>
                     <template #img>
                         <img src="../../assets/img/log/password.png">
@@ -33,7 +33,7 @@
                 <p>
                     <input type="checkbox" name="rememberPassword">
                     <label for="rememberPassword">记住账号密码</label>
-                    <button class="login" @click="picCodeRequest">登录</button>
+                    <button class="login" @click="loginRequest">登录</button>
                 </p>
             </div>
 
@@ -123,6 +123,7 @@ export default {
                 this.dragUpRequest();
             }
         },
+        // 请求验证码图片
         picCodeRequest: function() {
             this.showCode = true;
             let that=this;
@@ -135,6 +136,11 @@ export default {
                 this.smallImgName = `img/${res.smallImgName}`;
                 that.location_y = res.location_y;
                 that.$refs.slideImg.style.top = that.location_y + 'px';
+                
+                that.slideSuccess = true;
+                setTimeout(()=>{
+                    that.$route.push("index")
+                })
             }).catch((err) => {
                 console.error(`error ${err} happen when get picture code`);
             })
@@ -150,61 +156,28 @@ export default {
                 console.log('res: ', res);
                 if (res.data.status == 1) {
                     that.slideTip = true;
-                    that.loginRequest();
                 } else {
                     alert(res.data.message);
                 }
             }).catch(err => {})
         },
-        loginRequest: function() { // 发起登录请求
-            let encodeData = this.submitForm1();
+        // 发起登录请求
+        loginRequest: function() { 
             let that=this;
-            if (!encodeData) {
-                this.showCode = false;
-                this.slideTip = false;
-            } else {
-                axios.post('/url', {
-                    school: that.school,
-                    encodeData: encodeData,
-                    //图片的滑动x坐标
-                }).then((res) => {
-                    if (res == 'success') {
-                        that.slideSuccess = true;
-                        setTimeout(function() {
-                            window.location.replace('index.html');
-                        }, 3000);
-                    } else {
-
-                    }
-
-                }).catch((err) => {
-
-                })
-            }
-        },
-        submitForm1: function() {
-            try {
-                let xh = this.sNo;
-                let pwd = this.password;
-                if (xh == "") {
-                    console.log("用户名不能为空！");
-                    return false;
+            axios.get(`http://jwxt.gduf.edu.cn/app.do?method=authUser&xh=${this.sNo}&pwd=${this.password}`)
+            .then((res) => {
+                console.log(res.data)
+                if (res.data.msg == '登录成功') {
+                    that.picCodeRequest();
+                } else {
+                    alert('账号或密码错误');
                 }
-                if (pwd == "") {
-                    console.log("密码不能为空！");
-                    return false;
-                }
-                // let account = encodeInp(xh);
-                // let passwd = encodeInp(pwd);
-                let account = xh;
-                let passwd = pwd;
-                let encoded = account + "%%%" + passwd;
-                return encoded;
-            } catch (e) {
-                alert(e.Message);
-                return false;
-            }
+
+            }).catch((err) => {
+
+            })
         }
+        
     },
     components: {
         InfoInput

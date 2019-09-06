@@ -28,7 +28,7 @@ const state = {
         { subClassId: 0, subClassName: "证从", parentClass: 0 },
         { subClassId: 0, subClassName: "证从", parentClass: 0 },
     ],
-    goodsList: [{
+    goodsExample: [{
         goodsId: 1,
         goodsName: "商品名",
         goodsPicture: "test1.png",
@@ -165,7 +165,7 @@ const getters = {
         return state.childList;
     },
     getGoodsList: function(state) {
-        return state.goodsList;
+        return state.goodsExample;
     },
     getCurrentPage: function(state) {
         return state.currentPage;
@@ -177,26 +177,26 @@ const getters = {
 
 const mutations = {
     changeArrayBy(state, res) {
-        state.goodsList = res.goodsList;
+        state.goodsExample = res.goodsExample;
         state.page = res.page;
         state.currentPage = 1;
     },
     turn(state, res) {
-        state.goodsList = res.goodsList;
+        state.goodsExample = res.goodsExample;
     },
     titleSearch(state, res) {
-        state.goodsList = res.goodsList;
+        state.goodsExample = res.goodsExample;
         state.page = res.page;
         state.currentPage = 1;
     },
     showChildList(state, res) {
         state.childList = res.childList;
-        state.goodsList = res.goodsList;
+        state.goodsExample = res.goodsExample;
     },
     init(state, res) {
         state.synthesis = res.synthesis;
         state.childList = res.childList;
-        state.goodsList = res.goodsList;
+        state.goodsExample = res.goodsExample;
         state.page = res.page;
     }
 }

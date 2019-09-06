@@ -39,7 +39,7 @@ export default {
     },
     mounted(){
         // 初始化信息
-        this.initDetailGoods(5);
+        this.initDetailGoods(this.$route.query.goodsId);
     }
 }
 </script>

@@ -54,9 +54,7 @@ const mutations = {
 
 const actions = {
     initDetailGoods({ commit }, id) {
-        axios.post('/ants/goods/chooseGood', {
-                goodsId: id,
-            })
+        axios.get(`/ants/goods/chooseGood?goodsId=${id}`)
             .then(res => {
                 commit("initDetailGoods", res.data)
             }).catch(err => {

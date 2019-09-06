@@ -454,7 +454,7 @@ const mutations = {
 const actions = {
     // 获取个人信息
     getUserMsg({ commit }) {
-        axios.get('/ants/student/getStuMessag')
+        axios.get('/ants/student/getStuMessage')
             .then(res => {
                 commit('getUserMsg', res.data)
             }).catch(err => {
