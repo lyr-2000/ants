@@ -25,6 +25,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/dataRendering")
 public class DataRenderController {
+    //设置每页商品数量有多少个商品
+    private final static Integer PAGENUMBERS = 16;
 
     @Autowired
     private ClassifyService classifyService;
@@ -106,16 +108,16 @@ public class DataRenderController {
         Integer goodsNumbers = goodsService.getGoodsNumbers();
         //获取16个随机商品的下标定位
         int head = (int) (Math.random() * goodsNumbers);
-        int tail = head + 16;
+//        int tail = head + 16;
         //将获取的限制数据的头和尾放进map中打包
         map.put("head", head);
-        map.put("tail", tail);
+        map.put("tail", PAGENUMBERS);
         //获取16个随机商品数据信息
         List<Goods> goodsExample = goodsService.chooseExampleGoods(map);
         dataMap.put("goodsExample", goodsExample);
 
         //获取商品页面的页数
-        int page = (goodsNumbers / 16) + 1;
+        int page = (goodsNumbers / PAGENUMBERS) + 1;
         dataMap.put("page", page);
 
         return dataMap;

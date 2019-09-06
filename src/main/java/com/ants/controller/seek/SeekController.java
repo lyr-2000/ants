@@ -23,6 +23,9 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/seek")
 public class SeekController {
+    //设置每页商品数量有多少个商品
+    private final static Integer PAGENUMBERS = 16;
+
     @Autowired
     private SeekService seekService;
 

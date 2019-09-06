@@ -20,6 +20,10 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/trade")
 public class TradeController {
+
+    //设置数据库每次获取数据的长度，即每个页面的数据量是多少条
+    private final static Integer PAGENUMBERS = 8;
+
     @Autowired
     private TradeService tradeService;
 
@@ -51,13 +55,13 @@ public class TradeController {
         int head = (currentPage - 1) * 8;
 
         //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
-        int tail = head + 8;
+//        int tail = head + 8;
 
 
         //保存myTradeGoods参数信息
         parameterMap.put("goodsBelong", studentId);
         parameterMap.put("head", head);
-        parameterMap.put("tail", tail);
+        parameterMap.put("tail", PAGENUMBERS);
 
         //保存myTradingGoodsNums参数信息
         paramMap.put("goodsBelong", studentId);
@@ -137,7 +141,7 @@ public class TradeController {
 
 
         //获取总页数
-        int allPage = (goodsNumbers / 8) + 1;
+        int allPage = (goodsNumbers / PAGENUMBERS) + 1;
 
         tradeGoods.put("allPage",allPage);
         tradeGoods.put("giveList", giveList);

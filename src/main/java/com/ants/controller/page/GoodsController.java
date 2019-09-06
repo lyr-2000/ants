@@ -21,6 +21,7 @@ import java.util.Map;
 @RequestMapping(value = "/ants/goods")
 public class GoodsController {
 
+
     @Autowired
     private GoodsService goodsService;
 
