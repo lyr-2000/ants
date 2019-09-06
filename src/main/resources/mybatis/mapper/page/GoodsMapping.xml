@@ -17,7 +17,8 @@
     <!-- 根据商品id获取对应商品信息-->
     <select id="chooseGoodsById" resultType="Map" parameterType="Integer">
         SELECT goodsId,goodsName,goodsBargin,userWechat,userQQ,
-               goodsPrice,goodsWay,goodsVideo,repertory,goodsDescribe,hidden
+               goodsPrice,goodsWay,goodsVideo,repertory,goodsDescribe,
+               qqHidden,wechatHidden
                    FROM ants_goods_base as goods,ants_user_base AS user
                         WHERE goods.goodsBelong = user.studentId AND goodsId=#{goodsId}
     </select>

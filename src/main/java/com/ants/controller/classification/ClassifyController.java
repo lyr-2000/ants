@@ -20,7 +20,7 @@ import java.util.*;
 @Controller
 @RequestMapping(value = "/ants/class")
 public class ClassifyController {
-
+    //设置每页商品数量有多少个商品
     private final static Integer PAGENUMBERS = 16;
 
     @Autowired
@@ -217,9 +217,9 @@ public class ClassifyController {
         parameterMap.put("childId", childId);
         //根据前端传过来的页面数获取商品的页面数下标，即Limit中的head , tail
         Integer head = (currentPage - 1) * PAGENUMBERS;
-        Integer tail = head + PAGENUMBERS;
+//        Integer tail = head + PAGENUMBERS;
         parameterMap.put("head", head);
-        parameterMap.put("tail", tail);
+        parameterMap.put("tail", PAGENUMBERS);
 
         /**
          * type：等于0时代表大分类小分类根据页数获取商品信息；

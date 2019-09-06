@@ -28,6 +28,9 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/student")
 public class StudentController {
+    //设置每页商品数量有多少个商品
+    private final static Integer PAGENUMBERS = 8;
+
     @Autowired
     private StudentService studentService;
 
@@ -134,10 +137,10 @@ public class StudentController {
         List<Seek> seekList = null;
 
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
-        int head = (currentPage - 1) * 8;
+        int head = (currentPage - 1) * PAGENUMBERS;
 
         //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
-        int tail = head + 8;
+//        int tail = head + 8;
 
         //设置map用来保存myIdleGoods方法中的参数信息
         Map<String, Integer> parameterMap = new HashMap();
@@ -145,7 +148,7 @@ public class StudentController {
         //保存参数信息
         parameterMap.put("goodsBelong", studentId);
         parameterMap.put("head", head);
-        parameterMap.put("tail", tail);
+        parameterMap.put("tail", PAGENUMBERS);
 
         int goodsNumbers = 0;
 
@@ -188,7 +191,7 @@ public class StudentController {
         }
 
         //获取总页数
-        int allPage = (goodsNumbers / 8) + 1;
+        int allPage = (goodsNumbers / PAGENUMBERS) + 1;
 
         goodsList.put("allPage",allPage);
         goodsList.put("giveList", giveList);

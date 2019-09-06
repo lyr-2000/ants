@@ -21,6 +21,9 @@ import java.util.Map;
 @RequestMapping(value = "/ants/sell")
 public class SellController {
 
+    //设置每页商品数量有多少个商品
+    private final static Integer PAGENUMBERS = 8;
+
     @Autowired
     private SellService sellService;
 
@@ -56,13 +59,13 @@ public class SellController {
         int head = (currentPage - 1) * 8;
 
         //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
-        int tail = head + 8;
+//        int tail = head + 8;
 
 
         //保存myTradeGoods参数信息
         parameterMap.put("goodsBelong", studentId);
         parameterMap.put("head", head);
-        parameterMap.put("tail", tail);
+        parameterMap.put("tail", PAGENUMBERS);
 
         //保存myTradingGoodsNums参数信息
         paramMap.put("goodsBelong", studentId);
@@ -142,7 +145,7 @@ public class SellController {
 
 
         //获取总页数
-        int allPage = (goodsNumbers / 8) + 1;
+        int allPage = (goodsNumbers / PAGENUMBERS) + 1;
 
         sellGoods.put("allPage",allPage);
         sellGoods.put("idleList", idleList);

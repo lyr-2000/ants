@@ -29,7 +29,7 @@ public class GiveController {
 
 
     /**
-     * 发布闲置功能
+     * 发布赠送功能
      *
      * @param photo
      * @param request
