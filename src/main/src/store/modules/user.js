@@ -476,10 +476,7 @@ const actions = {
     // 获取物品
     getGoods({ commit }, data) {
         console.log('data: ', data);
-        axios.post(data.url, {
-                type: data.type,
-                currentPage: data.cPage
-            })
+        axios.post(data.url, `type=${data.type}&currentPage=${data.cPage}`)
             .then(res => {
                 commit('getGoods', { res: res.data, type: data.type, title: data.title })
             }).catch(err => {
