@@ -54,7 +54,23 @@ public class SellController {
 
 
         //获取学生的学号，即登录此账户的用户
-        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+        Integer studentId = (Integer)request.getSession().getAttribute("studentId");
+        if (studentId == null){
+            sellGoods.put("error","用户未登录!");
+            return sellGoods;
+        }
+        //保存myTradeGoods参数信息
+        parameterMap.put("goodsBelong", studentId);
+
+        if (currentPage < 1){
+            sellGoods.put("error","页面数传输错误!");
+            return sellGoods;
+        }
+
+        if (type < 1){
+            sellGoods.put("error","信息类型传输错误!");
+            return sellGoods;
+        }
 
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
         int head = (currentPage - 1) * 8;
@@ -62,14 +78,14 @@ public class SellController {
         //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
 //        int tail = head + 8;
 
+//
+//        //保存myTradingGoodsNums参数信息
+//        paramMap.put("goodsBelong", studentId);
 
-        //保存myTradeGoods参数信息
-        parameterMap.put("goodsBelong", studentId);
+        //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
         parameterMap.put("tail", PAGENUMBERS);
 
-        //保存myTradingGoodsNums参数信息
-        paramMap.put("goodsBelong", studentId);
 
 
 

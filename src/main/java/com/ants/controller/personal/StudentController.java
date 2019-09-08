@@ -55,12 +55,18 @@ public class StudentController {
      */
     @RequestMapping(value = "/getStuMessage", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Student> getStudentMessage(HttpServletRequest request) {
-        Map<String, Student> data = new HashMap<>();
+    public Map getStudentMessage(HttpServletRequest request) {
+        Map data = new HashMap<>();
         //这个是Session获取学生学号
         HttpSession session = request.getSession();
-        session.setAttribute("studentId", 1);
+//        session.setAttribute("studentId", 1);
         Integer studentId = (Integer) session.getAttribute("studentId");
+
+        if (studentId == null){
+            data.put("error","用户未登录!");
+            return  data;
+        }
+
         //根据学生学号获取学生信息
         Student stuMessage = studentService.getStudentMessage(studentId);
 
@@ -86,9 +92,16 @@ public class StudentController {
         Map<String, String> stuMessage = new HashMap<>();
 
         //获取卖家ID
-        Integer studentId = 1;//(Integer) request.getSession().getAttribute("studentId");
-        //设置商品所属卖家的ID
-        student.setStudentId(studentId);
+        HttpSession session = request.getSession();
+        Integer studentId = (Integer)session.getAttribute("studentId");
+        if (studentId != null){
+            //设置商品所属卖家的ID
+            student.setStudentId(studentId);
+        }else{
+            stuMessage.put("error","用户未登录!");
+            return  stuMessage;
+        }
+
 
         //保存编辑好的我的资料的信息，将其添加到数据库中
         int result = studentService.saveStuMessage(student);
@@ -120,10 +133,23 @@ public class StudentController {
     public Map myTradingSituation(HttpServletRequest request,
                                   @RequestParam(value = "type") int type,
                                   @RequestParam(value = "currentPage") int currentPage) {
+        //用来保存返回给前端数据的信息的map
         Map goodsList = new HashMap();
+        if (type < 0){
+            goodsList.put("error","信息类型传输错误");
+            return goodsList;
+        }
 
         //获取学生的学号，即登录此账户的用户
-        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+        Integer studentId = (Integer)request.getSession().getAttribute("studentId");
+        if (studentId == null){
+            goodsList.put("error","用户未登录!");
+            return goodsList;
+        }
+        if (currentPage < 1){
+            goodsList.put("error","页面数据传输错误");
+            return goodsList;
+        }
 
         //保存此账号下闲置的所有物品信息
         List<Goods> idleList = null;
@@ -148,6 +174,7 @@ public class StudentController {
 
         //保存参数信息
         parameterMap.put("goodsBelong", studentId);
+        //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
         parameterMap.put("tail", PAGENUMBERS);
 

@@ -36,15 +36,28 @@ public class SeekController {
      */
     @RequestMapping(value = "/mySeekGoods", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List<Seek>> mySeekGoods(HttpServletRequest request) {
+    public Map mySeekGoods(HttpServletRequest request) {
+        //用来存储mySeekGoods方法中的参数数据
+        Map<String,Integer> parameterMap = new HashMap<>();
         //保存返回给前端数据的信息
-        Map<String, List<Seek>> seekGoods = new HashMap<>();
+        Map seekGoods = new HashMap<>();
 
         //获取学生的学号，即登录此账户的用户
-        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+        Integer studentId = (Integer)request.getSession().getAttribute("studentId");
+        if (studentId != null){
+            parameterMap.put("goodsBelong",studentId);
+        }else{
+            seekGoods.put("error","用户未登录!");
+            return seekGoods;
+
+        }
+
+        //设置数据库SQL语句中Limit关键字中的参数信息
+        parameterMap.put("head",0);
+        parameterMap.put("tail",PAGENUMBERS);
 
         //获取此账号下寻求的所有物品信息，我的寻求
-        List<Seek> seekList = null;//seekService.mySeekGoods(studentId);
+        List<Seek> seekList = seekService.mySeekGoods(parameterMap);
 
         seekGoods.put("seekList",seekList);
 
@@ -83,9 +96,15 @@ public class SeekController {
         //设置商品交易状态为未租赁
         seek.setGoodsState(0);
         //获取卖家ID
-        Integer studentId = 1;//(Integer) request.getSession().getAttribute("studentId");
-        //设置商品所属卖家的ID
-        seek.setGoodsBelong(studentId);
+        Integer studentId = (Integer) request.getSession().getAttribute("studentId");
+        if (studentId == null){
+            uploadSeek.put("error","用户未登录!");
+            return  uploadSeek;
+        }else{
+            //设置商品所属卖家的ID
+            seek.setGoodsBelong(studentId);
+        }
+
 
         //设置商品的订单号
         seek.setGoodsId(seekId);

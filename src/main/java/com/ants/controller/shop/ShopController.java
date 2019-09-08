@@ -41,17 +41,33 @@ public class ShopController {
                            @RequestParam(value = "type") Integer type,
                            @RequestParam(value = "currentPage") Integer currentPage
     ){
+        //用来保存tradingCase函数的参数的map
+        Map<String,Integer> parameterMap = new HashMap<>();
+
         //存放最后返回给前端数据信息的map
         Map shopGoods = new HashMap<>();
 
-        //用来保存tradingCase函数的参数的map
-        Map<String,Integer> parameterMap = new HashMap<>();
+
 
         //设置map用来保存myShopGoodsNums方法中的参数信息
         Map<String, Integer> paramMap = new HashMap();
 
+        if (type < 0){
+            shopGoods.put("error","信息类型传输错误!");
+            return shopGoods;
+        }
+
+        if (currentPage < 0){
+            shopGoods.put("error","页面数传输错误!");
+            return shopGoods;
+        }
+
         //获取卖家ID
-        Integer userId = 1;//(Integer) request.getSession().getAttribute("studentId");
+        Integer userId = (Integer) request.getSession().getAttribute("studentId");
+        if (userId == null){
+            shopGoods.put("error","用户未登录!");
+            return shopGoods;
+        }
 
         //保存tradingCase参数信息
         parameterMap.put("userId",userId);

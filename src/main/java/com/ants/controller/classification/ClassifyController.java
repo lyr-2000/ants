@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.util.*;
 
 /**
@@ -42,10 +41,14 @@ public class ClassifyController {
         //获取所有的大分类的数据信息
         List<ParentClass> parentClassification = classifyService.parentClassification();
 
-        //根据大分类的ID获取对应的小分类的数据信息列表
+        //遍历所有大分类的ID的数据，然后获取对应大分类ID对应的小分类信息
         for (Integer parentId : parentClass) {
+            //根据大分类的ID获取对应的小分类的数据信息列表
             List<ChildClass> childClassification = classifyService.childClassification(parentId);
-            childList.add(childClassification);
+            if(childClassification != null){
+                childList.add(childClassification);
+            }
+
         }
         allMap.put("parentClassification", parentClassification);
         allMap.put("childClassification", childList);
@@ -60,14 +63,22 @@ public class ClassifyController {
      * @param parentId
      * @return
      */
-        @RequestMapping(value = "/goodsByParent", method = RequestMethod.POST)
+    @RequestMapping(value = "/goodsByParent", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByParent(@RequestParam(value = "parentId") Integer parentId) {
         Map dataMap = new HashMap<>();
 
         //获取前端传来的大分类ID和设置默认页面商品数量，默认是一页显示16个商品
         Map<String, Integer> parameterMap = new HashMap<>();
-        parameterMap.put("parentId", parentId);
+        if (parentId != null){
+            parameterMap.put("parentId", parentId);
+        }else{
+            dataMap.put("error","未获取对应分类下的商品分类！");
+            return  dataMap;
+        }
+
+
+        //设置默认页数，默认页数为1，即从数据库第0条数据开始获取
         parameterMap.put("head", 0);
         parameterMap.put("tail", PAGENUMBERS);
 
@@ -83,11 +94,21 @@ public class ClassifyController {
 
         //获取纵向导航栏中属于此大分类的小分类信息
         List<ChildClass> childList = classifyService.childClassification(parentId);
-        dataMap.put("childList", childList);
+        if (childList != null){
+            dataMap.put("childList", childList);
+        }else {
+            dataMap.put("childList", null);
+        }
+
 
         //根据前端传来的ID获取此ID代表的大分类的名称，并且传回给前端进行字体加强
         ParentClass parentName = classifyService.getParentName(parentId);
-        dataMap.put("parentName", parentName);
+        if (parentName != null && !parentName.equals("")){
+            dataMap.put("parentName", parentName);
+        }else{
+            dataMap.put("parentName", "父类商品分类名称为空!");
+        }
+
 
         return dataMap;
     }
@@ -103,17 +124,35 @@ public class ClassifyController {
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByChild(@RequestParam(value = "subClassId") Integer childId) {
         Map dataMap = new HashMap();
+
+        if (childId == null){
+            dataMap.put("error","未获取对应分类下的商品信息！");
+            return dataMap;
+        }
+
         //根据前端传来的子类ID获取父类名称
         ParentClass parentName = classifyService.getParentNameByChildId(childId);
-        dataMap.put("parentName", parentName);
+        if (parentName != null && !parentName.equals("")){
+            dataMap.put("parentName", parentName);
+        }else{
+            dataMap.put("parentName", "父分类商品分类名称为空!");
+        }
+
 
         //根据前端传来的子类ID获取子类名称
         ChildClass childName = classifyService.getChildName(childId);
-        dataMap.put("childName", childName);
+        if (childName != null && !childName.equals("")){
+            dataMap.put("childName", childName);
+        }else {
+            dataMap.put("childName", "子分类商品分类名称为空!");
+        }
+
 
         //获取前端传来的大分类ID和设置默认页面商品数量，默认是一页显示16个商品
         Map<String, Integer> parameterMap = new HashMap<>();
         parameterMap.put("childId", childId);
+
+        //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", 0);
         parameterMap.put("tail", PAGENUMBERS);
 
@@ -154,8 +193,21 @@ public class ClassifyController {
 
         //用来存放参数 parentId和childId的Map集合
         Map<String, Integer> parameterMap = new HashMap<>();
+
+        if (parentId == null || childId ==null){
+            dataMap.put("error","未获取对应分类下的商品信息！");
+            return dataMap;
+        }
+
+        if (type == null){
+            dataMap.put("error","商品功能类型获取失败!");
+            return dataMap;
+        }
+
         parameterMap.put("parentId", parentId);
         parameterMap.put("childId", childId);
+
+        //设置页面是为第一页开始显示数据，即从数据库中第0条数据开始获取
         parameterMap.put("head", 0);
         parameterMap.put("tail", PAGENUMBERS);
 
@@ -213,11 +265,24 @@ public class ClassifyController {
 
         //用来存放参数 parentId和childId的Map集合
         Map<String, Integer> parameterMap = new HashMap<>();
+        if (type == null){
+            dataMap.put("error","商品功能类型获取失败!");
+            return dataMap;
+        }
+
+        if (parentId == null && childId== null){
+            dataMap.put("error","未获取对应分类下的商品信息！");
+            return dataMap;
+        }
+
+
         parameterMap.put("parentId", parentId);
         parameterMap.put("childId", childId);
         //根据前端传过来的页面数获取商品的页面数下标，即Limit中的head , tail
         Integer head = (currentPage - 1) * PAGENUMBERS;
 //        Integer tail = head + PAGENUMBERS;
+
+        //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
         parameterMap.put("tail", PAGENUMBERS);
 

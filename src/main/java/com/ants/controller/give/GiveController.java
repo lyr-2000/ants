@@ -23,6 +23,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/give")
 public class GiveController {
+    //每页商品的数量
+    private static final Integer PAGENUMBER = 8;
 
     @Autowired
     private GiveService giveService;
@@ -42,10 +44,12 @@ public class GiveController {
                                            HttpServletRequest request,
                                            Give give
     ) {
+        //用来保存返回给前端数据的map
         Map<String, String> uploadGive = new HashMap<>();
 
         //生产商品订单号
         String shopId = ShopIdUtil.getShopIdByUUID();
+        //将生成的Stringl类型的商品订单号转换为Int类型
         Integer giveId = Integer.parseInt(shopId);
 
         //设置赠送商品的订单号
@@ -53,8 +57,14 @@ public class GiveController {
 
         //设置赠送商品交易状态为未交易
         give.setGoodsState(0);
+
         //获取卖家ID
-        Integer studentId = 2;//(Integer) request.getSession().getAttribute("studentId");
+        Integer studentId = (Integer) request.getSession().getAttribute("studentId");
+        if (studentId == null){
+            uploadGive.put("error","用户未登录!");
+            return uploadGive;
+        }
+
         //设置商品所属卖家的ID
         give.setGoodsBelong(studentId);
 
@@ -68,12 +78,12 @@ public class GiveController {
 
         //将商品信息添加到数据库中
         int result = giveService.addGiveGoods(give);
+        //判断数据添加进数据库是否成功
         if (result > 0) {
             uploadGive.put("releaseStatus", "success");
         } else {
             uploadGive.put("releaseStatus", "fail");
         }
-
 
         //上传图片
 //        uploadIdle = Upload.uploadPhoto(photo, request);
@@ -88,15 +98,28 @@ public class GiveController {
      */
     @RequestMapping(value = "/myGiveGoods", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List<Give>> myGiveGoods(HttpServletRequest request) {
+    public Map myGiveGoods(HttpServletRequest request) {
         //保存返回给前端的数据信息
-        Map<String, List<Give>> giveGoods = new HashMap<>();
+        Map giveGoods = new HashMap<>();
+
+        //用来存储myGiveGoods方法中的参数数据
+        Map<String,Integer> parameterMap = new HashMap<>();
 
         //获取学生的学号，即登录此账户的用户
-        Integer studentId = 1;//(Integer)request.getSession().getAttribute("studentId");
+        Integer studentId = (Integer)request.getSession().getAttribute("studentId");
+        if (studentId == null){
+            giveGoods.put("error","用户未登录!");
+            return giveGoods;
+        }else{
+            parameterMap.put("goodsBelong",studentId);
+        }
+
+        //设置数据库SQL语句中Limit关键字中的参数信息
+        parameterMap.put("head",0);
+        parameterMap.put("tail",PAGENUMBER);
 
         //获取此账号下赠送的所有物品信息
-        List<Give> giveList = null;//giveService.myGiveGoods(studentId);
+        List<Give> giveList = giveService.myGiveGoods(parameterMap);
 
         giveGoods.put("giveGoods",giveList);
 

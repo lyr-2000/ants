@@ -36,7 +36,14 @@ public class GoodsController {
     @RequestMapping(value = "/chooseGood",method = RequestMethod.GET)
     @ResponseBody
     public Map chooseGoodsById(@RequestParam(value = "goodsId") Integer goodsId){
+        //用来保存返回给前端数据的信息的map
         Map dataMap = new HashMap<>();
+
+        if(goodsId == null){
+            dataMap.put("error","商品信息获取错误!");
+            return  dataMap;
+        }
+
         //根据商品id获取单个商品的详细信息
         Map<String,Object> goodsInformation = goodsService.chooseGoodsById(goodsId);
         dataMap.put("singleGoodsMessage",goodsInformation);
