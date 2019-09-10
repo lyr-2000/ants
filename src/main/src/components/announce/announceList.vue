@@ -2,21 +2,21 @@
     <div class="list">
         <h1>公告信息</h1>
         <ul>
-            <li class="announceList" v-for="msg in announceList">
-                <span class="announceTitle" @click="readDetail">{{msg.title}}</span>
-                <span class="publishTime">{{msg.time}}</span>
+            <li class="announceList" v-for="msg in announcementList">
+                <span class="announceTitle" @click="readDetail(msg.annId)">{{msg.annTitle}}</span>
+                <span class="publishTime">{{msg.annTime}}</span>
             </li>
         </ul>
         <p class="pageTurn">
             <span :class="['leftHan',currentPage==1?'disabeldHan':'']" @click="pageTurn(currentPage-1)"><</span>
-            <span v-for="num in pageNum" :class="['turnHan',currentPage==num?'currentPage':'']" @click="pageTurn(num)">{{num}}</span>
-            <span :class="['rightHan',currentPage==pageNum?'disabeldHan':'']" @click="pageTurn(currentPage+1)">></span>
+            <span v-for="num in allPage" :class="['turnHan',currentPage==num?'currentPage':'']" @click="pageTurn(num)">{{num}}</span>
+            <span :class="['rightHan',currentPage==allPage?'disabeldHan':'']" @click="pageTurn(currentPage+1)">></span>
         </p>
     </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
 export default {
     data(){
         return{
@@ -25,19 +25,21 @@ export default {
     },
     computed:{
         ...mapGetters('announce',{
-            announceList:"getAnnounceList",
-            pageNum:"getPageNum"
+            announcementList:"getAnnouncementList",
+            allPage:"getAllPage"
         })
     },
     methods:{
+        ...mapActions("announce",["getAnnList"]),
         pageTurn(num){
-            if(num<1||num>this.pageNum){
+            if(num<1||num>this.allPage){
                 return;
             }
             this.currentPage=num;
+            this.getAnnList(this.currentPage);
         },
-        readDetail(){
-            this.$emit("changeDetail")
+        readDetail(id){
+            this.$emit("changeDetail",id)
         }
     }
 }

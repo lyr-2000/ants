@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-
 import Chat from './page/chat.vue'
 import Detail from './page/detail.vue'
 import Index from './page/index.vue'
@@ -39,5 +38,5 @@ const router = new VueRouter({
 })
 new Vue({
     router,
-    render: h => h(App),
+    render: h => h(App)
 }).$mount('#app')

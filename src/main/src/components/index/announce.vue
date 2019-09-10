@@ -3,23 +3,24 @@
         <img src="../../assets/img/index/tongzhi.png">
         <p>
             <strong>公告</strong>
-            <router-link :to="`announce?id=${announcement.annId}`" class="announceContent">{{announcement.annTitle}}</router-link>
-            <span class="announceTime">{{announcement.annTime}}</span>
+            <router-link :to="`announce?id=${announcement[annIndex].annId}`" class="announceContent">{{announcement[annIndex].annTitle}}</router-link>
+            <span class="announceTime">{{announcement[annIndex].annTime}}</span>
         </p>
         <router-link to="announce" class="moreAnnounce">更多</router-link>
     </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
     data(){
         return{
-            announcement: {
-                annTitle: '蚂蚁置物上线:一个专注于校园二手租赁，方便学生教师闲置物品出售购入平台',
-                annTime: '2019-5-10',
-                annId: '',
-            }
+           annIndex:0
         }
+    },
+    computed:{
+        ...mapGetters("announcement","getAnnouncement")
     }
 }
 </script>

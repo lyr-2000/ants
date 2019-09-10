@@ -1,6 +1,11 @@
 import axios from 'axios'
 
 const state = {
+    announcement: [{
+        annTitle: '蚂蚁置物上线:一个专注于校园二手租赁，方便学生教师闲置物品出售购入平台',
+        annTime: '2019-5-10',
+        annId: '',
+    }],
     parentClassification: [{
         parentPicture: require('../../assets/img/icon/book.png'),
         parentName: '书籍'
@@ -136,6 +141,9 @@ const getters = {
     },
     getLatest(state) {
         return state.latest;
+    },
+    getAnnouncement(state) {
+        return state.announcement;
     }
 }
 
@@ -145,6 +153,7 @@ const mutations = {
         state.guessLike = res.guessLike;
         state.hottest = res.hottest;
         state.latest = res.latest;
+        state.announcement = res.announcement;
     },
     concreteRequest(state, childClassification) {
         state.childClassification = childClassification;

@@ -211,10 +211,17 @@ const actions = {
             state.type = type;
             state.arraySort = true;
         }
-        axios.post('/ants/class/chooseGoodsByType', {
-                parentId: state.secIndex,
-                childId: state.thiIndex,
-                type: state.type
+        axios({
+                headers: {
+                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                },
+                url: '/ants/class/chooseGoodsByType',
+                data: {
+                    parentId: state.secIndex,
+                    childId: state.thiIndex,
+                    type: state.type
+                },
+                method: 'post'
             })
             .then(res => {
                 commit("changeArrayBy", res.data)
@@ -228,11 +235,18 @@ const actions = {
             return;
         } else {
             state.currentPage = currentPage;
-            axios.post('/ants/class/pageJump', {
-                parentId: state.secIndex,
-                childId: state.thiIndex,
-                type: state.type,
-                currentPage: state.currentPage
+            axios({
+                headers: {
+                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                },
+                url: '/ants/class/pageJump',
+                data: {
+                    parentId: state.secIndex,
+                    childId: state.thiIndex,
+                    type: state.type,
+                    currentPage: state.currentPage
+                },
+                method: 'post'
             }).then(res => {
                 commit("turn", res.data);
             }).catch(err => {
@@ -243,10 +257,17 @@ const actions = {
     // 根据标签搜索相应的内容
     titleSearch({ commit }, index) {
         state.thiIndex = index;
-        axios.post('/ants/class/goodsByChild', {
-            subClassId: index,
-            subClassName: state.childList[index].subClassName,
-            parentClass: state.secIndex
+        axios({
+            headers: {
+                'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+            },
+            url: '/ants/class/goodsByChild',
+            data: {
+                subClassId: index,
+                subClassName: state.childList[index].subClassName,
+                parentClass: state.secIndex
+            },
+            method: 'post'
         }).then(res => {
             commit("titleSearch", res.data);
         }).catch(err => {
@@ -258,7 +279,14 @@ const actions = {
         console.log('index: ', index);
         state.secIndex = index;
         if (index != 0) {
-            axios.post('/ants/class/goodsByParent', state.synthesis[index])
+            axios({
+                    headers: {
+                        'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                    },
+                    url: '/ants/class/goodsByParent',
+                    data: state.synthesis[index],
+                    method: 'post'
+                })
                 .then((res) => {
                     commit('showChildList', res.data)
                 })

@@ -464,7 +464,14 @@ const actions = {
     // 提交个人信息修改
     saveStuMsg({ commit }, data) {
         console.log(data.user)
-        axios.post('/ants/student/saveStuMessage', data.user)
+        axios({
+                headers: {
+                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                },
+                url: '/ants/student/saveStuMessage',
+                data: data.user,
+                method: 'post'
+            })
             .then(res => {
                 commit('saveStuMsg', res.data)
             }).catch(err => {
@@ -476,7 +483,7 @@ const actions = {
     // 获取物品
     getGoods({ commit }, data) {
         console.log('data: ', data);
-        axios.post(data.url, `type=${data.type}&currentPage=${data.cPage}`)
+        axios.post(data.url, `type=${data.type}&currentPage=${data.cPage+1}`)
             .then(res => {
                 commit('getGoods', { res: res.data, type: data.type, title: data.title })
             }).catch(err => {
@@ -491,7 +498,14 @@ const actions = {
         if (data.params.video.length !== 0) {
             actions.uploadFile({ param: data.params.video, type: 'video' });
         }
-        axios.post(`./ants/${data.type.toLowerCase()}/release${data.type}`, data.data)
+        axios({
+                headers: {
+                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                },
+                url: `./ants/${data.type.toLowerCase()}/release${data.type}`,
+                data: data.data,
+                method: 'post'
+            })
             .then(res => {
                 commit('releaseGoods', res.data)
             }).catch(err => {
@@ -511,9 +525,17 @@ const actions = {
         } else if (type === "video") {
             url = "/ants/upload/videoUpload"
         }
-        axios.post(url, {
-                [type]: param
-            }, config)
+        axios({
+                headers: {
+                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                },
+                url: url,
+                data: {
+                    [type]: param
+                },
+                method: 'post',
+                config: config
+            })
             .then(res => {
                 console.log(res);
             }).catch(err => {

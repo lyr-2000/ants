@@ -32,6 +32,9 @@ export default {
         ...mapGetters({
             singleGoodsMessage:"getSingleGoodsMessage"
         })
+    },
+    methods:{
+        ...mapActions(["initDetailGoods"])
     }
 }
 </script>

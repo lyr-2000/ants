@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 const state = {
     pageSource: ["分类页", "商品详情"],
     singleGoodsMessage: {

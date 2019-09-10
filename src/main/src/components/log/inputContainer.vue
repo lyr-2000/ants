@@ -164,7 +164,7 @@ export default {
         // 发起登录请求
         loginRequest: function() { 
             let that=this;
-            axios.get(`http://jwxt.gduf.edu.cn/app.do?method=authUser&xh=${this.sNo}&pwd=${this.password}`)
+            axios.get(`/api/app.do?method=authUser&xh=${this.sNo}&pwd=${this.password}`)
             .then((res) => {
                 console.log(res.data)
                 if (res.data.msg == '登录成功') {

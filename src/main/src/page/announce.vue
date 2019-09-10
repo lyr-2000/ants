@@ -15,6 +15,7 @@ import Header from '../components/construct/header.vue'
 import AnnounceList from '../components/announce/announceList.vue'
 import AnnounceDetail from '../components/announce/announceDetail.vue'
 import store from '../store'
+import {mapActions} from 'vuex'
 export default {
     name:'app',
     data(){
@@ -30,8 +31,12 @@ export default {
         AnnounceDetail
     },
     methods:{
-        changeDetail(){
+        ...mapActions("announce",["getAnnDetail"]),
+        changeDetail(id){
             this.isDetail=!this.isDetail;
+            if(this.isDetail){
+                this.getAnnDetail(id)
+            }
         }
     }
 }
