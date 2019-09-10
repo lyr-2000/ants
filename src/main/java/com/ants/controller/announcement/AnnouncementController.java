@@ -2,6 +2,7 @@ package com.ants.controller.announcement;
 
 import com.ants.entity.announcement.Announcement;
 import com.ants.service.announcement.AnnouncementService;
+import com.ants.util.InterceptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +41,7 @@ public class AnnouncementController {
             return announcementMap;
         }
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
-        int head = (currentPage - 1) * 8;
+        int head = (currentPage - 1) * PAGENUMBER;
 
         //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
@@ -73,8 +74,32 @@ public class AnnouncementController {
         //根据公告的id获取对应公告的信息
         Announcement announcement = announcementService.getAnnDetail(annId);
 
-        detailMap.put("annDetail",announcement);
+        //获取数据库中的公告的内容
+        String annContent = announcement.getAnnContent();
 
+        //创建截取字符串的自定义对象
+        InterceptUtil intercept = new InterceptUtil();
+
+        //将截取的字符串以"/n"截取并且返回一个数组
+        String [] contentArray = intercept.intecepterString(annContent);
+
+        //初始化字段fielMap
+        Map fieldMap = new HashMap(){
+            {
+                put("annId",1);
+                put("annTitle","hello");
+                put("annContent",new String[1]);
+                put("annTime","2019-05-02 16:14:54.0");
+            }
+        };
+
+        //将数据库返回的数据对象中的数据写进fieldMap中，以便等等对数据进行打包
+        fieldMap.put("annId",announcement.getAnnId());
+        fieldMap.put("annTitle",announcement.getAnnTitle());
+        fieldMap.put("annContent",contentArray);
+        fieldMap.put("annTime",announcement.getAnnTime());
+
+        detailMap.put("annDetail",fieldMap);
 
         return detailMap;
 
