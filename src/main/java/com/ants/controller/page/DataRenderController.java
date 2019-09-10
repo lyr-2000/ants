@@ -47,12 +47,17 @@ public class DataRenderController {
     public Map<String, List<String>> homePage() {
         Map dataMap = new HashMap();
 
+        Map<String,Integer> parameterMap =new HashMap<>();
+
         //首页大分类的数据信息存放的列表
         List<ParentClass> parentClassification = classifyService.parentClassification();
         dataMap.put("parentClassification", parentClassification);
 
+        parameterMap.put("head",0);
+        parameterMap.put("tail",1);
+
         //最新的公告的数据渲染
-        Announcement announcement = announcementService.latestAnnouncement();
+        Announcement announcement = announcementService.latestAnnouncement(parameterMap);
         dataMap.put("announcement", announcement);
 
         //猜你喜欢商品信息存放列表
