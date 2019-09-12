@@ -1,8 +1,10 @@
 package com.ants.dao.idle;
 
 /**
- * @author czd
  * 闲置相关的方法均在此数据层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
  */
 
 import com.ants.entity.page.Goods;
@@ -19,7 +21,7 @@ public interface IdleDao {
      * @param map
      * @return
      */
-    public List<Goods> myIdleGoods(Map<String,Integer> map);
+     List<Goods> myIdleGoods(Map<String,Integer> map);
 
 
     /**
@@ -27,5 +29,5 @@ public interface IdleDao {
      * @param studentId
      * @return
      */
-    public Integer myIdleGoodsNums(Integer studentId);
+     Integer myIdleGoodsNums(Integer studentId);
 }

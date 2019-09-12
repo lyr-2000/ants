@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 寻求相关的方法均在此数据层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+ *
  */
 @Repository
 public interface SeekDao {
@@ -18,7 +21,7 @@ public interface SeekDao {
      * @param studentId
      * @return
      */
-    public List<Seek> mySeekGoods(Map<String,Integer> map);
+     List<Seek> mySeekGoods(Map<String,Integer> map);
 
 
     /**
@@ -26,12 +29,12 @@ public interface SeekDao {
      * @param studentId
      * @return
      */
-    public Integer mySeekGoodsNums(Integer studentId);
+     Integer mySeekGoodsNums(Integer studentId);
 
     /**
      * 添加新寻求商品,发布寻求
      * @param seek
      * @return
      */
-    public int addSeekGoods(Seek seek);
+     int addSeekGoods(Seek seek);
 }

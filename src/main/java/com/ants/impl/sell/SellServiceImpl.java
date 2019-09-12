@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 交易完成后相关的代码均在此服务层实现类
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+
  */
 @Service
 public class SellServiceImpl implements SellService {

@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
  */
 @Repository
 public interface GoodsDao {
@@ -17,25 +19,25 @@ public interface GoodsDao {
      * @param head
      * @return
      */
-    public List<Goods> chooseExampleGoods(Map<String,Integer> map);
+     List<Goods> chooseExampleGoods(Map<String,Integer> map);
 
     /**
      * 获取所有商品的数量
      * @return
      */
-    public Integer getGoodsNumbers();
+     Integer getGoodsNumbers();
 
     /**
      * 根据商品id获取对应商品信息
      * @param goodsId
      * @return
      */
-    public Map<String,Object> chooseGoodsById(Integer goodsId);
+     Map<String,Object> chooseGoodsById(Integer goodsId);
 
     /**
      * 添加新商品
      * @param goods
      * @return
      */
-    public int addGoods(Goods goods);
+     int addGoods(Goods goods);
 }

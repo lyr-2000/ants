@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.*;
 
 /**
- * @author czd
  * 大分类、小分类的Controller
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+ *
  */
 @Controller
 @RequestMapping(value = "/ants/class")

@@ -10,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 正在交易中相关的代码均在此服务层实现类
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+
  */
 @Service
 public class TradeServiceImpl implements TradeService {

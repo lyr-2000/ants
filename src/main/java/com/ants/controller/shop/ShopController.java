@@ -15,9 +15,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 存放交易箱相关操作的业务代码
  * 在Service、Dao、ServiceImpl对应着ShopService、ShopServiceDao、ShopServiceImpl
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+ *
  */
 @Controller
 @RequestMapping(value = "/ants/tradeCase")

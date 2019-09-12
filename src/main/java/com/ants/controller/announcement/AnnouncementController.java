@@ -15,13 +15,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 用于公告类型的业务代码
+ * @Author czd
+ * @Date:create in 2019/10/11
+ * @Version: V1.0
+ *
  */
 @Controller
 @RequestMapping(value = "/ants/announcement")
 public class AnnouncementController {
-    //每页商品的数量
+    //每页商品的数量,设置公告每一页的公告数量为十条
     private static final Integer PAGENUMBER = 10;
 
     @Autowired
@@ -51,6 +54,14 @@ public class AnnouncementController {
         List<Announcement> announcementList = announcementService.getAnnouncementList(parameterMap);
 
         announcementMap.put("announcementList",announcementList);
+
+        //从数据库中获取公告的数量
+        Integer annNum = announcementService.getAnnNum();
+
+        //获取总的页面数
+        int allPage = (annNum / PAGENUMBER) + 1;
+
+        announcementMap.put("allPage",allPage);
 
         return announcementMap;
     }
@@ -98,6 +109,8 @@ public class AnnouncementController {
         fieldMap.put("annTitle",announcement.getAnnTitle());
         fieldMap.put("annContent",contentArray);
         fieldMap.put("annTime",announcement.getAnnTime());
+
+
 
         detailMap.put("annDetail",fieldMap);
 

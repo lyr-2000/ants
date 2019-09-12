@@ -3,8 +3,8 @@ package com.ants.util;
 /**
  * 用于对字符串截取的工具
  *
- * @author czd
- * @Date: created in 2019/9/10
+ * @Author czd
+ * @Date:created in 2019/9/10
  * @Version V1.0
  */
 public class InterceptUtil {

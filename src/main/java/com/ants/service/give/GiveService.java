@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 赠送相关的代码均在此服务层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+
  */
 @Service
 public interface GiveService {
@@ -17,19 +20,19 @@ public interface GiveService {
      * @param give
      * @return
      */
-    public int addGiveGoods(Give give);
+     int addGiveGoods(Give give);
 
     /**
      * 根据学生账户获取此学生发布的赠送的商品
      * @param map
      * @return
      */
-    public List<Give> myGiveGoods(Map<String,Integer> map);
+     List<Give> myGiveGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的赠送的商品的总数量
      * @param studentId
      * @return
      */
-    public Integer myGiveGoodsNums(Integer studentId);
+     Integer myGiveGoodsNums(Integer studentId);
 }

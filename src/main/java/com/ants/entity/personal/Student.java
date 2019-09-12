@@ -12,19 +12,32 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class Student {
+    /** 学生学号  */
     private int studentId;
+    /**  学生名称 */
     private String userName;
-    private int userSex; //0:男   1：女
+    /**  学生性别：0 -> 男   1 -> 女 */
+    private int userSex;
+    /**  学生登录时的密码 */
     private String passWord;
-    private String unpw;//存放的是一起加密过后的密码
+    /** 存放的是一起加密过后的密码  */
+    private String unpw;
+    /** 学生手机号 */
     private String mobilePhone;
-    private String address;//交易地址
-    private String portrait;//头像图片
+    /** 交易地址 */
+    private String address;
+    /** 头像图片 */
+    private String portrait;
+    /** 学生微信号 */
     private String userWechat;
+    /** 学生QQ号 */
     private String userQQ;
-    private String registTime;//注册时间
-    private int qqHidden;//是否隐藏QQ:0:隐藏 1:不隐藏
-    private int wechatHidden;//是否隐藏微信:0:隐藏 1:不隐藏
+    /** 注册时间 */
+    private String registTime;
+    /** 是否隐藏QQ:0:隐藏 1:不隐藏 */
+    private int qqHidden;
+    /** 是否隐藏微信:0:隐藏 1:不隐藏 */
+    private int wechatHidden;
 
 
 }

@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 交易箱相关的方法均在此数据层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+ *
  */
 @Repository
 public interface ShopDao {
@@ -18,12 +21,12 @@ public interface ShopDao {
      * @param map
      * @return
      */
-    public List<Shop> tradingCase(Map<String,Integer> map);
+     List<Shop> tradingCase(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生我想买和我想卖的商品总数量
      * @param map
      * @return
      */
-    public Integer myShopGoodsNums(Map<String,Integer> map);
+     Integer myShopGoodsNums(Map<String,Integer> map);
 }

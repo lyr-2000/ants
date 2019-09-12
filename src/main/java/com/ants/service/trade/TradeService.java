@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 正在交易中相关的代码均在此服务层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+
  */
 @Service
 public interface TradeService {
@@ -18,12 +21,12 @@ public interface TradeService {
      * @param studentId
      * @return
      */
-    public List<Trade> myTradeGoods(Map<String,Integer> map);
+     List<Trade> myTradeGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的正在交易的商品（闲置，租赁，寻求和赠送）的总数量
      * @param map
      * @return
      */
-    public Integer myTradingGoodsNums(Map<String,Integer> map);
+     Integer myTradingGoodsNums(Map<String,Integer> map);
 }

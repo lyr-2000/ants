@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
  * 交易完成后相关的代码均在此服务层
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
+
  */
 @Service
 public interface SellService {
@@ -18,12 +21,12 @@ public interface SellService {
      * @param map
      * @return
      */
-    public List<Sell> mySellGoods(Map<String,Integer> map);
+     List<Sell> mySellGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的已经完成交易的商品（闲置，租赁，赠送）的总数量
      * @param map
      * @return
      */
-    public Integer mySellGoodsNums(Map<String,Integer> map);
+     Integer mySellGoodsNums(Map<String,Integer> map);
 }

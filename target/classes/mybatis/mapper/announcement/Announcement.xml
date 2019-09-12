@@ -23,4 +23,10 @@
                   WHERE annId = #{annId}
     </select>
 
+    <!--获取公告的数量-->
+    <select id="getAnnNum" resultType="Integer">
+        SELECT COUNT(*)
+            FROM  ants_management_announcement
+    </select>
+
 </mapper>

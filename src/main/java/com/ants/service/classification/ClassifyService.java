@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
  */
 @Service
 public interface ClassifyService {
@@ -18,35 +20,35 @@ public interface ClassifyService {
      *
      * @return
      */
-    public List<ParentClass> parentClassification();
+     List<ParentClass> parentClassification();
 
     /**
      * 首页大分类的数据接口
      *
      * @return
      */
-    public List<ParentClass> parentClassificationHasOthers();
+     List<ParentClass> parentClassificationHasOthers();
 
     /**
      * 首页小分类的数据接口
      *
      * @return
      */
-    public List<ChildClass> childClassification(Integer parentClass);
+     List<ChildClass> childClassification(Integer parentClass);
 
     /**
      * 获取所有大分类的ID的的数据接口
      *
      * @return
      */
-    public List<Integer> parentClassId();
+     List<Integer> parentClassId();
 
     /**
      * 获取所有的小分类的名字，除了“其他”这分类
      *
      * @return
      */
-    public List<ChildClass> allChildClassification();
+     List<ChildClass> allChildClassification();
 
     /**
      * 根据大分类的ID获取属于此大分类的商品的信息
@@ -54,7 +56,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public List<Goods> chooseGoodsByParent(Map<String,Integer> map);
+     List<Goods> chooseGoodsByParent(Map<String,Integer> map);
 
     /**
      * 根据大分类的ID获取属于此大分类的所有商品的总数量
@@ -62,7 +64,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public Integer getGoodsByParentNumbers(Integer parentId);
+     Integer getGoodsByParentNumbers(Integer parentId);
 
     /**
      * 根据前端传来的ID获取此ID代表的大分类的名称
@@ -70,7 +72,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public ParentClass getParentName(Integer parentId);
+     ParentClass getParentName(Integer parentId);
 
     /**
      * 根据前端传来的ID获取此ID代表的小分类的名称
@@ -78,7 +80,7 @@ public interface ClassifyService {
      * @param parentId
      * @return
      */
-    public ChildClass getChildName(Integer childId);
+     ChildClass getChildName(Integer childId);
 
     /**
      * 根据前端传来的子类的ID获取父类的名称
@@ -86,7 +88,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public ParentClass getParentNameByChildId(Integer childId);
+     ParentClass getParentNameByChildId(Integer childId);
 
     /**
      * 根据前端传来的子类ID获取相应的商品数据
@@ -94,7 +96,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public List<Goods> chooseGoodsByChild(Map<String,Integer> map);
+     List<Goods> chooseGoodsByChild(Map<String,Integer> map);
 
     /**
      * 根据小分类的ID获取属于此小分类的所有商品的总数量
@@ -102,7 +104,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public Integer getGoodsByChildNumbers(Integer childId);
+     Integer getGoodsByChildNumbers(Integer childId);
 
     /**
      * 根据子类ID获取其父类下的所有子类名称
@@ -110,7 +112,7 @@ public interface ClassifyService {
      * @param childId
      * @return
      */
-    public List<ChildClass> getChildClassifyByChildId(Integer childId);
+     List<ChildClass> getChildClassifyByChildId(Integer childId);
 
     /**
      * 副页面中根据综合获取指定的商品的列表
@@ -118,7 +120,7 @@ public interface ClassifyService {
      * @param map
      * @return
      */
-    public List<Goods> chooseGoodsByComposite(Map<String, Integer> map);
+     List<Goods> chooseGoodsByComposite(Map<String, Integer> map);
 
 
     /**
@@ -127,19 +129,19 @@ public interface ClassifyService {
      * @param map
      * @return
      */
-    public int countGoodsByComposite(Map<String, Integer> map);
+     int countGoodsByComposite(Map<String, Integer> map);
 
     /**
      * 副页面中根据上传时间获取指定的商品的列表（降序）
      * @param map
      * @return
      */
-    public List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map);
+     List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map);
 
     /**
      * 副页面中根据价格获取指定的商品的列表（降序）
      * @param map
      * @return
      */
-    public List<Goods> chooseGoodsByPrice(Map<String,Integer> map);
+     List<Goods> chooseGoodsByPrice(Map<String,Integer> map);
 }

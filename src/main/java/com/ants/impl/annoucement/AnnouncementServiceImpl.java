@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author czd
+ * @Author czd
+ * @Date:created in 2019/10/11
+ * @Version: V1.0
  */
 @Service
 public class AnnouncementServiceImpl implements AnnouncementService {
@@ -41,5 +43,13 @@ public class AnnouncementServiceImpl implements AnnouncementService {
      */
     public Announcement getAnnDetail(Integer annId){
         return announcementDao.getAnnDetail(annId);
+    }
+
+    /**
+     * 获取公告的数量
+     * @return
+     */
+    public Integer getAnnNum(){
+        return announcementDao.getAnnNum();
     }
 }
