@@ -37,8 +37,8 @@ export default {
     },
     mounted(){
         let data={
-            id:1,
-            business:2
+            id:171543113,
+            business:171543114
         }
         this.socketInit(data)
         console.log(this.$route)
