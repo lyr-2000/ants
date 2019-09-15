@@ -14,8 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ChatOfflineServiceImpl implements ChatOfficelineService {
 
+    private static  ChatOfflineDao chatOfficelineMapper;
     @Autowired
-    private ChatOfflineDao chatOfficelineMapper;
+    public void setChatOfflineDao(ChatOfflineDao chatOfficelineMapper) {
+        ChatOfflineServiceImpl.chatOfficelineMapper = chatOfficelineMapper;
+    }
+
 
     public int insertOfficelineMessage(ChatOffline chatOfflineDTO){
         int flag = chatOfficelineMapper.insertOfficelineMessage(chatOfflineDTO);

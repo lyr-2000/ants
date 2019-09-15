@@ -1,4 +1,4 @@
-package com.ants.ChatController;
+package com.ants.controller.chat;
 
 import com.ants.entity.chat.ChatUserBase;
 import com.ants.entity.chat.ChatUtil;
@@ -8,7 +8,7 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor;
 
@@ -17,21 +17,25 @@ import java.util.Random;
 
 /**
  * @Author 晨边#CB
- * @Date:created in  2019/8/21 3:33
+ * @Date:created in  2019/9/15 23:46
  * @Version V1.0
  **/
 @Controller
-@Transactional
-public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
+@RequestMapping
+public class SpringWebSocketHandlerInterceptor extends HttpSessionHandshakeInterceptor {
 
-
+    private static ChatServiceImpl chatService;
     @Autowired
-    private ChatServiceImpl chatServic;
+    public void setChatService(ChatServiceImpl chatService) {
+        SpringWebSocketHandlerInterceptor.chatService = chatService;
+    }
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler handler, Map<String, Object> attributes) throws Exception {
         //attributes是session里面的所有属性的map表示
-        int id = Integer.parseInt(((ServletServerHttpRequest) request).getServletRequest().getParameter("sid"));
+        int id = Integer.parseInt(((ServletServerHttpRequest) request).getServletRequest().getParameter("id"));
+        System.out.println(id+"11");
+        System.out.println(((ServletServerHttpRequest) request).getServletRequest().getParameter("business")+"1111111");
         if(((ServletServerHttpRequest) request).getServletRequest().getParameter("business")!=null){
             int business = Integer.parseInt(((ServletServerHttpRequest) request).getServletRequest().getParameter("business"));
             //获取对应联系人信息
@@ -40,7 +44,7 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
         }
 
         //查询数据库中对应的姓名并赋值给socket里面的session
-        ChatUserBase chatUserBaseDTO = chatServic.userQuery(id);
+        ChatUserBase chatUserBaseDTO = chatService.userQuery(id);
         attributes.put("id",id);
         attributes.put("user", chatUserBaseDTO.getUsername());
 
@@ -52,7 +56,7 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
         ChatUtil chatUtilDTO = new ChatUtil();
         chatUtilDTO.setContactor(business);
         chatUtilDTO.setStudentId(id);
-        chatServic.obtaincontactor(chatUtilDTO);
+        chatService.obtaincontactor(chatUtilDTO);
     }
 
     @Override
@@ -66,4 +70,5 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor {
         Random random=new Random();
         return nickNameArray[random.nextInt(10)];
     }
+
 }

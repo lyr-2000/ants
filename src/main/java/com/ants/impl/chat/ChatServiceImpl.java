@@ -18,12 +18,14 @@ import java.util.List;
 @Service
 public class ChatServiceImpl implements ChatService {
 
+    private static  ChatDao chatDao;
     @Autowired
-    private ChatDao chatDao;
+    public void setChatDao(ChatDao chatDao) {
+        ChatServiceImpl.chatDao = chatDao;
+    }
 
 
     //获取id对应的人员信息
-    @Override
     public ChatUserBase userQuery(int id) {
         ChatUserBase chatDTO = chatDao.userQuery(id);
         return  chatDTO;

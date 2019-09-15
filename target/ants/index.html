@@ -1,0 +1,22 @@
+<script>
+
+    try{
+        conn = new WebSocket('ws://localhost:8080/chat?id=171543113&business=1715431');
+
+
+        conn.onclose = function (e)
+        {
+            //checkUser();
+        }
+
+        conn.onopen = function(e)
+        {
+            console.log("test");
+        };
+
+    }catch (error)
+    {
+        console.log(error);
+    }
+
+</script>

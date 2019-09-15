@@ -3,6 +3,7 @@ package com.ants.dao.chat;
 import com.ants.entity.chat.ChatContactor;
 import com.ants.entity.chat.ChatUserBase;
 import com.ants.entity.chat.ChatUtil;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
