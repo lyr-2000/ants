@@ -19,7 +19,7 @@
         </p>
         <p class="btnContainer">
             <a class="detailBtn">查看详情</a>
-            <a class="purchaseBtn">立即购买</a>
+            <a class="purchaseBtn">确定交易</a>
         </p>
         
     </div>

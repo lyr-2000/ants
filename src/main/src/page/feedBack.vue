@@ -17,15 +17,15 @@
                     <div class="detailContent">
                         <p>如果您在使用<span class="specialWord">蚂蚁置物</span>时，有什么好或不好的地方，请大声说出来！我们会关注您的反馈，不断优化产品，为您提供更好的服务！</p>
                         <div class="textContainer">
-                            <textarea placeholder="请输入反馈建议" rows="4" v-model="suggestion"></textarea>
+                            <textarea placeholder="请输入反馈建议" rows="4" v-model="fbContent"></textarea>
                         </div>
                     </div>
                     <h2><span class="serialNum">2</span>反馈调查</h2>
                     <div class="detailContent">
                         <p>您对<span class="specialWord">蚂蚁置物</span>的满意度如何？</p>
                         <p class="btnContainer">
-                            <span class="radioBtn" v-for="btn in satisfactionArr" @click="chooseSatisfy=btn">
-                                <img :src="chooseSatisfy==btn?require('../assets/img/user/checkBtnBlue.png'):require('../assets/img/user/checkBtnBlack.png')">
+                            <span class="radioBtn" v-for="btn in satisfactionArr" @click="fbSatisfaction=btn">
+                                <img :src="fbSatisfaction==btn?require('../assets/img/user/checkBtnBlue.png'):require('../assets/img/user/checkBtnBlack.png')">
                                 <span>{{btn}}</span>
                             </span>
                         </p>
@@ -35,16 +35,16 @@
                         <p>我们会不定期邀请用户参与面对面的交流。如果您有意参与，请填写如下信息，方便我们与您联系，谢谢！（信息仅作为内部资料绝不外泄）</p>
                         <p class="queTitle">1.称呼</p>
                         <div class="textContainer">
-                            <textarea placeholder="请输入您的称呼" rows="1" v-model="name"></textarea>
+                            <textarea placeholder="请输入您的称呼" rows="1" v-model="userName"></textarea>
                         </div>
                         <p class="queTitle">2.电话</p>
                         <div class="textContainer">
-                            <textarea placeholder="请输入您的电话" rows="1" v-model="mobile"></textarea>
+                            <textarea placeholder="请输入您的电话" rows="1" v-model="userMobile"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="submit">
-                    <button>提交</button>
+                    <button @click="sumbitContent">提交</button>
                 </div>
             </div>
         </div>
@@ -53,19 +53,52 @@
 
 <script>
 import Header from '../components/construct/header.vue'
+import axios from 'axios'
+
 export default {
     data(){
         return{
             identity:"buyer",
             satisfactionArr:["非常满意","满意","一般","不满意","非常不满意"],
-            chooseSatisfy:"非常满意",
-            suggestion:"",
-            name:"",
-            mobile:""
+            fbSatisfaction:"非常满意",
+            fbContent:"",
+            userName:"",
+            userMobile:""
         }
     },
     components:{
         Header
+    },
+    methods:{
+        sumbitContent(){
+            if(this.fbContent!==''&&this.fbContent!==''&&this.userName!==''&&this.userMobile!==''){
+                let that=this;
+                axios({
+                    headers: {
+                        'deviceCode': 'A95ZEF1-47B5-AC90BF3'
+                    },
+                    method:"post",
+                    url:"/ants/feedback/insertFeedback",
+                    data:{
+                        fbSatisfaction:that.fbSatisfaction,
+                        fbContent:that.fbContent,
+                        userName:that.userName,
+                        userMobile:that.userMobile
+                    }
+                }).then(res=>{
+                    if(res.data.msg==='提交成功'){
+                        alert("提交成功");
+                        that.fbSatisfaction="";
+                        that.fbContent="";
+                        that.userName="";
+                        that.userMobile="";
+                    }
+                }).catch(err=>{
+                    alert(`提交失败`);
+                    console.log(`the error happen for ${err}`)
+                })
+            }
+        }
     }
 }
 </script>

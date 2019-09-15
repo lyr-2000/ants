@@ -17,6 +17,7 @@ import store from '../store'
 import UserList from '../components/chat/userList.vue'
 import Main from '../components/chat/main.vue'
 import GoodsIntro from '../components/chat/goodsIntro.vue'
+import {mapActions} from 'vuex'
 
 export default {
     name:'app',
@@ -35,10 +36,15 @@ export default {
         }
     },
     mounted(){
+        let data={
+            id:1,
+            business:2
+        }
+        this.socketInit(data)
         console.log(this.$route)
     },
     methods:{
-        
+        ...mapActions("chat",["socketInit"])
     }
 }
 </script>

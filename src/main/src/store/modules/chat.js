@@ -66,7 +66,7 @@ const actions = {
         commit("chooseChange", user)
     },
     // websocket连接
-    socketInit(id, business) {
+    socketInit({ state }, { id, business }) {
         let url = "";
         if (!business) {
             url = `${state.url}id=${id}&business=${business}`;
@@ -83,14 +83,21 @@ const actions = {
         }
     },
     // 连接后获取数据
-    onMessage() {
+    onMessage({ state }) {
         state.ws.onMessage = function(event) {
-
+            console.log("event:", event);
+            if (event.data.type == 5) {
+                state.userList = event.data.contactorlist;
+            }
         }
     },
     // 连接后发送数据
     onSend(data, file) {
-        state.wx.send(data)
+        // 发送文本信息
+        if (data.type === 1) {
+            state.wx.send(data)
+        }
+        // 发送文件
         if (data.type === 2) {
             let reader = new FileReader();
             reader.readAsArrayBuffer(file)
@@ -101,6 +108,7 @@ const actions = {
                     id: data.id,
                     business: data.business
                 };
+                // 提示后端文件发送完毕
                 state.wx.send(blob)
                 state.wx.send(fileFinish)
             }

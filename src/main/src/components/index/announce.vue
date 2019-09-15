@@ -20,7 +20,9 @@ export default {
         }
     },
     computed:{
-        ...mapGetters("announcement","getAnnouncement")
+        ...mapGetters({
+            announcement:"getAnnouncement"
+        })
     }
 }
 </script>
