@@ -4,22 +4,22 @@ const state = {
     url: "ws://127.0.0.1:8080/chat?",
     myId: '', // 用户自己的id
     userList: [{
-        contactor: 1,
+        contactor: 171543114,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: 'abc',
         latestTime: '2019/8/10'
     }, {
-        contactor: 2,
+        contactor: 171543113,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '111',
         latestTime: '2019/7/10'
     }, {
-        contactor: 3,
+        contactor: 171543114,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '222',
         latestTime: '2019/6/20'
     }, {
-        contactor: 4,
+        contactor: 171543114,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '333',
         latestTime: '2019/5/10'
@@ -77,6 +77,10 @@ const mutations = {
     // 修改联系人列表
     changeUserList(state, contactorlist) {
         state.userList = contactorlist;
+    },
+    // 聊天记录覆盖
+    changeList(state, newsList) {
+        state.newsList = newsList
     }
 }
 
@@ -115,7 +119,7 @@ const actions = {
                 // 用户下线
                 console.log("用户下线")
             } else if (data.type == 1) {
-                console.log('event.data: ', data);
+                console.log('接收信息 ', data);
                 // 接收文本信息
                 let identify = false;
                 if (data.id == state.myId) {
@@ -124,7 +128,7 @@ const actions = {
                 commit("pushMsg", { content: data.msg, identify: identify, type: 1 })
             } else if (data.type == 2) {
                 // 接收文件
-                console.log('data: ', data);
+                console.log('接收文件', data);
                 let identify = false;
                 if (data.id == state.myId) {
                     identify = true;
@@ -132,7 +136,16 @@ const actions = {
                 commit("pushMsg", { content: data.msg, identify: identify, type: 2 })
             } else if (data.type == 4) {
                 // 接收历史消息
-
+                console.log('历史消息', data);
+                let newsList = [];
+                data.from.forEach((info, index) => {
+                    let identify = false;
+                    if (info.id == state.myId) {
+                        identify = true;
+                    }
+                    newsList[index] = { content: info.information, identify, type: 1 };
+                })
+                commit("changeList", newsList);
             } else if (data.type == 5) {
                 console.log('data: ', data);
                 commit('changeUserList', data.contactorlist)
