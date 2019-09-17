@@ -28,7 +28,19 @@ export default {
     methods:{
         ...mapActions('chat',{
             chooseChange:"chooseChange"
-        })
+        }),
+        // 获取聊天信息
+        getNewsList(){
+            console.log(111)
+            let data={
+                type:0,
+                id:this.myIntro.studentId,
+                business:this.chooseUser.contactor,
+            }
+            console.log('data: ', data);
+            this.onSend({data,file:""})
+            
+        }
     },
     computed:{
         ...mapGetters("user",{

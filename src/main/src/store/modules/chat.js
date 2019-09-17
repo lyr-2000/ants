@@ -14,12 +14,12 @@ const state = {
         contactorName: '111',
         latestTime: '2019/7/10'
     }, {
-        contactor: 171543114,
+        contactor: 171543115,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '222',
         latestTime: '2019/6/20'
     }, {
-        contactor: 171543114,
+        contactor: 171543116,
         contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '333',
         latestTime: '2019/5/10'
@@ -76,6 +76,10 @@ const mutations = {
     },
     // 修改联系人列表
     changeUserList(state, contactorlist) {
+        // require图片
+        contactorlist.forEach((contactor) => {
+            contactor.contactorAvatar = require(contactor.contactorAvatar)
+        })
         state.userList = contactorlist;
     },
     // 聊天记录覆盖
@@ -86,8 +90,15 @@ const mutations = {
 
 const actions = {
     // 选择另一个用户
-    chooseChange({ commit, state }, user) {
+    chooseChange({ commit, state, dispatch }, user) {
         commit("chooseChange", user)
+        console.log('data: ', data);
+        let data = {
+            type: 0,
+            id: state.myId,
+            business: state.chooseUser.contactor,
+        }
+        dispatch("onSend", { data, file: "" })
     },
     // websocket连接
     socketInit({ state, dispatch }, { id, business }) {
@@ -155,7 +166,8 @@ const actions = {
     // 连接后发送数据
     onSend({ state }, { data, file }) {
         // 发送文本信息
-        if (data.type === 1) {
+        if (data.type === 1 || data.type === 0) {
+            console.log('信息或者获取聊天记录 ', data);
             data = JSON.stringify(data);
             state.ws.send(data)
         }
