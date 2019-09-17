@@ -367,7 +367,7 @@ const state = {
         ],
     },
     user: {
-        studentId: '1',
+        studentId: '171543113',
         portrait: require("../../assets/img/index/antsLogo.png"),
         userName: "广金吴彦祖",
         mobilePhone: '13782910291',

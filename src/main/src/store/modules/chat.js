@@ -25,7 +25,7 @@ const state = {
         latestTime: '2019/5/10'
     }],
     chooseUser: {
-        contactor: 1,
+        contactor: 171543114,
         imgSrc: require("../../assets/img/index/antsLogo.png"),
         contactorName: 'abc',
         latestTime: '2019/8/10'
@@ -144,7 +144,7 @@ const actions = {
         // 发送文本信息
         if (data.type === 1) {
             data = JSON.stringify(data);
-            state.wx.send(data)
+            state.ws.send(data)
         }
         // 发送文件
         if (data.type === 2) {
@@ -160,8 +160,8 @@ const actions = {
                 // 提示后端文件发送完毕
                 blob = JSON.stringify(blob);
                 fileFinish = JSON.stringify(fileFinish);
-                state.wx.send(blob)
-                state.wx.send(fileFinish)
+                state.ws.send(blob)
+                state.ws.send(fileFinish)
             }
         }
     },
