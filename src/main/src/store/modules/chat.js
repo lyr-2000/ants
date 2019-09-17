@@ -101,7 +101,7 @@ const actions = {
     },
     // 连接后获取数据
     onMessage({ state, commit }) {
-        state.ws.onMessage = function(event) {
+        state.ws.onmessage = function(event) {
             console.log("event:", event);
             if (event.data.type == 0) {
                 // 用户下线
