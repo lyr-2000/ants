@@ -82,7 +82,7 @@ const actions = {
         commit("chooseChange", user)
     },
     // websocket连接
-    socketInit({ state }, { id, business }) {
+    socketInit({ state, dispatch }, { id, business }) {
         let url = "";
         state.myId = id;
         if (!business) {
@@ -92,10 +92,10 @@ const actions = {
         }
         if ('WebSocket' in window) {
             state.ws = new WebSocket(url);
-            this.onMessage();
+            dispatch("onMessage")
         } else if ('MozWebSocket' in window) {
             state.ws = new MozWebSocket(url);
-            this.onMessage();
+            dispatch("onMessage")
         } else {
             alert('WebSocket is not supported by this browser.');
             return;
