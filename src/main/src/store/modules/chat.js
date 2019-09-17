@@ -73,6 +73,10 @@ const mutations = {
     // 将信息推送到聊天记录框中
     pushMsg(state, data) {
         state.newsList.push(data);
+    },
+    // 修改联系人列表
+    changeUserList(state, contactorlist) {
+        state.userList = contactorlist;
     }
 }
 
@@ -106,6 +110,7 @@ const actions = {
         console.log('state: ', state);
         state.ws.onmessage = function(event) {
             console.log("event:", event);
+            event.data = JSON.parse(event.data);
             if (event.data.type == 0) {
                 // 用户下线
                 console.log("用户下线")
@@ -130,7 +135,7 @@ const actions = {
 
             } else if (event.data.type == 5) {
                 console.log('event.data: ', event.data);
-                state.userList = event.data.contactorlist;
+                commit('changeUserList', event.data.contactorlist)
             }
         }
     },
@@ -138,6 +143,7 @@ const actions = {
     onSend({ state }, { data, file }) {
         // 发送文本信息
         if (data.type === 1) {
+            data = JSON.stringify(data);
             state.wx.send(data)
         }
         // 发送文件
@@ -152,6 +158,8 @@ const actions = {
                     business: data.business
                 };
                 // 提示后端文件发送完毕
+                blob = JSON.stringify(blob);
+                fileFinish = JSON.stringify(fileFinish);
                 state.wx.send(blob)
                 state.wx.send(fileFinish)
             }
