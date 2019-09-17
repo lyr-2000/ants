@@ -16,10 +16,10 @@ const state = {
         parentPicture: require('../../assets/img/icon/daily.png'),
         parentName: '日用'
     }, {
-        parentPicture: require('../../assets/img/icon/cosmetics.svg'),
+        parentPicture: require('../../assets/img/icon/cosmetics.png'),
         parentName: '美妆'
     }, {
-        parentPicture: require('../../assets/img/index/antsLogo.png'),
+        parentPicture: require('../../assets/img/icon/food.png'),
         parentName: '食品'
     }, {
         parentPicture: require('../../assets/img/icon/electrical.png'),

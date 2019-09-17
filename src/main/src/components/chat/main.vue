@@ -7,7 +7,8 @@
                 'newsRight':news.identify}" 
                 v-for="news in newsList">
                 <img v-if="!news.identify" :src="news.identify?chooseUser.imgSrc:myIntro.portrait">
-                <div class="news">{{news.content}}</div>
+                <div class="news" v-if="news.type==1">{{news.content}}</div>
+                <div class="imgNews" v-if="news.type==2"><img :src="news.content"></div>
                 <img v-if="news.identify" :src="news.identify?chooseUser.imgSrc:myIntro.portrait">
             </div>
         </div>
@@ -21,7 +22,7 @@
                     <img :src="sendIcon">
                 </div>
             </div>
-            <textarea cols="30" rows="10" v-model="textMsg"></textarea>
+            <textarea cols="30" rows="10" v-model="textMsg" @enter="sendMsg"></textarea>
         </div>
     </div>
 </template>
@@ -62,22 +63,25 @@ export default {
         sendMsg(){
             let data={
                 type:1,
-                msg:textMsg,
-                id:myIntro.studentId,
-                business:chooseUser.contactor
+                msg:this.textMsg,
+                id:this.myIntro.studentId,
+                business:this.chooseUser.contactor
             }
-            this.onSend(data);
+            console.log('data: ', data);
+            let file="";
+            this.onSend({data,file});
         },
         // 发送文件
         sendFile(e){
             let files=e.target.files;
+            console.log('files: ', files);
             let data={
                 type:2,
-                id:myIntro.studentId,
-                business:chooseUser.contactor,
+                id:this.myIntro.studentId,
+                business:this.chooseUser.contactor,
                 filename:files[0].name
             }
-            this.onSend(data,files[0])
+            this.onSend({data:data,file:files[0]})
         },
         // 格式化文件大小
         formatFileSize: function (fileSize, idx) {
@@ -118,11 +122,12 @@ export default {
         height: 512px;
         border-bottom: 4px solid @chatShallowBColor;
         background-color: @chatBgColor;
+        overflow: auto;
         .newsList{
             display: flex;
             align-items: center;
             margin-top: 30px;
-            img{
+            &>img{
                 margin: 0px 20px;
                 cursor: pointer;
             }
@@ -131,6 +136,14 @@ export default {
                 padding: 20px 6px 24px 10px;
                 border-radius: 10px;
                 font-size: 20px;
+                img{
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+            .imgNews{
+                position: relative;
+                top: 85px;
             }
         }
         .newsLeft{
