@@ -8,7 +8,7 @@
             <div v-for="user in userList" 
                 :class="{'detailInfo':true,'chooseInfo':chooseUser.contactor===user.contactor}"
                 @click="chooseChange(user)">
-                <img :src="user.imgSrc">
+                <img :src="user.contactorAvatar">
                 <span class="userName">{{user.contactorName}}</span>
                 <span class="chatTime">{{user.latestTime | timeChange}}</span>
             </div>

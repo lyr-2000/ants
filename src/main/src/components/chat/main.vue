@@ -6,10 +6,10 @@
                 'newsLeft':!news.identify,
                 'newsRight':news.identify}" 
                 v-for="news in newsList">
-                <img v-if="!news.identify" :src="news.identify?chooseUser.imgSrc:myIntro.portrait">
+                <img v-if="!news.identify" :src="news.identify?chooseUser.contactorAvatar:myIntro.portrait">
                 <div class="news" v-if="news.type==1">{{news.content}}</div>
                 <div class="imgNews" v-if="news.type==2"><img :src="news.content"></div>
-                <img v-if="news.identify" :src="news.identify?chooseUser.imgSrc:myIntro.portrait">
+                <img v-if="news.identify" :src="news.identify?chooseUser.contactorAvatar:myIntro.portrait">
             </div>
         </div>
         <div class="chatSend">

@@ -5,28 +5,28 @@ const state = {
     myId: '', // 用户自己的id
     userList: [{
         contactor: 1,
-        imgSrc: require("../../assets/img/index/antsLogo.png"),
+        contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: 'abc',
         latestTime: '2019/8/10'
     }, {
         contactor: 2,
-        imgSrc: require("../../assets/img/index/antsLogo.png"),
+        contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '111',
         latestTime: '2019/7/10'
     }, {
         contactor: 3,
-        imgSrc: require("../../assets/img/index/antsLogo.png"),
+        contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '222',
         latestTime: '2019/6/20'
     }, {
         contactor: 4,
-        imgSrc: require("../../assets/img/index/antsLogo.png"),
+        contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: '333',
         latestTime: '2019/5/10'
     }],
     chooseUser: {
         contactor: 171543114,
-        imgSrc: require("../../assets/img/index/antsLogo.png"),
+        contactorAvatar: require("../../assets/img/index/antsLogo.png"),
         contactorName: 'abc',
         latestTime: '2019/8/10'
     },
