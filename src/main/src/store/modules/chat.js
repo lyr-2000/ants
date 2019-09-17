@@ -110,32 +110,32 @@ const actions = {
         console.log('state: ', state);
         state.ws.onmessage = function(event) {
             console.log("event:", event);
-            event.data = JSON.parse(event.data);
-            if (event.data.type == 0) {
+            let data = JSON.parse(event.data);
+            if (data.type == 0) {
                 // 用户下线
                 console.log("用户下线")
-            } else if (event.data.type == 1) {
-                console.log('event.data: ', event.data);
+            } else if (data.type == 1) {
+                console.log('event.data: ', data);
                 // 接收文本信息
                 let identify = false;
-                if (event.data.id == state.myId) {
+                if (data.id == state.myId) {
                     identify = true;
                 }
-                commit("pushMsg", { content: event.data.msg, identify: identify, type: 1 })
-            } else if (event.data.type == 2) {
+                commit("pushMsg", { content: data.msg, identify: identify, type: 1 })
+            } else if (data.type == 2) {
                 // 接收文件
-                console.log('event.data: ', event.data);
+                console.log('data: ', data);
                 let identify = false;
-                if (event.data.id == state.myId) {
+                if (data.id == state.myId) {
                     identify = true;
                 }
-                commit("pushMsg", { content: event.data.msg, identify: identify, type: 2 })
-            } else if (event.data.type == 4) {
+                commit("pushMsg", { content: data.msg, identify: identify, type: 2 })
+            } else if (data.type == 4) {
                 // 接收历史消息
 
-            } else if (event.data.type == 5) {
-                console.log('event.data: ', event.data);
-                commit('changeUserList', event.data.contactorlist)
+            } else if (data.type == 5) {
+                console.log('data: ', data);
+                commit('changeUserList', data.contactorlist)
             }
         }
     },
