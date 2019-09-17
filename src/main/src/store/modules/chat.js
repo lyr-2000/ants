@@ -92,8 +92,10 @@ const actions = {
         }
         if ('WebSocket' in window) {
             state.ws = new WebSocket(url);
+            this.onMessage();
         } else if ('MozWebSocket' in window) {
             state.ws = new MozWebSocket(url);
+            this.onMessage();
         } else {
             alert('WebSocket is not supported by this browser.');
             return;
