@@ -10,7 +10,7 @@
                 @click="chooseChange(user)">
                 <img :src="user.imgSrc">
                 <span class="userName">{{user.contactorName}}</span>
-                <span class="chatTime">{{user.latesTime | timeChange}}</span>
+                <span class="chatTime">{{user.latestTime | timeChange}}</span>
             </div>
         </div>
     </div>
