@@ -78,7 +78,7 @@ const mutations = {
 
 const actions = {
     // 选择另一个用户
-    chooseChange({ commit }, user) {
+    chooseChange({ commit, state }, user) {
         commit("chooseChange", user)
     },
     // websocket连接
@@ -103,6 +103,7 @@ const actions = {
     },
     // 连接后获取数据
     onMessage({ state, commit }) {
+        console.log('state: ', state);
         state.ws.onmessage = function(event) {
             console.log("event:", event);
             if (event.data.type == 0) {
