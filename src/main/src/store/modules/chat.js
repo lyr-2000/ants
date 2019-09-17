@@ -77,9 +77,9 @@ const mutations = {
     // 修改联系人列表
     changeUserList(state, contactorlist) {
         // require图片
-        contactorlist.forEach((contactor) => {
-            contactor.contactorAvatar = require(contactor.contactorAvatar)
-        })
+        // contactorlist.forEach((contactor) => {
+        //     contactor.contactorAvatar = require(contactor.contactorAvatar)
+        // })
         state.userList = contactorlist;
     },
     // 聊天记录覆盖
