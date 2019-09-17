@@ -32,27 +32,31 @@ const state = {
     },
     // 聊天框中的信息
     // identify false为对方消息 true为自己的消息
-    // type 1：文本信息   2：文件
+    // type 0：文本信息   1：文件
     newsList: [{
         identify: false,
         content: '如果没记错的话应该是在体育中心总店买的吧,才用了几次',
-        type: 1
+        type: 0
     }, {
         identify: true,
         content: '请问怎么议价，能不能再便宜一点呢~',
-        type: 1
+        type: 0
     }, {
         identify: false,
         content: '不可以',
-        type: 1
+        type: 0
     }, {
         identify: false,
         content: '好吧，可以再少一点。',
-        type: 1
+        type: 0
     }, {
         identify: false,
         content: require("../../assets/img/index/antsLogo.png"),
-        type: 2
+        type: 1
+    }, {
+        identify: false,
+        content: '可以再商量的。。。',
+        type: 0
     }, ]
 }
 const getters = {
@@ -154,7 +158,8 @@ const actions = {
                     if (info.id == state.myId) {
                         identify = true;
                     }
-                    newsList[index] = { content: info.information, identify, type: 1 };
+                    // type:0消息 1文件
+                    newsList[index] = { content: info.information, identify, type: info.type };
                 })
                 commit("changeList", newsList);
             } else if (data.type == 5) {

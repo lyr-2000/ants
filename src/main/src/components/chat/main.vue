@@ -4,11 +4,12 @@
         <div class="chatContainer">
             <div :class="{'newsList':true,
                 'newsLeft':!news.identify,
-                'newsRight':news.identify}" 
+                'newsRight':news.identify,
+                'imgNewsContainer':news.type==1}" 
                 v-for="news in newsList">
                 <img v-if="!news.identify" :src="news.identify?chooseUser.contactorAvatar:myIntro.portrait">
-                <div class="news" v-if="news.type==1">{{news.content}}</div>
-                <div class="imgNews" v-if="news.type==2"><img :src="news.content"></div>
+                <div class="news" v-if="news.type==0">{{news.content}}</div>
+                <div class="imgNews" v-if="news.type==1"><img :src="news.content"></div>
                 <img v-if="news.identify" :src="news.identify?chooseUser.contactorAvatar:myIntro.portrait">
             </div>
         </div>
@@ -145,6 +146,10 @@ export default {
                 position: relative;
                 top: 85px;
             }
+        }
+        .imgNewsContainer{
+            position: relative;
+            top: -85px;
         }
         .newsLeft{
             justify-content: flex-start;
