@@ -7,108 +7,207 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab33a3dc-2d09-4676-bc59-71b3a975132b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SystemWebSocketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ants_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ants_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/chat/SystemWebSocketHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/chat/WebSocketConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/chat/text.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.0edcdfb7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.1ef834dd.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.286a2806.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.46eca4f0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.4a365c1d.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.d062ab9b.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.d84f9077.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.ef3d9e07.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/css/app.f641c06f.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.02dec38f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.02dec38f.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0696ac6a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0696ac6a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0ae36f19.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0ae36f19.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0d11498f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.0d11498f.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.18cd203a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.18cd203a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.23b46516.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.241aceb0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.241aceb0.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.28f43e92.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.28f43e92.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.2c2da9e2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.2c2da9e2.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.2f4ee30e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.2f4ee30e.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.30cbb127.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.30cbb127.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.335d4402.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.335d4402.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.36dd9787.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.36dd9787.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.3fb77d4a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.3fb77d4a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.405a53a2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.405a53a2.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.47e41163.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.47e41163.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.4cd640c3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.4cd640c3.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.52d4e82b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.52d4e82b.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.5a1d986d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.5a1d986d.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.6cc1a38c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.6cc1a38c.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7275a649.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7275a649.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.73796ed9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.73796ed9.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7bb6ee6b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7bb6ee6b.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7d3d2e7a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.7d3d2e7a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.82c00d07.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.82c00d07.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8b81d2a0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8b81d2a0.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8d399a52.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8d399a52.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8d813981.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8d813981.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8eb096e7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8eb096e7.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8f47a1f9.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.8f47a1f9.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.91b71536.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.91b71536.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.9537c07a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.9537c07a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.a1f70360.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.a1f70360.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.a8df76d3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.a8df76d3.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ac612d5f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ac612d5f.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ac839567.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ac839567.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ae98320e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ae98320e.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.bdfc3e43.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.bdfc3e43.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.c2629dac.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.c2629dac.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.c53dc462.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.c53dc462.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.d4be0fce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.d4be0fce.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dbbd3a36.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dbbd3a36.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dcc7bff3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dcc7bff3.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ded9ae5b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ded9ae5b.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dfc5b962.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.dfc5b962.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e164241a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e164241a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e373b220.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e373b220.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e8a70696.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.e8a70696.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ec3d1090.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ec3d1090.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ee29fdab.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.ee29fdab.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f09932dc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f09932dc.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f34df4b1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f34df4b1.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f7ea8b8a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f7ea8b8a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f7f64a56.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f7f64a56.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f9ab9f65.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ants/js/app.f9ab9f65.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/chat/WebSocketConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/chat/text.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/聊天室数据传输类型" beforeDir="false" afterPath="$PROJECT_DIR$/database/聊天室数据传输类型" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/HandshakeInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/HandshakeInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SystemWebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SystemWebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatOffline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatOffline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/util/TokenProccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/util/TokenProccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/util/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/util/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/properties/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ants/service/chat/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ants/service/chat/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ants/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/classification/ClassifyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/classification/ClassifyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/give/GiveController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/give/GiveController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/idle/IdleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/idle/IdleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/lease/LeaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/lease/LeaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/page/DataRenderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/page/DataRenderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/page/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/page/GoodsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SlideController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SlideController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SystemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/personal/SystemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/seek/SeekController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/seek/SeekController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/sell/SellController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/sell/SellController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/shop/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/shop/ShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/trade/TradeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/trade/TradeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/upload/uploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/upload/uploadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/announcement/AnnouncementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/announcement/AnnouncementDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/chat/SpringWebSocketHandlerInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/textchat/SystemWebSocketHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/textchat/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/controller/textchat/text.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/dao/chat/ChatDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/dao/chat/ChatDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/impl/chat/ChatOfflineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/impl/chat/ChatOfflineServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/impl/chat/ChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/impl/chat/ChatServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/service/chat/ChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/com/ants/service/chat/ChatService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/announcement/Announcement.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/announcement/Announcement.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/chat/ChatMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/chat/ChatMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/chat/ChatOfflineMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/chat/ChatOfflineMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/classification/ClassifyMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/classification/ClassifyMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/feedback/FeedbackMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/feedback/FeedbackMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/give/GiveMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/give/GiveMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/idle/IdleMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/idle/IdleMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/lease/LeaseMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/lease/LeaseMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/page/GoodsMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/page/GoodsMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/personal/StudentMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/personal/StudentMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/seek/SeekMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/seek/SeekMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/sell/SellMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/sell/SellMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/shop/ShopMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/shop/ShopMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/trade/TradeMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mapper/trade/TradeMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mybatisConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/mybatis/mybatisConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/properties/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/properties/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/properties/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/properties/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/sensi_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/sensi_words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/spring/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/classes/springmvc/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/classes/springmvc/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/css/app.711d4ac9.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/js/app.29397803.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/ants/js/app.23b46516.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ants/js/app.29397803.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/controller/chat/SpringWebSocketHandlerInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/textchat/SystemWebSocketHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/textchat/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/controller/textchat/text.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/chat/ChatDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/chat/ChatDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/chat/ChatOfflineDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/chat/ChatOfflineDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/classification/ClassifyDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/classification/ClassifyDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/give/GiveDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/give/GiveDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/idle/IdleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/idle/IdleDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/lease/LeaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/lease/LeaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/page/GoodsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/page/GoodsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/personal/StudentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/personal/StudentDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/seek/SeekDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/seek/SeekDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/sell/SellDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/sell/SellDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/shop/ShopDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/shop/ShopDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/dao/trade/TradeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/dao/trade/TradeDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/announcement/Announcement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/announcement/Announcement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatContactor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatContactor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatOffline.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatOffline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatUserBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatUserBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/classification/ChildClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/classification/ChildClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/classification/ParentClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/classification/ParentClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/give/Give.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/give/Give.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/lease/Lease.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/lease/Lease.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/page/Goods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/page/Goods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/personal/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/personal/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/seek/Seek.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/seek/Seek.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/sell/Sell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/sell/Sell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/shop/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/shop/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/trade/Trade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/entity/trade/Trade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/annoucement/AnnouncementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/annoucement/AnnouncementServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/entity/chat/ChatOffline.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/chat/ChatOfflineServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/chat/ChatOfflineServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/chat/ChatServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/chat/ChatServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/classification/ClassifyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/classification/ClassifyServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/give/GiveServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/give/GiveServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/idle/IdleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/idle/IdleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/lease/LeaseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/lease/LeaseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/page/GoodsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/page/GoodsServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/personal/StudentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/personal/StudentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/seek/SeekServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/seek/SeekServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/sell/SellServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/sell/SellServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/shop/ShopServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/shop/ShopServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/impl/trade/TradeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/impl/trade/TradeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/announcement/AnnouncementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/announcement/AnnouncementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/chat/ChatOfficelineService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/chat/ChatOfficelineService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/chat/ChatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/chat/ChatService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/classification/ClassifyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/classification/ClassifyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/give/GiveService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/give/GiveService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/idle/IdleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/idle/IdleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/lease/LeaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/lease/LeaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/page/GoodsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/page/GoodsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/personal/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/personal/StudentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/seek/SeekService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/seek/SeekService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/sell/SellService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/sell/SellService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/shop/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/shop/ShopService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/service/trade/TradeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/service/trade/TradeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/CpachaUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/CpachaUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/SensitiveFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/SensitiveFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/SensitiveNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/SensitiveNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/ShopIdUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/ShopIdUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/SlideCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/SlideCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/StringPointer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/StringPointer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/TryingToLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/TryingToLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/editphoto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/editphoto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ants/util/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ants/util/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/announcement/Announcement.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/announcement/Announcement.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/chat/ChatMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/chat/ChatMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/chat/ChatOfflineMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/chat/ChatOfflineMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/classification/ClassifyMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/classification/ClassifyMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/feedback/FeedbackMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/feedback/FeedbackMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/give/GiveMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/give/GiveMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/idle/IdleMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/idle/IdleMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/lease/LeaseMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/lease/LeaseMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/page/GoodsMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/page/GoodsMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/personal/StudentMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/personal/StudentMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/seek/SeekMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/seek/SeekMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/sell/SellMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/sell/SellMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/shop/ShopMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/shop/ShopMapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/trade/TradeMapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mapper/trade/TradeMapping.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatisConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis/mybatisConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/properties/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/properties/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sensi_words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sensi_words.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/springmvc/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -123,48 +222,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SystemWebSocketHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="161" column="58" lean-forward="true" selection-start-line="161" selection-start-column="58" selection-end-line="161" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatOfflineDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-              <folding>
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#812#813#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="144">
+              <caret line="6" column="73" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatOffline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -192,9 +293,17 @@
       <find>inse</find>
       <find>parentClassificationHasOthers</find>
       <find>parentClassId</find>
-      <find>queryContactor</find>
       <find>Sys</find>
+      <find>websocket</find>
+      <find>0</find>
+      <find>queryInformation</find>
+      <find>beans</find>
+      <find>queryAllContactor</find>
+      <find>queryContactor</find>
+      <find>1</find>
       <find>userQuery</find>
+      <find>appendmsg</find>
+      <find>insertOfficelineMessage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -204,12 +313,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/give/GiveService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/idle/IdleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/lease/LeaseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/page/GoodsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/personal/StudentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/seek/SeekService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/service/sell/SellService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/service/shop/ShopService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/service/trade/TradeService.java" />
@@ -236,25 +339,31 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ants/util/TokenProccessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/util/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/HandshakeInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/properties/db.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/dao/classification/ClassifyDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/text.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SystemWebSocketHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/database/聊天室数据传输类型" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/service/chat/ChatService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatOffline.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SystemWebSocketHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml" />
       </list>
     </option>
   </component>
@@ -311,6 +420,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -321,6 +432,11 @@
             <path>
               <item name="ants" type="b2602c69:ProjectViewProjectNode" />
               <item name="ants" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ants" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -361,7 +477,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ants" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="textchat" type="462c0819:PsiDirectoryNode" />
+              <item name="chat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ants" type="b2602c69:ProjectViewProjectNode" />
@@ -370,7 +486,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ants" type="b2602c69:ProjectViewProjectNode" />
@@ -379,7 +495,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -415,62 +531,11 @@
               <item name="mybatis" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
               <item name="chat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="properties" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="springmvc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ants" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ants" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -712,7 +777,10 @@
       <workItem from="1567690738731" duration="5436000" />
       <workItem from="1567757617174" duration="16484000" />
       <workItem from="1568104092746" duration="17800000" />
-      <workItem from="1568560762174" duration="13872000" />
+      <workItem from="1568560762174" duration="14348000" />
+      <workItem from="1568603764869" duration="13923000" />
+      <workItem from="1568700310289" duration="3403000" />
+      <workItem from="1568723323291" duration="2223000" />
     </task>
     <task id="LOCAL-00001" summary="整合">
       <created>1567151153039</created>
@@ -802,7 +870,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146345000" />
+    <option name="totallyTimeSpent" value="166370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -815,8 +883,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83144474" visible="true" weight="0.22453083" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83144474" visible="true" weight="0.22989276" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -826,17 +895,17 @@
       <window_info id="Web" order="7" sideWeight="0.16855524" side_tool="true" weight="0.26876676" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.66288954" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.20113315" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.065155804" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.38101983" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.28470254" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013405" side_tool="true" weight="0.68696886" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.08640227" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.1713881" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.38668555" />
@@ -951,34 +1020,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="修改公告内容中数组传递问题" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/feedback/FeedbakcController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="48" column="79" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/TokenProccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="17" column="23" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="244" selection-start-line="244" selection-end-line="244" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/架包/apache-maven-3.6.0-bin/apache-maven-3.6.0/repository/org/springframework/spring-websocket/4.0.5.RELEASE/spring-websocket-4.0.5.RELEASE.jar!/org/springframework/web/socket/client/standard/WebSocketContainerFactoryBean.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -986,20 +1027,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="43" selection-start-column="2" selection-end-line="49" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="4" lean-forward="true" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/util/TryingToLogin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -1007,38 +1035,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4632">
-          <caret line="202" column="20" selection-end-line="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/HandshakeInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/HandshakeInterceptor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/classification/ParentClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatOfflineDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1056,13 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -1170,16 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatContactor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/classification/ClassifyMapping.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -1187,45 +1173,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/classification/ClassifyDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="35" column="6" lean-forward="true" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="63" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="88" column="50" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
@@ -1243,56 +1194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/text.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="29" column="71" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SystemWebSocketHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#1371#1372#0" expanded="true" />
-            <element signature="e#8352#8353#0" expanded="true" />
-            <element signature="e#8379#8380#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="84" selection-start-line="3" selection-start-column="84" selection-end-line="3" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -1300,27 +1201,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/text.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="320">
+          <caret line="29" column="71" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="25" />
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/textchat/SpringWebSocketHandlerInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+        <state relative-caret-position="205">
+          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="248" column="29" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/聊天室数据传输类型">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="57" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1608">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatisConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2136">
+          <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatMapping.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="43" column="75" selection-start-line="43" selection-start-column="74" selection-end-line="43" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/service/chat/ChatOfficelineService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatContactor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SpringWebSocketHandlerInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="70" column="46" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1329,12 +1317,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
+        <state relative-caret-position="296">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/service/chat/ChatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="18" />
           <folding>
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#812#813#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/entity/chat/ChatOffline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SystemWebSocketHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="161" column="58" lean-forward="true" selection-start-line="161" selection-start-column="58" selection-end-line="161" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/impl/chat/ChatOfflineServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ants/dao/chat/ChatOfflineDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mapper/chat/ChatOfflineMapping.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="73" selection-start-line="6" selection-start-column="73" selection-end-line="6" selection-end-column="73" />
         </state>
       </provider>
     </entry>

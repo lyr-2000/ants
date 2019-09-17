@@ -29,8 +29,10 @@ public interface ChatDao {
     List<ChatContactor> queryAllContactor(int id);
 
     //插叙id以及对应联系人的历史消息
-    ChatContactor queryInformation(ChatUtil chatUtilDTO);
+    List<ChatContactor> queryInformation(ChatUtil chatUtilDTO);
 
     //保存单个历史聊天消息
     int appendmsg(ChatContactor chatContactorDTO);
+
+    int updateTime(ChatContactor chatContactor);
 }

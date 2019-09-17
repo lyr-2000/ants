@@ -12,4 +12,5 @@ public class ChatOffline {
     private Integer studentId;
     private Integer to;
     private String offlinemessage;
+    private String latestTime;
 }

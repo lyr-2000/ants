@@ -19,23 +19,29 @@
     </insert>
 
     <select id="queryAllContactor" resultType="com.ants.entity.chat.ChatContactor">
-       SELECT contactor , contactorName ,contactorAvatar
-              FROM ants_chat_user
+       SELECT contactor , contactorName ,contactorAvatar,latestTime
+              FROM ants_chat_contactor
                   WHERE studentId = #{id}
     </select>
 
-    <select id="queryInformation" resultType="String">
-       SELECT information ,latestTime
+    <select id="queryInformation" resultType="com.ants.entity.chat.ChatContactor">
+       SELECT information ,latestTime,contactor
               FROM ants_chat_user
-                  WHERE studentId = #{studentId}
-                      AND contactor = #{contactor}
+                  WHERE (( studentId = #{studentId}
+                      AND contactor = #{contactor}) OR (studentId = #{studentId} AND contactor= #{studentId}))
     </select>
 
-    <update id="appendmsg" parameterType="com.ants.entity.chat.ChatContactor">
-        UPDATE ants_chat_user
-            SET information =concat(information,#{information}) ,latestTime = #{latestTime}
-                WHERE studentId = #{studentId}
-                    AND contactor = #{contactor}
+    <insert id="appendmsg" parameterType="com.ants.entity.chat.ChatContactor">
+        INSERT ants_chat_user
+            (studentId,contactor,information,latestTime)
+                VALUES (#{studentId},#{contactor},#{information},#{latestTime})
+
+    </insert>
+
+    <update id="updateTime" parameterType="com.ants.entity.chat.ChatContactor">
+        UPDATE ants_chat_contactor
+            SET latestTime = #{latestTime}
+                WHERE studentId = #{studentId} and contactor = #{contactor}
     </update>
 
 </mapper>

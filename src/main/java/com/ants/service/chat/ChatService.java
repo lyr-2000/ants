@@ -19,8 +19,11 @@ public interface ChatService  {
     public List<ChatContactor> queryContactor(int id);
 
 
-    public ChatContactor queryInformation(ChatUtil chatUtilDTO) ;
+    public List<ChatContactor> queryInformation(ChatUtil chatUtilDTO) ;
 
     //保存单个历史聊天消息，添加
     void appendmsg(ChatContactor chatContactorDTO);
+
+    //更新最后一次聊天时间
+    void updateTime(ChatContactor chatContactorDTO);
 }
