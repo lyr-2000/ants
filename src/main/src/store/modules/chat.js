@@ -126,6 +126,7 @@ const actions = {
                 // 接收历史消息
 
             } else if (event.data.type == 5) {
+                console.log('event.data: ', event.data);
                 state.userList = event.data.contactorlist;
             }
         }
