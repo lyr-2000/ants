@@ -27,8 +27,8 @@ public class StudentServiceImpl implements StudentService {
      * @return
      */
     @Override
-    public int add(Student student) {
-        return studentDao.add(student);
+    public int insertStudent(Student student) {
+        return studentDao.insertStudent(student);
     }
 
 
@@ -37,8 +37,8 @@ public class StudentServiceImpl implements StudentService {
      * @param id
      * @return
      */
-    public List<Goods> chooseGoodsByStudentId(Integer id){
-        return studentDao.chooseGoodsByStudentId(id);
+    public List<Goods> listGoodsByStudentId(Integer id){
+        return studentDao.listGoodsByStudentId(id);
     }
 
     /**
@@ -64,7 +64,7 @@ public class StudentServiceImpl implements StudentService {
      * @param student
      * @return
      */
-    public int saveStuMessage(Student student){
-        return studentDao.saveStuMessage(student);
+    public int updateStuMessage(Student student){
+        return studentDao.updateStuMessage(student);
     }
 }

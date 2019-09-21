@@ -1,5 +1,6 @@
 package com.ants.controller.classification;
 
+import com.ants.constant.PageConsts;
 import com.ants.entity.classification.ChildClass;
 import com.ants.entity.page.Goods;
 import com.ants.entity.classification.ParentClass;
@@ -22,8 +23,6 @@ import java.util.*;
 @Controller
 @RequestMapping(value = "/ants/class")
 public class ClassifyController {
-    //设置每页商品数量有多少个商品
-    private final static Integer PAGENUMBERS = 16;
 
     @Autowired
     private ClassifyService classifyService;
@@ -40,14 +39,14 @@ public class ClassifyController {
         //存放小分类的数组的列表
         List<List<ChildClass>> childList = new ArrayList<>();
         //获取大分类的ID
-        List<Integer> parentClass = classifyService.parentClassId();
+        List<Integer> parentClass = classifyService.listParentClassId();
         //获取所有的大分类的数据信息
-        List<ParentClass> parentClassification = classifyService.parentClassification();
+        List<ParentClass> parentClassification = classifyService.listParentClassification();
 
         //遍历所有大分类的ID的数据，然后获取对应大分类ID对应的小分类信息
         for (Integer parentId : parentClass) {
             //根据大分类的ID获取对应的小分类的数据信息列表
-            List<ChildClass> childClassification = classifyService.childClassification(parentId);
+            List<ChildClass> childClassification = classifyService.listChildClassification(parentId);
             if(childClassification != null){
                 childList.add(childClassification);
             }
@@ -66,7 +65,7 @@ public class ClassifyController {
      * @param parentId
      * @return
      */
-    @RequestMapping(value = "/goodsByParent", method = RequestMethod.POST)
+    @RequestMapping(value = "/goodsByParent", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByParent(@RequestParam(value = "parentId") Integer parentId) {
         Map dataMap = new HashMap<>();
@@ -83,20 +82,20 @@ public class ClassifyController {
 
         //设置默认页数，默认页数为1，即从数据库第0条数据开始获取
         parameterMap.put("head", 0);
-        parameterMap.put("tail", PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.CLASSIFY_PAGE_NUMBER);
 
         //根据前端给的大分类的ID获取属于此大分类的商品信息
-        List<Goods> goodsList = classifyService.chooseGoodsByParent(parameterMap);
+        List<Goods> goodsList = classifyService.getGoodsByParent(parameterMap);
         dataMap.put("goodsList", goodsList);
 
         //获取属于此大分类的商品的总数
-        Integer goodsNumbers = classifyService.getGoodsByParentNumbers(parentId);
+        Integer goodsNumbers = classifyService.countGoodsByParentNumbers(parentId);
         //根据商品的总数计算出这个大分类的一共的页数
-        int page = (goodsNumbers / PAGENUMBERS) + 1;
+        int page = (goodsNumbers / PageConsts.CLASSIFY_PAGE_NUMBER) + 1;
         dataMap.put("page", page);
 
         //获取纵向导航栏中属于此大分类的小分类信息
-        List<ChildClass> childList = classifyService.childClassification(parentId);
+        List<ChildClass> childList = classifyService.listChildClassification(parentId);
         if (childList != null){
             dataMap.put("childList", childList);
         }else {
@@ -123,7 +122,7 @@ public class ClassifyController {
      * @param childId
      * @return
      */
-    @RequestMapping(value = "/goodsByChild", method = RequestMethod.POST)
+    @RequestMapping(value = "/goodsByChild", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByChild(@RequestParam(value = "subClassId") Integer childId) {
         Map dataMap = new HashMap();
@@ -157,20 +156,20 @@ public class ClassifyController {
 
         //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", 0);
-        parameterMap.put("tail", PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.CLASSIFY_PAGE_NUMBER);
 
         //根据前端传来的子类ID获取相对应的商品数据
-        List<Goods> goodsList = classifyService.chooseGoodsByChild(parameterMap);
+        List<Goods> goodsList = classifyService.listGoodsByChild(parameterMap);
         dataMap.put("goodsList", goodsList);
 
         //根据子类ID获取其父类下的所有子类
-        List<ChildClass> childList = classifyService.getChildClassifyByChildId(childId);
+        List<ChildClass> childList = classifyService.listChildClassifyByChildId(childId);
         dataMap.put("childList", childList);
 
         //根据子类ID获取商品数量
-        Integer goodsNumbers = classifyService.getGoodsByParentNumbers(childId);
+        Integer goodsNumbers = classifyService.countGoodsByParentNumbers(childId);
         //根据子类对应的商品数量计算页数
-        int page = (goodsNumbers / PAGENUMBERS) + 1;
+        int page = (goodsNumbers / PageConsts.CLASSIFY_PAGE_NUMBER) + 1;
         dataMap.put("page", page);
 
         return dataMap;
@@ -187,7 +186,7 @@ public class ClassifyController {
      * @param type
      * @return
      */
-    @RequestMapping(value = "/chooseGoodsByType", method = RequestMethod.POST)
+    @RequestMapping(value = "/chooseGoodsByType", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, List<Goods>> chooseGoodsByComposite(@RequestParam(value = "parentId") Integer parentId,
                                                            @RequestParam(value = "childId") Integer childId,
@@ -212,7 +211,7 @@ public class ClassifyController {
 
         //设置页面是为第一页开始显示数据，即从数据库中第0条数据开始获取
         parameterMap.put("head", 0);
-        parameterMap.put("tail", PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.CLASSIFY_PAGE_NUMBER);
 
         /**
          * type: 等于1时代表综合；
@@ -224,15 +223,15 @@ public class ClassifyController {
         switch (type) {
             case 1:
                 //根据parentId和childId来获取对应的商品的信息
-                goodsList = classifyService.chooseGoodsByComposite(parameterMap);
+                goodsList = classifyService.listGoodsByComposite(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 2://根据parentId和childId来获取对应的商品的信息
-                goodsList = classifyService.chooseGoodsByUploadTime(parameterMap);
+                goodsList = classifyService.listGoodsByUploadTime(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 3://根据parentId和childId来获取对应的商品的信息
-                goodsList = classifyService.chooseGoodsByPrice(parameterMap);
+                goodsList = classifyService.listGoodsByPrice(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
         }
@@ -241,7 +240,7 @@ public class ClassifyController {
         //根据parentId和childId来获取对应的商品的数量
         Integer goodsNumbers = classifyService.countGoodsByComposite(parameterMap);
         //获取此商品数量的页数
-        Integer page = (goodsNumbers / PAGENUMBERS) + 1;
+        Integer page = (goodsNumbers / PageConsts.CLASSIFY_PAGE_NUMBER) + 1;
         dataMap.put("page", page);
 
         return dataMap;
@@ -282,12 +281,12 @@ public class ClassifyController {
         parameterMap.put("parentId", parentId);
         parameterMap.put("childId", childId);
         //根据前端传过来的页面数获取商品的页面数下标，即Limit中的head , tail
-        Integer head = (currentPage - 1) * PAGENUMBERS;
+        Integer head = (currentPage - 1) * PageConsts.CLASSIFY_PAGE_NUMBER;
 //        Integer tail = head + PAGENUMBERS;
 
         //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
-        parameterMap.put("tail", PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.CLASSIFY_PAGE_NUMBER);
 
         /**
          * type：等于0时代表大分类小分类根据页数获取商品信息；
@@ -298,19 +297,19 @@ public class ClassifyController {
         List<Goods> goodsList = new LinkedList<>();
         switch (type) {
             case 0://根据前端给的大分类的ID获取属于此大分类的商品信息
-                goodsList = classifyService.chooseGoodsByParent(parameterMap);
+                goodsList = classifyService.getGoodsByParent(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 1://根据parentId和childId来获取对应的商品的信息
-                goodsList = classifyService.chooseGoodsByComposite(parameterMap);
+                goodsList = classifyService.listGoodsByComposite(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 2:
-                goodsList = classifyService.chooseGoodsByUploadTime(parameterMap);
+                goodsList = classifyService.listGoodsByUploadTime(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
             case 3://根据parentId和childId来获取对应的商品的信息
-                goodsList = classifyService.chooseGoodsByPrice(parameterMap);
+                goodsList = classifyService.listGoodsByPrice(parameterMap);
                 dataMap.put("goodsList", goodsList);
                 break;
         }

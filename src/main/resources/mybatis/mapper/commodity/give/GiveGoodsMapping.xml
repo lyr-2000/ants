@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.commodity.give.GiveGoodsDao">
+    <!--添加新赠送商品-->
+    <insert id="insertGiveGoods" parameterType="com.ants.entity.give.Give">
+        INSERT INTO ants_goods_give (goodsId,goodsName,goodsDescribe,
+                                     goodsPicture,goodsVideo,goodsClass,
+                                     goodsPrice,goodsState,goodsBargin,
+                                     goodsBelong,goodsWay,uploadTime,repertory)
+                                     VALUES (#{goodsId},#{goodsName},#{goodsDescribe},
+                                             #{goodsPicture},#{goodsVideo},#{goodsClass},
+                                             #{goodsPrice},#{goodsState},#{goodsBargin},
+                                             #{goodsBelong},#{goodsWay},#{uploadTime},#{repertory})
+    </insert>
+
+    <!--根据学生账户获取此学生发布的赠送的商品-->
+    <select id="listMyGiveGoods" parameterType="Map" resultType="com.ants.entity.give.Give">
+      SELECT goodsId,goodsName,goodsPicture,
+             goodsPrice,uploadTime,goodsState,repertory
+                FROM ants_goods_give
+                    WHERE goodsBelong=#{goodsBelong}
+                      LIMIT #{head},#{tail}
+
+    </select>
+
+    <!--根据学生账户获取此学生发布的闲置的商品的总数量-->
+    <select id="countMyGiveGoodsNums" parameterType="Integer" resultType="Integer">
+      SELECT COUNT(*)
+                FROM ants_goods_give
+                    WHERE goodsBelong=#{goodsBelong}
+
+
+    </select>
+</mapper>

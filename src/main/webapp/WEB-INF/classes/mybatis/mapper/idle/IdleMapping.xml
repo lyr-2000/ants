@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ants.dao.idle.IdleDao">
+<mapper namespace="com.ants.dao.commodity.idle.IdleGoodsDao">
 
     <!--根据学生账户获取此学生发布的闲置的商品-->
     <select id="myIdleGoods" parameterType="Map" resultType="com.ants.entity.page.Goods">

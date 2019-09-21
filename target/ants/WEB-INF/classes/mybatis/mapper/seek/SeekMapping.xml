@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ants.dao.seek.SeekDao">
+<mapper namespace="com.ants.dao.commodity.seek.SeekGoodsDao">
 
     <!--根据学生账户获取此学生发布的寻求的商品,我的寻求-->
     <select id="mySeekGoods" resultType="com.ants.entity.seek.Seek" parameterType="Map">
@@ -13,7 +13,7 @@
 
     <!--根据学生账户获取此学生发布的寻求的商品的总数量-->
     <select id="mySeekGoodsNums" parameterType="Integer" resultType="Integer">
-        SELECT COUNT(*)
+      SELECT COUNT(*)
                 FROM ants_goods_seek
                     WHERE goodsBelong=#{goodsBelong}
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ants.dao.personal.StudentDao">
     <!-- 插入操作 -->
-    <insert id="add" parameterType="com.ants.entity.personal.Student">
+    <insert id="insertStudent" parameterType="com.ants.entity.personal.Student">
 		INSERT INTO ants_user_base (studentId,userName,userSex,
 		                            passWord,unpw,mobilePhone,
 		                            address,portrait,userWechat,
@@ -14,7 +14,7 @@
 	</insert>
 
 	<!--根据此商品ID获取对应卖家的其他上架商品-->
-	<select id="chooseGoodsByStudentId" resultType="com.ants.entity.page.Goods">
+	<select id="listGoodsByStudentId" resultType="com.ants.entity.page.Goods">
 		SELECT goodsId,goodsName,goodsDescribe,goodsPicture,
          	   goodsVideo,goodsClass,goodsPrice,goodsState,
          	   goodsBargin,goodsBelong,goodsWay,uploadTime
@@ -48,7 +48,7 @@
 	</select>
 
 	<!--编辑我的资料，然后保存个人信息-->
-	<update id="saveStuMessage" parameterType="com.ants.entity.personal.Student">
+	<update id="updateStuMessage" parameterType="com.ants.entity.personal.Student">
 		UPDATE  ants_user_base
 				SET  userName = #{userName},mobilePhone = #{mobilePhone},
 					 address = #{address},portrait = #{portrait},

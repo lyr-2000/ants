@@ -18,25 +18,25 @@ public interface ClassifyDao {
     /**
      * 首页大分类的数据接口，无“其他”这大分类
      */
-     List<ParentClass> parentClassification();
+     List<ParentClass> listParentClassification();
 
     /**
      * 首页大分类的数据接口
      */
-     List<ParentClass> parentClassificationHasOthers();
+     List<ParentClass> listParentClassificationHasOthers();
 
 
     /**
      * 首页小分类的数据接口
      */
-     List<ChildClass> childClassification(Integer parentClass);
+     List<ChildClass> listChildClassification(Integer parentClass);
 
     /**
      * 获取所有大分类的ID的的数据接口
      *
      * @return
      */
-     List<Integer> parentClassId();
+     List<Integer> listParentClassId();
 
     /**
      * 获取所有的小分类的名字，除了“其他”这分类
@@ -51,7 +51,7 @@ public interface ClassifyDao {
      * @param parentId
      * @return
      */
-     List<Goods> chooseGoodsByParent(Map<String,Integer> map);
+     List<Goods> getGoodsByParent(Map<String,Integer> map);
 
     /**
      * 根据大分类的ID获取属于此大分类的所有商品的总数量
@@ -59,7 +59,7 @@ public interface ClassifyDao {
      * @param parentId
      * @return
      */
-     Integer getGoodsByParentNumbers(Integer parentId);
+     Integer countGoodsByParentNumbers(Integer parentId);
 
     /**
      * 根据前端传来的ID获取此ID代表的大分类的名称
@@ -91,7 +91,7 @@ public interface ClassifyDao {
      * @param childId
      * @return
      */
-     List<Goods> chooseGoodsByChild(Map<String,Integer> map);
+     List<Goods> listGoodsByChild(Map<String,Integer> map);
 
     /**
      * 根据小分类的ID获取属于此小分类的所有商品的总数量
@@ -99,7 +99,7 @@ public interface ClassifyDao {
      * @param childId
      * @return
      */
-     Integer getGoodsByChildNumbers(Integer childId);
+     Integer countGoodsByChildNumbers(Integer childId);
 
     /**
      * 根据子类ID获取其父类下的所有子类名称
@@ -107,7 +107,7 @@ public interface ClassifyDao {
      * @param childId
      * @return
      */
-     List<ChildClass> getChildClassifyByChildId(Integer childId);
+     List<ChildClass> listChildClassifyByChildId(Integer childId);
 
     /**
      * 副页面中根据综合获取指定的商品的列表
@@ -115,7 +115,7 @@ public interface ClassifyDao {
      * @param map
      * @return
      */
-     List<Goods> chooseGoodsByComposite(Map<String, Integer> map);
+     List<Goods> listGoodsByComposite(Map<String, Integer> map);
 
     /**
      * 副页面中根据综合获取指定的商品的数量
@@ -130,12 +130,12 @@ public interface ClassifyDao {
      * @param map
      * @return
      */
-     List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map);
+     List<Goods> listGoodsByUploadTime(Map<String, Integer> map);
 
     /**
      * 副页面中根据价格获取指定的商品的列表（降序）
      * @param map
      * @return
      */
-     List<Goods> chooseGoodsByPrice(Map<String,Integer> map);
+     List<Goods> listGoodsByPrice(Map<String,Integer> map);
 }

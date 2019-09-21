@@ -23,17 +23,17 @@ public class AnnouncementServiceImpl implements AnnouncementService {
      * 获取一条最新的公告的数据信息
      * @return
      */
-    public Announcement latestAnnouncement(Map<String,Integer> map) {
+    public Announcement getLatestAnnouncement(Map<String,Integer> map) {
 
-        return announcementDao.latestAnnouncement(map);
+        return announcementDao.getLatestAnnouncement(map);
     }
 
     /**
      * 根据页面数获取公告列表的数据
      * @return
      */
-    public List<Announcement> getAnnouncementList(Map<String,Integer> map){
-        return announcementDao.getAnnouncementList(map);
+    public List<Announcement> listAnnouncement(Map<String,Integer> map){
+        return announcementDao.listAnnouncement(map);
     }
 
     /**
@@ -49,7 +49,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
      * 获取公告的数量
      * @return
      */
-    public Integer getAnnNum(){
-        return announcementDao.getAnnNum();
+    public Integer countAnnNum(){
+        return announcementDao.countAnnNum();
     }
 }

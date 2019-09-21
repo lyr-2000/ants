@@ -1,15 +1,16 @@
 package com.ants.controller.personal;
 
+import com.ants.constant.PageConsts;
 import com.ants.entity.give.Give;
 import com.ants.entity.lease.Lease;
 import com.ants.entity.page.Goods;
 import com.ants.entity.personal.Student;
 import com.ants.entity.seek.Seek;
-import com.ants.service.give.GiveService;
-import com.ants.service.idle.IdleService;
-import com.ants.service.lease.LeaseService;
+import com.ants.service.commodity.give.GiveGoodsService;
+import com.ants.service.commodity.idle.IdleGoodsService;
+import com.ants.service.commodity.lease.LeaseGoodsService;
 import com.ants.service.personal.StudentService;
-import com.ants.service.seek.SeekService;
+import com.ants.service.commodity.seek.SeekGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,23 +32,21 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/student")
 public class StudentController {
-    //设置每页商品数量有多少个商品
-    private final static Integer PAGENUMBERS = 8;
 
     @Autowired
     private StudentService studentService;
 
     @Autowired
-    private IdleService idleService;
+    private IdleGoodsService idleService;
 
     @Autowired
-    private LeaseService leaseService;
+    private LeaseGoodsService leaseService;
 
     @Autowired
-    private SeekService seekService;
+    private SeekGoodsService seekService;
 
     @Autowired
-    private GiveService giveService;
+    private GiveGoodsService giveService;
 
 
     /**
@@ -85,7 +84,7 @@ public class StudentController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/saveStuMessage", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveStuMessage", method = RequestMethod.PUT)
     @ResponseBody
     public Map<String, String> saveStuMessage(//@RequestParam MultipartFile portrait,
                                               Student student,
@@ -106,7 +105,7 @@ public class StudentController {
 
 
         //保存编辑好的我的资料的信息，将其添加到数据库中
-        int result = studentService.saveStuMessage(student);
+        int result = studentService.updateStuMessage(student);
 
         //上传图片
 //        uploadIdle = Upload.uploadPhoto(portrait, request);
@@ -130,7 +129,7 @@ public class StudentController {
      * @param currentPage
      * @return
      */
-    @RequestMapping(value = "/myTradingSituation", method = RequestMethod.POST)
+    @RequestMapping(value = "/myTradingSituation", method = RequestMethod.GET)
     @ResponseBody
     public Map myTradingSituation(HttpServletRequest request,
                                   @RequestParam(value = "type") int type,
@@ -166,7 +165,7 @@ public class StudentController {
         List<Seek> seekList = null;
 
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
-        int head = (currentPage - 1) * PAGENUMBERS;
+        int head = (currentPage - 1) * PageConsts.COMMODITY_PAGE_NUMBER;
 
         //获取当前页数对应的数据库limit的tail的值，以便获取对应数据库的限制输出的数据
 //        int tail = head + 8;
@@ -178,7 +177,7 @@ public class StudentController {
         parameterMap.put("goodsBelong", studentId);
         //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
-        parameterMap.put("tail", PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.COMMODITY_PAGE_NUMBER);
 
         int goodsNumbers = 0;
 
@@ -186,42 +185,42 @@ public class StudentController {
 
             case 1:
                 //获取此账号下闲置的所有物品信息
-                idleList = idleService.myIdleGoods(parameterMap);
+                idleList = idleService.listMyIdleGoods(parameterMap);
 
                 //获取此账号下的闲置商品的全部数量
-                goodsNumbers = idleService.myIdleGoodsNums(studentId);
+                goodsNumbers = idleService.countMyIdleGoodsNums(studentId);
                 break;
 
 
             case 2:
                 //获取此账号下租赁的所有物品信息
-                leaseList = leaseService.myLeaseGoods(parameterMap);
+                leaseList = leaseService.listMyLeaseGoods(parameterMap);
 
                 //获取此账号下的租赁商品的全部数量
-                goodsNumbers = leaseService.myLeaseGoodsNums(studentId);
+                goodsNumbers = leaseService.countMyLeaseGoodsNums(studentId);
                 break;
 
 
             case 3:
                 //获取此账号下赠送的所有物品信息
-                giveList = giveService.myGiveGoods(parameterMap);
+                giveList = giveService.listMyGiveGoods(parameterMap);
 
                 //获取此账号下的租赁商品的全部数量
-                goodsNumbers = giveService.myGiveGoodsNums(studentId);
+                goodsNumbers = giveService.countMyGiveGoodsNums(studentId);
                 break;
 
 
             case 4:
                 //获取此账号下寻求的所有物品信息，我的寻求
-                seekList = seekService.mySeekGoods(parameterMap);
+                seekList = seekService.listMySeekGoods(parameterMap);
 
                 //获取此账号下的租赁商品的全部数量
-                goodsNumbers = seekService.mySeekGoodsNums(studentId);
+                goodsNumbers = seekService.countMySeekGoodsNums(studentId);
                 break;
         }
 
         //获取总页数
-        int allPage = (goodsNumbers / PAGENUMBERS) + 1;
+        int allPage = (goodsNumbers / PageConsts.COMMODITY_PAGE_NUMBER) + 1;
 
         goodsList.put("allPage",allPage);
         goodsList.put("giveList", giveList);
