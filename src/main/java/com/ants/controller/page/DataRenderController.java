@@ -1,5 +1,6 @@
 package com.ants.controller.page;
 
+import com.ants.constant.PageConsts;
 import com.ants.entity.announcement.Announcement;
 import com.ants.entity.classification.ChildClass;
 import com.ants.entity.page.Goods;
@@ -28,8 +29,6 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/dataRendering")
 public class DataRenderController {
-    //设置每页商品数量有多少个商品
-    private final static Integer PAGENUMBERS = 16;
 
     @Autowired
     private ClassifyService classifyService;
@@ -53,14 +52,14 @@ public class DataRenderController {
         Map<String,Integer> parameterMap =new HashMap<>();
 
         //首页大分类的数据信息存放的列表
-        List<ParentClass> parentClassification = classifyService.parentClassification();
+        List<ParentClass> parentClassification = classifyService.listParentClassification();
         dataMap.put("parentClassification", parentClassification);
 
         parameterMap.put("head",0);
         parameterMap.put("tail",1);
 
         //最新的公告的数据渲染
-        Announcement announcement = announcementService.latestAnnouncement(parameterMap);
+        Announcement announcement = announcementService.getLatestAnnouncement(parameterMap);
         dataMap.put("announcement", announcement);
 
         //猜你喜欢商品信息存放列表
@@ -99,7 +98,7 @@ public class DataRenderController {
         Map dataMap = new HashMap();
 
         //获取所有大分类名称，放在第一行的综合按钮的那一行
-        List<ParentClass> parentClassificationHasOthers = classifyService.parentClassificationHasOthers();
+        List<ParentClass> parentClassificationHasOthers = classifyService.listParentClassificationHasOthers();
         dataMap.put("synthesis", parentClassificationHasOthers);
 
         //获取所有的小分类的名称，放在第二行的综合按钮那一行
@@ -107,25 +106,25 @@ public class DataRenderController {
         dataMap.put("composite", allChildClassification);
 
         //纵向全部大分类的数据
-        List<ParentClass> allParentClassification = classifyService.parentClassificationHasOthers();
+        List<ParentClass> allParentClassification = classifyService.listParentClassificationHasOthers();
         dataMap.put("allClassification", allParentClassification);
 
         //随机获取16个商品的案例到副页面进行数据渲染
         Map<String, Integer> map = new HashMap<>();
         //获取所有商品的总数，拿来进行数据限制
-        Integer goodsNumbers = goodsService.getGoodsNumbers();
+        Integer goodsNumbers = goodsService.countGoodsNumbers();
         //获取16个随机商品的下标定位
         int head = (int) (Math.random() * goodsNumbers);
 //        int tail = head + 16;
         //将获取的限制数据的头和尾放进map中打包
         map.put("head", head);
-        map.put("tail", PAGENUMBERS);
+        map.put("tail", PageConsts.CLASSIFY_PAGE_NUMBER);
         //获取16个随机商品数据信息
-        List<Goods> goodsExample = goodsService.chooseExampleGoods(map);
+        List<Goods> goodsExample = goodsService.listExampleGoods(map);
         dataMap.put("goodsExample", goodsExample);
 
         //获取商品页面的页数
-        int page = (goodsNumbers / PAGENUMBERS) + 1;
+        int page = (goodsNumbers / PageConsts.CLASSIFY_PAGE_NUMBER) + 1;
         dataMap.put("page", page);
 
         return dataMap;

@@ -14,7 +14,7 @@
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
-    <context:component-scan base-package="com.ants.controller.textchat" annotation-config="true"/>
+<!--    <context:component-scan base-package="com.ants.controller.chat" annotation-config="true"/>-->
 <!--    添加静态资源访问-->
     <mvc:default-servlet-handler/>
 

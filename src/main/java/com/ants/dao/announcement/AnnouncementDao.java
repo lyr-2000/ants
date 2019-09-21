@@ -17,13 +17,13 @@ public interface AnnouncementDao {
      * 获取一条最新的公告的数据信息
      * @return
      */
-     Announcement latestAnnouncement(Map<String,Integer> map);
+     Announcement getLatestAnnouncement(Map<String,Integer> map);
 
     /**
      * 根据页面数获取公告列表的数据
      * @return
      */
-     List<Announcement> getAnnouncementList(Map<String,Integer> map);
+     List<Announcement> listAnnouncement(Map<String,Integer> map);
 
     /**
      * 根据公告的id获取此公告的详细信息
@@ -36,7 +36,7 @@ public interface AnnouncementDao {
      * 获取公告的数量
      * @return
      */
-     Integer getAnnNum();
+     Integer countAnnNum();
 
 
 }

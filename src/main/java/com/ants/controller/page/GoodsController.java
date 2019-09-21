@@ -47,11 +47,11 @@ public class GoodsController {
         }
 
         //根据商品id获取单个商品的详细信息
-        Map<String,Object> goodsInformation = goodsService.chooseGoodsById(goodsId);
+        Map<String,Object> goodsInformation = goodsService.getGoodsById(goodsId);
         dataMap.put("singleGoodsMessage",goodsInformation);
 
         //根据此商品ID获取对应卖家的其他上架商品
-        List<Goods> otherGoods = studentService.chooseGoodsByStudentId(goodsId);
+        List<Goods> otherGoods = studentService.listGoodsByStudentId(goodsId);
         dataMap.put("otherGoods",otherGoods);
         
         Integer goodsNumbers =  studentService.countGoodsNumbers(goodsId);

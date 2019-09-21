@@ -55,8 +55,8 @@ public class ChatServiceImpl implements ChatService {
 
 
 
-    public ChatContactor queryInformation(ChatUtil chatUtilDTO) {
-        ChatContactor chatContactor = chatDao.queryInformation(chatUtilDTO);
+    public List<ChatContactor> queryInformation(ChatUtil chatUtilDTO) {
+        List<ChatContactor> chatContactor = chatDao.queryInformation(chatUtilDTO);
         return chatContactor;
     }
 
@@ -71,4 +71,12 @@ public class ChatServiceImpl implements ChatService {
         }
     }
 
+    public void updateTime(ChatContactor chatContactor) {
+        int count = chatDao.updateTime(chatContactor);
+        if(count>0){
+            System.out.println("更新联系人成功");
+        }else{
+            System.out.println("更新联系人时间失败");
+        }
+    }
 }

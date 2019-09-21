@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ants.dao.commodity.lease.LeaseGoodsDao">
+    <!--根据学生账户获取此学生发布的租赁的商品-->
+    <select id="listMyLeaseGoods" parameterType="Map" resultType="com.ants.entity.lease.Lease">
+      SELECT goodsId,goodsName,goodsPicture,
+             goodsPrice,uploadTime,goodsState,repertory
+                FROM ants_goods_lease
+                    WHERE goodsBelong=#{goodsBelong}
+                      LIMIT #{head},#{tail}
+
+
+    </select>
+
+    <!--根据学生账户获取此学生发布的闲置的商品的总数量-->
+    <select id="countMyLeaseGoodsNums" parameterType="Integer" resultType="Integer">
+      SELECT COUNT(*)
+                FROM ants_goods_lease
+                    WHERE goodsBelong=#{goodsBelong}
+
+    </select>
+
+
+    <!--添加新租赁商品,发布租赁-->
+    <insert id="insertLeaseGoods" parameterType="com.ants.entity.lease.Lease">
+        INSERT INTO ants_goods_lease (goodsId,goodsName,goodsDescribe,
+                                     goodsPicture,goodsVideo,goodsClass,
+                                     goodsPrice,goodsState,goodsBargin,
+                                     goodsBelong,goodsWay,uploadTime,repertory)
+                                     VALUES (#{goodsId},#{goodsName},#{goodsDescribe},
+                                             #{goodsPicture},#{goodsVideo},#{goodsClass},
+                                             #{goodsPrice},#{goodsState},#{goodsBargin},
+                                             #{goodsBelong},#{goodsWay},#{uploadTime},#{repertory})
+    </insert>
+
+</mapper>

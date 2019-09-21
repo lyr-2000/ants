@@ -44,6 +44,9 @@ public class SystemWebSocketHandler  extends AbstractWebSocketHandler implements
         SystemWebSocketHandler.chatOfficelineService = chatOfficelineService;
     }
 
+    SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd" );
+    Date date ;
+
     public final static Map<Integer, WebSocketSession> sessionMap = Collections.synchronizedMap(new HashMap<Integer, WebSocketSession>());
     SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     FileOutputStream output;
@@ -64,8 +67,11 @@ public class SystemWebSocketHandler  extends AbstractWebSocketHandler implements
                 chatContactorDTO.setIfonline(false);
             }
         }
-        String jsonObject = JSON.toJSONString(list);
-        webSocketSession.sendMessage(new TextMessage(jsonObject));
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("type",5);
+        jsonObject.put("contactorlist",list);
+        System.out.println("消息:"+jsonObject.toJSONString());
+        webSocketSession.sendMessage(new TextMessage(jsonObject.toJSONString()));
         sessionMap.put(id,webSocketSession);
     }
 
@@ -106,12 +112,20 @@ public class SystemWebSocketHandler  extends AbstractWebSocketHandler implements
                 ChatUtil chatUtilDTO = new ChatUtil();
                 chatUtilDTO.setStudentId(id);
                 chatUtilDTO.setContactor(business);
-                ChatContactor chatContactor = chatService.queryInformation(chatUtilDTO);
+                List<ChatContactor> chatContactor = chatService.queryInformation(chatUtilDTO);
                 JSONObject json = new JSONObject();
                 json.put("type",4);
-                json.put("business",business);
-                json.put("information",chatContactor.getInformation());
-                json.put("latestTime",chatContactor.getLatestTime());
+                List list = new ArrayList();
+                for (ChatContactor contactor : chatContactor) {
+                    JSONObject js = new JSONObject();
+                    js.put("id",contactor.getContactor());
+                    js.put("information",contactor.getInformation());
+                    js.put("type","0");
+                    list.add(js);
+                }
+                json.put("from",list);
+//                json.put("latestTime",chatContactor.getLatestTime());
+                System.out.println("历史消息在这了："+json.toJSONString());
                 websocketsession.sendMessage(new TextMessage(json.toJSONString()));
             }
             else  if(type==1){
@@ -124,15 +138,30 @@ public class SystemWebSocketHandler  extends AbstractWebSocketHandler implements
                     json.put("from",id);
                     json.put("fromname",chatService.userQuery(id).getUsername());
                     socketSession.sendMessage(new TextMessage(json.toJSONString()));
+                    //把消息存入历史消息里面
+                    ChatContactor chatContactor = new ChatContactor();
+                    chatContactor.setInformation(jsonObject.getString("msg"));
+                    chatContactor.setStudentId(jsonObject.getInteger("id"));
+                    chatContactor.setContactor(jsonObject.getInteger("business"));
+                    date = new Date();
+                    String time = sdf.format(date);
 
+                    chatContactor.setLatestTime(time);
+                    chatService.appendmsg(chatContactor);
+                    //更新联系人最后一次聊天时间
+                    chatService.updateTime(chatContactor);
                 }else {
                     //用户为在线发送离线消息,存入数据库
+                    String time = sdf.format( new Date());
                     ChatOffline chatOfflineDTO = new ChatOffline();
                     chatOfflineDTO.setStudentId(id);
                     chatOfflineDTO.setTo(business);
                     chatOfflineDTO.setOfflinemessage(jsonObject.getString("msg"));
+                    chatOfflineDTO.setLatestTime(time);
                     chatOfficelineService.insertOfficelineMessage(chatOfflineDTO);
                 }
+
+
             }
             else if(type==2){
                 String filename = jsonObject.getString("filename");
@@ -149,7 +178,7 @@ public class SystemWebSocketHandler  extends AbstractWebSocketHandler implements
                 chatContactorDTO.setInformation(msg);
                 chatContactorDTO.setContactor(business);
                 chatContactorDTO.setStudentId(id);
-                chatContactorDTO.setLatestTime(format.format(new Date()));
+                chatContactorDTO.setLatestTime(sdf.format( new Date()));
                 chatService.appendmsg(chatContactorDTO);
             }
         } catch (IOException e) {

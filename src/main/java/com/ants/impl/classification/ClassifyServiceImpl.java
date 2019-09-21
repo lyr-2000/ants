@@ -29,8 +29,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<ParentClass> parentClassification() {
-        return classifyDao.parentClassification();
+    public List<ParentClass> listParentClassification() {
+        return classifyDao.listParentClassification();
     }
 
     /**
@@ -39,8 +39,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<ParentClass> parentClassificationHasOthers() {
-        return classifyDao.parentClassificationHasOthers();
+    public List<ParentClass> listParentClassificationHasOthers() {
+        return classifyDao.listParentClassificationHasOthers();
     }
 
     /**
@@ -50,8 +50,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<ChildClass> childClassification(Integer parentClass) {
-        return classifyDao.childClassification(parentClass);
+    public List<ChildClass> listChildClassification(Integer parentClass) {
+        return classifyDao.listChildClassification(parentClass);
     }
 
     /**
@@ -60,8 +60,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Integer> parentClassId() {
-        return classifyDao.parentClassId();
+    public List<Integer> listParentClassId() {
+        return classifyDao.listParentClassId();
     }
 
 
@@ -82,8 +82,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByParent(Map<String,Integer> map) {
-        return classifyDao.chooseGoodsByParent(map);
+    public List<Goods> getGoodsByParent(Map<String,Integer> map) {
+        return classifyDao.getGoodsByParent(map);
     }
 
     /**
@@ -93,8 +93,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public Integer getGoodsByParentNumbers(Integer parentId) {
-        return classifyDao.getGoodsByParentNumbers(parentId);
+    public Integer countGoodsByParentNumbers(Integer parentId) {
+        return classifyDao.countGoodsByParentNumbers(parentId);
     }
 
     /**
@@ -137,8 +137,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByChild(Map<String,Integer> map) {
-        return classifyDao.chooseGoodsByChild(map);
+    public List<Goods> listGoodsByChild(Map<String,Integer> map) {
+        return classifyDao.listGoodsByChild(map);
     }
 
     /**
@@ -148,8 +148,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public Integer getGoodsByChildNumbers(Integer childId) {
-        return classifyDao.getGoodsByChildNumbers(childId);
+    public Integer countGoodsByChildNumbers(Integer childId) {
+        return classifyDao.countGoodsByChildNumbers(childId);
     }
 
     /**
@@ -159,8 +159,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<ChildClass> getChildClassifyByChildId(Integer childId) {
-        return classifyDao.getChildClassifyByChildId(childId);
+    public List<ChildClass> listChildClassifyByChildId(Integer childId) {
+        return classifyDao.listChildClassifyByChildId(childId);
     }
 
     /**
@@ -170,8 +170,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByComposite(Map<String, Integer> map) {
-        return classifyDao.chooseGoodsByComposite(map);
+    public List<Goods> listGoodsByComposite(Map<String, Integer> map) {
+        return classifyDao.listGoodsByComposite(map);
     }
 
     /**
@@ -192,8 +192,8 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByUploadTime(Map<String, Integer> map) {
-        return classifyDao.chooseGoodsByUploadTime(map);
+    public List<Goods> listGoodsByUploadTime(Map<String, Integer> map) {
+        return classifyDao.listGoodsByUploadTime(map);
     }
 
     /**
@@ -203,7 +203,7 @@ public class ClassifyServiceImpl implements ClassifyService {
      * @return
      */
     @Override
-    public List<Goods> chooseGoodsByPrice(Map<String, Integer> map) {
-        return classifyDao.chooseGoodsByPrice(map);
+    public List<Goods> listGoodsByPrice(Map<String, Integer> map) {
+        return classifyDao.listGoodsByPrice(map);
     }
 }

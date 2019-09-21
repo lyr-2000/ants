@@ -1,5 +1,6 @@
 package com.ants.controller.announcement;
 
+import com.ants.constant.PageConsts;
 import com.ants.entity.announcement.Announcement;
 import com.ants.service.announcement.AnnouncementService;
 import com.ants.util.InterceptUtil;
@@ -24,13 +25,12 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/announcement")
 public class AnnouncementController {
-    //每页商品的数量,设置公告每一页的公告数量为十条
-    private static final Integer PAGENUMBER = 10;
+
 
     @Autowired
     private AnnouncementService announcementService;
 
-    @RequestMapping(value = "/getAnnList",method = RequestMethod.POST)
+    @RequestMapping(value = "/getAnnList",method = RequestMethod.GET)
     @ResponseBody
     public Map getAnnouncementList(@RequestParam("currentPage") Integer currentPage){
         //用来保存返回给前端信息的数据的map
@@ -44,22 +44,22 @@ public class AnnouncementController {
             return announcementMap;
         }
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
-        int head = (currentPage - 1) * PAGENUMBER;
+        int head = (currentPage - 1) * PageConsts.ANN_PAGE_NUMBER;
 
         //设置数据库SQL语句中Limit关键字中的参数信息
         parameterMap.put("head", head);
-        parameterMap.put("tail", PAGENUMBER);
+        parameterMap.put("tail", PageConsts.ANN_PAGE_NUMBER);
 
         //根据页面数获取对应的数据库的公告的数据信息
-        List<Announcement> announcementList = announcementService.getAnnouncementList(parameterMap);
+        List<Announcement> announcementList = announcementService.listAnnouncement(parameterMap);
 
         announcementMap.put("announcementList",announcementList);
 
         //从数据库中获取公告的数量
-        Integer annNum = announcementService.getAnnNum();
+        Integer annNum = announcementService.countAnnNum();
 
         //获取总的页面数
-        int allPage = (annNum / PAGENUMBER) + 1;
+        int allPage = (annNum / PageConsts.ANN_PAGE_NUMBER) + 1;
 
         announcementMap.put("allPage",allPage);
 
@@ -71,7 +71,7 @@ public class AnnouncementController {
      * @param annId
      * @return
      */
-    @RequestMapping(value = "/getAnnDetail",method = RequestMethod.POST)
+    @RequestMapping(value = "/getAnnDetail",method = RequestMethod.GET)
     @ResponseBody
     public Map getAnnDetail(@RequestParam(value = "annId") Integer annId){
         //保存返回给前端的数据的map
