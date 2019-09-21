@@ -28,8 +28,8 @@
             </div>
 
             <div class="mainHandle">
-                <button>发布寻求</button>
-                <button>正在寻求</button>
+                <router-link to="/user">发布寻求</router-link>
+                <router-link to="/user">正在寻求</router-link>
             </div>
         </div>
     </div>
@@ -179,7 +179,7 @@ a{
             }
         }
         .mainHandle{
-            button{
+            a{
                 .inputNoBorder;
                 border-radius: 5px;
                 padding: 9px 18px;

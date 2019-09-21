@@ -7,7 +7,7 @@
         <article>
             <span class="dot">·</span>
             <p v-for="content in annDetail.annContent">{{content}}</p>
-            <span class="publisher">蚂蚁置物</span>
+            <span class="publisher">蚂蚁置物平台</span>
         </article>
         <router-link class="turnBtn" to="/feedBack">我要反馈</router-link>
     </div>
@@ -91,6 +91,10 @@ export default {
         text-align: center;
         color: @topicDeepBColor;
         transform: translateX(-50%);
+        &:hover{
+            color: #fff;
+            background-color: @topicDeepBColor;
+        }
     }
 }
 </style>

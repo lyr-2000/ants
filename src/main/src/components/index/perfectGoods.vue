@@ -5,9 +5,9 @@
         <img class="leftHandle" @click="$emit('turn-left','perfect')" src="../../assets/img/index/left_icon.png">
         <div class="goodsList">
             <div :class="['concreteContent',moveFlag.perfect?'moveL':'moveR']" v-for="content in guessLike">
-                <a href="#">
+                <router-link to="/detail">
                     <img :src="[content.goodsPicture]">
-                </a>
+                </router-link>
                 <p v-cloak class="goodsName">{{content.goodsName}}</p>
                 <p v-cloak class="goodsPrice">￥{{content.goodsPrice}}元</p>
             </div>

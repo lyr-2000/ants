@@ -54,7 +54,7 @@ export default {
             this.timeType="商议"
             url="/ants/trade/myTradeGoods"
             if(this.title==="收藏盒"){
-                url="/ants/tradeCase/tradingCase"
+                url="/ants/tradeCase/myCaseGoods"
             }
         }else if(this.title==="已交易的"){
             this.stateType="";
@@ -157,7 +157,11 @@ export default {
             a{
                 width: 72px;
                 font-size: 14px;
+                font-family: '黑体';
                 color:@topicDeepBColor;
+            }
+            .delete{
+                font-size: 14px;
             }
         }
     }

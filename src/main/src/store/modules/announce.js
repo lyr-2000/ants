@@ -92,20 +92,12 @@ const actions = {
     },
     // 获取公告详情
     getAnnDetail({ commit }, id) {
-        axios({
-            headers: {
-                'deviceCode': 'A95ZEF1-47B5-AC90BF3'
-            },
-            method: 'post',
-            url: '/ants/announcement/getAnnDetail',
-            data: {
-                annId: id
-            }
-        }).then(res => {
-            commit('getAnnDetail', res.data);
-        }).catch(err => {
-            console.log(`${err} happen when get annDetail`)
-        })
+        axios.get(`/ants/announcement/getAnnDetail?annId=${id}`)
+            .then(res => {
+                commit('getAnnDetail', res.data);
+            }).catch(err => {
+                console.log(`${err} happen when get annDetail`)
+            })
     }
 }
 export default { state, getters, mutations, actions, namespaced }

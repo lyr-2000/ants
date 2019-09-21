@@ -64,7 +64,8 @@ export default {
         margin: 0px 28px 15px 28px;
         .label{
             font-size: 20px;
-            color: @shallowFontColor;
+            font-weight: bold;
+            color: @topicDeepBColor;
         }
         .price{
             font-size: 30px;

@@ -37,7 +37,7 @@
         <li class="goodsClassify">
             <span class="goodsLabel">商品分类</span>
             <select v-model="parentName">
-                <option>选择大分类</option>
+                <option v-for="p in parent">{{p}}</option>
             </select>
             <select v-model="childName">
                 <option>选择小分类</option>
@@ -102,7 +102,8 @@ export default {
             params:{
                 img:[],
                 video:[]
-            }
+            },
+            parent:["123","345","1231"]
         }
     },
     props:["pIndex","state"],

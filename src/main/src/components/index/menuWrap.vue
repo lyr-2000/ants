@@ -5,7 +5,7 @@
             <ul v-if="!showDetialedClassify">
                 <li v-for="classify in parentClassification">
                     <img :src='[classify.parentPicture]'>
-                    <span>{{classify.parentName}}</span>
+                    <router-link to="/search">{{classify.parentName}}</router-link>
                 </li>
             </ul>
             <div class="detailedContent" v-if="showDetialedClassify">
@@ -84,7 +84,7 @@ export default {
                     img{
                         width: 20px;
                     }
-                    span{
+                    a{
                         margin-left: 8px;
                         font-size: 20px;
                     }

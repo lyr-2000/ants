@@ -1,10 +1,10 @@
 <template>
     <div class="pageInfo">
         <p>
-            <span v-for="(word,index) in pageSource" :class="[index==pageSource.length-1?'currentPage':'']">
+            <router-link v-for="(word,index) in pageSource" to="/search" :class="[index==pageSource.length-1?'currentPage':'']">
                 {{word}}
                 <strong v-if="index<pageSource.length-1">></strong>
-            </span>
+            </router-link>
         </p>
     </div>
 </template>

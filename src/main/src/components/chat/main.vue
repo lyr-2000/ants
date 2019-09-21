@@ -23,7 +23,7 @@
                     <img :src="sendIcon">
                 </div>
             </div>
-            <textarea cols="30" rows="10" v-model="textMsg" @enter="sendMsg"></textarea>
+            <textarea cols="30" rows="10" v-model="textMsg" @keyup.enter="sendMsg"></textarea>
         </div>
     </div>
 </template>
@@ -71,6 +71,7 @@ export default {
             console.log('data: ', data);
             let file="";
             this.onSend({data,file});
+            this.textMsg="";
         },
         // 发送文件
         sendFile(e){

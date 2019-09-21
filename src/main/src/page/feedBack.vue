@@ -7,7 +7,7 @@
                     <p>尊敬的用户：</p>
                     <img class="topImg" src="../assets/img/ants/climb.png">
                     <div class="flagTitle">
-                        <span>蚂蚁置物</span>
+                        <h1>蚂蚁置物</h1>
                         <h1>反馈调查</h1>
                     </div>
                     <p>您好！为了给您提供更好的服务，我们希望收集您使用蚂蚁置物时的看法或建议。对您的配合和支持表示衷心感谢！</p>
@@ -116,11 +116,11 @@ export default {
     .main{
         width: 1400px;
         margin:0px auto;
-        box-shadow:0px 0px 10px @topicDeepBColor;
+        box-shadow:0px 0px 15px rgba(93,117,157,.3);
         background-color: #fff;
         .topGreet{
             position: relative;
-            padding: 14px 0px 26px 60px;
+            padding: 14px 0px 16px 60px;
             color: #fff;
             background-color: @topicDeepBColor;
             .topImg{
@@ -137,10 +137,9 @@ export default {
                 height: 170px;
                 text-align: center;
                 background-image: url("../assets/img/icon/polygon.png");
-                span{
+                h1:first-child{
                     display: inline-block;
-                    margin: 30px 0px 15px 0px;
-                    font-size: 14px;
+                    margin: 20px 0px 5px 0px;
                 }
                 h1{
                     font-size: 30px;
@@ -148,6 +147,7 @@ export default {
             }
             &>p{
                 &:first-child{
+                    margin-bottom: 8px;
                     font-size: 26px;
                 }
                 &:last-child{
@@ -163,10 +163,12 @@ export default {
                 .serialNum{
                     display: inline-block;
                     width: 30px;
-                    height: 30px;
+                    height: 32px;
+                    padding-left: 2px;
                     border-radius: 50%;
                     text-align: center;
                     line-height: 30px;
+                    font-family: '黑体';
                     border:2px solid #fff;
                     color: #fff;
                     background-color: @topicDeepBColor;
@@ -183,6 +185,7 @@ export default {
                     color: @deepFontColor;
                 }
                 .specialWord{
+                    font-weight: bold;
                     color:@topicDeepBColor;
                 }
                 .textContainer{
@@ -211,6 +214,8 @@ export default {
                 }
                 .queTitle{
                     margin: 20px 0px 10px 0px;
+                    font-weight: bolder;
+                    font-family: '黑体';
                     color:@topicDeepBColor;
                 }
             }

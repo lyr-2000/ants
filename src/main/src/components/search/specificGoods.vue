@@ -8,18 +8,18 @@
                 <span class="uploadTime" v-cloak>{{ex.uploadTime}}</span>
             </div>
             <div class="buttonContainer">
-                <a>
+                <router-link to="/user">
                     <img 
                         :src="[require('../../assets/img/icon/'+shopSrc)]"
                         @mouseover="shopSrc='shop-rBg.png'"
                         @mouseleave="shopSrc='shop-wBg.png'">
-                </a>
-                <a href="detail.html/">
+                </router-link>
+                <router-link to="/detail">
                     <img 
                         :src="[require('../../assets/img/icon/'+eyeSrc)]"
                         @mouseover="eyeSrc='eye-rBg.png'"
                         @mouseleave="eyeSrc='eye-wBg.png'">
-                </a>
+                </router-link>
             </div>
         </div>
     </div>
