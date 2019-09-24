@@ -1,5 +1,6 @@
 package com.ants.controller.shop;
 
+import com.ants.constant.PageConsts;
 import com.ants.entity.shop.Shop;
 import com.ants.service.shop.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,6 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/ants/tradeCase")
 public class ShopController {
-    //设置数据库每次获取数据的长度，即每个页面的数据量是多少条
-    private final static Integer PAGENUMBERS = 8;
 
     @Autowired
     private ShopService shopService;
@@ -38,7 +37,7 @@ public class ShopController {
      * @param type 查看状态,0 为我想买，1 为我想卖
      * @return
      */
-    @RequestMapping(value = "/myCaseGoods",method = RequestMethod.POST)
+    @RequestMapping(value = "/myCaseGoods",method = RequestMethod.GET)
     @ResponseBody
     public Map tradingCase(HttpServletRequest request,
                            @RequestParam(value = "type") Integer type,
@@ -85,7 +84,7 @@ public class ShopController {
 //        int tail = head + 8;
 
         parameterMap.put("head",head);
-        parameterMap.put("tail",PAGENUMBERS);
+        parameterMap.put("tail", PageConsts.COMMODITY_PAGE_NUMBER);
 
 
         /**
@@ -108,10 +107,10 @@ public class ShopController {
                 paramMap.put("status", 0);
 
                 //获取此账号下我想买的所有物品信息
-                buyList = shopService.tradingCase(parameterMap);
+                buyList = shopService.listTradingCase(parameterMap);
 
                 //获取此账号下的我想买的商品的全部数量
-                goodsNumbers = shopService.myShopGoodsNums(paramMap);
+                goodsNumbers = shopService.countMyShopGoodsNums(paramMap);
             break;
 
             case 1:
@@ -120,14 +119,14 @@ public class ShopController {
                 paramMap.put("status", 1);
 
                 //获取此账号下我想买的所有物品信息
-                sellList = shopService.tradingCase(parameterMap);
+                sellList = shopService.listTradingCase(parameterMap);
 
                 //获取此账号下的我想卖的商品的全部数量
-                goodsNumbers = shopService.myShopGoodsNums(paramMap);
+                goodsNumbers = shopService.countMyShopGoodsNums(paramMap);
         }
 
         //获取总页数
-        int allPage = (goodsNumbers / PAGENUMBERS) + 1;
+        int allPage = (goodsNumbers / PageConsts.COMMODITY_PAGE_NUMBER) + 1;
 
         shopGoods.put("allPage",allPage);
         shopGoods.put("buyList",buyList);

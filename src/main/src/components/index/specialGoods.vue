@@ -15,18 +15,18 @@
         <img class="leftHandle" @click="$emit('turn-left','special')" src="../../assets/img/index/left_icon.png">
         <div class="goodsList">
             <div :class="['concreteContent',moveFlag.hot?'moveL':'moveR']" v-if="showHot" v-for="content in hottest">
-                <a href="#">
+                <router-link to="/detail">
                     <img :src="[content.goodsPicture]">
-                </a>
+                </router-link>
                 <p v-cloak class="goodsName">{{content.goodsName}}</p>
                 <p v-cloak class="specialPrice">￥<span>{{content.goodsPrice}}</span>元</p>
                 <hr>
                 <p v-cloak class="starNum">收藏人数：<span>{{content.starNum}}</span>人</p>
             </div>
             <div :class="['concreteContent',moveFlag.new?'moveL':'moveR']" v-if="!showHot" v-for="content in latest">
-                <a href="#">
+                <router-link to="/detail">
                     <img :src="[content.goodsPicture]">
-                </a>
+                </router-link >
                 <p v-cloak class="goodsName">{{content.goodsName}}</p>
                 <p v-cloak class="specialPrice">￥<span>{{content.goodsPrice}}</span>元</p>
                 <hr>

@@ -221,7 +221,7 @@ const actions = {
                     childId: state.thiIndex,
                     type: state.type
                 },
-                method: 'post'
+                method: 'get'
             })
             .then(res => {
                 commit("changeArrayBy", res.data)
@@ -235,23 +235,12 @@ const actions = {
             return;
         } else {
             state.currentPage = currentPage;
-            axios({
-                headers: {
-                    'deviceCode': 'A95ZEF1-47B5-AC90BF3'
-                },
-                url: '/ants/class/pageJump',
-                data: {
-                    parentId: state.secIndex,
-                    childId: state.thiIndex,
-                    type: state.type,
-                    currentPage: state.currentPage
-                },
-                method: 'post'
-            }).then(res => {
-                commit("turn", res.data);
-            }).catch(err => {
-                console.log(`can't request the data for ${err}`);
-            })
+            axios.get(`/ants/class/pageJump?parentId=${state.secIndex}&childId=${state.thiIndex}&type=${state.type}&currentPage=${state.currentPage}`)
+                .then(res => {
+                    commit("turn", res.data);
+                }).catch(err => {
+                    console.log(`can't request the data for ${err}`);
+                })
         }
     },
     // 根据标签搜索相应的内容
@@ -267,7 +256,7 @@ const actions = {
                 subClassName: state.childList[index].subClassName,
                 parentClass: state.secIndex
             },
-            method: 'post'
+            method: 'get'
         }).then(res => {
             commit("titleSearch", res.data);
         }).catch(err => {
@@ -285,7 +274,7 @@ const actions = {
                     },
                     url: '/ants/class/goodsByParent',
                     data: state.synthesis[index],
-                    method: 'post'
+                    method: 'get'
                 })
                 .then((res) => {
                     commit('showChildList', res.data)

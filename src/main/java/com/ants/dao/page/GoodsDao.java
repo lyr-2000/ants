@@ -19,25 +19,25 @@ public interface GoodsDao {
      * @param head
      * @return
      */
-     List<Goods> chooseExampleGoods(Map<String,Integer> map);
+     List<Goods> listExampleGoods(Map<String,Integer> map);
 
     /**
      * 获取所有商品的数量
      * @return
      */
-     Integer getGoodsNumbers();
+     Integer countGoodsNumbers();
 
     /**
      * 根据商品id获取对应商品信息
      * @param goodsId
      * @return
      */
-     Map<String,Object> chooseGoodsById(Integer goodsId);
+     Map<String,Object> getGoodsById(Integer goodsId);
 
     /**
      * 添加新商品
      * @param goods
      * @return
      */
-     int addGoods(Goods goods);
+     int insertGoods(Goods goods);
 }

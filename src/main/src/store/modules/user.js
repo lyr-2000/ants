@@ -470,7 +470,7 @@ const actions = {
                 },
                 url: '/ants/student/saveStuMessage',
                 data: data.user,
-                method: 'post'
+                method: 'put'
             })
             .then(res => {
                 commit('saveStuMsg', res.data)
@@ -483,7 +483,7 @@ const actions = {
     // 获取物品
     getGoods({ commit }, data) {
         console.log('data: ', data);
-        axios.post(data.url, `type=${data.type}&currentPage=${data.cPage+1}`)
+        axios.get(`data.url?type=${data.type}&currentPage=${data.cPage+1}`)
             .then(res => {
                 commit('getGoods', { res: res.data, type: data.type, title: data.title })
             }).catch(err => {

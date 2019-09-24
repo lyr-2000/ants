@@ -20,13 +20,13 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsDao goodsDao;
 
     @Override
-    public List<Goods> chooseExampleGoods(Map<String,Integer> map) {
-        return goodsDao.chooseExampleGoods(map);
+    public List<Goods> listExampleGoods(Map<String,Integer> map) {
+        return goodsDao.listExampleGoods(map);
     }
 
     @Override
-    public Integer getGoodsNumbers() {
-        return goodsDao.getGoodsNumbers();
+    public Integer countGoodsNumbers() {
+        return goodsDao.countGoodsNumbers();
     }
 
     /**
@@ -34,8 +34,8 @@ public class GoodsServiceImpl implements GoodsService {
      * @param goodsId
      * @return
      */
-    public Map<String,Object> chooseGoodsById(Integer goodsId){
-        return goodsDao.chooseGoodsById(goodsId);
+    public Map<String,Object> getGoodsById(Integer goodsId){
+        return goodsDao.getGoodsById(goodsId);
     }
 
     /**
@@ -43,7 +43,7 @@ public class GoodsServiceImpl implements GoodsService {
      * @param goods
      * @return
      */
-    public int addGoods(Goods goods){
-        return goodsDao.addGoods(goods);
+    public int insertGoods(Goods goods){
+        return goodsDao.insertGoods(goods);
     }
 }

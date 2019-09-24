@@ -27,9 +27,9 @@ public class ShopServiceImpl implements ShopService {
      * @param map
      * @return
      */
-    public List<Shop> tradingCase(Map<String,Integer> map){
+    public List<Shop> listTradingCase(Map<String,Integer> map){
 
-        return shopDao.tradingCase(map);
+        return shopDao.listTradingCase(map);
     }
 
     /**
@@ -37,7 +37,7 @@ public class ShopServiceImpl implements ShopService {
      * @param map
      * @return
      */
-    public Integer myShopGoodsNums(Map<String,Integer> map){
-        return shopDao.myShopGoodsNums(map);
+    public Integer countMyShopGoodsNums(Map<String,Integer> map){
+        return shopDao.countMyShopGoodsNums(map);
     }
 }

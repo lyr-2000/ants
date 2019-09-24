@@ -21,12 +21,12 @@ public interface ShopDao {
      * @param map
      * @return
      */
-     List<Shop> tradingCase(Map<String,Integer> map);
+     List<Shop> listTradingCase(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生我想买和我想卖的商品总数量
      * @param map
      * @return
      */
-     Integer myShopGoodsNums(Map<String,Integer> map);
+     Integer countMyShopGoodsNums(Map<String,Integer> map);
 }

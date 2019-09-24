@@ -19,14 +19,14 @@ public interface StudentDao {
      * @param student
      * @return
      */
-     int add(Student student);
+     int insertStudent(Student student);
 
     /**
      *根据此商品ID获取对应卖家的其他上架商品
      * @param id
      * @return
      */
-     List<Goods> chooseGoodsByStudentId(Integer id);
+     List<Goods> listGoodsByStudentId(Integer id);
 
     /**
      * 根据商品Id获取对应卖家的其他
@@ -47,5 +47,5 @@ public interface StudentDao {
      * @param student
      * @return
      */
-     int saveStuMessage(Student student);
+     int updateStuMessage(Student student);
 }

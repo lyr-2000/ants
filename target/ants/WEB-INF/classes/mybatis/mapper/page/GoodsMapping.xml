@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ants.dao.page.GoodsDao">
     <!--获取随机的16个商品的信息-->
-    <select id="chooseExampleGoods" resultType="com.ants.entity.page.Goods" parameterType="Map">
+    <select id="listExampleGoods" resultType="com.ants.entity.page.Goods" parameterType="Map">
         SELECT goodsId,goodsName,goodsDescribe,goodsPicture,
                goodsVideo,goodsClass,goodsPrice,goodsState,
                goodsBargin,goodsBelong,goodsWay,uploadTime
@@ -10,12 +10,12 @@
     </select>
 
     <!--获取所有商品的数量-->
-    <select id="getGoodsNumbers" resultType="Integer">
+    <select id="countGoodsNumbers" resultType="Integer">
         SELECT COUNT(*) FROM ants_goods_base;
     </select>
 
     <!-- 根据商品id获取对应商品信息-->
-    <select id="chooseGoodsById" resultType="Map" parameterType="Integer">
+    <select id="getGoodsById" resultType="Map" parameterType="Integer">
         SELECT goodsId,goodsName,goodsBargin,userWechat,userQQ,
                goodsPrice,goodsWay,goodsVideo,repertory,goodsDescribe,
                qqHidden,wechatHidden
@@ -24,7 +24,7 @@
     </select>
 
     <!--添加新闲置商品-->
-    <insert id="addGoods" parameterType="com.ants.entity.page.Goods">
+    <insert id="insertGoods" parameterType="com.ants.entity.page.Goods">
         INSERT INTO ants_goods_base (goodsId,goodsName,goodsDescribe,
                                      goodsPicture,goodsVideo,goodsClass,
                                      goodsPrice,goodsState,goodsBargin,

@@ -28,7 +28,9 @@
         <div class="goodsContact">
             <span class="goodsLabel">联系</span>
             <p>
-                <img src="../../assets/img/detail/chat.png" @click="enterChat">
+                <router-link to="/chat">
+                    <img src="../../assets/img/detail/chat.png" @click="enterChat">
+                </router-link>
                 <img src="../../assets/img/detail/wechat.png" @click="getInfo('wechat')">
                 <img src="../../assets/img/detail/QQ.png" @click="getInfo('qq')">
             </p>

@@ -45,7 +45,6 @@ public class SystemController  {
             return ants;
         }
         if (StringUtils.isEmpty(student.getPassWord())) {
-            System.out.println(student.getStudentId()+"!!!!!");
             ants.put("type", "error");
             ants.put("message", "请填写密码！");
             return ants;
