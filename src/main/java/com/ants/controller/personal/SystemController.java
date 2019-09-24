@@ -1,7 +1,9 @@
 package com.ants.controller.personal;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ants.entity.personal.Student;
 import com.ants.service.personal.StudentService;
+import com.ants.util.TestLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,56 +31,50 @@ public class SystemController  {
     @ResponseBody
     public Map<String, String> studentsLogin(Student student, String cpacha, HttpServletRequest request) {
         Map<String, String> ants = new HashMap<String, String>();
-        if (student == null) {
-            ants.put("type", "false");
-            ants.put("message", "请填写用户名");
+        //滑动验证码校验
+        HttpSession session = request.getSession();
+        if (!"1".equals(session.getAttribute("slide"))) {
+            ants.put("type", "error");
+            ants.put("message", "未获取到验证码，请重新刷新下界面");
             return ants;
         }
-        if (StringUtils.isEmpty(cpacha)) {
-            ants.put("type", "false");
-            ants.put("message", "请填写验证码！");
-            return ants;
-        }
-        if (StringUtils.isEmpty(student.getStudentId())) {
+
+        if (StringUtils.isEmpty(student.getStudentId())||student.getStudentId()==0) {
             ants.put("type", "error");
             ants.put("message", "请填写学号！");
             return ants;
         }
         if (StringUtils.isEmpty(student.getPassWord())) {
+            System.out.println(student.getStudentId()+"!!!!!");
             ants.put("type", "error");
             ants.put("message", "请填写密码！");
             return ants;
         }
-//        Object loginCpacha = request.getSession().getAttribute("loginCpacha");
-        Object loginCpacha = "1234";
-        if (loginCpacha == null) {
-            ants.put("type", "error");
-            ants.put("message", "未获取到验证码，请重新刷新下界面");
-            return ants;
-        }
+
+
         try {
-            Map map = com.ants.util.TryingToLogin.sendPost(student.getUnpw(), student.getStudentId() + "");
-            String statusCode = map.get("statusCode").toString();
-            String studentName = map.get("studentName").toString();
-            System.out.println("名字是:" + studentName);
-            System.out.println("状态码是:" + statusCode);
-            if (!"302".equals(statusCode)) {
-                System.out.println("你输入的错误哦");
-                ants.put("type", "error");
-                ants.put("message", "该用户不存在");
-                return ants;
-            } else {
-                System.out.println("你输入的正确");
+            JSONObject jsonObject = TestLogin.login(student.getUnpw(),student.getStudentId()+"");
+            Map map = new HashMap();
+            //登录成功
+            if(jsonObject.getString("flag").equals("1")){
+                    map.put("state",1);
+                    map.put("message","登录成功");
+                    map.put("userdwmc",jsonObject.getString("userdwmc"));
+                    map.put("username",jsonObject.getString("userrealname"));
+            }else {
+                //登录失败
+                map.put("state",0);
+                map.put("message","登录失败");
+                map.put("userdwmc",jsonObject.getString("userdwmc"));
+                map.put("username",jsonObject.getString("userrealname"));
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         request.getSession().setAttribute("userId", student.getStudentId());
-        return ants;//登录成功
+        return ants;
     }
-
-
-
 
 
 
@@ -114,7 +112,6 @@ public class SystemController  {
 
         return false;
     }
-
 
 
 
