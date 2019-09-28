@@ -1,7 +1,7 @@
 package com.ants.impl.commodity.seek;
 
 import com.ants.dao.commodity.seek.SeekGoodsDao;
-import com.ants.entity.seek.Seek;
+import com.ants.entity.commodity.seek.SeekGoods;
 import com.ants.service.commodity.seek.SeekGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class SeekGoodsServiceImpl implements SeekGoodsService {
      * @param studentId
      * @return
      */
-    public List<Seek> listMySeekGoods(Map<String,Integer> map){
+    public List<SeekGoods> listMySeekGoods(Map<String,Integer> map){
         return seekDao.listMySeekGoods(map);
     }
 
@@ -46,7 +46,7 @@ public class SeekGoodsServiceImpl implements SeekGoodsService {
      * @param seek
      * @return
      */
-    public int insertSeekGoods(Seek seek){
+    public int insertSeekGoods(SeekGoods seek){
         return seekDao.insertSeekGoods(seek);
     }
 }

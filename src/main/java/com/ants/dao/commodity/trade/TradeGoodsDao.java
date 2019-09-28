@@ -1,6 +1,6 @@
 package com.ants.dao.commodity.trade;
 
-import com.ants.entity.trade.Trade;
+import com.ants.entity.commodity.trade.TradeGoods;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface TradeGoodsDao {
      * @param studentId
      * @return
      */
-     List<Trade> listMyTradeGoods(Map<String,Integer> map);
+     List<TradeGoods> listMyTradeGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的正在交易的商品（闲置，租赁，寻求和赠送）的总数量

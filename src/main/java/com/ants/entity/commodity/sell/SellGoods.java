@@ -1,4 +1,4 @@
-package com.ants.entity.sell;
+package com.ants.entity.commodity.sell;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Data
-public class Sell {
+public class SellGoods {
     /** 商品id */
     private int goodsId;
     /** 商品名称 */

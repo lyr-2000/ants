@@ -3,7 +3,7 @@
 <mapper namespace="com.ants.dao.commodity.sell.SellGoodsDao">
 
     <!--根据学生学号获取此学生账号下的所交易完成的商品，包括闲置，租赁和赠送-->
-    <select id="mySellGoods" resultType="com.ants.entity.sell.Sell" parameterType="Map">
+    <select id="mySellGoods" resultType="com.ants.entity.commodity.sell.SellGoods" parameterType="Map">
         SELECT goodsId,goodsName,goodsPicture,
                goodsPrice,goodsState,sellTime,numbers
                   FROM ants_other_sell

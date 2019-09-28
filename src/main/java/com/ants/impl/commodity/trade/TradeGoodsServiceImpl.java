@@ -1,7 +1,7 @@
 package com.ants.impl.commodity.trade;
 
 import com.ants.dao.commodity.trade.TradeGoodsDao;
-import com.ants.entity.trade.Trade;
+import com.ants.entity.commodity.trade.TradeGoods;
 import com.ants.service.commodity.trade.TradeGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class TradeGoodsServiceImpl implements TradeGoodsService {
      * @param studentId
      * @return
      */
-    public List<Trade> listMyTradeGoods(Map<String,Integer> map){
+    public List<TradeGoods> listMyTradeGoods(Map<String,Integer> map){
         return tradeDao.listMyTradeGoods(map);
     }
 

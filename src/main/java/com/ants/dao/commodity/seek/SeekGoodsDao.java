@@ -1,6 +1,6 @@
 package com.ants.dao.commodity.seek;
 
-import com.ants.entity.seek.Seek;
+import com.ants.entity.commodity.seek.SeekGoods;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface SeekGoodsDao {
      * @param studentId
      * @return
      */
-     List<Seek> listMySeekGoods(Map<String,Integer> map);
+     List<SeekGoods> listMySeekGoods(Map<String,Integer> map);
 
 
     /**
@@ -36,5 +36,5 @@ public interface SeekGoodsDao {
      * @param seek
      * @return
      */
-     int insertSeekGoods(Seek seek);
+     int insertSeekGoods(SeekGoods seek);
 }

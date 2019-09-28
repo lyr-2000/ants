@@ -1,7 +1,7 @@
 package com.ants.controller.commodity.trade;
 
 import com.ants.constant.PageConsts;
-import com.ants.entity.trade.Trade;
+import com.ants.entity.commodity.trade.TradeGoods;
 import com.ants.service.commodity.trade.TradeGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -89,16 +89,16 @@ public class TradesController {
 
 
         //保存此账号下闲置的所有物品信息
-        List<Trade> idleList = null;
+        List<TradeGoods> idleList = null;
 
         //保存此账号下租赁的所有物品信息
-        List<Trade> leaseList = null;
+        List<TradeGoods> leaseList = null;
 
         //保存此账号下赠送的所有物品信息
-        List<Trade> giveList = null;
+        List<TradeGoods> giveList = null;
 
         //保存此账号下寻求的所有物品信息，我的寻求
-        List<Trade> seekList = null;
+        List<TradeGoods> seekList = null;
 
         //获取正在交易中的商品数量
         int goodsNumbers = 0;

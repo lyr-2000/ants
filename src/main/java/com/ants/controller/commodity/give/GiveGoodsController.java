@@ -1,7 +1,7 @@
 package com.ants.controller.commodity.give;
 
 import com.ants.constant.PageConsts;
-import com.ants.entity.give.Give;
+import com.ants.entity.commodity.give.GiveGoods;
 import com.ants.service.commodity.give.GiveGoodsService;
 import com.ants.util.ShopIdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class GiveGoodsController {
     @ResponseBody
     public Map<String, String> releaseGive(//@RequestParam MultipartFile photo,
                                            HttpServletRequest request,
-                                           Give give
+                                           GiveGoods give
     ) {
         //用来保存返回给前端数据的map
         Map<String, String> uploadGive = new HashMap<>();
@@ -122,7 +122,7 @@ public class GiveGoodsController {
         parameterMap.put("tail", PageConsts.COMMODITY_PAGE_NUMBER);
 
         //获取此账号下赠送的所有物品信息
-        List<Give> giveList = giveGoodsService.listMyGiveGoods(parameterMap);
+        List<GiveGoods> giveList = giveGoodsService.listMyGiveGoods(parameterMap);
 
         giveGoods.put("giveGoods",giveList);
 

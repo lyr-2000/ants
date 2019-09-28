@@ -1,4 +1,4 @@
-package com.ants.entity.lease;
+package com.ants.entity.commodity.seek;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -9,34 +9,34 @@ import org.springframework.stereotype.Component;
  * @Author czd
  * @Date:created in 2019/10/11
  * @Version: V1.0
+
  */
 @Component
 @Data
-public class Lease {
+public class SeekGoods {
     /** 商品id */
     private int goodsId;
     /** 商品名称 */
     private String goodsName;
     /** 商品描述 */
     private String goodsDescribe;
-    /** 商品图片名称 */
+    /** 商品图片 */
     private String goodsPicture;
-    /** 商品视频名称 */
-    private String goodsVideo;
-    /** 商品所属小分类id */
+    /** 商品所属的子类的id */
     private int goodsClass;
     /** 商品价格 */
     private double goodsPrice;
-    /** 商品交易状态：0 -> 未租赁 1 -> 租赁中 */
+    /** 商品交易状态：0 -> 寻求中 1 -> 已寻求 */
     private int goodsState;
-    /** 商品是否议价：0 -> 可议价  1 -> 不可议价*/
-    private int goodsBargin;
+    /** 商品是否议价：0 -> 可议价 1 -> 不可议价*/
+    private int  goodsBargin;
     /** 商品所属卖家id */
     private int goodsBelong;
-    /** 商送货形式：0 -> 卖家送货上门  1 -> 买家上门自取 2：可待商量 */
+    /** 送货形式：0 -> 卖家送货上门  1 -> 买家上门自取 2 -> 可待商量 */
     private int goodsWay;
-    /** 商品发布时间 */
+    /** 商品发布寻求时间 */
     private String uploadTime;
-    /** 商品库存 */
+    /** 商品期望寻求的商品的数目 */
     private int repertory;
+
 }

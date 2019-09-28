@@ -27,5 +27,7 @@ public class Feedback {
     private String userMobile;
     /** 反馈人姓名 */
     private String userName;
+    /** 判断反馈信息状态: 0 正常,1 删除,2 彻底删除 */
+    private Integer state;
 
 }

@@ -1,6 +1,6 @@
 package com.ants.service.commodity.lease;
 
-import com.ants.entity.lease.Lease;
+import com.ants.entity.commodity.lease.LeaseGoods;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface LeaseGoodsService {
      * 根据学生账户获取此学生发布的租赁的商品
      * @return
      */
-     List<Lease> listMyLeaseGoods(Map<String,Integer> map);
+     List<LeaseGoods> listMyLeaseGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的租赁的商品的总数量
@@ -33,5 +33,5 @@ public interface LeaseGoodsService {
      * @param lease
      * @return
      */
-     int insertLeaseGoods(Lease lease);
+     int insertLeaseGoods(LeaseGoods lease);
 }

@@ -1,7 +1,7 @@
 package com.ants.impl.commodity.sell;
 
 import com.ants.dao.commodity.sell.SellGoodsDao;
-import com.ants.entity.sell.Sell;
+import com.ants.entity.commodity.sell.SellGoods;
 import com.ants.service.commodity.sell.SellGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class SellGoodsServiceImpl implements SellGoodsService {
      * @param map
      * @return
      */
-    public List<Sell> listMySellGoods(Map<String,Integer> map){
+    public List<SellGoods> listMySellGoods(Map<String,Integer> map){
         return sellDao.listMySellGoods(map);
     }
 

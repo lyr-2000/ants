@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ants.dao.commodity.give.GiveGoodsDao">
     <!--添加新赠送商品-->
-    <insert id="insertGiveGoods" parameterType="com.ants.entity.give.Give">
+    <insert id="insertGiveGoods" parameterType="com.ants.entity.commodity.give.GiveGoods">
         INSERT INTO ants_goods_give (goodsId,goodsName,goodsDescribe,
                                      goodsPicture,goodsVideo,goodsClass,
                                      goodsPrice,goodsState,goodsBargin,
@@ -14,7 +14,7 @@
     </insert>
 
     <!--根据学生账户获取此学生发布的赠送的商品-->
-    <select id="listMyGiveGoods" parameterType="Map" resultType="com.ants.entity.give.Give">
+    <select id="listMyGiveGoods" parameterType="Map" resultType="com.ants.entity.commodity.give.GiveGoods">
       SELECT goodsId,goodsName,goodsPicture,
              goodsPrice,uploadTime,goodsState,repertory
                 FROM ants_goods_give

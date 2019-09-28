@@ -1,6 +1,6 @@
 package com.ants.dao.commodity.give;
 
-import com.ants.entity.give.Give;
+import com.ants.entity.commodity.give.GiveGoods;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public interface GiveGoodsDao {
      * @param give
      * @return
      */
-     int insertGiveGoods(Give give);
+     int insertGiveGoods(GiveGoods give);
 
 
     /**
@@ -28,7 +28,7 @@ public interface GiveGoodsDao {
      * @param map
      * @return
      */
-     List<Give> listMyGiveGoods(Map<String,Integer> map);
+     List<GiveGoods> listMyGiveGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的赠送的商品的总数量

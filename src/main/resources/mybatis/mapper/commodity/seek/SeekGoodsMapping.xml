@@ -3,7 +3,7 @@
 <mapper namespace="com.ants.dao.commodity.seek.SeekGoodsDao">
 
     <!--根据学生账户获取此学生发布的寻求的商品,我的寻求-->
-    <select id="listMySeekGoods" resultType="com.ants.entity.seek.Seek" parameterType="Map">
+    <select id="listMySeekGoods" resultType="com.ants.entity.commodity.seek.SeekGoods" parameterType="Map">
         SELECT goodsId,goodsName,goodsPicture,
                goodsPrice,goodsState,uploadTime,repertory
                   FROM ants_goods_seek
@@ -21,7 +21,7 @@
     </select>
 
     <!--添加新寻求商品,发布寻求-->
-    <insert id="insertSeekGoods" parameterType="com.ants.entity.seek.Seek">
+    <insert id="insertSeekGoods" parameterType="com.ants.entity.commodity.seek.SeekGoods">
         INSERT INTO ants_goods_base (goodsId,goodsName,goodsDescribe,
                                      goodsPicture,goodsClass,goodsPrice,
                                      goodsState,goodsBargin,goodsBelong,

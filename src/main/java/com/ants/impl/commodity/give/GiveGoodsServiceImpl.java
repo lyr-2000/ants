@@ -1,7 +1,7 @@
 package com.ants.impl.commodity.give;
 
 import com.ants.dao.commodity.give.GiveGoodsDao;
-import com.ants.entity.give.Give;
+import com.ants.entity.commodity.give.GiveGoods;
 import com.ants.service.commodity.give.GiveGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class GiveGoodsServiceImpl implements GiveGoodsService {
      * @param give
      * @return
      */
-    public int insertGiveGoods(Give give){
+    public int insertGiveGoods(GiveGoods give){
         return giveDao.insertGiveGoods(give);
     }
 
@@ -36,7 +36,7 @@ public class GiveGoodsServiceImpl implements GiveGoodsService {
      * @param map
      * @return
      */
-    public List<Give> listMyGiveGoods(Map<String,Integer> map){
+    public List<GiveGoods> listMyGiveGoods(Map<String,Integer> map){
         return giveDao.listMyGiveGoods(map);
     }
 

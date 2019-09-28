@@ -1,6 +1,6 @@
 package com.ants.service.commodity.seek;
 
-import com.ants.entity.seek.Seek;
+import com.ants.entity.commodity.seek.SeekGoods;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public interface SeekGoodsService {
      * @param map
      * @return
      */
-     List<Seek> listMySeekGoods(Map<String,Integer> map);
+     List<SeekGoods> listMySeekGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的寻求的商品的总数量
@@ -34,5 +34,5 @@ public interface SeekGoodsService {
      * @param seek
      * @return
      */
-     int insertSeekGoods(Seek seek);
+     int insertSeekGoods(SeekGoods seek);
 }

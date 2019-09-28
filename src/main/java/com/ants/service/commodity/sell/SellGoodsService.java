@@ -1,6 +1,6 @@
 package com.ants.service.commodity.sell;
 
-import com.ants.entity.sell.Sell;
+import com.ants.entity.commodity.sell.SellGoods;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface SellGoodsService {
      * @param map
      * @return
      */
-     List<Sell> listMySellGoods(Map<String,Integer> map);
+     List<SellGoods> listMySellGoods(Map<String,Integer> map);
 
     /**
      * 根据学生账户获取此学生发布的已经完成交易的商品（闲置，租赁，赠送）的总数量

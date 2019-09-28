@@ -1,11 +1,11 @@
 package com.ants.controller.personal;
 
 import com.ants.constant.PageConsts;
-import com.ants.entity.give.Give;
-import com.ants.entity.lease.Lease;
+import com.ants.entity.commodity.give.GiveGoods;
+import com.ants.entity.commodity.lease.LeaseGoods;
 import com.ants.entity.page.Goods;
 import com.ants.entity.personal.Student;
-import com.ants.entity.seek.Seek;
+import com.ants.entity.commodity.seek.SeekGoods;
 import com.ants.service.commodity.give.GiveGoodsService;
 import com.ants.service.commodity.idle.IdleGoodsService;
 import com.ants.service.commodity.lease.LeaseGoodsService;
@@ -156,13 +156,13 @@ public class StudentController {
         List<Goods> idleList = null;
 
         //保存此账号下租赁的所有物品信息
-        List<Lease> leaseList = null;
+        List<LeaseGoods> leaseList = null;
 
         //保存此账号下赠送的所有物品信息
-        List<Give> giveList = null;
+        List<GiveGoods> giveList = null;
 
         //保存此账号下寻求的所有物品信息，我的寻求
-        List<Seek> seekList = null;
+        List<SeekGoods> seekList = null;
 
         //获取当前页数对应的数据库limit的head的值，以便获取对应数据库的限制输出的数据
         int head = (currentPage - 1) * PageConsts.COMMODITY_PAGE_NUMBER;

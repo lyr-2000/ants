@@ -1,7 +1,7 @@
 package com.ants.controller.commodity.sell;
 
 import com.ants.constant.PageConsts;
-import com.ants.entity.sell.Sell;
+import com.ants.entity.commodity.sell.SellGoods;
 import com.ants.service.commodity.sell.SellGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,9 +41,9 @@ public class SellGoodsController {
      */
     @RequestMapping(value = "/mySellGoods",method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, List<Sell>> mySellGoods(HttpServletRequest request,
-                                               @RequestParam(value = "type") int type,
-                                               @RequestParam(value = "currentPage") Integer currentPage
+    public Map<String, List<SellGoods>> mySellGoods(HttpServletRequest request,
+                                                    @RequestParam(value = "type") int type,
+                                                    @RequestParam(value = "currentPage") Integer currentPage
     ){
         //用来存放最后返回给前端的数据
         Map sellGoods = new HashMap<>();
@@ -93,16 +93,16 @@ public class SellGoodsController {
 
 
         //保存此账号下闲置的所有物品信息
-        List<Sell> idleList = null;
+        List<SellGoods> idleList = null;
 
         //保存此账号下租赁的所有物品信息
-        List<Sell> leaseList = null;
+        List<SellGoods> leaseList = null;
 
         //保存此账号下赠送的所有物品信息
-        List<Sell> seekList = null;
+        List<SellGoods> seekList = null;
 
         //保存此账号下赠送的所有物品信息
-        List<Sell> giveList = null;
+        List<SellGoods> giveList = null;
 
 
         //获取正在交易中的商品数量

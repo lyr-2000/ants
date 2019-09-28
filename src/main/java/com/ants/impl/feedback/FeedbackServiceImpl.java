@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @Date:createed in 2019/10/11
  * @Version: V1.0
  */
-@Service
+@Service("FeedbackService")
 public class FeedbackServiceImpl implements FeedbackService {
     @Autowired
     private FeedbackDao feedbackDao;

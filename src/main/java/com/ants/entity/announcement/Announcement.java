@@ -20,5 +20,7 @@ public class Announcement {
     private String annContent;
     /** 公告发布时间 */
     private String annTime;
+    /** 判断公告状态: 0 正常,1回收站( 1 删除,2 撤销删除, 3 彻底删除) */
+    private Integer state;
 
 }
