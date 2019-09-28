@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/database/ants_base.sql" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/ChatRoomController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/SpringWebSocketHandlerInterceptor.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ants/controller/chat/WebSocketConfig.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ants/controller/personal/SlideController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/ants/dto" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/ants/util/test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sensi_words.txt" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />

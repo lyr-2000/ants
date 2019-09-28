@@ -2,6 +2,7 @@ package com.ants.controller.personal;
 
 import com.alibaba.fastjson.JSON;
 import com.ants.util.SlideCode;
+import com.ants.util.TokenProccessor;
 import com.ants.util.editphoto;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
@@ -75,19 +76,19 @@ public class SlideController extends HttpServlet {
              HttpSession session = request.getSession();
             if ((Integer.valueOf(point) < location_x + 4) && (Integer.valueOf(point) > location_x - 4)) {
                 //说明验证通过，
+                String token = new TokenProccessor().makeToken();
                 map.put("status", 1);
-                map.put("slideCode", "dadas");
-                System.out.println("验证通过");
+                map.put("message","验证成功");
+                session.setAttribute("slide","1");
             } else {
                 map.put("status", 0);
-                map.put("slideCode", "dasdas");
-                System.out.println("验证失败");
+                map.put("message", "验证失败");
+                session.setAttribute("slide","0");
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         return map;
-
     }
 
 
