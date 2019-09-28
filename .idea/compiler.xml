@@ -9,5 +9,8 @@
         <module name="ants" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ants" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
